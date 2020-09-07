@@ -1,0 +1,162 @@
+<body class="enquirybody" style="background: url('../../../../assets/images/joinfree/joinfree-bg.jpg');">
+    <!--enquirymain start-->
+    <div class="enquirymain">
+        <!--card start-->
+        <div class="card">  
+            <!--card-body start-->  
+            <div class="card-body">
+                <!--product-cart start-->  
+                <div  class="product-cart">
+                    <!--product-info start--> 
+                    <div class="product-info"> 
+                        <!--product-img start--> 
+                        <div class="product-img">
+                            <p class="product-head">Get a quick quote</p>
+                            <img class="prod-img"  src="{{productdetail.product_img1}}" alt="" />
+                        </div>
+                        <!--product-img end--> 
+                        <!--product-detail start--> 
+                        <div class="product-detail">
+                            <div class="product-title">
+                                <span>{{productdetail.product_name}}</span>
+                            </div>
+                            <div class="product-description">
+                                <span><i class="fa fa-inr" aria-hidden="true"></i> {{productdetail.min_sellingprice}}</span>
+                            </div>
+                            <div class="product-description">
+                                <span>brand  -  {{productdetail.brand_name}}</span>
+                            </div>
+                        </div>
+                        <!--product-detail end--> 
+                    </div>
+                    <!--product-info end--> 
+                    <!--enquirydetailform start--> 
+                    <div class="enquirydetailform">
+                        <img class="enquirytitle-img"  src="assets/images/aboutus/contactsell.png" alt="" />
+                        <div class="enquiry-product-info row">
+                               <!--product-img start--> 
+                                <div class="product-img col">
+
+                                    <img class="prod-img"  src="{{productdetail.product_img1}}" alt="" />
+                                </div>
+                                <!--product-img end--> 
+                                <!--product-detail start--> 
+                                <div class="product-detail col">
+                                    <div class="product-title">
+                                        <span>{{productdetail.product_name}}</span>
+                                    </div>
+                                    <div class="product-description">
+                                        <span><i class="fa fa-inr" aria-hidden="true"></i> {{productdetail.min_sellingprice}}</span>
+                                    </div>
+                                    <div class="product-description">
+                                        <span>brand  -  {{productdetail.brand_name}}</span>
+                                    </div>
+                                </div>
+                                <!--product-detail end--> 
+                        </div>
+                         <!--enquirydetail-inputs start--> 
+                        <div class="enquirydetail-inputs">
+                            <form [formGroup]="enquiry">
+                
+                                <div class="form-group row form-input">
+                                    <div class="col-md-4">
+                                            <label>Name<span style="color:red">*</span></label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input type="type" class="form-control"  formControlName="name" [popover]="name"
+                                        popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  [ngClass]="{'error':enquiry.controls.name.invalid && enquiry.controls.name.touched }"/>
+                                        <popover-content #name [closeOnClickOutside]="true"
+                                        [style.display]="enquiry.controls.name.invalid && enquiry.controls.name.touched ? 'block' : 'none'">
+                                        <validation-messages [control]="enquiry.controls.name"></validation-messages>
+                                        </popover-content>
+                                    </div>
+                                </div>
+                                <div class="form-group row form-input">
+                                    <div class="col-md-4">
+                                            <label>Email<span style="color:red">*</span></label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input type="email" class="form-control" formControlName="email" [popover]="email"
+                                        popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  [ngClass]="{'error':enquiry.controls.email.invalid && enquiry.controls.email.touched }"/>
+                                        <popover-content #email [closeOnClickOutside]="true"
+                                        [style.display]="enquiry.controls.email.invalid && enquiry.controls.email.touched ? 'block' : 'none'">
+                                        <validation-messages [control]="enquiry.controls.email"></validation-messages>
+                                        </popover-content>
+                                    </div>
+                                </div>
+                                <div class="form-group row form-input">
+                                    <div class="col-md-4">
+                                            <label>country<span style="color:red">*</span></label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <select  class="form-control" (change)="selectChangeCountry($event)" formControlName="country" [popover]="counte"
+                                        popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  [ngClass]="{'error':enquiry.controls.country.invalid && enquiry.controls.country.touched }">
+                                            <option value="" [selected]=true>Select country</option>
+                                            <option *ngFor="let country of country" [value]="country.country" id="countryselector"
+                                            [attr.data-somedata]="country.id">{{country.country}}</option>
+                                        </select>
+                                        <popover-content #counte [closeOnClickOutside]="true"
+                                        [style.display]="enquiry.controls.country.invalid && enquiry.controls.country.touched ? 'block' : 'none'">
+                                        <validation-messages [control]="enquiry.controls.country"></validation-messages>
+                                        </popover-content>
+                                    </div>
+                                </div>
+                                <div class="form-group row form-input">
+                                    <div class="col-md-4">
+                                            <label>Phone no<span style="color:red">*</span></label>
+                                    </div>
+                                    <input type="text" formControlName="countrycode" id="countryc" name="countrycode" *ngFor="let phonecode of phonecode" value="{{phonecode.country_codes}}"  style="
+                                    width: 54.991422px;
+                                " hidden="true"/>
+                                    <div class="col-md-7">
+                                        <div class="phone-input">
+                                            
+                                            <input type="text" class="form-control phonecode" *ngFor="let phonecode of phonecode" formControlName="phonecodes" [(ngModel)]="phonecode.phonecode"/>
+                                            <input type="text" class="form-control phoneno" formControlName="mobile_no" (mouseout)="PhoneValidator()" [popover]="mobile_no"
+                                            popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  [ngClass]="{'error':enquiry.controls.mobile_no.invalid && enquiry.controls.mobile_no.touched }"/>
+                                           	
+                                            <popover-content #mobile_no [closeOnClickOutside]="true"
+                                            [style.display]="enquiry.controls.mobile_no.invalid && enquiry.controls.mobile_no.touched ? 'block' : 'none'">
+                                            <validation-messages [control]="enquiry.controls.mobile_no"></validation-messages>
+                                            </popover-content>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+
+                                    </div>
+                                    <div class="col-md-7">
+                                        <span class="errorstyles2"  *ngIf=" invalidPhoneLength"><i class="fa fa-exclamation-circle"></i>Invalid mobile no</span>
+                                    </div>
+                                </div>
+                                <div class="form-group row form-input">
+                                    <div class="col-md-4">
+                                            <label>Your Requirement<span style="color:red">*</span></label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <textarea class="form-control" formControlName="requirement" [popover]="requirement"
+                                        popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  [ngClass]="{'error':enquiry.controls.requirement.invalid && enquiry.controls.requirement.touched }"></textarea>
+                                        <popover-content #requirement [closeOnClickOutside]="true"
+                                        [style.display]="enquiry.controls.requirement.invalid && enquiry.controls.requirement.touched ? 'block' : 'none'">
+                                        <validation-messages [control]="enquiry.controls.requirement"></validation-messages>
+                                        </popover-content>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-warning enqbtn" (click)="sendenquiry()">Send enquiry</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!--enquirydetail-inputs end--> 
+                    </div>
+                     <!--enquirydetailform end--> 
+                </div>
+                <!--product-cart end-->  
+            </div>
+            <!--card-body end-->
+        </div>
+        <!--card end-->
+    </div>
+    <!--enquirymain end-->
+</body>

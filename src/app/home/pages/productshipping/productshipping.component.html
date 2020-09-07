@@ -1,0 +1,180 @@
+<div class="container mt-3 mb-3">
+   <h5>Shipping Details</h5>
+
+ <div class="row">
+  <div class="col-md-4 delivery-address pt-2">
+    <input type="radio" name="addresstype"  (click)="getshippingaddress()" checked="true"/>Secondary Address
+</div>
+<div class="col-md-4 delivery-address pt-2">
+  <input type="radio" name="addresstype" (click)="getpermanentaddress()"/>Company Address
+</div>
+  `</div>
+  <hr>
+   <div class="display">
+       <div class="row">
+           <div class="col-md-8 no-pad">
+    <form  [formGroup]="shippingaddress">
+      
+      <label>
+        <span class="fname">Name <span class="required">*</span></span>
+        <input type="text"  formControlName="name" [popover]="name"
+        popoverPlacement="top"
+        [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':shippingaddress.controls.name.invalid && shippingaddress.controls.name.touched}" />
+        <popover-content #name
+        [closeOnClickOutside]="true" 
+        
+         [style.display]="shippingaddress.controls.name.invalid && shippingaddress.controls.name.touched ? 'block' : 'none'" >
+        <validation-messages [control]="shippingaddress.controls.name"></validation-messages>
+      </popover-content>
+      </label>
+      <label>
+        <span>Company</span>
+        <input type="text"  formControlName="company" [popover]="company"
+        popoverPlacement="top"
+        [popoverCloseOnMouseOutside]="false"  [ngClass]="{'error':shippingaddress.controls.company.invalid && shippingaddress.controls.company.touched }"/>
+        <popover-content #company
+        [closeOnClickOutside]="true" 
+        
+         [style.display]="shippingaddress.controls.company.invalid && shippingaddress.controls.company.touched ? 'block' : 'none'" >
+        <validation-messages [control]="shippingaddress.controls.company"></validation-messages>
+        </popover-content>
+      </label>
+      <label>
+        <span>Country <span class="required">*</span></span>
+        <select   formControlName="country" [popover]="counte"
+        popoverPlacement="top"
+        [popoverCloseOnMouseOutside]="false"  (change)="selectChangeCountry($event)" [ngClass]="{'error':shippingaddress.controls.country.invalid && shippingaddress.controls.country.touched }">
+          <option value="" [selected]=true>Select a country</option>
+          <option *ngFor="let country of country"  [value]="country.country"  id="countryselector" [attr.data-somedata]="country.id">{{country.country}}</option>
+          
+        </select>
+        <popover-content #counte
+        [closeOnClickOutside]="true" 
+        
+         [style.display]="shippingaddress.controls.country.invalid && shippingaddress.controls.country.touched ? 'block' : 'none'" >
+        <validation-messages [control]="shippingaddress.controls.country"></validation-messages>
+        </popover-content>
+      </label>
+      <label>
+        <span>Street Address <span class="required">*</span></span>
+        <input type="text"   formControlName="address" placeholder="House number and street name" [popover]="address"
+        popoverPlacement="top"
+        [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':shippingaddress.controls.address.invalid && shippingaddress.controls.address.touched }" />
+        <popover-content #address
+        [closeOnClickOutside]="true" 
+         [style.display]="shippingaddress.controls.address.invalid && shippingaddress.controls.address.touched ? 'block' : 'none'" >
+        <validation-messages [control]="shippingaddress.controls.address"></validation-messages>
+        </popover-content>
+      </label>
+      <label>
+        <span>&nbsp;</span>
+        <input type="text"  class="form-control"  formControlName="apartment" placeholder="Apartment, suite, unit etc. (optional)" />
+      </label>
+      <label>
+        <span>Town / City <span class="required">*</span></span>
+        <input type="text"   formControlName="city"  [popover]="city"
+        popoverPlacement="top"
+        [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':shippingaddress.controls.city.invalid && shippingaddress.controls.city.touched }"/> 
+        <popover-content #city
+        [closeOnClickOutside]="true" 
+        
+         [style.display]="shippingaddress.controls.city.invalid && shippingaddress.controls.city.touched ? 'block' : 'none'" >
+        <validation-messages [control]="shippingaddress.controls.city"></validation-messages>
+        </popover-content>
+      </label>
+      <label>
+        <span>State / County <span class="required">*</span></span>
+        <select   formControlName="state" [popover]="state"
+        popoverPlacement="top"
+        [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':shippingaddress.controls.state.invalid && shippingaddress.controls.state.touched }">
+        <option value="" [selected]=true>Select state</option>
+        <option   *ngFor="let states of states"  [value]="states.states"  [attr.data-somedata]="states.id">{{states.states}}</option>
+          
+        </select>
+        <popover-content #state
+        [closeOnClickOutside]="true" 
+         [style.display]="shippingaddress.controls.state.invalid && shippingaddress.controls.state.touched ? 'block' : 'none'" >
+        <validation-messages [control]="shippingaddress.controls.state"></validation-messages>
+        </popover-content>
+      </label>
+      <label>
+        <span>Postcode / ZIP <span class="required">*</span></span>
+        <input type="text" formControlName="postal_code" [popover]="postal_code"
+        popoverPlacement="top"
+        [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':shippingaddress.controls.postal_code.invalid && shippingaddress.controls.postal_code.touched }"/> 
+        <popover-content #postal_code
+        [closeOnClickOutside]="true" 
+        
+         [style.display]="shippingaddress.controls.postal_code.invalid && shippingaddress.controls.postal_code.touched ? 'block' : 'none'" >
+        <validation-messages [control]="shippingaddress.controls.postal_code"></validation-messages>
+        </popover-content>
+      </label>
+      <label>
+        <span>Phone <span class="required">*</span></span>
+        <div style="
+        display: flex;
+    ">
+     <input type="text" formControlName="countrycode" id="countryc" name="countrycode" *ngFor="let phonecode of phonecode" value="{{phonecode.country_codes}}"  style="
+     width: 54.991422px;
+ "[readonly]=true />
+        <input type="text" value="+91" class="mobile-code" *ngFor="let phonecode of phonecode" value="+{{phonecode.phonecode}}" style="
+        width: 77.991422px;
+    " [readonly]=true />
+        
+        <input type="tel" formControlName="phone"    (mouseout)="PhoneValidator()"  style="
+        width: 439.991422px;
+    " [popover]="phone"
+        popoverPlacement="top"
+        [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':shippingaddress.controls.phone.invalid && shippingaddress.controls.phone.touched }"/> 
+      </div>
+      <div class="errorstyles2"  *ngIf=" invalidPhoneLength"><i class="fa fa-exclamation-circle"></i>Invalid mobile no</div>	
+        <popover-content #phone
+        [closeOnClickOutside]="true" 
+        
+         [style.display]="shippingaddress.controls.phone.invalid && shippingaddress.controls.phone.touched ? 'block' : 'none'" >
+       
+        <validation-messages [control]="shippingaddress.controls.phone"></validation-messages>
+       
+        </popover-content>
+      </label>
+      <label>
+        <span>Email Address <span class="required">*</span></span>
+        <input type="email" formControlName="email" class="form-control" [popover]="email"
+        popoverPlacement="top"
+        [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':shippingaddress.controls.email.invalid && shippingaddress.controls.email.touched }" /> 
+        <popover-content #email
+        [closeOnClickOutside]="true" 
+        
+         [style.display]="shippingaddress.controls.email.invalid && shippingaddress.controls.email.touched ? 'block' : 'none'" >
+        <validation-messages [control]="shippingaddress.controls.email"></validation-messages>
+        </popover-content>
+      </label>
+    
+    </form>
+    </div>
+    <div class="col-md-4 no-pad"> 
+    <div class="Yorder">
+      <table>
+        <tr>
+          <th colspan="2">Your order</th>
+        </tr>
+        <tr *ngFor="let mycart of mycart">
+          <td> {{mycart.product_name}} x {{mycart.quantity}}(Qty)</td>
+          <td><i class="fa fa-inr" aria-hidden="true"></i> {{mycart.overallprice}}</td>
+        </tr>
+        <tr>
+          <td>Subtotal</td>
+          <td><i class="fa fa-inr" aria-hidden="true"></i> {{carttotal}}</td>
+        </tr>
+        <tr>
+          <td>Shipping</td>
+          <td>Free shipping</td>
+        </tr>
+      </table><br>
+    
+      <button type="button" class="btn order" (click)="placeorder()">Place Order</button>
+    </div><!-- Yorder -->
+    </div>
+    </div>
+   </div>
+  </div>

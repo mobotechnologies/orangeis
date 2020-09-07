@@ -1,0 +1,248 @@
+.row {
+  flex-wrap: wrap !important;
+  margin-right: 0;
+    margin-left: 0;
+}
+
+.row:before,.row:after {
+  content: "";
+  display: table;
+}
+
+.row:after {
+  clear: both;
+}
+  
+.slogon
+  {
+    padding-top: 5pt;
+    padding-bottom: 5pt;
+    padding-left: 200pt;
+    padding-right: 200pt;
+    
+  }
+  .slogon p
+  {
+      font-size: 12pt;
+  }
+  @media screen and (max-width:767px) {
+    .slogon
+  {
+    padding-top: 5pt;
+    padding-bottom: 5pt;
+    padding-left: 60pt;
+    padding-right: 60pt;
+    
+  }
+  }
+ 
+  /*== Block policy ==*/
+  .block-policy {
+    border: 1px solid #25074d;
+    border-radius: 5px;
+    padding: 15px 0 17px 0;
+    display: inline-block;
+    width: 100%;
+    background: #c6fff7; 
+    background: -webkit-linear-gradient(to right, #c6fff7, #e1c7f5);  
+    background: linear-gradient(to right, #c6fff7, #e1c7f5);
+  }
+  
+  .block-policy ul li {
+    float: left;
+    padding: 0 15px;
+    text-align: center;
+    width: 25%;
+    position: relative;
+    list-style-type: none;
+    
+  }
+  .title-policy{
+    background-color: #dfd9d9;
+    font-weight: 700;
+    position: relative;
+    top: 5pt;
+  }
+
+  .dot {
+    height: 50px;
+    width: 50px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .icon-policy
+  {
+    margin-top: 7pt;
+  }
+ 
+  .block-policy ul li:before {
+    background: #ebebeb none repeat scroll 0 0;
+    content: "";
+    height: 50px;
+    position: absolute;
+    right: 0;
+    top: 3px;
+    width: 2px;
+  }
+  
+  .block-policy ul li:last-child:before {
+    display: none;
+  }
+  
+  .block-policy ul li .item-inner1 {
+    display: inline-block;
+  }
+  
+  .block-policy ul li .item-inner1:hover .content1 b, .block-policy ul li .item-inner1:hover .content1{
+    color: #ff3c20;
+  }
+  
+  .block-policy ul li .item-inner1 .content1 {
+    float: left;
+    text-align: left;
+    margin-top: 3px;
+    position: relative;
+    padding-left: 70px;
+  }
+  
+  .block-policy ul li .item-inner1 .content1:before {
+    background: url(../../../../assets/images/body-side/promotion.png) no-repeat center center;
+    width: 60px;
+    height: 52px;
+    top: -7pt;
+    left: 0px;
+    position: absolute;
+    content: "";
+  }
+  
+  .block-policy ul li .item-inner1 .content1 b {
+    color: #222;
+    font-weight: 500;
+    font-size: 10pt;
+    text-transform: capitalize;
+  }
+  
+  .block-policy ul li .item-inner1 .content1 b:hover {
+    color: #ff3c20;
+  }
+  
+  .block-policy ul li .item-inner1 .content1 span {
+    line-height: 1.5;
+    margin: 0;
+    text-transform: capitalize;
+    font-weight: 300;
+    font-size: 10pt;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .block-policy ul li:last-child .item-inner1:before {
+    display: none;
+  }
+  
+  .block-policy ul li.item-1 .item-inner1 .content1:before {
+    background-position: 0px 0px;
+  }
+  
+  .block-policy ul li.item-2 .item-inner1 .content1:before {
+    background-position: -120px 0px;
+  }
+  
+  .block-policy ul li.item-3 .item-inner .content:before {
+    background-position: -242px 0px;
+  }
+  
+  .block-policy ul li.item-4 .item-inner1 .content1:before {
+    background-position: -380px 0px;
+  }
+  
+  .block-policy ul li.item-5 .item-inner1 .content1:before {
+    background-position: -513px 0px;
+  }
+  
+  @media screen and (min-width:768px) and (max-width:1023px) {
+          
+    .block-policy ul li .item-inner1 .content1 span {
+      display: none;
+    }
+  
+    .block-policy ul li .item-inner1 .content1 b {
+      display: none;
+    }
+  
+    .block-policy ul li {
+      padding: 15px;
+    }
+  }
+  
+  @media screen and (max-width:768px) {
+    .block-policy {
+      display: none;
+    }
+  
+  }
+  
+  @media screen and (max-width:1024px) {
+          
+    .block-policy ul li .item-inner1 .content1 span {
+      font-size: 8pt;
+    }
+  
+    .block-policy ul li .item-inner1 .content1 b {
+      font-size: 8pt;
+    }
+  }
+  @media screen and (max-width:768px) {
+    .block-policy {
+      font-size: 5pt;
+    }
+    .dot {
+      height: 25px;
+      width: 25px;
+    }
+    .icon-policy
+  {
+    margin-top: 5pt;
+  }
+  .block-policy ul
+  {
+    margin-left: -20pt;
+  }
+ 
+  }
+  
+ @media only screen 
+   and (device-width : 1024px) 
+   and (device-height : 1366px) 
+   and (-webkit-device-pixel-ratio : 2) {
+    .block-policy {
+      font-size: 10pt;
+    }
+    .icon-policy
+  {
+    margin-top: 7pt;
+  }
+  .dot {
+    height: 45px;
+    width: 45px;
+  }
+   }
+@media only screen 
+   and (device-width : 768px) 
+   and (device-height : 1024px) 
+   and (-webkit-device-pixel-ratio : 2) {
+    .block-policy {
+      font-size: 10pt;
+    }
+    .icon-policy
+  {
+    margin-top: 8pt;
+  }
+  .dot {
+    height: 45px;
+    width: 45px;
+  }
+   }
+
+  

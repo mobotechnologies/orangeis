@@ -1,0 +1,170 @@
+<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw"></script> -->
+
+<body class="bg-joinfree">
+
+    <nav id="navigation" style="
+    z-index: 2;
+">
+        <ul class="menu-items-container">
+            <li>
+                <a [routerLink]="['/home']">
+                    <span class="menu-text-icons circle-icon home-icon">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <span class="menu-text-icons circle-icon about-icon">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                </span>
+            </li>
+            <li>
+                <a href="//www.famposo.com/preregistration" target="_blank">
+                    <span class="menu-text-icons circle-icon profile-icon">
+                        <i class="fa fa-user-plus" aria-hidden="true" style="font-size: initial;"></i>
+                    </span>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+    <div class="main-container myClass">
+        <div class="col-md-12 joinfree-form">
+            <div class="row col-md-12 text-center">
+                <h1 style="color:white">Contact us</h1>
+            </div>
+            <div style="border:1px solid #1e82ff" class="card ">
+                <div class="card-body flip ">
+
+                    <div class="row col-md-12">
+                        <div class="col-md-6">
+                            <h4>We always ready to help you</h4><br><br>
+
+                            <form class="login-form" id="login-form" [formGroup]="contactForm"
+                                (ngSubmit)="submitContact()">
+                                <input type="text" formControlName="category" placeholder="category"  class="menu-cdata"  value="Others"  readonly="true"/>
+                                <input type="text" formControlName="subcategory" placeholder="subcategory" class="menu-sdata"   value="Others"  readonly="true" />
+                                <input type="text" formControlName="contactName" placeholder="Your Name * "   [popover]="contactName" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  [ngClass]="{'error':contactForm.get('contactName').invalid && contactForm.get('contactName').touched}"/>
+                                <popover-content #contactName [closeOnClickOutside]="true"
+                                [style.display]="contactForm.get('contactName').invalid && contactForm.get('contactName').touched ? 'block' : 'none'">
+                                <validation-messages [control]="contactForm.controls.contactName"></validation-messages>
+                                </popover-content>
+                                <input type="email"
+                                    [ngClass]="{'error':contactForm.get('contactEmail').invalid && contactForm.get('contactEmail').touched}"
+                                    formControlName="contactEmail" placeholder="Your Email *"  [popover]="contactEmail" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                                    <popover-content #contactEmail [closeOnClickOutside]="true"
+                                    [style.display]="contactForm.get('contactEmail').invalid && contactForm.get('contactEmail').touched ? 'block' : 'none'">
+                                    <validation-messages [control]="contactForm.controls.contactEmail">
+                                </validation-messages>
+                                    </popover-content>
+                                <select formControlName="country" (change)="selectChangeCountry($event)"  [popover]="counte" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  [ngClass]="{'error':contactForm.get('country').invalid && contactForm.get('country').touched}" >
+                                    <option value="" [selected]=true>Select country *</option>
+                                    <option *ngFor="let country of country" [value]="country.country"
+                                        id="countryselector" [attr.data-somedata]="country.id">
+                                        {{country.country}}</option>
+                                </select>
+                                <popover-content #counte [closeOnClickOutside]="true"
+                                [style.display]="contactForm.get('country').invalid && contactForm.get('country').touched ? 'block' : 'none'">
+                                <validation-messages [control]="contactForm.controls.country">
+                                </validation-messages>
+                                </popover-content>
+                                <select formControlName="state" class="form-control"  [popover]="state" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  [ngClass]="{'error':contactForm.get('state').invalid && contactForm.get('state').touched}" >
+                                    <option value="" [selected]=true>Select state *</option>
+                                    <option *ngFor="let states of states" [value]="states.states"
+                                        [attr.data-somedata]="states.id">{{states.states}}
+                                    </option>
+                                </select>
+                                <popover-content #state [closeOnClickOutside]="true"
+                                [style.display]="contactForm.get('state').invalid && contactForm.get('state').touched ? 'block' : 'none'">
+                                <validation-messages [control]="contactForm.controls.state">
+                                </validation-messages>
+                                </popover-content>
+                                <div style="display:inline-flex;margin-top: 10px;">
+                                    <span *ngFor="let phonecode of phonecode">
+
+                                        <input type="text" size="3" [readonly]="true" formControlName="phonecode"
+                                            [(ngModel)]="phonecode.phonecode" />
+
+                                        <input type="hidden" formControlName="countrycode" name="countrycode"
+                                            [(ngModel)]="phonecode.country_codes" />
+                                    </span>
+                                    <input type="text" size="80" formControlName="mobile_no"
+                                        placeholder="Phone Number *"  (mouseout)="PhoneValidator()"  [popover]="mobile_no"  popoverPlacement="top" [popoverCloseOnMouseOutside]="false"
+                                        [ngClass]="{'error':contactForm.get('mobile_no').invalid && contactForm.get('mobile_no').touched}" />
+                                </div>
+                                <popover-content #mobile_no [closeOnClickOutside]="true"
+                                [style.display]="contactForm.get('mobile_no').invalid && contactForm.get('mobile_no').touched ? 'block' : 'none'">
+                                <validation-messages [control]="contactForm.controls.mobile_no"></validation-messages>
+                                </popover-content>
+                                <div class="errorstyles2" *ngIf=" invalidPhoneLength"><i class="fa fa-exclamation-circle"></i>Invalid mobile no</div>
+                                <textarea formControlName="comment" placeholder="Your Message *"  [popover]="comment" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  [ngClass]="{'error':contactForm.get('comment').invalid && contactForm.get('comment').touched}"></textarea>
+                                <popover-content #comment [closeOnClickOutside]="true"
+                      [style.display]="contactForm.get('comment').invalid && contactForm.get('comment').touched ? 'block' : 'none'">
+                      <validation-messages [control]="contactForm.controls.comment"></validation-messages>
+                                </popover-content>
+                            
+                              <br>
+                                <button class="subbt hvr-bounce-to-right popup-btn text-center" style="border:none;margin-top: 10pt;
+                                                                line-height: 22pt;">
+                                    Send Message</button>
+                            </form>
+                        </div>
+                        <div class="row col-md-6">
+                            <div class="col-md-6 col-sm-6">
+                                <!--Column3-->
+                                <div class="footer-pad">
+                                    <h5>Corporate Office</h5>
+                                    <ul class="list-unstyled">
+                                        <li>Ariyankuppam</li>
+                                        <li>Pincode - 605007</li>
+                                        <li>Puducherry - India.</li>
+                                        <li>
+                                            <a href="#" style="color: #17e8e8;">
+                                                <i class="fa fa-envelope"></i> contactus@famposo.com
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" style="color: #17e8e8;">
+                                                <i class="fa fa-phone"></i> +91 95005 59800
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <!--Column4-->
+                                <div class="footer-pad">
+                                    <h5>Main Office</h5>
+                                    <ul class="list-unstyled">
+                                        <li>12 Marina Boulevard, Tower 3,</li>
+                                        <li>#17-01 Marina Bay Financial Centre,</li>
+                                        <li>Pincode - 018982</li>
+                                        <li>Singapore.</li>
+                                        <li>
+                                            <a href="#" style="color: #17e8e8;">
+                                                <i class="fa fa-envelope"></i> contactus@famposo.com
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"></a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <agm-map [zoom]="3" [zoomControl]="true" [latitude]="lat" [longitude]="lng">
+                                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                                    <agm-marker [latitude]="slat" [longitude]="slng"></agm-marker>
+                                </agm-map>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<app-network-status></app-network-status>

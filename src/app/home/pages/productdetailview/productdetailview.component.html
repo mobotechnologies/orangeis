@@ -1,0 +1,189 @@
+<div class="pd-wrap">
+		<div class="container">
+			
+		
+	        <div class="row" >
+                
+	        	<div class="col-md-5">
+                    <div class="simple-gallery">
+
+						<img class="maxi" src="{{productdetail.product_img1}}">
+						<div style="
+						width: 36px;
+						height: 38px;
+						border-radius: 50%;
+						border: 1px solid #f0f0f0;
+						box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+						padding: 9px 12px 12px 9px;
+						background: #fff;
+						background: white;
+						position: absolute;
+						top: 10px;
+						right: 50px;
+					">
+						<i class="fa fa-heart" aria-hidden="true" (click)="addfavourite(productdetail.product_id)"    [style.color]="isfav ? 'red' : 'grey'"></i>
+					</div>
+                        <div class="mini">  
+                        <img src="{{productdetail.product_img1}}">
+                        <img src="{{productdetail.product_img2}}">
+                        <img src="{{productdetail.product_img3}}">
+                        <img src="{{productdetail.product_img4}}">
+                        </div>
+                    
+                    </div>
+                 </div>	
+	        	<div class="col-md-7" >
+	        		<div class="product-dtl">
+        				<div class="product-info">
+		        			<div class="product-name">
+								{{productdetail.product_name}}
+								<a  class="round-black-btn" style="color: white;padding-left: 7px;padding-right: 9px;"  (click)="addtocart(productdetail.product_id)" *ngIf="isempty;else other_content"><i class="fa fa-shopping-cart" aria-hidden="true" style="font-size: 17px;"></i><span style="FONT-SIZE: 16PX;">+</span></a>
+									<ng-template #other_content>
+								<a  class="round-black-btn" style="color: white;padding-left: 7px;padding-right: 5px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i><i class="fa fa-check" aria-hidden="true" style="font-size: 13px;
+									"></i></a>
+									</ng-template>
+							</div>
+		        			<div class="reviews-counter">
+								<div class="rate">
+								    <input type="radio" id="star5" name="rate" value="5" checked disabled/>
+								    <label for="star5">5 stars</label>
+								    <input type="radio" id="star4" name="rate" value="4" checked disabled/>
+								    <label for="star4">4 stars</label>
+								    <input type="radio" id="star3" name="rate" value="3" checked disabled/>
+								    <label for="star3">3 stars</label>
+								    <input type="radio" id="star2" name="rate" value="2" disabled/>
+								    <label for="star2">2 stars</label>
+								    <input type="radio" id="star1" name="rate" value="1" disabled/>
+								    <label for="star1">1 star</label>
+								  </div>
+								<!-- <span>3 Reviews</span> -->
+							</div>
+		        			<div class="product-price-discount"><span><i class="fa fa-inr" aria-hidden="true"></i> {{productdetail.min_sellingprice}}</span><span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{productdetail.max_sellingprice}}</span></div>
+		        		</div>
+	        			<p class="text-justify">{{productdetail.product_description}}</p>
+						<div class="row">
+							<div class="col-md-6">
+								<label class="product-label"  *ngIf="productdetail.weight">Weight : {{productdetail.weight}}</label>
+							</div>
+							<div class="col-md-6">
+								<label class="product-label" *ngIf="productdetail.dimension">Dimension : {{productdetail.dimension}}</label>
+							</div>
+							<div class="col-md-6">
+								<label class="product-label" *ngIf="productdetail.min_quantity">Min. Order Quantity : {{productdetail.min_quantity}}</label>
+							</div>
+							<div class="col-md-6">
+								<label class="product-label" *ngIf="productdetail.max_quantity">Max. Order Quantity : {{productdetail.max_quantity}}</label>
+							</div>
+							<div class="col-md-6">
+								<label class="product-label" *ngIf="productdetail.brand_name">Brand name : {{productdetail.brand_name}}</label>
+							</div>
+							<div class="col-md-6">
+								<label class="product-label" *ngIf="productdetail.delivery_period">Delivery period : {{productdetail.delivery_period}}</label>
+							</div>
+							
+						</div>
+					
+					
+						
+                        
+	        			<div class="product-count">
+							<a  class="round-black-btn" [routerLink]="['/sendenquiry',productdetail.product_id]" style="margin-right: 45px;"><i class="fa fa-external-link"></i> Send Enquiry</a>
+							<a class="round-black-btn" (click)="buynow(productdetail.product_id)"><i class="fa fa-paper-plane"></i> Buy Now</a>	
+	        			</div>
+	        		</div>
+	        	</div>
+			</div>
+		
+	        <div class="product-info-tabs">
+			
+		        <ul class="nav nav-tabs" id="myTab" role="tablist">
+				  	<li class="nav-item">
+				    	<a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true" style="border-top-left-radius: 18px;border-top-right-radius: 18px;">Description</a>
+					</li>
+					<li class="nav-item brochuretabview" >
+				    	<a class="nav-link " id="brochures-tab" data-toggle="tab" href="#brochures" role="tab" aria-controls="brochures" aria-selected="true"  style="border-top-left-radius: 18px;border-top-right-radius: 18px;">Brochures</a>
+				  	</li>
+				  	<!-- <li class="nav-item">
+				    	<a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Reviews (0)</a>
+				  	</li> -->
+				</ul>
+				<div class="tab-content" id="myTabContent">
+				  	<div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+						{{productdetail.product_description}}
+						<div class="col-md-6 pt-4">
+						<table class="table">
+							<thead>
+							  <tr>
+								<th>Product Details</th>
+								<th>Description</th>
+							  </tr>
+							</thead>
+							<tbody>
+							  <tr  *ngIf="productdetail.modal_no">
+								<td>Model Number</td>
+								<td> {{productdetail.modal_no}}</td>
+							  </tr>
+							  <tr  *ngIf="productdetail.made_in">
+								<td>Made In</td>
+								<td> {{productdetail.made_in}}</td>
+							  </tr>
+							  <tr  *ngIf="productdetail.additional_details.length > 1">
+								<td>Additional Product Details</td>
+								<td><span *ngFor="let detail of productdetail.additional_details">{{detail.title}} : {{detail.value}}<br></span></td>
+							  </tr>
+							  <tr *ngIf="productdetail.delivery_location">
+								<td>Delivery Location</td>
+								<td> {{productdetail.delivery_location}}</td>
+							  </tr>
+							</tbody>
+						  </table>
+						  </div>
+						  <hr>
+					</div>
+					<div class="tab-pane fade" id="brochures" role="tabpanel" aria-labelledby="brochures-tab">
+						<div class="col-md-6 pt-4">
+							<div style="display:flex">
+								<div style="display: grid;">  
+								  <a id="brochurelink1" target="_blank">
+									<img id="brochure1"  alt="thumbnail.png" style="width: 87.991422px;">
+									<div>
+									<span id="brochuretxt1"></span>
+								   </div>
+								</a>
+							</div>
+							<div style="display: grid;">
+								<a id="brochurelink2"  target="_blank" style="color:black">
+								<img id="brochure2" alt="thumbnail.png"  style="width: 87.991422px;">
+								<div>
+								<span  id="brochuretxt2" ></span>
+							</div>
+							</a>
+							</div>
+							<div style="display: grid;">
+								<a id="brochurelink3"  target="_blank"  style="color:black">
+								<img id="brochure3" alt="thumbnail.png"  style="width: 87.991422px;">
+								<div>
+								<span  id="brochuretxt3"></span>
+							</div>
+							</a>
+							</div>
+							<div style="display: grid;">
+								<a id="brochurelink4"  target="_blank"  style="color:black">
+								<img id="brochure4" alt="thumbnail.png"  style="width: 87.991422px;">
+								<div>
+								<span  id="brochuretxt4"></span>
+							</div>
+								</a>
+							</div>
+							
+							
+							</div>
+							 
+						</div>
+					</div>
+				</div>
+			</div>
+			
+	    </div>
+	</div>
+	

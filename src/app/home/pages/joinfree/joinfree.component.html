@@ -1,0 +1,668 @@
+<body class="bg-joinfree">
+  <ngx-spinner bdOpacity=0.9 bdColor="rgba(255,255,255,0.7)" size="medium" color="#342c2c" type="ball-atom"
+    [fullScreen]="true">
+    <p style="color: black"> Loading... </p>
+  </ngx-spinner>
+
+  <div class="col-md-10 joinfree-form">
+    <div class="card join-head">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-5 text-center join-left">
+            <h3>WELCOME!</h3>
+            <div class="pt-2">
+
+            </div>
+            <div class="left-head pt-4 pl-5 pr-5">
+              <h6>FAMPOSO Provides Global platform for all your Buying, Renting,
+                Request for Quote, Sale & Networking in 4 steps</h6>
+            </div>
+            <div class="row">
+              <div class="col-md-12 pt-3 nopadding">
+                <p><i class="fa fa-check-square-o" aria-hidden="true"></i> Matching Services your need</p>
+              </div>
+              <div class="col-md-12 nopadding">
+                <p><i class="fa fa-users" aria-hidden="true"></i> Verified Buyer & sellers</p>
+              </div>
+              <div class="col-md-12 nopadding">
+                <p><i class="fa fa-shield" aria-hidden="true"></i> Payment Protection</p>
+              </div>
+              <div class="col-md-12 nopadding">
+                <p><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Confirm Deal</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7 text-center joinfree-signin">
+            <h6 class="text-center"><span class="header-span">Join free! Create an account with famposo!!</span></h6>
+            <div class="signform">
+              <div class="left">
+                <div class="bts">
+                  <a style="color:white" class="fblogin social" (click)="facebook()"><i
+                      class="fa fa-facebook"></i><span>Join with Facebook</span></a>
+                  <!-- <a href="#" class="twlogin social"><i class="fa fa-twitter"></i><span>Join with Twitter</span></a> -->
+                  <a style="color:white" class="gplogin social" (click)="google()"><i
+                      class="fa fa-google-plus"></i><span>Join with Google</span></a>
+                </div>
+              </div>
+              <div class="right">
+                <div class="form">
+                  <form class="login-form" id="login-form" [formGroup]="joinfree">
+                    <input type="text" formControlName="name" placeholder="Your Name" [popover]="name"
+                      popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  [ngClass]="{'error':joinfree.controls.name.invalid && joinfree.controls.name.touched }"/>
+                    <popover-content #name [closeOnClickOutside]="true"
+                      [style.display]="joinfree.controls.name.invalid && joinfree.controls.name.touched ? 'block' : 'none'">
+                      <validation-messages [control]="joinfree.controls.name"></validation-messages>
+                    </popover-content>
+                    <input type="email" formControlName="email" (mouseout)="emailexist()" placeholder="Your Email"
+                      [popover]="email" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':joinfree.controls.email.invalid && joinfree.controls.email.touched }"/>
+                    <popover-content #email [closeOnClickOutside]="true"
+                      [style.display]="joinfree.controls.email.invalid && joinfree.controls.email.touched ? 'block' : 'none'">
+                      <validation-messages [control]="joinfree.controls.email"></validation-messages>
+                    </popover-content>
+                    <div class="errorstyles2" *ngIf="invalidEmailExist"><i class="fa fa-exclamation-circle"></i>Email
+                      already exist</div>
+                    <div style="display: inline-flex;">
+                      <div *ngFor="let phonecode of phonecode">
+                        <input type="text" formControlName="countrycode" name="countrycode" style="background: #389b84; width: 57.66666px; color: white; padding-left: 12px;" [(ngModel)]="phonecode.country_codes" [readonly]=true />
+                      </div>
+                      <div [popover]="count" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                        <select formControlName="country" (change)="selectChangeCountry($event)" [ngClass]="{'error':joinfree.controls.country.invalid && joinfree.controls.country.touched }">
+                          <option value="" [selected]=true>Select country</option>
+                          <option *ngFor="let country of country" [value]="country.country" id="countryselector"
+                            [attr.data-somedata]="country.id">{{country.country}}</option>
+                        </select>
+
+                      </div>
+
+                    </div>
+                    <popover-content #count [closeOnClickOutside]="true"
+                      [style.display]="joinfree.controls.country.invalid && joinfree.controls.country.touched ? 'block' : 'none'">
+                      <validation-messages [control]="joinfree.controls.country"></validation-messages>
+                    </popover-content>
+                    <div style="display: inline-flex;">
+                      <div *ngFor="let phonecode of phonecode">
+                        <input type="text" formControlName="phonecodes" [(ngModel)]="phonecode.phonecode"
+                          [readonly]=true />
+                      </div>
+                      <input type="Contact Number" formControlName="mobile_no" (mouseout)="PhoneValidator()"
+                        placeholder="Contact Number" [popover]="phone" popoverPlacement="top"
+                        [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':joinfree.controls.mobile_no.invalid && joinfree.controls.mobile_no.touched   }" />
+                    </div>
+                    <popover-content #phone [closeOnClickOutside]="true" [style.display]="joinfree.controls.mobile_no.invalid && joinfree.controls.mobile_no.touched ? 'block' : 'none'">
+                      <validation-messages [control]="joinfree.controls.mobile_no"></validation-messages>
+                     
+                    </popover-content>
+                    <div class="errorstyles2" *ngIf=" invalidPhoneLength"><i class="fa fa-exclamation-circle"></i>Invalid mobile no</div>
+                    <div class="errorstyles2" *ngIf=" invalidPhoneExist"><i class="fa fa-exclamation-circle"></i>Mobile no already exist</div>
+
+                    <div class="col-md-12" style="font-size: 8pt;text-align: left;">
+                      <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" formControlName="agree" class="custom-control-input" id="eg">
+                        <label class="custom-control-label joinfree-checkbox" for="eg" style="margin-top: 4pt;"> I Agree
+                          to the</label>
+                        <a data-popup="joinfree-popup" class="text-primary hvr-bounce-to-right joinfree-popup-btn terms"
+                          style="font-size: 8pt;color: red !important;cursor:pointer;margin-left: 2pt;">Terms & private
+                          Policy</a>
+                      </div>
+                    </div>
+                    <input type="button" class="otp-popup-btn" [hidden]=true />
+                    <input type="button" class="subbt hvr-bounce-to-right  text-center " value="Join Now" style="border:none;margin-top: 10pt;line-height: 22pt;" (click)="sendotp()" />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7 text-center joinfree-login" style="display: none;">
+            <h6 class="text-center"><span class="header-span">Login with your account</span></h6>
+            <div class="signform">
+              <div class="left">
+                <div class="bts">
+                  <a style="color:white" class="fblogin social" (click)="facebooklog()"><i
+                      class="fa fa-facebook"></i><span>Sign in with Facebook</span></a>
+                  <!-- <a href="#" class="twlogin social"><i class="fa fa-twitter"></i><span>Join with Twitter</span></a> -->
+                  <a style="color:white" class="gplogin social" (click)="googlelog()"><i
+                      class="fa fa-google-plus"></i><span>Sign in with Google</span></a>
+                </div>
+              </div>
+              <div class="right">
+                <div class="form">
+                  <form class="login-form" id="login-form" [formGroup]="login">
+
+                    <input type="text" formControlName="memberid" placeholder="Username" [popover]="memberid"
+                      popoverPlacement="top" [popoverDismissTimeout]="-59" [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':login.controls.memberid.invalid && login.controls.memberid.touched }"/>
+                    <popover-content #memberid [closeOnClickOutside]="true"
+                      [style.display]="login.controls.memberid.invalid && login.controls.memberid.touched ? 'block' : 'none'">
+                      <validation-messages [control]="login.controls.memberid"></validation-messages>
+                    </popover-content>
+                    <div style=" width: 100%; 
+                  margin-bottom: 10px; ">
+                      <input style=" padding: 10px; " [type]="isTextFieldType ? 'text' : 'password'"
+                        formControlName="password" placeholder="Password" [popover]="password" popoverPlacement="top"
+                        [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':login.controls.password.invalid && login.controls.password.touched }"/>
+                      <i [class]="isTextFieldType ? 'fa fa-eye' : 'fa fa-eye-slash'" (click)="togglePasswordFieldType()"
+                        aria-hidden="true" style="
+             position: absolute;
+             margin-left: -35px;
+             padding: 10px; 
+                  min-width: 40px; 
+         "></i></div>
+                    <popover-content #password [closeOnClickOutside]="true"
+                      [style.display]="login.controls.password.invalid && login.controls.password.touched ? 'block' : 'none'">
+                      <validation-messages [control]="login.controls.password"></validation-messages>
+
+                    </popover-content>
+                    <input class="subbt text-center" type="submit" value="Log in" style="border:none;margin-top: 10pt;
+       line-height: 22pt;" (click)="log()" />
+                  </form>
+                  <input type="checkbox" id="remember" formControlName="remember" (change)="handleSelected($event)"
+                    class="remember" [checked]="isEnabled"><span class="remember-span"> Remember Me</span>
+                  <input type="button" class="forgot-popup-btn" [hidden]=true />
+                  <a class="hvr-bounce-to-right  forgot-btn" data-popup="forgot-popup"
+                    style="margin-top:-3pt;font-size:10pt;cursor: pointer;color: #636c72;"
+                    (click)="forgotpopups()">Forgot password?</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="otp-popup" class="popup">
+    <div class="popup-content">
+      <div class="event-header">
+        <h6>OTP sent to your given Email ID</h6><br>
+      </div>
+      <form id="send" class="send-form">
+        <div class="form-group">
+          <form [formGroup]="otpform">
+            <div style="display:flex">
+
+              <input type="text" placeholder="Enter your  OTP" id="otp" (mouseout)="otpvalidator()"
+                (focusout)="otpvalidator()" formControlName="otp" [popover]="otp"
+                popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  [ngClass]="{'error':otpform.controls.otp.invalid && otpform.controls.otp.touched }">
+              <span id="timer"></span>
+
+            </div>
+            <popover-content #otp [closeOnClickOutside]="true"
+          [style.display]="otpform.controls.otp.invalid && otpform.controls.otp.touched ? 'block' : 'none'">
+            <validation-messages [control]="otpform.controls.otp"></validation-messages>
+            <div class="errorstyles2" *ngIf="invalidotp"><i class="fa fa-exclamation-circle"></i>Invalid otp</div>
+            </popover-content>
+          </form>
+        </div>
+        <button type="submit" class="main-btn-rect" name="send" value="Send" (click)="resend()"
+          *ngIf="displaybtn;else elseBlock">
+          <i class="fa fa-paper-plane"></i>Resend OTP</button>
+        <ng-template #elseBlock>
+          <button type="submit" class="main-btn-rect" name="send" value="Send" (click)="joinnow()">
+            <i class="fa fa-paper-plane"></i>Submit</button>
+        </ng-template>
+      </form>
+
+    </div>
+  </div>
+  <div id="forgot-popup" class="popup">
+    <div class="popup-content">
+      <div class="event-header">
+        <h6>Enter your registered Email</h6><br>
+      </div>
+      <form id="send" class="send-form" [formGroup]="forgotemailform">
+        <div class="form-group">
+          <input type="email" placeholder="Enter Email" id="email" (mouseout)="forgotemailcheck()" formControlName="email" [popover]="femail"
+          popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  [ngClass]="{'error':forgotemailform.controls.email.invalid && forgotemailform.controls.email.touched }"/>
+          <label for="email">
+            <i class="fa fa-envelope"></i>
+          </label>
+          <div class="errorstyles2" *ngIf="invalidFEmailExist"><i class="fa fa-exclamation-circle"></i>Email does not exist</div>
+          <popover-content #femail [closeOnClickOutside]="true"
+          [style.display]="forgotemailform.controls.email.invalid && forgotemailform.controls.email.touched ? 'block' : 'none'">
+                              <validation-messages [control]="forgotemailform.controls.email"></validation-messages>
+           </popover-content>
+        </div>
+       
+        
+       
+        <button type="submit" class="main-btn-rect" name="" value="Send" (click)="forgotemaillink()">
+          <i class="fa fa-paper-plane"></i>Submit</button>
+      </form>
+      <span class="fade-out main-btn-circle">╳</span>
+    </div>
+  </div>
+  <div id="joinfree-popup" class="popup">
+    <div class="mainterm-content">
+      <div class="term-header text-center">
+        <h5>FAMPOSO Terms & Conditions</h5>
+        <hr>
+      </div>
+      <div class="term-content" align="justify">
+        <p>New Version (Effective as of January 23, 2020) Welcome to FAMPOSO.COM. This is an Pre
+          registration agreement between the Customer (as defined below) and FAMPOSO (“Agreement”)
+          to onboard into FAMPOSO B2B portal. FAMPOSO.com is an e-Market Place operated by Small and
+          Medium Enterprises (hereinafter referred to as SME) for B2B transactions and domestic business
+          transactions, which supports overseas trading activities of small and medium sized enterprises
+          across the globe.
+          <br>"while accepting our terms and condition, the register will be
+          privilege to auto register with all of our other products with respect to FAMPOSO Group"
+        </p>
+        <p><span style="margin:auto; display:table;">1. INTRODUCTION</span>The purpose of this User Agreement(this
+          "Agreement") between you
+          (“Member”) and the FAMPOSO.com is to define the terms and conditions of use and procedures,
+          for the services provided by FAMPOSO.com, including our Privacy Notice and IP Policy which are
+          incorporated by reference herein, governs your relationship with FAMPOSO.com
+          ("FAMPOSO", "We", "Us" etc.) and all users and others who interact with FAMPOSO.com in
+          accordance with this clause 1 ("FAMPOSO.com") under which FAMPOSO.com offers you access
+          to and use of the Service through the websites, mobile sites, mobile applications and other
+          portals owned, operated, branded or made available by FAMPOSO.com to you from time to time
+          relating to the FAMPOSO.com company determined e-commerce platforms , including but not limited to:
+          (a) the web and mobile-optimized versions of the websites identified by “www.FAMPOSO.com” (b)
+          the mobile applications of the FAMPOSO e-commerce platform(collectively, the “Sites”).<br>
+          As some or part of the Service may be supported and provided by affiliates of FAMPOSO.com,
+          FAMPOSO.com may delegate some aspects of the Service to its affiliates, who you agree may
+          invoice you for their part of the Service. Use of the Service indicates that you accept the
+          terms and conditions set forth below. If you do not accept all of the terms and conditions,
+          please do not use the Service.
+        </p>
+        <p><span style="margin:auto; display:table;">2. REVISION</span>
+          FAMPOSO.com may amend this Agreement at any time by posting the modified, amended and restated
+          Agreement on the Sites any time. The amended and restated Agreement shall be effective immediately upon
+          posting
+          by FAMPOSO.com and your continued use of the Service shall be deemed to be acceptance of the
+          amended terms.
+        </p>
+        <p><span style="margin:auto; display:table;">3. RELATIONS WITH APPLICABLE LAW</span>
+          If the applicable law includes the provisions, which is not described in this TERMS,
+          the contents of the laws shall be followed. In addition, in the event of a conflict
+          between the applicable law and these Terms of Use, the contents of the law shall be priority,
+          and any claim for exemption shall not be held liable under these Terms.
+        </p>
+        <p><span style="margin:auto; display:table;">4. FORMATION OF USE AGREEMENT</span>
+          By using or accessing FAMPOSO.com, you agree to this Agreement. If you do not agree with all
+          contents of these Terms, please select "I don't agree". Choose "I agree" if you understand the
+          contents of Use Agreement to use the services provided by FAMPOSO.COM and Use Agreement will be
+          concluded.If you do not accept this Agreement, you must not use our website or register
+          with FAMPOSO.com. When a member uses the service of this Use Agreement, the act of a person
+          such as the member`s employee, the member`s deputy, etc. who uses the service on behalf of
+          the member will be deemed the act of the member. These Terms of Use applies to all companies
+          and individuals using website FAMPOSO.com as members of the website FAMPOSO.com,
+          domestic companies, overseas corporations, and foreign companies.<br>
+          BY COMPLETING THE REGISTRATION PROCESS AND CLICKING THE "I AGREE" BUTTON, YOU ARE INDICATING YOUR
+          CONSENT TO BE BOUND BY THIS AGREEMENT, THE SITE’S MEMBERSHIP AGREEMENT & CONDITIONS, PRODUCT LISTING
+          AGREEMENT, PRIVACY POLICY (DEFINED BELOW) WHICH ARE INCORPORATED HEREIN BY REFERENCE (COLLECTIVELY REFERRED
+          TO AS THE "TERMS OF USE"). The FAMPOSO.com Membership Agreement will not take effect unless and until
+          you have activated your Account. Terms not defined in this Agreement shall bear the same meaning
+          as that contained in the Terms of Use.
+        </p>
+        <p><span style="margin:auto; display:table;">5. THE SERVICE</span>
+          Services will be provided unless terminated or suspended in accordance with the conditions of this Use
+          Agreement.The Service will have the following core features (which may be added to or modified, or
+          suspended for scheduled or unscheduled maintenance purposes, from time to time at the sole
+          discretion of FAMPOSO.com and notified to you). <br>
+          Key function of the services provided by FAMPOSO.com includes the following: <br><br>
+          a)Profile of the company that sells the product: allows each Member to display and edit basic
+          information about its business, Company name, year of establishment, contact information,
+          product and function desired to be sold/bought, information relevant to the transaction, etc.,
+          which are provided by the company concerned. Allows each Member to display and edit descriptions,
+          specifications and images of at least 5 products. <br>
+          b)The services associated with the product trade: Services required to sell or purchase products
+          and services such as inquiry, payment, and shipping information.<br>
+          c) Buyer& Seller Lead Posting - allows each Member to post unlimited time on the Sites for public
+          display offers to buy products and services from other users of the Sites.<br></p>
+        <ul>
+          <li>FAMPOSO.com may discretionally stop or terminate any or all of providing services at any time in its sole
+            discretion without liability for any losses or damages arising out of or in connection with such suspension
+            or termination. FAMPOSO.com may restrict a portion of its services based on
+            the region or country in which members reside, or the purpose for which members registered on the site.
+          </li>
+          <li>FAMPOSO.com reserves the right to charge for the Service or any feature or functionality of the Service at
+            any time in its sole discretion.FAMPOSO.com reserves the right to change, upgrade, modify, limit or suspend
+            the Service or any of its related functionalities or applications at any time temporarily or permanently
+            without prior notice. FAMPOSO.com further reserves the right but shall not be obliged to introduce new
+            features, functionalities, applications or conditions to the Service or to future versions of the Service.
+            All new features, functionalities, applications, conditions, modifications,
+            upgrades and alterations shall be governed by this Agreement, unless otherwise stated by FAMPOSO.com.
+          </li>
+          <li>You acknowledge that members of FANPOSO.com may not be able to use all or a part of their services for any
+            reason, which could negatively affect your business. In no event, FAMPOSO.com is liable for any (direct,
+            indirect, derivatives, etc.) damage,
+            to members or third parties, that is caused by service interruption, service change, or inability to use.
+          </li>
+          <li>FAMPOSO.com may provide services and function of other agencies through its website for the purposes of
+            meeting the operational objectives of this Site or for your convenience. If FAMPOSO.com has provided the
+            services and functions of other agencies, it
+            shall not be liable for any damage or loss which is incurred to any member who used that service or
+            function.</li>
+          <li>FAMPOSO.com may post promotional advertisements on its website. Members can participate in or be actively
+            in posted advertisements. FAMPOSO.com shall not be liable for any
+            damage or loss which is incurred to any member who participate in any advertisement posted on FAMPOSO.com.
+          </li>
+        </ul>
+        <p><span style="margin:auto; display:table;">6. MEMBERSHIP</span>
+          Members shall provide true, clear, and complete information that FAMPOSO.com require and update it regularly.
+          Regarding damages
+          caused by failure of update member information despite changes, FAMPOSO.com will take no responsibility.
+        </p>
+        <ul>
+          <li>
+            Members shall comply with all rules that enact on these Terms of Use.
+          </li>
+          <li>Members shall be aware that personal information which is voluntaril
+            disclosed is subject for others to collect randomly or use, and they shall take the risk that comes
+            with it.
+          </li>
+          <li>
+            Members shall be responsible for the loss caused by inaccuracies
+            failure to update, or error in updating of the registered information at the time of application or posting.
+          </li>
+          <li>
+            While using this website, members shouldn’t act in the following categories:<br>
+            a) Against applicable law and regulation.<br>
+            b) Providing information obtained on this website to a third party without approval of FAMPOSO.com.<br>
+            c) Collecting, posting, or sending information that could interfere with the stable offering or operating
+            the services.<br>
+            d) An act to infringe on the trust, reputation, right and interests of others(including SME and this website
+            FAMPOSO.com).<br>
+            e) An act to associate the registration or service of information which is irrelevant to the operational
+            purpose of this website.<br>
+          </li>
+          <li>
+            Members are free to terminate Use Agreement of the services, after noticing to FAMPOSO.com.
+          </li>
+          <li>
+            If any member breaches any of the described provision in these Terms of Use, FAMPOSO.com agrees that it
+            deserves the right to terminate or limit use of the service of the member. Regarding any damage of the
+            FAMPOSO.com caused by the act of a member while
+            member uses this service, however, the member shall not claim to hold no liability after end of
+            service use.
+          </li>
+          <li>
+            If any member breaches any of the described provision in these Terms of Use, FAMPOSO.com agrees that it
+            deserves the right to terminate or limit use of the service of the member. Regarding any damage of the
+            FAMPOSO.com caused by the act of a member while th
+            member uses this service, however, the member shall not claim to hold no liability after end of service use.
+          </li>
+          <li>
+            Members shall provide truthful and accurate information to enable for others to fully evaluate information
+            about the content managed by the members in accordance with the service provided by FAMPOSO.com. Members
+            agree that FAMPOSO.com does not actively monitor to control of the content of written opinion, other
+            materials, or information, acquired through this service. As a result, FAMPOSO.com does not endorse or
+            verify the opinions, other materials, or the content of information created by members
+            Each member shall be fully responsible for the content of written opinion, other materials, or information.
+          </li>
+          <li>
+            In the event that a member breaches the content of the described provision in these Terms of Use or acts
+            detrimental to the applicable law, or when a member deliberately and effectively interrupts the operation of
+            this website, the member fails to meet the third party's demands or provides false or misleading
+            information, FAMPOSO.com reserves the right to suspend temporarily or terminate the service. In addition,
+            you may request an investigation if it is found to be inappropriate for the Agreement Terms, and in this
+            case, you may provide your identity and contact information to law enforcement agencies for third party
+            protection. Notwithstanding this,
+            members agree that FAMPOSO.com shall not be liable for any damages resulting therefrom.
+          </li>
+        </ul>
+        <p><span style="margin:auto; display:table;">7. LIMITATION OF LIABILITY</span>
+          TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, AND
+          FAMPOSO.COM HEREBY EXPRESSLY DISCLAIMS ANY AND ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+          TO ANY WARRANTIES OF CONDITION, QUALITY, DURABILITY, PERFORMANCE, ACCURACY, RELIABILITY, MERCHANTABILITY OR
+          FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT.
+          ALL SUCH WARRANTIES, REPRESENTATIONS, CONDITIONS, UNDERTAKINGS AND TERMS ARE HEREBY EXCLUDED.
+        </p>
+        <ul>
+          <li>
+            TO THE MAXIMUM EXTENT PERMITTED BY LAW, FAMPOSO.COM MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE
+            VALIDITY, ACCURACY, RELIABILITY,
+            QUALITY, STABILITY, COMPLETENESS OR CURRENTNESS OF ANY INFORMATION PROVIDED ON OR THROUGH THE SITES.
+          </li>
+          <li>
+            FAMPOSO.com shall not be liable for any unrealized profit or loss from the use of the service.
+          </li>
+          <li>
+            FAMPOSO.com shall not be liable for damages of other users due to unintended information (such as fraudulent
+            information, false information, inaccurate content, defamatory content, offensive content, or illegal
+            content). Members are at the sole risk of damages caused by such materials. FAMPOSO.com reserves the right
+            to exercise exclusive defence and control over all issues for which the members must compensate
+            at their own cost. In this case, the member shall work with FAMPOSO.com to claim possible defences.
+          </li>
+          <li>
+            Members shall not ask responsibility to FMAPOSO.com for any damage or loss, resulting from the termination
+            of this Agreement, stop using the Service, or suspension of
+            providing information, etc., as they breach of this Terms of Use or Agreement with FAMPOSO.com.
+          </li>
+          <li>The Sites may make available to User services or products provided by independent third parties. No
+            warranty or representation is made with regard to such services or
+            products. In no event shall FAMPOSO.com or its affiliates be held liable for any such services or products.
+          </li>
+          <li>
+            Under no circumstances shall FAMPOSO.com be held liable for an delay or failure or disruption of the Service
+            resulting directly or indirectly from acts of nature, forces or causes beyond its reasonable control,
+            including without limitation, Internet failures, computer, telecommunications or any other equipment
+            failures, electrical power failures, strikes, labour disputes, riots, insurrections, civil disturbances,
+            shortages of labour or materials, fires, flood, storms, explosions, Acts of God, war
+            governmental actions, orders of domestic or foreign courts or tribunals or non-performance of third parties.
+          </li>
+        </ul>
+        <p><span style="margin:auto; display:table;">8. TRANSACTION</span>
+          RESPONSIBILITY (INVOLVEMENT) RANGE OF ADMINISTRATOR’S RESPONSIBILITY (ENGAGEMENT) FOR BOTH SIDES OF THE
+          TRANSACTION
+          (BUYER, SELLER)
+        </p>
+        <ul>
+          <li>
+            FAMPOSO.com only provides the online marketplace for transactions of inter-member(user) and does not act as
+            agent for the sale or purchase of goods. As such, FAMPOSO.com does not represent the parties a trading
+            partner for a particular transaction, so there is no responsibility
+            on or control the ability for seller to complete the sale or for buyer to complete the purchase.
+          </li>
+          <li>
+            Members shall be aware of the risk of false behaviour by the person (user) who transacts on this website.
+            FAMPOSO.com will make efforts to respond/remove false behaviour members access from the site. Therefore,
+            members are encouraged
+            to evaluate the other party by themselves using the tools and common sense provided by the website.
+          </li>
+          <li>
+            Each Member shall be fully aware of the dangers of the purchase and sale transactions when using the website
+            to perform the transactions. Such risks include misrepresentation of products and services, fraudulent
+            plans, unsatisfactory quality, poor specifications, defective products, delayed delivery or non-delivery of,
+            delayed payment or non-payment, incorrect calculations or breach of warranty. Each Member agrees that
+            FAMPOSO.com shall not be liable
+            for any damage, loss, or pay expense which can be incurred in relation to the risk of such transactions.
+          </li>
+          <li>
+            Members agree that FAMPOSO.com provide
+            all information and materials reasonably requested in connection with transactions via this website.
+          </li>
+        </ul>
+        <p>
+          FAMPOSO.com reserves the right to suspend the provision of
+          certain services or terminate the contract if the member fails to provide the required information.
+        </p>
+        <ul>
+          <li>
+            Payment Methods: Please note that the payment methods available on the FAMPOSO.com Sites may be provided by
+            FAMPOSO.com’s partners. If there is any chargeback or reversal of any payment requested by a payment service
+            partner, Seller agrees that FAMPOSO.com has the right to refund the money so requested by the payment
+            service partner without liability to Seller. FAMPOSO.com will use reasonable efforts to assist you in
+            participating in the dispute resolution process of the relevant payment service partners. However, if the
+            participation
+            in the dispute resolution process is subject to additional fees, this will be at your own cost only.
+          </li>
+          <li>
+            Members are responsible for settling disputes over the transactions, delivery of goods, cancellation of
+            orders, defects or return of goods. In the event that a member conflicts between the parties to a
+            transaction, the member shall not be held liable for any damage or loss to FAMPOSO.com
+            (including its agent, relevant organizations, and employees).
+          </li>
+          <li>
+            When conflicts arise between the members and buyers, SME will not intervene in the dispute and the members
+            have all responsibilities arising from the result of the disputes. Related this matter, if SME must
+            compensate the third party for damages or spend other expenses, SME can exercise the right to indemnity.
+          </li>
+        </ul>
+        <p><span style="margin:auto; display:table;">9. POSTING INFORMATION (CONTENT)</span>
+        </p>
+        <ul>
+          <li>You may not post or sell any item that is restricted or prohibited by a federal, state or local law in any
+            country or jurisdiction.Members shall use the content posted on this Website to the extent that they do not
+            infringe any other right.Members shall be responsible for civil and criminal liability for the content they
+            publish using this website. Therefore, FAMPOSO.com
+            is not responsible for the accuracy, integrity, and quality of the postings put up by the members.</li>
+          <li>
+            The company connected to FAMPOSO.com runs independently, and transactions with the company are not held
+            liable on FAMPOSO.com.Members shall be aware that FAMPOSO.com does not exercise the right to control over
+            the information generated by postings or services on this website. Therefore, FAMPOSO.com does not indemnify
+            or
+            certify with verification comments, other materials, or information written by the members.
+          </li>
+          <li>
+            FAMPOSO.com may control (move, modify, or delete) the content put up by the members, when it is deemed to be
+            harmful or potentially harmful to others.FMAPOSO.com has authorization of non-exclusive use for postings on
+            this Website. Therefore, FAMPOSO.com reserves the right to use the posts posted by members to the extent
+            that they do not infringe on the rights of the members in order to
+            provide or share with partners at FAMPOSO.com, to promote the website, or to operate the website.
+          </li>
+          <li>
+            FAMPOSO.com may delete or
+            prohibit postings permanently or temporarily if it falls within any of the following categories:<br>
+            a) Termination of service use of the member<br>
+            b) A posting that negatively affects slander, the rights of others, personal information, credit, or
+            legitimate interests.
+            c) Items that encourage illegal activities (e.g. lock pick tools, synthetic urine for cheating drug tests)
+            and postings that contains legal, obscene or harmful material.
+            d) An expired posting o Items that are racially, religiously or ethnically derogatory, or that promote
+            hatred, violence, racial or religious intolerance and A posting that is not consistent with the operational
+            purpose of the website; o Giveaways, lotteries, raffles, or contests.<br>
+            e) Stocks, bonds, investment interests, and other securities<br>
+            f) Pornographic materials or items that are sexual in nature<br>
+            g) Items that do not offer a physical product or service for sale, such as digital currencies and
+            advertisements solely for the purpose of collecting user information<br>
+            h) Posting which is objectively related to a criminal act o Posting that could interfere with the normal
+            operation of the website<br>
+            i) Posting that violate the regulations, policies, or relevant statutes of Small and Medium Enterprises.<br>
+          </li>
+          <li>
+            FAMPOSO.com may take necessary measures, including warning letters, blocking the posting of the member
+            concerned, and recording the fraudulent activity, in order to prevent the posting from violating its Use
+            Agreement.
+          </li>
+          <li>
+            POSTED BY WEBSITE MASTER, ETC: Any posting put up by FAMPOSO.com is intended to provide information. Members
+            shall not read the posting as legal or business advisory. Members shall seek professional advice on their
+            own if necessary.
+          </li>
+          <li>
+            FAMPOSO.com has an obligation to ensure that the services described in these Terms of Use are provided
+            consistently and stably.
+          </li>
+          <li>
+            The services, information and features provided by FAMPOSO.com are commercially available and are not liable
+            for any damage which you have. In addition,FAMPOSO.com does not warrant the reliability, accuracy, quality,
+            reliability, completeness, or correctness of the information provided on this website.
+          </li>
+          <li>
+            The information provided by FAMPOSO.com can be obtained to the extent that no damage (damage to the system,
+            loss of data, personal information violation, etc.) occurs to this website or its members. If any damage
+            occurs to this website or others during the process of obtaining information, it is the responsibility of
+            the member who caused the damage.
+          </li>
+          <li>
+            FAMPOSO.com shall not be liable for any temporary or permanent failure to provide services, such as
+            malfunctioning, disconnected, or are temporarily or permanently unavailable. However, if a forenotice is
+            available, FAMPOSO.com will notify the member of the information.
+          </li>
+          <li>
+            FAMPOSO.com is not responsible for any website interruption by the users of website or Internet users.
+          </li>
+          <li>
+            FAMPOSO.com does not provide member information to third parties, except in the following categories -In
+            case that there is a claim under the relevant statute, criminal investigation or equivalent reason -When
+            required for evaluation of service or paying, etc. -When required for academic, statistical, etc. (excluding
+            personally identifiable information).
+          </li>
+          <li>
+            FAMPOSO.com will not be held responsible if the third party obtains the exposed information at this website
+            independently in a reasonable and legitimate way.
+          </li>
+        </ul>
+        <p><span style="margin:auto; display:table;">10. INTELLECTUAL PROPERTY RIGHT</span>
+        </p>
+        <ul>
+          <li>
+            FAMPOSO.com is the sole owner or lawful licensee of all the rights to the Service. The Service embodies
+            trade secrets and intellectual property rights protected under worldwide copyright and other laws. All
+            title, ownership and intellectual property rights in the Service shall remain with FAMPOSO.com, its
+            affiliates or licensors. All rights not otherwise claimed under this Agreement or by FAMPOSO.com are hereby
+            reserved.
+          </li>
+          <li>
+            Small and Medium Enterprises owns the services and functions provided by FAMPOSO.com.
+          </li>
+          <li>
+            "FAMPOSO", "FAMPOSO.COM" and related icons and logos are registered trademarks or trademarks or service
+            marks of FAMPOSO.com Limited in various jurisdictions and are protected under applicable copyright,
+            trademark and other proprietary rights laws. The unauthorized copying, modification, use or publication of
+            these marks is strictly prohibited.
+          </li>
+          <li>
+            FAMPOSO.com prohibits unauthorized use of the services, functions and information provided through this
+            website without way described in Terms of Use or without any separate agreement with FAMPOSO.com.
+          </li>
+          <li>
+            Regarding registration of goods, post of contents, etc., members shall not infringe the third party`s
+            various intellectual property right such as trademark rights, patent rights, copyright, name rights,
+            portrait rights, etc. and shall use after obtaining approval of use from a person entitled to obtain the
+            rights when members need to use the third party`s intellectual property rights.
+          </li>
+          <li>
+            When a third party claims for infringement of his/her right related to intellectual property regarding all
+            information (including portrait and name) which members has registered and used, FAMPOSO.com can suspend
+            information registration and contents post of relevant goods until the members prove it is not a breach of
+            third party`s right.
+          </li>
+          <li>
+            If any third party raises an objection through litigation or other methods regarding the information that
+            members register and use at this website, FAMPOSO. com will hold no liability. And if FAMPOSO.com fails to
+            be exempted from responsibility, the members shall compensate FAMPOSO.com for all its damages.
+          </li>
+        </ul>
+        <p><span style="margin:auto; display:table;">11. AGREEMENT</span>
+        </p>
+        <ul>
+          <li>
+            The contents described in Terms of Use, which agree separately with the documents submitted by members for
+            the purpose of using the service shall become effective as a part of Terms of Use.
+          </li>
+          <li>
+            Headings are for reference purposes only and in no way define, limit, construe or describe the scope or
+            extent of such section.
+          </li>
+          <li>
+            If any provision of these Terms of Use is invalid or can’t be implemented, the provision will be destroyed,
+            but the rest will remain in effect. However, if is not possible to implement the rest provisions due to the
+            invalidation of some provisions, the rest will be also invalid.
+          </li>
+          <li>
+            Anything not described in these Terms of Use or raised objections to its interpretation must be resolved
+            after discussion with FAMPOSO.com and the members.
+          </li>
+          <li>
+            FAMPOSO.com shall have the right to assign this Agreement (including all of its rights, titles, benefits,
+            interests, and obligations and duties in this Agreement) to any person or entity (including any affiliates
+            of FAMPOSO.com). The Member may not assign, in whole or part, this Agreement to any person or entity.
+          </li>
+          <li>
+            If there is any conflict between the English version and another language version of this Agreement, the
+            English version shall prevail.
+          </li>
+          <li>
+            The disputes arising between FAMPOSO.com and its members regarding the use of services on this Website and
+            these Terms of Use shall be disciplined according to the laws of SINGAPORE and INDIA. All lawsuits arising
+            in relation to this dispute are filed exclusively in the courts of SINGAPORE and INDIA, which have
+            jurisdiction in the Civil Procedure Act of SINGAPORE and INDIA.
+          </li>
+        </ul>
+      </div>
+      <span class="fade-out main-btn-circle">╳</span>
+    </div>
+  </div>
+</body>
+<app-network-status></app-network-status>

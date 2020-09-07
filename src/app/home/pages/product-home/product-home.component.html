@@ -1,0 +1,211 @@
+<div class="right-half pt-1">
+    <div class="row">
+        <div class="col-md-6 clearance-Sale padding-0">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title product-title">
+                        <h5>Clearance Sale</h5>
+                    </div>
+                    <div class="row padding-1">
+                        <div class="col-md-12">
+                            <a [routerLink]="['/productdetailview',cproductlist[0].product_id]" target="_blank"><img class="product-img" src="{{cproductlist[0].product_img1}}"></a>
+                            <a [routerLink]="['/productdetailview',cproductlist[1].product_id]" target="_blank"><img class="product-img" src="{{cproductlist[1].product_img1}}"></a>
+                            <div class="row pt-2">
+                              
+                                    <div class="col-md-6 pro-name pro-pad text-center">
+                                        <a [routerLink]="['/productdetailview',cproductlist[0].product_id]" target="_blank" style="color:black">
+                                        {{cproductlist[0].product_name}}
+                                           <br><i class="fa fa-inr"></i> {{cproductlist[0].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{cproductlist[0].max_sellingprice}}</span><br><span style="color:green">   {{cproductlist[0].discount}} off</span>
+                                       </a>
+                                    </div>
+                                
+                            
+                                    <div class="col-md-6 pro-name pro-pad text-center">
+                                        <a [routerLink]="['/productdetailview',cproductlist[1].product_id]" target="_blank" style="color:black">
+                                            {{cproductlist[1].product_name}}
+                                        <br><i class="fa fa-inr"></i> {{cproductlist[1].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{cproductlist[1].max_sellingprice}}</span><br><span style="color:green">   {{cproductlist[1].discount}} off</span>
+                                    </a>
+                                    </div>
+                               
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 pt-3">
+                            <a [routerLink]="['/productdetailview',cproductlist[2].product_id]" target="_blank"><img class="product-img" src="{{cproductlist[2].product_img1}}"></a>
+                            <a [routerLink]="['/productdetailview',cproductlist[3].product_id]" target="_blank"><img class="product-img" src="{{cproductlist[3].product_img1}}"></a>
+                            <div class="row pt-2">
+                                <div class="col-md-6 pro-name pro-pad text-center">
+                                    <a [routerLink]="['/productdetailview',cproductlist[2].product_id]" target="_blank" style="color:black">
+                                    {{cproductlist[2].product_name}}
+                                    <br><i class="fa fa-inr"></i> {{cproductlist[2].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{cproductlist[2].max_sellingprice}}</span><br><span style="color:green">   {{cproductlist[2].discount}} off</span>
+                                </a>
+                                </div>
+                                <div class="col-md-6 pro-name pro-pad text-center">
+                                    <a [routerLink]="['/productdetailview',cproductlist[3].product_id]" target="_blank" style="color:black">
+                                    {{cproductlist[3].product_name}}
+                                    <br><i class="fa fa-inr"></i> {{cproductlist[3].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{cproductlist[3].max_sellingprice}}</span><br><span style="color:green">   {{cproductlist[3].discount}} off</span>
+                                   </a>
+                                </div>
+                            </div>                        
+                        </div> 
+                        <div class="pt-3 pl-3">
+                            <a href="#" class="text-primary view_more" [routerLink]="['/productlisting']">View more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 padding-0 buyer_need">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title product-title">
+                        <h5>Buyer Needs</h5>
+                    </div>
+                    <div class="row padding-1">
+                        <div class="col-md-12">
+                            <a [routerLink]="['/productdetailview',cproductlist[0].product_id]" target="_blank"><img class="product-img" src="{{cproductlist[0].product_img1}}"></a>
+                            <a [routerLink]="['/productdetailview',cproductlist[1].product_id]" target="_blank"><img class="product-img" src="{{cproductlist[1].product_img1}}"></a>
+                            <div class="row pt-2">
+                                <div class="col-md-6 pro-name pro-pad text-center">
+                                    <a [routerLink]="['/productdetailview',cproductlist[0].product_id]" target="_blank" style="color:black">
+                                    {{cproductlist[0].product_name}}
+                                    <br><i class="fa fa-inr"></i> {{cproductlist[0].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{cproductlist[0].max_sellingprice}}</span><br><span style="color:green">   {{cproductlist[0].discount}} off</span>
+                                   </a>
+                                </div>
+                                <div class="col-md-6 pro-name pro-pad text-center">
+                                    <a [routerLink]="['/productdetailview',cproductlist[1].product_id]" target="_blank" style="color:black">
+                                        {{cproductlist[1].product_name}}
+                                    <br><i class="fa fa-inr"></i> {{cproductlist[1].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{cproductlist[1].max_sellingprice}}</span><br><span style="color:green">   {{cproductlist[1].discount}} off</span>
+                                    </a>
+                                </div>
+                            </div>                       
+                         </div>
+                         <div class="col-md-12 pt-3">
+                            <a [routerLink]="['/productdetailview',cproductlist[2].product_id]" target="_blank"><img class="product-img" src="{{cproductlist[2].product_img1}}"></a>
+                            <a [routerLink]="['/productdetailview',cproductlist[3].product_id]" target="_blank"><img class="product-img" src="{{cproductlist[3].product_img1}}"></a>
+                            <div class="row pt-2">
+                                <div class="col-md-6 pro-name pro-pad text-center">
+                                    <a [routerLink]="['/productdetailview',cproductlist[2].product_id]" target="_blank" style="color:black">
+                                    {{cproductlist[2].product_name}}
+                                    <br><i class="fa fa-inr"></i> {{cproductlist[2].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{cproductlist[1].max_sellingprice}}</span><br><span style="color:green">   {{cproductlist[1].discount}} off</span>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 pro-name pro-pad text-center">
+                                    <a [routerLink]="['/productdetailview',cproductlist[3].product_id]" target="_blank" style="color:black">
+                                        {{cproductlist[3].product_name}}
+                                    <br><i class="fa fa-inr"></i> {{cproductlist[3].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{cproductlist[2].max_sellingprice}}</span><br><span style="color:green">   {{cproductlist[2].discount}} off</span>
+                                    </a>
+                                </div>
+                            </div>             
+                        </div>
+                        <div class="pt-3 pl-3">
+                            <a href="#" class="text-primary view_more" [routerLink]="['/productlisting']">View more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 pt-3 padding-0">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title product-title">
+                        <h5>Selling tree</h5>
+                    </div>
+                    <div class="row padding-1">
+                        <div class="col-md-12">
+                            <a [routerLink]="['/productdetailview',productlist[0].product_id]" target="_blank"><img class="product-img"  src="{{productlist[0].product_img1}}"></a>
+                            <a [routerLink]="['/productdetailview',productlist[1].product_id]" target="_blank"><img class="product-img"   src="{{productlist[1].product_img1}}"></a>
+                            <div class="row pt-2">
+                                <div class="col-md-6 pro-name pro-pad text-center">
+                                    <a [routerLink]="['/productdetailview',productlist[0].product_id]" target="_blank" style="color:black">
+                                    {{productlist[0].product_name}}
+                                    <br><i class="fa fa-inr"></i> {{productlist[0].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{productlist[0].max_sellingprice}}</span><br><span style="color:green" *ngIf="productlist[0].discount">   {{productlist[0].discount}} off</span>
+                                   </a>
+                                </div>
+                                <div class="col-md-6 pro-name pro-pad text-center">
+                                    <a [routerLink]="['/productdetailview',productlist[1].product_id]" target="_blank" style="color:black">
+                                    {{productlist[1].product_name}}
+                                    <br><i class="fa fa-inr"></i> {{productlist[1].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{productlist[1].max_sellingprice}}</span><br><span style="color:green"  *ngIf="productlist[1].discount">   {{productlist[1].discount}} off</span>
+                                    </a>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-md-12 pt-3">
+                            <a  [routerLink]="['/productdetailview',productlist[2].product_id]" target="_blank"><img class="product-img" src="{{productlist[2].product_img1}}"></a>
+                            <a [routerLink]="['/productdetailview',productlist[3].product_id]"  target="_blank"><img class="product-img"  src="{{productlist[3].product_img1}}"></a>
+                            <div class="row pt-2">
+                                <div class="col-md-6 pro-name pro-pad text-center">
+                                    <a  [routerLink]="['/productdetailview',productlist[2].product_id]" target="_blank" style="color:black">
+                                        {{productlist[2].product_name}}
+                                    <br><i class="fa fa-inr"></i>{{productlist[2].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{productlist[2].max_sellingprice}}</span><br><span style="color:green"  *ngIf="productlist[2].discount">   {{productlist[2].discount}} off</span>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 pro-name pro-pad text-center">
+                                    <a [routerLink]="['/productdetailview',productlist[3].product_id]"  target="_blank" style="color:black">
+                                    {{productlist[3].product_name}}
+                                    <br><i class="fa fa-inr"></i> {{productlist[3].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{productlist[3].max_sellingprice}}</span><br><span style="color:green"  *ngIf="productlist[3].discount">   {{cproductlist[3].discount}} off</span>
+                                    </a>
+                                </div>
+                            </div>   
+                        </div>
+                   
+                        <div class="pt-3 pl-3">
+                            <a href="#" class="text-primary view_more"  [routerLink]="['/productlisting']">View more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 pt-3 padding-0">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title product-title">
+                        <h5>Advertisement</h5>
+                    </div>
+                    <div class="row padding-1">
+                        <div class="col-md-12">
+                            <a [routerLink]="['/productdetailview',productlist[0].product_id]" target="_blank"><img class="product-img"  src="{{productlist[0].product_img1}}"></a>
+                            <a [routerLink]="['/productdetailview',productlist[1].product_id]" target="_blank"><img class="product-img"   src="{{productlist[1].product_img1}}"></a>
+                            <div class="row pt-2">
+                                <div class="col-md-6 pro-name pro-pad text-center">
+                                    <a [routerLink]="['/productdetailview',productlist[0].product_id]" target="_blank" style="color:black">
+                                    {{productlist[0].product_name}}
+                                    <br><i class="fa fa-inr"></i> {{productlist[0].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{productlist[0].max_sellingprice}}</span><br><span style="color:green"  *ngIf="productlist[0].discount">   {{productlist[0].discount}} off</span>
+                                     </a>
+                                </div>
+                                <div class="col-md-6 pro-name pro-pad text-center">
+                                    <a [routerLink]="['/productdetailview',productlist[1].product_id]" target="_blank" style="color:black">
+                                    {{productlist[1].product_name}}
+                                    <br><i class="fa fa-inr"></i> {{productlist[1].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{productlist[1].max_sellingprice}}</span><br><span style="color:green"  *ngIf="productlist[1].discount">   {{productlist[1].discount}} off</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 pt-3">
+                            <a  [routerLink]="['/productdetailview',productlist[2].product_id]" target="_blank"><img class="product-img" src="{{productlist[2].product_img1}}"></a>
+                            <a [routerLink]="['/productdetailview',productlist[3].product_id]"  target="_blank"><img class="product-img"  src="{{productlist[3].product_img1}}"></a> 
+                            <div class="row pt-2">
+                                <div class="col-md-6 pro-name pro-pad text-center">
+                                    <a  [routerLink]="['/productdetailview',productlist[2].product_id]" target="_blank" style="color:black">
+                                    {{productlist[2].product_name}}
+                                    <br><i class="fa fa-inr"></i>{{productlist[2].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{productlist[2].max_sellingprice}}</span><br><span style="color:green" *ngIf="productlist[2].discount">   {{productlist[2].discount}} off</span>
+                                     </a>
+                                </div>
+                                <div class="col-md-6 pro-name pro-pad text-center">
+                                    <a  [routerLink]="['/productdetailview',productlist[2].product_id]" target="_blank" style="color:black">
+                                    {{productlist[3].product_name}}
+                                    <br><i class="fa fa-inr"></i> {{productlist[3].min_sellingprice}}<span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{cproductlist[3].max_sellingprice}}</span><br><span style="color:green" *ngIf="productlist[3].discount">   {{productlist[3].discount}} off</span>
+                                   </a>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="pt-3 pl-3">
+                            <a href="#" class="text-primary view_more"  [routerLink]="['/productlisting']">View more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

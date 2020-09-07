@@ -1,0 +1,188 @@
+<div class="main-container">
+  <nav id="navigation" style="
+  z-index: 2;
+">
+    <ul class="menu-items-container">
+      <li>
+        <a [routerLink]="['/home']">
+          <span class="menu-text-icons circle-icon home-icon">
+            <i class="fa fa-home" aria-hidden="true"></i>
+          </span>
+        </a>
+      </li>
+      <li>
+        <span class="menu-text-icons circle-icon about-icon" (click)="logout()">
+          <i class="fa fa-sign-in" aria-hidden="true"></i>
+        </span>
+      </li>
+      <li>
+        <a href="//www.famposo.com/preregistration" target="_blank">
+          <span class="menu-text-icons circle-icon profile-icon">
+            <i class="fa fa-user-plus" aria-hidden="true" style="font-size: initial;"></i>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <section id="pricing-tables">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="single-table text-center">
+            <div class="title-header">
+              <h4>Famposo Family <br>benifits</h4>
+            </div>
+            <p></p>
+            <ul class="plan-features">
+              <li>Post Products to sale</li>
+              <li>Post Group Buy offers & Tenders20</li>
+              <li>Company Verification Service</li>
+              <li>Multiple currencies transaction supported</li>
+              <li>Verified customer profiling reports</li>
+              <li>Access to New Buying Leads</li>
+              <li>Payment protection</li>
+              <li>Priority Search Listing</li>
+              <li>Get Free Advertising Packages per year</li>
+              <li>Digital software products free license</li>
+            </ul>
+            <div style="padding: 45px 0;"></div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="single-table text-center">
+            <div class="plan-header">
+              <h3>Premium</h3>
+            </div>
+            <h4 class="plan-price">Rs 8953<span>/Monthly</span></h4>
+            <p>(10% discount for first 6 months)</p>
+            <ul class="plan-features">
+              <li>Unlimited</li>
+              <li>20 per month</li>
+              <li><i class="fa fa-check"></i></li>
+              <li><i class="fa fa-check"></i></li>
+              <li>50 per month</li>
+              <li>50 per week</li>
+              <li><i class="fa fa-check"></i></li>
+              <li><i class="fa fa-check"></i></li>
+              <li>5</li>
+              <li>2</li>
+            </ul>
+            <a class="plan-submit hvr-bounce-to-right " (click)="payment_params('10','Premium Plan')">Subscribe to
+              success</a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="single-table text-center">
+            <div class="plan-header">
+              <h3>Standard</h3>
+            </div>
+            <h4 class="plan-price">Rs 5968<span>/Monthly</span></h4>
+            <p>(10% discount for first 6 months)</p>
+
+            <ul class="plan-features">
+              <li>25 per month</li>
+              <li>5 per month<small>(Tender NA)</small></li>
+              <li><i class="fa fa-check"></i></li>
+              <li><i class="fa fa-check"></i></li>
+              <li>10 per month</li>
+              <li>10 per week</li>
+              <li><i class="fa fa-check"></i></li>
+              <li><i class="fa fa-check"></i></li>
+              <li>2</li>
+              <li><i class="fa fa-check"></i></li>
+            </ul>
+            <a class="plan-submit hvr-bounce-to-right" (click)="payment_params('10','Standard Plan')">Subscribe to
+              grow</a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="single-table text-center">
+            <div class="plan-header">
+              <h3>Basic</h3>
+            </div>
+            <h4 class="plan-price">Rs 2984<span>/Monthly</span></h4>
+            <p>(10% discount for first 6 months)</p>
+
+            <ul class="plan-features">
+              <li>10 per month</li>
+              <li><i class="fa fa-times"></i></li>
+              <li><i class="fa fa-times"></i></li>
+              <li><i class="fa fa-times"></i></li>
+              <li>1 per month</li>
+              <li>1 per week</li>
+              <li><i class="fa fa-times"></i></li>
+              <li><i class="fa fa-times"></i></li>
+              <li><i class="fa fa-times"></i></li>
+              <li><i class="fa fa-times"></i></li>
+            </ul>
+            <a class="plan-submit hvr-bounce-to-right" (click)="payment_params('10','Basic Plan')">Subscribe to get
+              started</a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="single-table text-center">
+            <div class="plan-header">
+              <h3>Join Free</h3>
+            </div>
+            <h4 class="plan-price">Rs 0</h4>
+            <p>(Only for first 3 months)</p>
+
+            <ul class="plan-features">
+              <li>10 post only</li>
+              <li><i class="fa fa-times"></i></li>
+              <li><i class="fa fa-times"></i></li>
+              <li><i class="fa fa-times"></i></li>
+              <li><i class="fa fa-times"></i></li>
+              <li><i class="fa fa-times"></i></li>
+              <li><i class="fa fa-times"></i></li>
+              <li><i class="fa fa-times"></i></li>
+              <li><i class="fa fa-times"></i></li>
+              <li><i class="fa fa-times"></i></li>
+            </ul>
+            <a class="plan-submit hvr-bounce-to-right" [routerLink]="['/register','signup']">Get to know</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end priceing table -->
+  <div id="contact-popup" class="popup">
+    <div class="popup-content">
+      <div class="event-header">
+        <h6>Contact Us</h6><br>
+      </div>
+      <form id="send" class="send-form">
+        <div class="form-group">
+          <input type="text" placeholder="Enter name" id="name" name="name" required="" maxlength="30"
+            pattern="[A-Za-z\\s]*">
+          <label for="name">
+            <i class="fa fa-user"></i>
+          </label>
+        </div>
+        <div class="form-group">
+          <input type="tel" placeholder="Enter phone" id="phone" name="phone" required="">
+          <label for="phone">
+            <i class="fa fa-phone"></i>
+          </label>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Enter email address" id="email" name="email" required="">
+          <label for="mail">
+            <i class="fa fa-envelope"></i>
+          </label>
+        </div>
+        <div class="form-group">
+          <textarea type="text" placeholder="Comment" id="comment" name="comment"
+            style=" max-height:80px;min-height:20px;"></textarea>
+          <label for="comment">
+            <i class="fa fa-pencil"></i>
+          </label>
+        </div>
+        <button type="submit" class="main-btn-rect" name="send" value="Send">
+          <i class="fa fa-paper-plane"></i>Send</button>
+      </form>
+      <span class="fade-out main-btn-circle">╳</span>
+    </div>
+  </div>
+
+</div>

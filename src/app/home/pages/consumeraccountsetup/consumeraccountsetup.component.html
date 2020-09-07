@@ -1,0 +1,551 @@
+<div class="main-container">
+  <ngx-spinner
+		bdOpacity = 0.9
+		bdColor = "rgba(255,255,255,0.7)"
+		size = "medium"
+		color = "#342c2c"
+		type = "ball-atom"
+		[fullScreen] = "true"
+		> 
+		<p style="color: black" > Loading... </p>
+		</ngx-spinner>
+  <nav id="navigation" style="
+  z-index: 2;
+">
+    <ul class="menu-items-container">
+      <li>
+        <a [routerLink]="['/home']">
+          <span class="menu-text-icons circle-icon home-icon">
+            <i class="fa fa-home" aria-hidden="true"></i>
+          </span>
+        </a>
+      </li>
+      <li>
+        <span class="menu-text-icons circle-icon about-icon" (click)="logout()">
+          <i class="fa fa-sign-in" aria-hidden="true"></i>
+        </span>
+      </li>
+      <li>
+        <a href="//www.famposo.com/preregistration" target="_blank">
+          <span class="menu-text-icons circle-icon profile-icon">
+            <i class="fa fa-user-plus" aria-hidden="true" style="font-size: initial;"></i>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container-fuild pl-5 pr-5" style="background-color: #ffffff;">
+    <div class="text-center pt-3">
+      <span style="background-color: #f9f338;font-size: 16pt;font-weight: 500;">Welcome  {{username}}! Complete the
+        registration to claim your award points!!</span>
+
+    </div>
+
+    <hr>
+    <div class="row">
+      <div class="col-md-2 mb-3">
+        <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="company-tab" data-toggle="tab" href="#company-details" role="tab"
+              aria-controls="company-details" aria-selected="true">Company Details</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact-details" role="tab"
+              aria-controls="contact-details" aria-selected="false">Contact Details</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="document-tab" data-toggle="tab" href="#document-details" role="tab"
+              aria-controls="document-details" aria-selected="false">Document Details</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="additional-tab" data-toggle="tab" href="#additional-details" role="tab"
+              aria-controls="additional-details" aria-selected="false">Additional details</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.col-md-4 -->
+      <div class="col-md-10">
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="company-details" role="tabpanel" aria-labelledby="company-tab">
+            <div class="company-div">
+              <form [formGroup]="companydetails">
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>I want to <span style="font-size: 8pt;margin-right: 4pt;">(We will assist based on your
+                        need)</span></label>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" value="all" id="select-all" (change)="handleChecked('all',$event)"
+                        class="custom-control-input" [checked]="iscEnabled1">
+                      <label class="custom-control-label" for="select-all">All the above</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline ">
+                      <input type="checkbox" value="Buy" class="custom-control-input"
+                        (change)="handleChecked('buy',$event)" id="customCheck1" [checked]="iscEnabled" [checked]="iscEnabled2">
+                      <label class="custom-control-label" for="customCheck1">Buy</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" value="Rent" class="custom-control-input"
+                        (change)="handleChecked('rent',$event)" id="customCheck2" [checked]="iscEnabled" [checked]="iscEnabled3">
+                      <label class="custom-control-label" for="customCheck2">Rent</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" value="Sale" class="custom-control-input"
+                        (change)="handleChecked('sale',$event)" id="customCheck3" [checked]="iscEnabled" [checked]="iscEnabled4">
+                      <label class="custom-control-label" for="customCheck3">Sale</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" value="RFQ/Bidding" class="custom-control-input"
+                        (change)="handleChecked('rfq/bidding',$event)" id="customCheck4" [checked]="iscEnabled" [checked]="iscEnabled5">
+                      <label class="custom-control-label" for="customCheck4">RFQ/Bidding</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" value="JoinFAMPOSOClub" class="custom-control-input"
+                        (change)="handleChecked('joinfamposoclub',$event)" id="customCheck5" [checked]="iscEnabled" [checked]="iscEnabled6">
+                      <label class="custom-control-label" for="customCheck5">Join FAMPOSO Club</label>
+                    </div>
+
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Referral Code
+                      <span style="font-size: 8pt;position:relative;top: -3pt;">(Optional)</span>
+                    </label>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" formControlName="Referral_code"
+                      placeholder="If you referred by another customer, please enter their code here" [ngClass]="{'error':companydetails.controls.Referral_code.invalid && companydetails.controls.Referral_code.touched }"   [popover]="Referral_code" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+                      <popover-content #Referral_code [closeOnClickOutside]="true"
+              [style.display]="companydetails.controls.Referral_code.invalid && companydetails.controls.Referral_code.touched ? 'block' : 'none'">
+                    <validation-messages [control]="companydetails.controls.Referral_code"></validation-messages>
+                      </popover-content>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Company Name <span
+                        style="font-size: 8pt;position:relative;top: -3pt;">*</span></label>
+                  </div>
+                  <div class="col-md-9">
+
+                    <input type="text" formControlName="company_name" formControlName="company_name"
+                      placeholder="Your Company Name"  [readonly]="isEditenable"  [ngClass]="{'error':companydetails.controls.company_name.invalid && companydetails.controls.company_name.touched }"   [popover]="company_name" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                      <popover-content #company_name [closeOnClickOutside]="true"
+                      [style.display]="companydetails.controls.company_name.invalid && companydetails.controls.company_name.touched ? 'block' : 'none'">
+                    <validation-messages [control]="companydetails.controls.company_name"></validation-messages>
+                </popover-content>
+                  
+                  </div>
+                 
+                  <div class="col-md-3">
+                    <label class="custom-lab">Company Registration No
+                      <span style="font-size: 8pt;position:relative;top: -3pt;">*</span></label>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" formControlName="company_reg_no" placeholder="Your Company Registration Number" [readonly]="isEditenable" [ngClass]="{'error':companydetails.controls.company_reg_no.invalid && companydetails.controls.company_reg_no.touched }"   [popover]="company_reg_no" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                    <popover-content #company_reg_no [closeOnClickOutside]="true"
+              [style.display]="companydetails.controls.company_reg_no.invalid && companydetails.controls.company_reg_no.touched? 'block' : 'none'">
+                        <validation-messages [control]="companydetails.controls.company_reg_no"></validation-messages>
+                    </popover-content>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Annual Revenue</label>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" formControlName="annual_revenue"
+                      placeholder="Revenue e.g 12 lakhs /year or month" [ngClass]="{'error':companydetails.controls.annual_revenue.invalid && companydetails.controls.annual_revenue.touched }"   [popover]="annual_revenue" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                      <popover-content #annual_revenue [closeOnClickOutside]="true"
+                      [style.display]="companydetails.controls.annual_revenue.invalid && companydetails.controls.annual_revenue.touched ? 'block' : 'none'">
+                        <validation-messages [control]="companydetails.controls.annual_revenue"></validation-messages>
+                      </popover-content>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Inaugration Year</label>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" formControlName="Inauguration_year"  placeholder="Your Inaugration Year"
+                      bsDatepicker [bsConfig]="datePickerConfig" [ngClass]="{'error':companydetails.controls.Inauguration_year.invalid && companydetails.controls.Inauguration_year.touched }"   [popover]="Inauguration_year" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                      <popover-content #Inauguration_year [closeOnClickOutside]="true"
+                      [style.display]="companydetails.controls.Inauguration_year.invalid && companydetails.controls.Inauguration_year.touched ? 'block' : 'none'">
+                          <validation-messages [control]="companydetails.controls.Inauguration_year"></validation-messages>
+                      </popover-content>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Total No of Employees</label>
+                  </div>
+                  <div class="col-md-9">
+
+                    <select placeholder="No of Employees" formControlName="manpower" [ngClass]="{'error':companydetails.controls.manpower.invalid && companydetails.controls.manpower.touched }"   [popover]="manpower" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                      <option value="" [selected]=true>No of Employees</option>
+                      <option>1-50</option>
+                      <option>50-100</option>
+                      <option>100-250</option>
+                      <option>More Than 250</option>
+                    </select>
+                    <popover-content #manpower [closeOnClickOutside]="true"
+                    [style.display]="companydetails.controls.manpower.invalid && companydetails.controls.manpower.touched ? 'block' : 'none'">
+                           <validation-messages [control]="companydetails.controls.manpower"></validation-messages>
+                    </popover-content>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Company Logo </label>
+                  </div>
+                  <div class="col-md-9" >
+                  <div class="company_logo" style="overflow: hidden;" [ngClass]="{'error':companydetails.controls.company_logo.invalid && companydetails.controls.company_logo.touched }"   >
+                   <button class="btn  logo-browse"  (click)="logofile()" style="z-index: 1;">
+                      Browse
+                  </button>
+                  <span id='imgval'></span>
+                    <input type="file" formControlName="company_logo" id="companylo" (change)="onSelectedlogo($event)"  placeholder="Your Company Logo" style="opacity: 0" [popover]="company_logo" popoverPlacement="right" [popoverCloseOnMouseOutside]="false" />
+                  </div>
+                    <div><span  style="font-size: 7pt">PNG, JPG & JPEG(25KB)</span></div>
+                    <popover-content #company_logo [closeOnClickOutside]="true"  [style.display]="companydetails.controls.company_logo.invalid && companydetails.controls.company_logo.touched ? 'block' : 'none'"> 
+                    <validation-messages [control]="companydetails.controls.company_logo"></validation-messages>
+                    </popover-content>
+                    <img class="imaglog" style="max-width: 23%;" />
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Business Type</label>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" formControlName="business_type" placeholder="Your Business Type" [ngClass]="{'error':companydetails.controls.business_type.invalid && companydetails.controls.business_type.touched }"   [popover]="business_type" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                    <popover-content #business_type [closeOnClickOutside]="true"
+                    [style.display]="companydetails.controls.business_type.invalid && companydetails.controls.business_type.touched  ? 'block' : 'none'">
+                         <validation-messages [control]="companydetails.controls.business_type"></validation-messages>
+                    </popover-content>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Industry Type</label>
+                  </div>
+                  <div class="col-md-9">
+                    <select id="indusselect" (change)="otherindustry($event)" class='form-control'  formControlName="industry_type" [ngClass]="{'error':companydetails.controls.industry_type.invalid && companydetails.controls.industry_type.touched }"   [popover]="industry_type" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
+                      <option value="" [selected]=true>Select Industry</option>
+                      <option *ngFor="let industry of industry"  [attr.data-somedata]="industry.industry">
+                        {{industry.industry}}</option>
+                      <option  data-somedata="others">Others</option>
+                    </select>
+                    
+                       
+                    <input type="text" id="industext" class='form-control'  formControlName="industry_type" [ngClass]="{'error':companydetails.controls.industry_type.invalid && companydetails.controls.industry_type.touched }"   [popover]="industry_type" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  style="display:none">
+                        <popover-content #industry_type [closeOnClickOutside]="true"
+              [style.display]="companydetails.controls.industry_type.invalid && companydetails.controls.industry_type.touched ? 'block' : 'none'">
+                        <validation-messages [control]="companydetails.controls.industry_type"></validation-messages>
+                    </popover-content>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Product / Service Name</label>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" formControlName="product_name" placeholder="Your Product / Service Name" [ngClass]="{'error':companydetails.controls.product_name.invalid && companydetails.controls.product_name.touched }"   [popover]="product_name" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                    <popover-content #product_name [closeOnClickOutside]="true"
+                    [style.display]="companydetails.controls.product_name.invalid && companydetails.controls.product_name.touched ? 'block' : 'none'">
+                             <validation-messages [control]="companydetails.controls.product_name"></validation-messages>
+                    </popover-content>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Product Details
+                    </label>
+                  </div>
+                  <div class="col-md-9">
+                    <textarea type="text" formControlName="product_details"
+                      placeholder="Your Product Details" [ngClass]="{'error':companydetails.controls.product_details.invalid && companydetails.controls.product_details.touched }"   [popover]="product_details" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"></textarea>
+                      <popover-content #product_details [closeOnClickOutside]="true"
+                      [style.display]="companydetails.controls.product_details.invalid && companydetails.controls.product_details.touched ? 'block' : 'none'">
+                           <validation-messages [control]="companydetails.controls.product_details"></validation-messages>
+                      </popover-content>
+                  </div>
+                  <div class="col-md-12 text-center" style="margin-top: 5pt;">
+                    <button class="btn btn-info" style="margin-left: 15pt;" (click)="this.tab2('companydetails','nxt')">
+                      <i class="fa fa-arrow-right"></i> Next
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="contact-details" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="company-div">
+              <form [formGroup]="contactdetails">
+                <div class="row">
+                  <div class="col-md-3">
+                    <label class="custom-lab">Contact Person
+                      <span style="font-size: 8pt;position:relative;top: -3pt;">*</span></label>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" formControlName="contact_person_name" placeholder="Contact Person Name" [readonly]="isEditenable" [ngClass]="{'error':contactdetails.controls.contact_person_name.invalid && contactdetails.controls.contact_person_name.touched }"   [popover]="contact_person_name" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+                    <popover-content #contact_person_name [closeOnClickOutside]="true"
+                    [style.display]="contactdetails.controls.contact_person_name.invalid && contactdetails.controls.contact_person_name.touched  ? 'block' : 'none'">
+                         <validation-messages [control]="contactdetails.controls.contact_person_name"></validation-messages>
+                    </popover-content>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab"> Address Line 1
+                      <span style="font-size: 8pt;position:relative;top: -3pt;">*</span></label>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" formControlName="address1" placeholder="Your Address Line 1" [readonly]="isEditenable"  [ngClass]="{'error':contactdetails.controls.address1.invalid && contactdetails.controls.address1.touched }"   [popover]="address1" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+                    <popover-content #address1 [closeOnClickOutside]="true"
+                    [style.display]="contactdetails.controls.address1.invalid && contactdetails.controls.address1.touched  ? 'block' : 'none'">
+                          <validation-messages [control]="contactdetails.controls.address1"></validation-messages>
+                    </popover-content>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Address Line 2</label>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" formControlName="address2" placeholder="Your Address Line 2"  [ngClass]="{'error':contactdetails.controls.address2.invalid && contactdetails.controls.address2.touched }"   [popover]="address2" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+                    <popover-content #address2 [closeOnClickOutside]="true"
+                      [style.display]="contactdetails.controls.address2.invalid && contactdetails.controls.address2.touched ? 'block' : 'none'">
+                          <validation-messages [control]="contactdetails.controls.address2"></validation-messages>
+                    </popover-content>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Country
+                      <span style="font-size: 8pt;position:relative;top: -3pt;">*</span>
+                    </label>
+                  </div>
+                  <div class="col-md-9">
+                    <select placeholder="Select your Country" [attr.disabled]="isEditenable?'':null" formControlName="country"
+                      (change)="selectChangeCountry($event)" [ngClass]="{'error':contactdetails.controls.country.invalid && contactdetails.controls.country.touched }"   [popover]="counte" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                      <option value="" [selected]=true>Select country</option>
+                      <option *ngFor="let country of country" [value]="country.country" id="countryselector"
+                        [attr.data-somedata]="country.id">{{country.country}}</option>
+                    </select>
+                    <popover-content #counte [closeOnClickOutside]="true"
+                    [style.display]="contactdetails.controls.country.invalid && contactdetails.controls.country.touched ? 'block' : 'none'">
+                         <validation-messages [control]="contactdetails.controls.country"></validation-messages>
+                    </popover-content>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">State/ Province</label>
+                  </div>
+                  <div class="col-md-9">
+                    <select placeholder="Select your State/ Province" formControlName="state"
+                      (change)="selectChangeStates($event)" [ngClass]="{'error':contactdetails.controls.state.invalid && contactdetails.controls.state.touched }"   [popover]="state" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                      <option value="" [selected]=true>Select state</option>
+                      <option *ngFor="let states of states" [value]="states.states" [attr.data-somedata]="states.id">
+                        {{states.states}}</option>
+                    </select>
+                    <popover-content #state [closeOnClickOutside]="true"
+                    [style.display]="contactdetails.controls.state.invalid && contactdetails.controls.state.touched ? 'block' : 'none'">
+                        <validation-messages [control]="contactdetails.controls.state"></validation-messages>
+                    </popover-content>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">City</label>
+                  </div>
+                  <div class="col-md-9">
+                    <select formControlName="city"  [ngClass]="{'error':contactdetails.controls.city.invalid && contactdetails.city.touched }"   [popover]="city" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                      <option value="" [selected]=true>Select city</option>
+                      <option *ngFor="let cities of cities"  [value]="cities.cities">{{cities.cities}}</option>
+                    </select>
+                    <popover-content #city [closeOnClickOutside]="true"
+                    [style.display]="contactdetails.controls.city.invalid && contactdetails.city.touchedd ? 'block' : 'none'">
+                        <validation-messages [control]="contactdetails.controls.city"></validation-messages>
+                    </popover-content>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Zip Code</label>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" formControlName="postal_code" placeholder="Your Zip Code" [ngClass]="{'error':contactdetails.controls.postal_code.invalid && contactdetails.controls.postal_code.touched }"   [popover]="postal_code" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+                    <popover-content #postal_code [closeOnClickOutside]="true"
+                    [style.display]="contactdetails.controls.postal_code.invalid && contactdetails.controls.postal_code.touched ? 'block' : 'none'">
+                          <validation-messages [control]="contactdetails.controls.postal_code"></validation-messages>
+                    </popover-content>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Email
+                      <span style="font-size: 8pt;position:relative;top: -3pt;">*</span>
+                    </label>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" formControlName="email" placeholder="Your Email" (mouseout)="emailvalidation1()" [readonly]="isEnabled" [readonly]="isEditenable" [ngClass]="{'error':contactdetails.controls.email.invalid && contactdetails.controls.email.touched }"   [popover]="email" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+                    <popover-content #email [closeOnClickOutside]="true"
+                    [style.display]="contactdetails.controls.email.invalid && contactdetails.controls.email.touched ? 'block' : 'none'">
+                    <validation-messages [control]="contactdetails.controls.email"></validation-messages>
+                    </popover-content>
+                    <div class="errorstyles2" *ngIf="invalidEmailExist"><i class="fa fa-exclamation-circle"></i>Email
+                      already exist</div>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Alternate Email Id</label>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" formControlName="alternate_email" placeholder="Your Alternate Email Id" (mouseout)="emailvalidation2()"  [ngClass]="{'error':contactdetails.controls.alternate_email.invalid && contactdetails.controls.alternate_email.touched }"   [popover]="alternate_email" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+                    <popover-content #alternate_email [closeOnClickOutside]="true"
+                    [style.display]="contactdetails.controls.alternate_email.invalid && contactdetails.controls.alternate_email.touched ? 'block' : 'none'">
+                        <validation-messages [control]="contactdetails.controls.alternate_email"></validation-messages>
+                    </popover-content>
+                    <div class="errorstyles2" *ngIf="invalidEmailExist1"><i class="fa fa-exclamation-circle"></i>Email
+                      already exist</div>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Mobile No
+                      <span style="font-size: 8pt;position:relative;top: -3pt;">*</span></label>
+                  </div>
+                  <div class="col-md-9" *ngFor="let phonecode of phonecode">
+                    <input type="text" class="mobile-code" formControlName="phonecodes"
+                      [(ngModel)]="phonecode.phonecode" [readonly]="true">
+                    <input type="text" formControlName="mobile_no" (mouseout)="phonevalidation1()" placeholder="Your Mobile Number" theme="light" class="mobile"
+                      [readonly]="ismEnabled" [readonly]="isEditenable"  [ngClass]="{'error':contactdetails.controls.mobile_no.invalid && contactdetails.controls.mobile_no.touched }"   [popover]="mobile_no" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+                      <popover-content #mobile_no [closeOnClickOutside]="true"
+                      [style.display]="contactdetails.controls.mobile_no.invalid && contactdetails.controls.mobile_no.touched ? 'block' : 'none'"> 
+                           <validation-messages [control]="contactdetails.controls.mobile_no"></validation-messages>
+                      </popover-content>
+                      <div class="errorstyles2" *ngIf=" invalidPhoneLength"><i class="fa fa-exclamation-circle"></i>Invalid mobile no</div>
+                      <div class="errorstyles2" *ngIf=" invalidPhoneExist"><i class="fa fa-exclamation-circle"></i>Mobile no already exist</div>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Alternate Mobile No</label>
+                  </div>
+                  <div class="col-md-9" *ngFor="let phonecode of phonecode">
+                    <input type="text" class="mobile-code" formControlName="phonecodes"
+                      [(ngModel)]="phonecode.phonecode"  [readonly]="true">
+                    <input type="text" formControlName="alternate_mobile_no" (mouseout)="phonevalidation2()" placeholder="Your Alternate Mobile Number"
+                      class="mobile"  [ngClass]="{'error':contactdetails.controls.alternate_mobile_no.invalid && contactdetails.controls.alternate_mobile_no.touched }"   [popover]="alternate_mobile_no" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+                      <popover-content #alternate_mobile_no [closeOnClickOutside]="true"
+                      [style.display]="contactdetails.controls.alternate_mobile_no.invalid && contactdetails.controls.alternate_mobile_no.touched ? 'block' : 'none'">
+                          <validation-messages [control]="contactdetails.controls.alternate_mobile_no"></validation-messages>
+                      </popover-content>
+                      <div class="errorstyles2" *ngIf=" invalidPhoneLength1"><i class="fa fa-exclamation-circle"></i>Invalid mobile no</div>
+                      <div class="errorstyles2" *ngIf=" invalidPhoneExist1"><i class="fa fa-exclamation-circle"></i>Mobile no already exist</div>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="custom-lab">Country code</label>
+                  </div>
+                  <div class="col-md-9" *ngFor="let phonecode of phonecode">
+                    <input type="text" formControlName="countrycode" placeholder="countrycode"
+                      [(ngModel)]="phonecode.country_codes"  [readonly]="true">
+                  </div>
+                  <div class="col-md-12 text-center" style="margin-top: 5pt;">
+                    <button class="btn btn-info" (click)="tab1('contactdetails','prev')">
+                      <i class="fa fa-arrow-left"></i> Previous
+                    </button>
+                    <button class="btn btn-info" style="margin-left: 15pt;" (click)="tab3('contactdetails','nxt')">
+                      <i class="fa fa-arrow-right"></i> Next
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="document-details" role="tabpanel" aria-labelledby="document-tab">
+            <div class="company-div">
+              <form [formGroup]="documentsdetails">
+                <div class="row">
+                  <div class="col-md-12" formArrayName="companycertificate">
+                    <table class="table">
+                      <tbody>
+                        <tr class="certificatetable" *ngFor="let companycertificate of  documentsdetails.controls.companycertificate['controls']; let i=index;" [formGroupName]="i" >
+                          <td style="display:flex">
+                            <input type="text" id="certificateName{{i}}"  class="form-control  cername" formControlName="certificateName"  placeholder="Company certificate" [ngClass]="{'error':companycertificate.controls.certificateName.invalid && companycertificate.controls.certificateName.touched }"   [popover]="certificateName" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+                              <popover-content #certificateName [closeOnClickOutside]="true"
+                              [style.display]="companycertificate.controls.certificateName.invalid && companycertificate.controls.certificateName.touched ? 'block' : 'none'">
+                              <validation-messages [control]="companycertificate.controls.certificateName"> </validation-messages>
+                              </popover-content>
+                          </td>
+                          <td>
+                            <div class="cerfile" style="overflow: hidden;" [ngClass]="{'error':companycertificate.controls.certificatefile.invalid && companycertificate.controls.certificatefile.touched }" >
+                                  <button class="btn  browse-btn"  (click)="logofil(i)" style="z-index: 1;">
+                                      Browse
+                                  </button>
+                                  <span id='imgval{{i}}' class="filepreviewn"></span>
+                                  <input type="file" id="certificatefile{{i}}" formControlName="certificatefile"  (change)="onSelectedFile($event,i)" placeholder="Company Certificate" style="opacity: 0;"  [popover]="certificatefile" popoverPlacement="right" [popoverCloseOnMouseOutside]="false" />
+                                  <br><span style="font-size: 8pt;position:relative;top: -3pt;">Only PDF, PNG, JPG and JPEG (4 Mb)</span>
+                                  <popover-content #certificatefile [closeOnClickOutside]="true"
+                                  [style.display]="companycertificate.controls.certificatefile.invalid && companycertificate.controls.certificatefile.touched ? 'block' : 'none'">
+                                  <validation-messages [control]="companycertificate.controls.certificatefile">
+                                  </validation-messages>
+                                  </popover-content>
+                            </div>
+                          </td>
+                          <td>
+                              <a download class="images{{i}}"  target="_blank">
+                                 <img  src='../../../../assets/images/page/preview.png' id="dynamiccerimage" class="previmag{{i}}" style="display:none"/><br><span class="previmag{{i}}" style="display:none">preview</span>
+                              </a>
+                              <br><br>
+                              
+                          </td>
+                          <td> 
+                            <button class="btn btn-danger delete-btn"  *ngIf="documentsdetails.controls.companycertificate['controls'].length > 1 && i!=0"   (click)="deleteRow(i)"><i class="fa fa-trash" style="font-size: 12pt;"></i></button>
+                          </td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <td>
+                            <button class="btn btn-primary" style="margin-left: 5pt;" *ngIf="documentsdetails.controls.companycertificate['controls'].length <5"(click)="addNewRow()"><i class="fa fa-plus" style="font-size: 12pt;"></i> Add</button>
+                          </td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <div class="col-md-12 text-right" style="margin-top: 5pt;">
+                    <button class="btn btn-info" (click)="tab2('documentsdetails','prev')">
+                      <i class="fa fa-arrow-left"></i> Previous
+                    </button>
+                    <button class="btn btn-info" style="margin-left: 15pt;" (click)="tab4('documentsdetails','nxt')">
+                      <i class="fa fa-arrow-right"></i> Next
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="additional-details" role="tabpanel" aria-labelledby="additional-tab">
+            <div class="company-div">
+                              <form [formGroup]="additionaldetails">
+                <div class="row">
+                  <div class="col-md-12" formArrayName="field">
+                    <table class="table">
+                      <tbody>
+                        <tr *ngFor="let field of  additionaldetails.controls.field['controls']; let j=index" [formGroupName]="j">
+                          <td> 
+                            <input type="text" id="title{{j}}" formControlName="title" placeholder="Enter Field title here "  [ngClass]="{'error':field.controls.title.invalid && field.controls.title.touched }"   [popover]="title" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                              <popover-content #title [closeOnClickOutside]="true"
+                              [style.display]="field.controls.title.invalid && field.controls.title.touched ? 'block' : 'none'">
+                              <validation-messages [control]="field.controls.title">
+                              </validation-messages>
+                              </popover-content>
+                          </td>
+                          <td>
+                             <input type="text" id="value{{j}}" formControlName="value" placeholder="Enter Field value here"  [ngClass]="{'error':field.controls.value.invalid && field.controls.value.touched }"   [popover]="value" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                              <popover-content #value [closeOnClickOutside]="true"
+                              [style.display]="field.controls.value.invalid && field.controls.value.touched ? 'block' : 'none'">
+                              <validation-messages [control]="field.controls.value">
+                              </validation-messages>
+                              </popover-content>
+                            </td>
+                          <td>
+                            <button class="btn btn-danger" *ngIf="additionaldetails.controls.field['controls'].length >1 && j!=0" (click)="deletefieldRow(j)">
+                              <i class="fa fa-trash" style="font-size: 12pt;"></i></button>
+                          </td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <td><button class="btn btn-primary"
+                              *ngIf="additionaldetails.controls.field['controls'].length <5" (click)="addfieldRow()"><i
+                                class="fa fa-plus" style="font-size: 12pt;"></i> Add More Field</button></td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <div class="col-md-12 text-center" style="margin-top: 15pt;">
+                    <button class="btn btn-info" (click)="tab3('additionaldetails','prev')">
+                      <i class="fa fa-arrow-left"></i> Back
+                    </button>
+                    <button class="btn btn-success"  style="margin-left: 15pt;" (click)="completeregistration()">
+                      <i class="fa fa-paper-plane"></i>{{sbutton}}
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-md-8 -->
+      </div>
+  
+    </div>
+    <!-- /.container -->
+  </div>
+  </div>
+  

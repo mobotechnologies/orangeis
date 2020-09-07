@@ -1,0 +1,462 @@
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #389b84;
+    font-weight: 500;
+    font-size: 12pt;
+  }
+  .nav-item a {
+    color: #10176e;
+    font-weight: 500;
+    
+  }
+  .nav-item a:hover {
+    color: #007bff;
+  }
+  input,textarea,select {
+    width: 60%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 5px;
+    box-sizing: border-box;
+    transition: 0.3s;
+    background-color: #ffffff;
+    font-size: 10pt;
+  }
+  
+  input:focus,textarea:focus,select:focus {
+    border-color: dodgerBlue;
+    box-shadow: 0 0 8px 0 dodgerBlue;
+  }
+  .company-div
+  {
+    margin-left: 50pt;
+    margin-bottom: 30pt;
+  }
+  label
+  {
+    font-size: 12pt;
+    font-weight: 500;
+  }
+  .custom-control-label
+  {
+    font-size: 10pt;
+    font-weight: 500;
+    margin-top: 2pt;
+  }
+  .custom-lab
+  {
+    margin-top: 9pt;
+  }
+  .mobile-code
+  {
+    border-right: 0;
+    width: 8%;
+  }
+  .mobile
+  {
+    width: 52%;
+  }
+  .company-cer-field
+  {
+    width: 22%;
+  }
+  .company-cer-field1
+  {
+    width: 44.6%;
+    margin-left: 27pt;
+  }
+  .delete-btn {
+    margin-left: 5pt;
+  }
+  .additional-btn
+  {
+    margin-top: 4pt;
+    margin-left: 10pt;
+  }
+  .additional
+  {
+    margin-right: 30pt;
+  }
+  .additional-input
+  {
+    width: 120%;
+  }
+  @media only screen 
+     and (device-width : 1024px) 
+     and (device-height : 1366px) 
+     and (-webkit-device-pixel-ratio : 2) {
+      input,textarea,select {
+      font-size: 10px;
+      width: 75%;
+      }
+      label
+      {
+        font-size: 10pt;
+      }
+      .mobile-code
+      {
+        border-right: 0;
+        width: 10%;
+      }
+      .mobile
+      {
+        width: 65%;
+      }
+  }
+  @media only screen 
+     and (device-width : 768px) 
+     and (device-height : 1024px) 
+     and (-webkit-device-pixel-ratio : 2) {
+      input,textarea,select {
+        font-size: 10px;
+        width: 90%;
+        }
+        label
+      {
+        font-size: 8pt;
+      }
+      .company-cer
+      {
+        width: 70%;
+      }
+      .additional
+      {
+        margin-right: 3pt !important;
+        margin-top: 2pt !important;
+      }
+      .additional-input
+      {
+        width: 100%;
+      }
+      .additional-btn
+      {
+        margin-right: 10pt;
+        margin-left: 10pt !important;
+        margin-top: -4pt !important;
+      }
+      .mobile-code
+      {
+        border-right: 0;
+        width: 10%;
+      }
+      .mobile
+      {
+        width: 52%;
+      }
+     }
+     @media (max-width: 768px)
+  {
+    .company-div
+  {
+    margin-left: 0pt;
+    margin-bottom: 30pt;
+  }
+  input,textarea,select {
+    width: 100%;
+    font-size: 10px;
+    margin:0;
+  }
+  label
+      {
+        font-size: 8pt;
+      }
+      .custom-control-label
+  {
+    font-size: 8pt;
+    margin-top: 4pt;
+  }
+  .mobile-code
+  {
+    border-right: 0;
+    width: 15%;
+  }
+  .mobile
+  {
+    width: 85%;
+  }
+  .btn-info {
+    font-size: 8pt;
+    margin-top: 10pt;
+  }
+  .btn-success {
+    font-size: 8pt;
+    margin-top: 10pt;
+  }
+  .btn-danger {
+    font-size: 8pt;
+    margin-top: 5pt;
+  }
+  .delete-btn {
+    margin-left: 0pt;
+  }
+  .btn-primary {
+    font-size: 8pt;
+  }
+  .company-cer
+  {
+    width: 70%;
+  }
+  .company-cer-field
+  {
+    width: 50%;
+  }
+  .company-cer-field1
+  {
+    width: 48%;
+    margin-left: 2pt;
+  }
+  .additional
+  {
+    margin-top: 10pt;
+    margin-right: 2pt;
+  }
+  .additional-btn
+      {
+        margin-top: 0pt;
+        margin-right: 10pt;
+        margin-left: 0pt;
+      }
+      .additional-input
+      {
+      width: 100%;
+      margin-right: 12pt;
+      }
+  }
+  .error
+  {
+    border: 2px solid #e52f48 !important;
+  }
+  .cername
+  {
+    width: 183.98284px;
+    height: 40.982839999999996px;
+    margin-top: 1px;
+  }
+  .cerfile
+  {
+    border-radius: 7px;
+    background-color: white;
+    position:relative;
+    border: 2px solid #aaa;
+    width: 392.991422px;
+    height: 39.991422px;
+  }
+  .browse-btn
+  {
+    position: absolute;
+    right:0;
+    top: 0;
+  }
+  .filepreviewn
+  {
+    position: absolute;
+    top: 5px;
+    left: 19px;
+  }
+  .company_logo
+  {
+    border-radius: 7px;
+    background-color: white;
+    position:relative;
+    border: 2px solid #aaa;
+    width: 392.991422px;
+    height: 39.991422px;
+  }
+  .logo-browse
+  {
+    position: absolute;
+    right:0;
+    top: 0;
+  }
+  #imgval
+  {
+    position: absolute;
+    top: 5px;
+    left: 19px;
+  }
+  .imagval
+  {
+    width: 50px;
+    margin-left: 62px;
+  }
+  #dynamiccerimage
+  {
+     width:39px ;
+  }
+@media (max-width: 575.98px) {
+  .company_logo
+  {
+    width: 100% !important;
+  } 
+  .btn-info
+  {
+    height: 35.991422px;
+    margin-top: 0pt;
+  }
+  #dynamiccerimage
+  {
+     width:40px ;
+  }
+    .certificatetable
+    {
+      display: block;
+    }
+    .cerfile
+    {
+      width: 183.991422px;
+      overflow:hidden;
+    }
+    .browse-btn
+    {
+      
+    margin-top: 0px;
+    height: 36.991422px;
+    z-index: 2;
+    }
+ }
+@media (min-width: 576px) and (max-width: 767.98px) { 
+  .company_logo
+  {
+    width: 100% !important;
+  }
+  .btn-info
+  {
+    
+    width: 64.991422px !important;
+    height: 37.991422px !important;
+    margin-top: 0pt !important;
+  }
+  .certificatetable
+  {
+    display: block;
+  }
+  .cerfile
+  {
+    width: 189.991422px;
+    overflow: hidden;
+  }
+  #dynamiccerimage
+  {
+    width: 88px;
+  }
+  .browse-btn
+  {
+    
+    margin-top: 0px;
+    height: 36.991422px;
+    z-index: 2;
+  }
+ }
+
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+     #myTab
+    {
+         
+  
+        width: 135px;
+
+    }
+    input
+    {
+      width: 84%;
+    }
+    textarea
+    {
+      width: 84%;
+    }
+    .mobile-code
+    {
+      width: 18%;
+    }
+    .mobile
+    {
+      width: 65%
+    }
+    .company_logo
+    {
+      width: 85%;
+    }
+    select
+    {
+      width: 84%;
+    }
+    label
+    {
+      font-size: 9pt !important;
+    }
+    .nav-pills .nav-link.active, .nav-pills .show > .nav-link
+    {
+      font-size: 10pt !important;
+    }
+    .nav-item a
+    {
+      font-size: 9pt !important;
+    }
+    .certificatetable
+    {
+      display: block;
+    }
+    .cerfile
+    {
+      overflow:hidden;
+      width: 191.991422px;
+    }
+    .browse-btn
+    {
+        z-index: 2;
+    }
+ }
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .company_logo
+  {
+    width: 60% !important;
+  }
+  .btn-info
+  {
+    
+    height: 36.991422px;
+    margin-top: 0pt;
+  }
+  .nav-pills
+    {
+      font-size: 11pt !important;
+    }
+    .cerfile
+    {
+      width: 251.991422px;
+
+    }
+  #myTab
+  {
+       
+
+      width: 158px;
+
+  }
+
+ }
+
+
+@media (min-width: 1200px) { 
+  .company_logo
+  {
+    width: 61% !important;
+  }
+
+ }
+ .errorstyles2
+{    color: red;
+  font-size: 13px;
+}
+.select2-container .select2-selection--single
+{
+  
+  height: 35.991422px !important;
+  margin-top: 5px !important;
+
+}

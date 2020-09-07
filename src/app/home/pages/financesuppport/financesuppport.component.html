@@ -1,0 +1,443 @@
+<div class="main-container">
+  <ngx-spinner
+		bdOpacity = 0.9
+		bdColor = "rgba(255,255,255,0.7)"
+		size = "medium"
+		color = "#342c2c"
+		type = "ball-atom"
+		[fullScreen] = "true"
+		> 
+		<p style="color: black" > Loading... </p>
+		</ngx-spinner>
+    <nav id="navigation" style="
+    z-index: 2;
+">
+        <ul class="menu-items-container">
+          <li>
+            <a [routerLink]="['/home']">
+              <span class="menu-text-icons circle-icon home-icon">
+                <i class="fa fa-home" aria-hidden="true"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <span class="menu-text-icons circle-icon about-icon" (click)="logout()">
+              <i class="fa fa-sign-in" aria-hidden="true"></i>
+            </span>
+          </li>
+          <li>
+            <a href="//www.famposo.com/preregistration" target="_blank">
+              <span class="menu-text-icons circle-icon profile-icon">
+                <i class="fa fa-user-plus" aria-hidden="true" style="font-size: initial;"></i>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="container-fuild pl-5 pr-5" style="background-color: #ffffff;">
+            <div class="text-center pt-3">
+               <span style="background-color: #f9f338;font-size: 16pt;font-weight: 500;">SME Financing support Grow your Business Faster</span>
+            </div>
+            <div class="row">
+                <div class="col-md-2 mb-3">
+                    <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" id="finance-tab"  data-toggle="tab" href="#finance-details" role="tab"
+                          aria-controls="company-details" aria-selected="true">Finance Type</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="document-tab"  data-toggle="tab" href="#document-details" role="tab"
+                          aria-controls="document-details" aria-selected="false">Document Details</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="additional-tab" data-toggle="tab" href="#additional-details" role="tab"
+                          aria-controls="additional-details" aria-selected="false">Additional details</a>
+                      </li>
+                    </ul>
+                </div>
+                <div class="col-md-10">
+                   
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="finance-details" role="tabpanel" aria-labelledby="finance-tab">
+                            <div class="company-div">
+                              <form [formGroup]="financialform">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                             <p>Please select the type of financial support needed</p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                        <div class="col-md-4">
+                                                                  <div class="custom-control custom-checkbox custom-control-inline ">
+                                                                    <input type="checkbox" value="sme micro loan" class="custom-control-input"
+                                                                    (change)="handleChecked('sme micro loan',$event)"   id="customCheck1">
+                                                                    <label class="custom-control-label" for="customCheck1">SME Micro Loan</label>
+                                                                  </div>
+                                                                  <div class="custom-control custom-checkbox custom-control-inline ">
+                                                                    <input type="checkbox" value="sme equitment and factory loan" class="custom-control-input"
+                                                                    (change)="handleChecked('sme equitment and factory loan',$event)" id="customCheck2" >
+                                                                    <label class="custom-control-label" for="customCheck2">SME Equipment and Factory Loan</label>
+                                                                  </div>
+                                                                  <div class="custom-control custom-checkbox custom-control-inline ">
+                                                                    <input type="checkbox" value="sme working capital loan" class="custom-control-input"
+                                                                    (change)="handleChecked('sme working capital loan',$event)"  id="customCheck3" >
+                                                                    <label class="custom-control-label" for="customCheck3">SME Working Capital Loan</label>
+                                                                  </div> 
+                                                                  <div class="custom-control custom-checkbox custom-control-inline ">
+                                                                    <input type="checkbox" value="others" class="custom-control-input"
+                                                                    (change)="handleChecked('others',$event)" id="customCheck4" >
+                                                                    <label class="custom-control-label" for="customCheck4">Others</label>
+                                                                  </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                                  <div class="custom-control custom-checkbox custom-control-inline ">
+                                                                    <input type="checkbox" value="sme venture loan" class="custom-control-input"
+                                                                    (change)="handleChecked('sme venture loan',$event)"  id="customCheck5" >
+                                                                    <label class="custom-control-label" for="customCheck5">SME Venture Loan</label>
+                                                                  </div>
+                                                                  <div class="custom-control custom-checkbox custom-control-inline ">
+                                                                    <input type="checkbox" value="start-ups grants" class="custom-control-input"
+                                                                    (change)="handleChecked('start-ups grants',$event)"  id="customCheck6" >
+                                                                    <label class="custom-control-label" for="customCheck6">Start-ups grants</label>
+                                                                  </div> 
+                                                                  <div class="custom-control custom-checkbox custom-control-inline ">
+                                                                    <input type="checkbox" value="enterprise Commercialisation scheme" class="custom-control-input"
+                                                                    (change)="handleChecked('enterprise Commercialisation Scheme',$event)" id="customCheck7" >
+                                                                    <label class="custom-control-label" for="customCheck7">Enterprise Commercialisation Scheme</label>
+                                                                  </div>
+                                                                  <div class="custom-control custom-checkbox custom-control-inline ">
+                                                                    <input type="checkbox" value="Consultancy" class="custom-control-input"
+                                                                    (change)="handleChecked('Consultancy',$event)"  id="customCheck8" >
+                                                                    <label class="custom-control-label" for="customCheck8">Consultancy</label>
+                                                                  </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                                  <div class="custom-control custom-checkbox custom-control-inline ">
+                                                                    <input type="checkbox" value="invoice financing" class="custom-control-input"
+                                                                    (change)="handleChecked('Invoice financing',$event)"  id="customCheck9" >
+                                                                    <label class="custom-control-label" for="customCheck9">Invoice Financing</label>
+                                                                  </div>
+                                                                  <div class="custom-control custom-checkbox custom-control-inline ">
+                                                                    <input type="checkbox" value="crowd funding" class="custom-control-input"
+                                                                    (change)="handleChecked('crowd funding',$event)" id="customCheck10" >
+                                                                    <label class="custom-control-label" for="customCheck10">Crowd Funding</label>
+                                                                  </div>
+                                                                  <div class="custom-control custom-checkbox custom-control-inline ">
+                                                                    <input type="checkbox" value="work capital financing" class="custom-control-input"
+                                                                    (change)="handleChecked('work capital financing',$event)" id="customCheck11" >
+                                                                    <label class="custom-control-label" for="customCheck11">Work Capital Financing</label>
+                                                                  </div>
+                                                                  <div class="custom-control custom-checkbox custom-control-inline ">
+                                                                    <input type="checkbox" value="colledreal financing" class="custom-control-input"
+                                                                    (change)="handleChecked('colledreal financing',$event)" id="customCheck12" >
+                                                                    <label class="custom-control-label" for="customCheck12">Colledreal Financiing</label>
+                                                                  </div>
+                                                        </div>
+                                            </div>
+                                                 
+                                        </div>
+                                        
+                               
+                                    </div>
+                                    <div class="col-md-12 text-right" style="margin-top: 5pt;">
+                                   
+                                      <button class="btn btn-info" style="margin-left: 15pt;" (click)="tab2('financialform','nxt')">
+                                        <i class="fa fa-arrow-right"></i> Next
+                                      </button>
+                                    </div>
+                                  </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="document-details" role="tabpanel" aria-labelledby="document-tab">
+                            <div class="company-div">
+                              <form [formGroup]="documentsdetails">
+                                <div class="row">
+                                  <div class="col-md-12" formArrayName="companycertificate">
+                                    <table class="table">
+                                      <tbody>
+                                        <tr
+                                          *ngFor="let companycertificate of  documentsdetails.controls.companycertificate['controls']; let i=index"
+                                          [formGroupName]="i">
+                                          <td style="display:flex">
+                                            <input type="text" id="certificateName{{i}}" formControlName="certificateName"
+                                              placeholder="Enter the Certificate Name" style="
+                                              width: 183.98284px;
+                                              height: 40.982839999999996px;
+                                              margin-top: 1px;
+                                          "  
+                                           [ngClass]="{'error':companycertificate.controls.certificateName.invalid && companycertificate.controls.certificateName.touched }"   [popover]="certificateName" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+                                           <popover-content #certificateName [closeOnClickOutside]="true"
+                                           [style.display]="companycertificate.controls.certificateName.invalid && companycertificate.controls.certificateName.touched ? 'block' : 'none'">
+                                             <validation-messages [control]="companycertificate.controls.certificateName">
+                                          </validation-messages>
+                                           </popover-content>
+                                       
+                                        </td>
+               
+                                                   
+                
+                                            
+                                          <td>
+                                            <div style="
+                                            border-radius: 7px;
+                                            background-color: white;
+                                            /* box-shadow: 1px 2px 3px #ededed; */
+                                            position:relative;
+                                            border: 2px solid #aaa;
+                                            width: 392.991422px;
+                                            height: 39.991422px;
+                                        "   [ngClass]="{'error':companycertificate.controls.certificatefile.invalid && companycertificate.controls.certificatefile.touched }" >
+                                             <button class="btn btn-info"  (click)="logofil(i)" style="
+                                             position: absolute;
+                                             right:0;
+                                             top: 0;
+                                         ">
+                                                Browse
+                                            </button>
+                                            <span id='imgval{{i}}' style="
+                                            position: absolute;
+                                            top: 5px;
+                                            left: 19px;
+                                        "></span>
+                                            <input type="file" id="certificatefile{{i}}" formControlName="certificatefile"
+                                              (change)="onSelectedFile($event,i)" placeholder="Company Certificate"  style="
+                                              opacity: 0;
+                                          "  [popover]="certificatefile" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                                            <br><span style="font-size: 8pt;position:relative;top: -3pt;">Only PDF, PNG, JPG and JPEG (
+                                              4 Mb)</span>
+                                              <popover-content #certificatefile [closeOnClickOutside]="true"
+                                           [style.display]="companycertificate.controls.certificatefile.invalid && companycertificate.controls.certificatefile.touched ? 'block' : 'none'">
+                                                    <validation-messages [control]="companycertificate.controls.certificatefile">
+                                                    </validation-messages>
+                                              </popover-content>
+                                              
+                                            </div>
+                                          </td>
+                                          <td>
+                                            <img class="images{{i}}" style="
+                                            width: 122px;
+                                          " />
+                                          <br><br>
+                                          <span class="certificatefile{{i}}"></span>
+                                      </td>
+                                          <td> <button   class="btn btn-danger delete-btn"
+                                              *ngIf="documentsdetails.controls.companycertificate['controls'].length>1 && i!=0"
+                                              (click)="deleteRow(i)">
+                                              <i class="fa fa-trash" style="font-size: 12pt;"></i></button></td>
+                                         
+                                        </tr>
+                                      </tbody>
+                                      <tfoot>
+                                        <tr>
+                                          <td><button    class="btn btn-primary" style="margin-left: 5pt;"
+                                              *ngIf="documentsdetails.controls.companycertificate['controls'].length <5"
+                                              (click)="addNewRow()"><i class="fa fa-plus" style="font-size: 12pt;"></i> Add</button>
+                                          </td>
+                                        </tr>
+                                      </tfoot>
+                                    </table>
+                                  </div>
+                
+                                  <div class="col-md-12 text-right" style="margin-top: 5pt;">
+                                    <button type="button" class="btn btn-info"  (click)="tab1('documentsdetails','prev')">
+                                      <i class="fa fa-arrow-left"></i> Previous
+                                    </button>
+                                    <button type="button" class="btn btn-info" style="margin-left: 15pt;"  (click)="tab3('documentsdetails','nxt')">
+                                      <i class="fa fa-arrow-right"></i> Next
+                                    </button>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="additional-details" role="tabpanel" aria-labelledby="additional-tab">
+                            <div class="company-div">
+                              <form [formGroup]="additionaldetails">
+                                <div class="row">
+                                  <div class="col-md-12" formArrayName="field">
+                                    <table class="table">
+                                      <tbody>
+                                        <tr *ngFor="let field of  additionaldetails.controls.field['controls']; let j=index"
+                                          [formGroupName]="j">
+                                          <td> <input type="text" id="title{{j}}" formControlName="title"
+                                              placeholder="Enter Field title here "></td>
+                                          <td> <input type="text" id="value{{j}}" formControlName="value"
+                                              placeholder="Enter Field value here"></td>
+                                          <td>
+                                            <button class="btn btn-danger" *ngIf="additionaldetails.controls.field['controls'].length >1 && j!=0"
+                                              (click)="deletefieldRow(j)">
+                                              <i class="fa fa-trash" style="font-size: 12pt;"></i></button>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                      <tfoot>
+                                        <tr>
+                                          <td><button  class="btn btn-primary"
+                                              *ngIf="additionaldetails.controls.field['controls'].length <5" (click)="addfieldRow()"><i
+                                                class="fa fa-plus" style="font-size: 12pt;"></i> Add More Field</button></td>
+                                        </tr>
+                                      </tfoot>
+                                    </table>
+                                  </div>
+                                  <div class="col-md-12 text-center" style="margin-top: 15pt;">
+                                    <button type="button" class="btn btn-success" (click)="triggermodal()">
+                                      <i class="fa fa-paper-plane"></i> Confirm
+                                    </button>
+                                    <button type="button" class="btn btn-success"  id="mopen" data-toggle="modal" data-target="#myModal" [hidden]="true">
+                                      <i class="fa fa-paper-plane"></i> Confirm
+                                    </button>
+                                    <button  type="button" class="btn btn-info" style="margin-left: 15pt;" (click)="tab2('additionaldetails','prev')">
+                                      <i class="fa fa-arrow-left"></i> Back
+                                    </button>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                    </div>
+                 
+                </div>
+            </div>
+      </div>
+</div>
+   <!-- Modal content-->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">   
+    <div class="modal-content" style="width:147%">
+      <form [formGroup]="companydetails">
+      <div class="modal-body">
+        <h4 style="
+        align: center;
+        padding-left: 228px;
+    ">Company Details</h4>  
+        <div class="row">
+          <div class="col-md-3">
+            <label class="custom-lab">Company Name <span
+                style="font-size: 8pt;position:relative;top: -3pt;">*</span></label>
+          </div>
+          <div class="col-md-9">
+            <input type="text" formControlName="company_name" formControlName="company_name"
+              placeholder="Your Company Name" [readonly]="true"  [ngClass]="{'error':companydetails.controls.company_name.invalid && companydetails.controls.company_name.touched }"   [popover]="company_name" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+              <popover-content #company_name [closeOnClickOutside]="true"
+              [style.display]="companydetails.controls.company_name.invalid && companydetails.controls.company_name.touched ? 'block' : 'none'">
+              <validation-messages [control]="companydetails.controls.company_name"></validation-messages>
+              </popover-content>
+
+
+          </div>
+          <div class="col-md-3">
+            <label class="custom-lab">Company Registration No
+              <span style="font-size: 8pt;position:relative;top: -3pt;">*</span></label>
+          </div>
+          <div class="col-md-9">
+            <input type="text" formControlName="company_reg_no" placeholder="Your Company Registration Number" [readonly]="true"  [ngClass]="{'error':companydetails.controls.company_reg_no.invalid && companydetails.controls.company_reg_no.touched }"   [popover]="company_reg_no" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+            <popover-content #company_reg_no [closeOnClickOutside]="true"
+            [style.display]="companydetails.controls.company_reg_no.invalid && companydetails.controls.company_reg_no.touched ? 'block' : 'none'">
+            <validation-messages [control]="companydetails.controls.company_reg_no"></validation-messages>
+            </popover-content>
+
+          </div>
+          <div class="col-md-3">
+            <label class="custom-lab">Annual Revenue</label>
+          </div>
+          <div class="col-md-9">
+            <input type="text" formControlName="annual_revenue"
+              placeholder="Revenue e.g 12 lakhs /year or month"  [ngClass]="{'error':companydetails.controls.annual_revenue.invalid && companydetails.controls.annual_revenue.touched }"   [popover]="annual_revenue" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+              <popover-content #annual_revenue [closeOnClickOutside]="true"
+              [style.display]="companydetails.controls.annual_revenue.invalid && companydetails.controls.annual_revenue.touched ? 'block' : 'none'">
+              <validation-messages [control]="companydetails.controls.annual_revenue"></validation-messages>
+              </popover-content>
+          </div>
+          <div class="col-md-3">
+            <label class="custom-lab">Inaugration Year</label>
+          </div>
+          <div class="col-md-9">
+            <input type="text" formControlName="Inauguration_year" placeholder="Your Inaugration Year"
+              bsDatepicker [bsConfig]="datePickerConfig"  [ngClass]="{'error':companydetails.controls.Inauguration_year.invalid && companydetails.controls.Inauguration_year.touched }"   [popover]="Inauguration_year" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+              <popover-content #Inauguration_year [closeOnClickOutside]="true"
+              [style.display]="companydetails.controls.Inauguration_year.invalid && companydetails.controls.Inauguration_year.touched ? 'block' : 'none'">
+              <validation-messages [control]="companydetails.controls.Inauguration_year"></validation-messages>
+              </popover-content>
+
+          </div>
+          <div class="col-md-3">
+            <label class="custom-lab">Total No of Employees</label>
+          </div>
+          <div class="col-md-9">
+
+            <select placeholder="No of Employees" formControlName="manpower"  [ngClass]="{'error':companydetails.controls.manpower.invalid && companydetails.controls.manpower.touched }"   [popover]="manpower" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+              <option value="" [selected]=true>No of Employees</option>
+              <option>1-50</option>
+              <option>50-100</option>
+              <option>100-250</option>
+              <option>More Than 250</option>
+            </select>
+            <popover-content #manpower [closeOnClickOutside]="true"
+            [style.display]="companydetails.controls.manpower.invalid && companydetails.controls.manpower.touched ? 'block' : 'none'">
+            <validation-messages [control]="companydetails.controls.manpower"></validation-messages>
+            </popover-content>
+          </div>
+          <div class="col-md-3">
+            <label class="custom-lab">Company Logo </label>
+          </div>
+          <div class="col-md-9">
+            <div style="
+            border-radius: 7px;
+            background-color: white;
+            /* box-shadow: 1px 2px 3px #ededed; */
+            position:relative;
+            border: 2px solid #aaa;
+            width: 311px;
+            height: 39.991422px;
+        "  [ngClass]="{'error':companydetails.controls.company_logo.invalid && companydetails.controls.company_logo.touched }"  >
+             <button class="btn btn-info"  (click)="logofile()" style="
+             position: absolute;
+             right:0;
+             top: 0;
+         ">
+                Browse
+            </button>
+            <span id='imgval' style="
+            position: absolute;
+            top: 5px;
+            left: 19px;
+        "></span>
+            <input type="file" formControlName="company_logo" id="companylo" (change)="onSelectedlogo($event)"  placeholder="Your Company Logo"  style="
+            opacity: 0;
+        "  [popover]="company_logo" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+          </div>
+            <div><span  style="font-size: 7pt">PNG, JPG & JPEG(25KB)</span></div>
+            <popover-content #company_logo [closeOnClickOutside]="true"
+            [style.display]="companydetails.controls.company_logo.invalid && companydetails.controls.company_logo.touched ? 'block' : 'none'">
+            <validation-messages [control]="companydetails.controls.company_logo"></validation-messages>
+          </popover-content>
+            <img class="imaglog" style="
+            width: 50px;
+            margin-left: 62px;
+          " />
+          </div>
+      
+          <div class="col-md-3" style="
+          padding-left: 15px;
+          margin-left: 81px;
+          margin-top: 19px;
+      ">
+            <button type="button" class="btn btn-success" (click)="completeregistration()">
+                  Apply
+            </button>
+          </div>
+          <div class="col-md-3" style="
+          margin-left: -40px;
+          margin-top: 18px;
+      ">
+            <button type="button" class="btn btn-danger" id="moclose" data-dismiss="modal">
+                  Close
+            </button>
+          </div>
+         
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>

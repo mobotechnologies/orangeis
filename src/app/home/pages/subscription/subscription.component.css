@@ -1,0 +1,185 @@
+#pricing-tables {
+    padding: 30px 0;
+}
+
+@media (min-width: 768px)
+{
+#pricing-tables .col-md-2
+{
+    padding-left: 0pt !important;
+    padding-right: 0pt !important;
+    min-width: 17.5% !important;
+    max-width: 17.5% !important;
+} 
+#pricing-tables .col-md-3
+{
+    padding-left: 0pt !important;
+    padding-right: 0pt !important;
+    min-width: 30% !important;
+    max-width: 30% !important;
+}
+}
+.single-table {
+    background: #fff;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    border: 3px solid #8f8f90;
+   /* Bounce To Right */
+}
+.single-table:hover {
+    box-shadow: 0px 3px 3px 0px #888;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+.single-table .title-header
+{
+    padding: 24px 0 23px 0;
+    background: #eee;
+}
+.single-table .title-header h4
+{
+    color: #a93179;
+    font-weight: bold;
+}
+.plan-features .fa-times
+{
+    color: red;
+}
+.plan-features .fa-check
+{
+    color: green;
+}
+.single-table .plan-header {
+    color: #000000;
+    text-transform: capitalize;
+    padding: 2px 0;
+    background: #abbaab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffffff, #abbaab);  
+    background: linear-gradient(to right, #ffffff, #abbaab); 
+}
+
+.single-table .plan-header h3 {
+
+    margin: 0;
+    padding: 5px 0 5px 0;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 20px;
+}
+.single-table .plan-price {
+    color: #a93179;
+    padding: 10px 0 10px 0;
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+    background: #eee;
+}
+.single-table .plan-price span {
+    font-size: 14px;
+    font-weight: normal;
+    background: #eee;
+    color: #726969;
+}
+.single-table p {
+    font-size: 10px;
+    background: #000;
+    font-weight: normal;
+    color: #fff;
+}
+.single-table ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.single-table ul li {
+    padding: 8px 0;
+    margin: 0 20px;
+    border-bottom: 1px solid #dae2ea;
+    font-size: 15px;
+}
+.single-table .plan-submit {
+    display: inline-block;
+    text-decoration: none;
+    margin: 20px 0 30px 0;
+    padding: 10px 10px;
+    border: 1px solid #34495e;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 12px;
+    background: #10176e;
+}
+.single-table .hvr-bounce-to-right {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    transition-property: color;
+    transition-duration: 0.5s;
+}
+.single-table .hvr-bounce-to-right:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    -webkit-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0 50%;
+    -ms-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    transition-property: transform, -webkit-transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+.single-table .hvr-bounce-to-right:hover, .single-table .hvr-bounce-to-right:focus, .single-table .hvr-bounce-to-right:active {
+    color: #10176e;
+    font-weight: bold;
+}
+.single-table .hvr-bounce-to-right:hover:before, .single-table .hvr-bounce-to-right:focus:before, .single-table .hvr-bounce-to-right:active:before {
+    -webkit-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+    transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+@media only screen 
+   and (device-width : 1024px) 
+   and (device-height : 1366px) 
+   and (-webkit-device-pixel-ratio : 2) {
+       .single-table ul li {
+    font-size: 12px;
+    }
+}
+@media only screen 
+   and (device-width : 768px) 
+   and (device-height : 1024px) 
+   and (-webkit-device-pixel-ratio : 2) {
+     .single-table ul li {
+    font-size: 8px;
+    }
+    .single-table p
+    {
+         font-size: 8px;
+    }
+    .single-table .plan-price
+    {
+          font-size: 25px;
+    }
+    .single-table .title-header h4
+    {
+         font-size: 19px;
+    }
+    .single-table .plan-submit {
+         font-size: 9px;
+    }
+}

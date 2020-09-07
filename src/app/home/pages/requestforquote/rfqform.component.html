@@ -1,0 +1,388 @@
+<div class="container">
+	<nav id="navigation" style="
+    z-index: 2;
+">
+		<ul class="menu-items-container">
+			<li>
+				<a [routerLink]="['/home']">
+					<span class="menu-text-icons circle-icon home-icon">
+						<i class="fa fa-home" aria-hidden="true"></i>
+					</span>
+				</a>
+			</li>
+			<li>
+				<span class="menu-text-icons circle-icon about-icon" (click)="logout()">
+					<i class="fa fa-sign-in" aria-hidden="true"></i>
+				</span>
+			</li>
+			<li>
+				<a href="//www.famposo.com/preregistration" target="_blank">
+					<span class="menu-text-icons circle-icon profile-icon">
+						<i class="fa fa-user-plus" aria-hidden="true" style="font-size: initial;"></i>
+					</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="card company-div">
+		<div class="text-center pt-3">
+			<span style="background-color: #f9f338;font-size: 16pt;font-weight: 500;">
+				Tell us what are you looking for, We will match the right seller/service provider to you!
+			</span>
+		</div>
+		<hr>
+		<div class="col-md-12 bg-dark text-center">
+			<span style="font-size: 16pt;font-weight: 500;color: #ffffff;">
+				Requirement Details {{headval}}
+			</span>
+		</div>
+		<ngx-spinner bdOpacity=0.9 bdColor="rgba(255,255,255,0.7)" size="medium" color="#342c2c" type="ball-atom"
+			[fullScreen]="true">
+			<p style="color: black"> Loading... </p>
+		</ngx-spinner>
+		<form [formGroup]="requestquoteform" (ngSubmit)="onSubmit()">
+			<div class="row rfqmainform">
+				<input type="text" formControlName="rfqtype" class="form-control" style="display:none" />
+
+				<div class="col-md-3">
+					<label class="custom-lab" for="Reference_no" *ngIf="show_referencebox">Reference_no</label>
+				</div>
+				<div class="col-md-9">
+					<input type="text" formControlName="reference_no" placeholder="Reference_no" [readonly]="isDisabled"
+						*ngIf="show_referencebox" />
+				</div>
+
+				<div class="col-md-3">
+					<label class="custom-lab" for="product_name">Product / Service Name<span
+							style="font-size: 10pt;position:relative;top: -3pt;color: red;">*</span></label>
+				</div>
+				<div class="col-md-9">
+					<input type="text"
+						[ngClass]="{'error':requestquoteform.get('product_name').invalid && requestquoteform.get('product_name').touched}"
+						formControlName="product_name" placeholder="Product / Service Name" [readonly]="isDisabled" [popover]="product_name" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false"/>
+						<popover-content #product_name [closeOnClickOutside]="true"
+						[style.display]="requestquoteform.get('product_name').invalid && requestquoteform.get('product_name').touched ? 'block' : 'none'">
+					<validation-messages [control]="requestquoteform.controls.product_name"></validation-messages>
+						</popover-content>
+				</div>
+				<div class="col-md-3">
+					<label class="custom-lab" for="product_details">Product Details<span
+							style="font-size: 10pt;position:relative;top: -3pt;color: red;">*</span></label>
+				</div>
+				<div class="col-md-9">
+					<input type="text"
+						[ngClass]="{'error':requestquoteform.get('product_details').invalid && requestquoteform.get('product_details').touched}"
+						[readonly]="isDisabled" formControlName="product_details" placeholder="Product Details" [popover]="product_details" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false"/>
+						<popover-content #product_details [closeOnClickOutside]="true"
+						[style.display]="requestquoteform.get('product_details').invalid && requestquoteform.get('product_details').touched ? 'block' : 'none'">
+					<validation-messages [control]="requestquoteform.controls.product_details"></validation-messages>
+						</popover-content>
+				</div>
+				<div class="col-md-3">
+					<label class="custom-lab">Dimension</label>
+				</div>
+				<div class="col-md-9">
+					<input type="number" class="demension" [readonly]="DisDisabled" formControlName="dimension_length"
+						placeholder="Height" [popover]="dimension_width" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false" 	[ngClass]="{'error':requestquoteform.get('dimension_width').invalid && requestquoteform.get('dimension_width').touched}"/>
+					<select class="unit demension" formControlName="Dlunit" (change)="selectD1($event)"
+						[attr.disabled]="DisDisabled?'':null">
+						<option value="null" [selected]=true>select</option>
+						<option *ngFor="let dimensionunit of dimensionunit" [value]="dimensionunit.unit"
+							[attr.data-somedata]="dimensionunit.unit">{{dimensionunit.unit}}</option>
+					</select>
+					<input type="number" class="demension" [readonly]="DisDisabled" formControlName="dimension_width"
+						placeholder="Width" [popover]="dimension_width" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false" 	[ngClass]="{'error':requestquoteform.get('dimension_width').invalid && requestquoteform.get('dimension_width').touched}"/>
+					<select formControlName="Dwunit" class="unit demension" (change)="selectD2($event)"
+						[attr.disabled]="DisDisabled?'':null">
+						<option value="null" [selected]=true>select</option>
+						<option *ngFor="let dimensionunit of dimensionunit" [value]="dimensionunit.unit"
+							[attr.data-somedata]="dimensionunit.unit">{{dimensionunit.unit}}</option>
+					</select>
+					<popover-content #dimension_width [closeOnClickOutside]="true"
+					[style.display]="requestquoteform.get('dimension_width').invalid && requestquoteform.get('dimension_width').touched ? 'block' : 'none'">
+					<validation-messages [control]="requestquoteform.controls.dimension_width"></validation-messages>
+					</popover-content>
+				</div>
+				<div class="col-md-3">
+					<label class="custom-lab">Quantity</label>
+				</div>
+				<div class="col-md-9">
+					<input type="number" [readonly]="DisDisabled" formControlName="quantity_max" class="qty"
+						placeholder="Max" [popover]="quantity_max" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false" [ngClass]="{'error':requestquoteform.get('quantity_max').invalid && requestquoteform.get('quantity_max').touched}"/>
+					<input type="number" [readonly]="DisDisabled" formControlName="quantity_min" class="qty"
+						placeholder="Min" [popover]="quantity_max" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false" [ngClass]="{'error':requestquoteform.get('quantity_max').invalid && requestquoteform.get('quantity_max').touched}"/>
+						<popover-content #quantity_max [closeOnClickOutside]="true"
+						[style.display]="requestquoteform.get('quantity_max').invalid && requestquoteform.get('quantity_max').touched ? 'block' : 'none'">
+					<validation-messages [control]="requestquoteform.controls.quantity_max"></validation-messages>
+						</popover-content>
+
+				</div>
+				<div class="col-md-3">
+					<label class="custom-lab">Weight</label>
+				</div>
+				<div class="col-md-9">
+					<input type="number" [readonly]="DisDisabled" formControlName="weight_max" class="weight"
+						placeholder="Max" [popover]="weight_max" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false" [ngClass]="{'error':requestquoteform.get('weight_max').invalid && requestquoteform.get('weight_max').touched}"/>
+					<select class="weight unit" formControlName="Wwunit" (change)="selectW2($event)"
+						[attr.disabled]="DisDisabled?'':null">
+						<option value="null" [selected]=true>select</option>
+						<option *ngFor="let weightunit of weightunit" [value]="weightunit.unit"
+							[attr.data-somedata]="weightunit.unit">{{weightunit.unit}}</option>
+					</select>
+					<input type="number" [readonly]="DisDisabled" formControlName="weight_min" class="weight"
+						placeholder="Min" [popover]="weight_max" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false" [ngClass]="{'error':requestquoteform.get('weight_max').invalid && requestquoteform.get('weight_max').touched}"/>
+					<select class="weight unit " formControlName="Wlunit" (change)="selectW1($event)"
+						[attr.disabled]="DisDisabled?'':null">
+						<option value="null" [selected]=true>select</option>
+						<option *ngFor="let weightunit of weightunit" [value]="weightunit.unit"
+							[attr.data-somedata]="weightunit.unit">{{weightunit.unit}}</option>
+					</select>
+					<popover-content #weight_max [closeOnClickOutside]="true"
+					[style.display]="requestquoteform.get('quantity_max').invalid && requestquoteform.get('quantity_max').touched ? 'block' : 'none'">
+					<validation-messages [control]="requestquoteform.controls.weight_max"></validation-messages>
+					</popover-content>
+
+				</div>
+				<div class="col-md-3">
+					<label class="custom-lab">Buying currency</label>
+				</div>
+				<div class="col-md-9">
+					<select formControlName="buying_currency" [attr.disabled]="DisDisabled?'':null">
+						<option value="NULL" [selected]=true>Select currency</option>
+						<option [value]="country.id" *ngFor="let country of country">{{country.currency}}</option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<label class="custom-lab">Preferred buying Price</label>
+				</div>
+				<div class="col-md-9">
+					<input type="number" class="qty" [readonly]="DisDisabled" formControlName="buyprice_max"
+						placeholder="Max" [popover]="buyprice_max" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false" [ngClass]="{'error':requestquoteform.get('buyprice_max').invalid && requestquoteform.get('buyprice_max').touched}"/>
+					<input type="number" class="qty" [readonly]="DisDisabled" formControlName="buyprice_min"
+						placeholder="Min"[popover]="buyprice_max" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false" [ngClass]="{'error':requestquoteform.get('buyprice_max').invalid && requestquoteform.get('buyprice_max').touched}" />
+						<popover-content #buyprice_max [closeOnClickOutside]="true"
+						[style.display]="requestquoteform.get('buyprice_max').invalid && requestquoteform.get('buyprice_max').touched ? 'block' : 'none'">
+					<validation-messages [control]="requestquoteform.controls.buyprice_max"></validation-messages>
+						</popover-content>
+				</div>
+				<div class="col-md-3">
+					<label class="custom-lab">Delivery</label>
+				</div>
+				<div class="col-md-9 pl-5 pt-2">
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" [disabled]="DisDisabled" formControlName="delivery" id="customRadioInline1"
+							name="customRadioInline1" class="custom-control-input deliverycheckox"
+							value="Self Collection">
+						<label class="custom-control-label" for="customRadioInline1">Self Collection</label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" [disabled]="DisDisabled" formControlName="delivery"
+							class="custom-control-input deliverycheckox" value="By Seller" id="customRadioInline2"
+							name="customRadioInline1">
+						<label class="custom-control-label" for="customRadioInline2">By Seller</label>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<label class="custom-lab">Expected delivery date</label>
+				</div>
+				<div class="col-md-9">
+					<input type="text" [readonly]="DisDisabled" formControlName="expected_delivery_date" class="qty"
+						placeholder="From" bsDatepicker [minDate]="minDate" [bsConfig]="datePickerConfig" />
+					<input type="text" [readonly]="DisDisabled" formControlName="by_date" class="qty" placeholder="To"
+						bsDatepicker [minDate]="minDate" [bsConfig]="datePickerConfig" [popover]="by_date" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false" [ngClass]="{'error':requestquoteform.get('by_date').invalid && requestquoteform.get('by_date').touched}"/>
+						<popover-content #by_date [closeOnClickOutside]="true"
+						[style.display]="requestquoteform.get('by_date').invalid && requestquoteform.get('by_date').touched ? 'block' : 'none'">
+					           <validation-messages [control]="requestquoteform.controls.by_date"></validation-messages>
+						</popover-content>
+				</div>
+
+			</div>
+			<br>
+			<div class="col-md-12 bg-dark text-center">
+				<span style="font-size: 16pt;font-weight: 500;color: #ffffff;">
+					Contact Details
+				</span>
+			</div>
+			<div class="row rfqmainform">
+				<div class="col-md-3">
+					<label class="custom-lab" for="service_name">Your Name<span
+							style="font-size: 10pt;position:relative;top: -3pt;color: red;">*</span></label>
+				</div>
+				<div class="col-md-9">
+					<input type="text"
+						[ngClass]="{'error':requestquoteform.get('customer_name').invalid && requestquoteform.get('customer_name').touched}"
+						formControlName="customer_name" placeholder="Your name" [readonly]=true [popover]="customer_name" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false"/>
+                    	<popover-content #customer_name [closeOnClickOutside]="true"
+						[style.display]="requestquoteform.get('customer_name').invalid && requestquoteform.get('customer_name').touched ? 'block' : 'none'">
+							  <validation-messages [control]="requestquoteform.controls.customer_name"></validation-messages>
+                    	</popover-content>
+
+				</div>
+				<div class="col-md-3">
+					<label for="service_name">Email<span
+							style="font-size: 10pt;position:relative;top: -3pt;color: red;">*</span></label>
+				</div>
+				<div class="col-md-9">
+					<input type="text"
+						[ngClass]="{'error':requestquoteform.get('email').invalid && requestquoteform.get('email').touched}"
+						formControlName="email" placeholder="Email" readonly=true [popover]="email" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false"/>
+                    	<popover-content #email [closeOnClickOutside]="true"
+						[style.display]="requestquoteform.get('email').invalid && requestquoteform.get('email').touched ? 'block' : 'none'">
+					         <validation-messages [control]="requestquoteform.controls.email"></validation-messages>
+                    	</popover-content>
+				</div>
+				<div class="col-md-3">
+					<label class="custom-lab" for="service_name">Company Name</label>
+				</div>
+
+				<div class="col-md-9">
+					<input type="text"
+						[ngClass]="{'error':requestquoteform.get('company_name').invalid && requestquoteform.get('company_name').touched}"
+						formControlName="company_name" [readonly]="DisDisabled" placeholder="Company name" [popover]="company_name" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false"/>
+						<popover-content #company_name [closeOnClickOutside]="true"
+						[style.display]="requestquoteform.get('company_name').invalid && requestquoteform.get('company_name').touched ? 'block' : 'none'">
+					    <validation-messages [control]="requestquoteform.controls.company_name"></validation-messages>
+						</popover-content>
+				</div>
+
+
+				<div class="col-md-3">
+					<label class="custom-lab">Country<span
+							style="font-size: 10pt;position:relative;top: -3pt;color: red;">*</span></label>
+				</div>
+				<div class="col-md-9">
+					<select
+						[ngClass]="{'error':requestquoteform.get('country').invalid && requestquoteform.get('country').touched}"
+						formControlName="country" class="" (change)="selectChangeCountry($event)"
+						[attr.disabled]="DisDisabled?'':null" [popover]="counte" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false">
+						<option value="" [selected]=true>Select country</option>
+						<option *ngFor="let country of country" [value]="country.country" id="countryselector"
+							[attr.data-somedata]="country.id">{{country.country}}</option>
+					</select>
+					<popover-content #counte [closeOnClickOutside]="true"
+					[style.display]="requestquoteform.get('country').invalid && requestquoteform.get('country').touched ? 'block' : 'none'">
+					<validation-messages [control]="requestquoteform.controls.country"></validation-messages>
+					</popover-content>
+
+				</div>
+				<div class="col-md-3">
+					<label class="custom-lab">State</label>
+				</div>
+				<div class="col-md-9">
+					<select formControlName="state" (change)="selectChangeStates($event)"
+						[attr.disabled]="DisDisabled?'':null" [popover]="state" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false">
+						<option value="" [selected]=true>Select state</option>
+						<option *ngFor="let states of states" [value]="states.states" [attr.data-somedata]="states.id">
+							{{states.states}}</option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<label class="custom-lab">City</label>
+				</div>
+				<div class="col-md-9">
+					<select formControlName="city" [attr.disabled]="DisDisabled?'':null" [popover]="city" popoverPlacement="top"
+					[popoverCloseOnMouseOutside]="false">
+						<option value="" [selected]=true>Select city</option>
+						<option *ngFor="let cities of cities" [value]="cities.cities">{{cities.cities}}</option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<label class="custom-lab">Postal code</label>
+				</div>
+				<div class="col-md-9">
+					<input type="text" formControlName="postal_code" class="postal_code" placeholder="postal_code" [popover]="postal_code" popoverPlacement="top"
+					[popoverCloseOnMouseOutside]="false" />
+
+					<validation-messages [control]="requestquoteform.controls.postal_code"></validation-messages>
+
+				</div>
+				<div class="col-md-3">
+					<label for="service_name">Delivery location<span
+							style="font-size: 10pt;position:relative;top: -3pt;color: red;">*</span></label>
+				</div>
+				<div class="col-md-9">
+					<textarea formControlName="deliverylocation" class="deliverylocation"
+						placeholder="Delivery location" [popover]="deliverylocation" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false" [ngClass]="{'error':requestquoteform.get('deliverylocation').invalid && requestquoteform.get('deliverylocation').touched}" [readonly]="isDisabled" ></textarea>
+						<popover-content #deliverylocation [closeOnClickOutside]="true"
+						[style.display]="requestquoteform.get('deliverylocation').invalid && requestquoteform.get('deliverylocation').touched ? 'block' : 'none'">
+				     	<validation-messages [control]="requestquoteform.controls.deliverylocation"></validation-messages>
+						</popover-content>
+				</div>
+				<div class="col-md-3">
+					<label class="custom-lab">Other Location</label>
+				</div>
+				<div class="col-md-9 pl-5">
+					<input type="text" [hidden]="show_locationbox" [readonly]="DisDisabled"
+						formControlName="Other_location" class="other_loc" placeholder="Other location" />
+					<div class="custom-control custom-checkbox custom-control-inline">
+						<input type="checkbox" [disabled]="DisDisabled" formControlName="Other_location"
+							id="customCheckboxInline1" name="customCheckboxInline1"
+							class="custom-control-input delivery_loc_radio" (change)="handleSelected($event)"
+							[checked]="isEnabled">
+						<label class="custom-control-label delivery_loc_title" for="customCheckboxInline1">Same as
+							contact</label>
+					</div>
+
+				</div>
+
+				<div class="col-md-3">
+					<label class="custom-lab" for="phone">Mobile no<span
+							style="font-size: 10pt;position:relative;top: -3pt;color:red">*</span></label>
+				</div>
+				<div class="col-md-9">
+					<input type="text" value="+91" class="mobile-code" *ngFor="let phonecode of phonecode"
+						value="+{{phonecode.phonecode}}" [readonly]=true>
+					<input type="text" placeholder="Your Mobile Number" class="mobile" [readonly]="DisDisabled"
+						formControlName="mobile_no" name="mobile_no" (mouseout)="PhoneValidator()"
+						[ngClass]="{'error':requestquoteform.get('mobile_no').invalid && requestquoteform.get('mobile_no').touched}" [popover]="mobile_no" popoverPlacement="top"
+						[popoverCloseOnMouseOutside]="false">
+						<popover-content #mobile_no [closeOnClickOutside]="true"
+						[style.display]="requestquoteform.get('mobile_no').invalid && requestquoteform.get('mobile_no').touched ? 'block' : 'none'">
+					<validation-messages [control]="requestquoteform.controls.mobile_no"></validation-messages>
+					<div class="errorstyles2" *ngIf=" invalidPhoneLength"><i
+							class="fa fa-exclamation-circle"></i>Invalid mobile no</div>
+						</popover-content>
+				</div>
+				<div class="col-md-3">
+					<label class="custom-lab">Countrycode</label>
+				</div>
+				<div class="col-md-9" *ngFor="let phonecode of phonecode">
+					<input type="text" formControlName="countrycode" name="countrycode"
+						[(ngModel)]="phonecode.country_codes" [readonly]=true />
+				</div>
+				<div class="col-md-3">
+					<label class="custom-lab">Company Url</label>
+				</div>
+				<div class="col-md-9">
+					<input type="text" [readonly]="DisDisabled" formControlName="company_url"
+						placeholder="Company Url" [popover]="company_url" popoverPlacement="company_url"
+						[popoverCloseOnMouseOutside]="false" [ngClass]="{'error':requestquoteform.get('company_url').invalid && requestquoteform.get('company_url').touched}"/>
+				    	<popover-content #company_url [closeOnClickOutside]="true"
+						[style.display]="requestquoteform.get('company_url').invalid && requestquoteform.get('company_url').touched ? 'block' : 'none'">
+							  <validation-messages [control]="requestquoteform.controls.company_url"></validation-messages>
+						</popover-content>
+				</div>
+			</div>
+			<div class="col-md-12 text-center">
+				<button class="btn btn-success rfq-btn additional-btn" type="submit">{{btval}}</button>
+			</div>
+		</form>
+	</div>
+</div>

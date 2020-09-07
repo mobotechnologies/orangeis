@@ -1,0 +1,302 @@
+<style>
+    li {
+        font-size: 18px;
+
+    }
+
+    .tick ul {
+        list-style: none;
+    }
+
+    .tick ul li:before {
+        content: '✓';
+        color: #55c40f;
+        font-size: 20px;
+    }
+</style>
+
+<nav id="navigation" style="
+z-index: 2;
+">
+    <ul class="menu-items-container">
+        <li>
+            <a [routerLink]="['/home']">
+                <span class="menu-text-icons circle-icon home-icon">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                </span>
+            </a>
+        </li>
+        <li>
+            <span class="menu-text-icons circle-icon about-icon" (click)="logout()">
+                <i class="fa fa-sign-in" aria-hidden="true"></i>
+            </span>
+        </li>
+        <li>
+            <a href="//www.famposo.com/preregistration" target="_blank">
+                <span class="menu-text-icons circle-icon profile-icon">
+                    <i class="fa fa-user-plus" aria-hidden="true" style="font-size: initial;"></i>
+                </span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<div id="main">
+
+    <!-- Section -->
+    <section class="aboutus myClass">
+        <div class="aboutus-inner">
+            <header class="align-center">
+                <br>
+                <br>
+                <h1>About Us</h1>
+                <br>
+                <h3 class="flip" style="color:black">Mission: Global Portal to unlock the wealth in Rural Markets</h3>
+                <br>
+                <br>
+            </header>
+            <div class="row test-center col-md-12">
+                <div class="col-md-8 flip">
+                    <p class="text-justify">
+                        FAMPOSO is Singapore based B2B platform for global trade. FAMPOSO Online Marketplace is the best
+                        Sourcing
+                        Solution for Buyers to unleash the potential products from businesses. Smart & Reliable! Explore
+                        Latest &
+                        Popular Products! It's Time To Connect With Suppliers On FAMPOSO.com! Reliable eMarketplace
+                        which is
+                        operated by chain of business families and called Family Powered Society.
+                    </p>
+                    <p class="text-justify">
+                        This B2B Portal dedicate free of service details to share gifted children education practices &
+                        Methods. We
+                        encourage the Global buyer market for gifted children improvement equipment's procurement and
+                        supply need in
+                        various ways. Reach us for information’s on Contactus@Famposo.com
+                    </p>
+                    <p class="text-justify"> As a platform-independent and vendor-neutral systems integrator, FAMPOSO
+                        operates
+                        from an eco-system with best-of-breed B2B partners to support our business family for all the
+                        needs!
+                    </p>
+                </div>
+                <div class="col-md-4 flip">
+                    <a><img style=" width: 100%;
+                          height: auto;" src="assets/images/aboutus/fps_global.png" alt="" /></a>
+                </div>
+            </div>
+            <div class="row test-center col-md-12">
+                <div class="col-md-12 flip">
+                    <p class="text-justify">
+                        <br><br>
+                        Our customer centric approach help companies to “Seize New Opportunities for Growth”. Our best
+                        client
+                        experience focus on providing simple and easy to handle dynamic b2b platform for any age group
+                        to activate
+                        their ecommerce business without confusions on IOT of things operations.
+                        Our platform equipped with
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class=" container flip">
+            <div class="row col-md-12">
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <ol>
+                        <li type="square">Easy-to-use and mobile friendly </li>
+                        <li type="square">Dynamically Customizable and advertise able. </li>
+                        <li type="square">Responsive on various technology devices. </li>
+                        <li type="square"> Plug and play to add information’s & Integrations</li>
+                    </ol>
+                </div>
+                <div class="col-md-5 tick">
+                    <ul>
+                        <li>1000 SME’s </li>
+                        <li>450+ corporate registrations done </li>
+                        <li>Android, Google, Surface, etc</li>
+                        <li>ODES plug and play </li>
+                    </ul>
+                </div>
+                <div class="col-md-1"></div>
+                <!--
+                <div class="row col-md-12">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <h2 class="text-center ">Board of Directors Family Tree</h2>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <br>-->
+           <!--    <div class="cardBox">
+                    <div class="card">
+                        <div class="front">
+                            <img src="assets/images/aboutus/sharmila.png" class="card-img-top" alt="...">
+                            <h5>Sharmila Nagarajan</h5>
+                        </div>
+                        <div class="back">
+                            <br><br>
+                            <h5>Sharmila Nagarajan</h5>
+                            <h3>Founder & CEO</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="card">
+                        <div class="front">
+                            <img src="assets/images/aboutus/pramila.png" class="card-img-top" alt="...">
+                            <h5>Dr.Premila Thamilvanan</h5>
+                        </div>
+                        <div class="back">
+                            <br><br>
+                            <h5>Dr.Premila Thamilvanan</h5>
+                            <h3>Strategic advisor</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="card">
+                        <div class="front">
+                            <img src="assets/images/aboutus/sridevi.png" class="card-img-top" alt="...">
+                            <h5>Sridevi</h5>
+                        </div>
+                        <div class="back">
+                            <br><br>
+                            <h5>Sridevi</h5>
+                            <h3>Co-Founder</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="card">
+                        <div class="front">
+                            <img src="assets/images/aboutus/sowmya.png" class="card-img-top" alt="...">
+                            <h5>Sowmya Ilangovan</h5>
+                        </div>
+                        <div class="back">
+                            <br><br>
+                            <h5>Sowmya Ilangovan</h5>
+                            <h3>Co-Founder</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="card">
+                        <div class="front">
+                            <img src="assets/images/aboutus/_pj_.png" class="card-img-top" alt="...">
+                            <h5>Dhanasegary R</h5>
+                        </div>
+                        <div class="back">
+                            <br><br>
+                            <h5>Dhanasegary R</h5>
+                            <h3>Chief Technical Lead</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="card">
+                        <div class="front">
+                            <img src="assets/images/aboutus/kamal.png" class="card-img-top" alt="...">
+                            <h5>Kamalakannan</h5>
+                        </div>
+                        <div class="back">
+                            <br><br>
+                            <h5>Kamalakannan</h5>
+                            <h3>Co-Founder</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="card">
+                        <div class="front">
+                            <img src="assets/images/aboutus/nagarajan.png" class="card-img-top" alt="...">
+                            <h5>Nagarajan</h5>
+                        </div>
+                        <div class="back">
+                            <br><br>
+                            <h5>Nagarajan</h5>
+                            <h3>Strategic advisor for investments</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cardBox">
+                    <div class="card">
+                        <div class="front">
+                            <img src="assets/images/aboutus/maneesh.png" class="card-img-top" alt="...">
+                            <h5>Maneesh Muralitharan</h5>
+                        </div>
+                        <div class="back">
+                            <br><br>
+                            <h5>Maneesh Muralitharan</h5>
+                            <h3>Chief marketing Officer</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="card">
+                        <div class="front">
+                            <img src="assets/images/aboutus/fazil.png" class="card-img-top" alt="...">
+                            <h5>Faisal ERA</h5>
+                        </div>
+                        <div class="back">
+                            <br><br>
+                            <h5>Faisal ERA</h5>
+                            <h3>Chief Business
+                                Officer</h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="card">
+                        <div class="front">
+                            <img src="assets/images/aboutus/bibin.png" class="card-img-top" alt="...">
+                            <h5>Bibin</h5>
+                        </div>
+                        <div class="back">
+                            <br><br>
+                            <h5>Bibin</h5>
+                            <h3>Chief Operating Officer</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="card">
+                        <div class="front">
+                            <img src="assets/images/aboutus/ganapathy.png" class="card-img-top" alt="...">
+                            <h5>Ganapathy</h5>
+                        </div>
+                        <div class="back">
+                            <br><br>
+                            <h5>Ganapathy</h5>
+                            <h3>Chief Finance
+                                Director</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="card">
+                        <div class="front">
+                            <img src="assets/images/aboutus/sam.png" class="card-img-top" alt="...">
+                            <h5>Sampath kumar</h5>
+                        </div>
+                        <div class="back">
+                            <br><br>
+                            <h5>Sampath kumar</h5>
+                            <h3>Chief IT Manager</h3>
+                        </div>
+                    </div>
+                </div>-->
+
+            </div>
+
+            <div>
+                <br><br>
+            </div>
+
+        </div>
+
+
+    </section>
+
+</div>

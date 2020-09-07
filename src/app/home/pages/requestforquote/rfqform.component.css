@@ -1,0 +1,197 @@
+input,textarea,select {
+  width: 70%;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 5px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  background-color: #ffffff;
+  font-size: 10pt;
+  margin-left: 20pt;
+}
+
+input:focus,textarea:focus,select:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+}
+.company-div
+{
+  margin: 30pt 50pt 30pt 50pt;
+}
+label
+{
+  font-size: 12pt;
+  font-weight: 500;
+}
+.rfqmainform
+{
+    margin-left: 80pt;
+    margin-top: 10pt;
+}
+.demension 
+{
+  width: 14.4%;
+}
+.qty
+{
+  width: 33%;
+}
+.weight
+{
+  width: 14.4%;
+}
+.other_loc
+{
+    margin-left: -6pt;
+    width: 35%;
+    margin-right: 82pt;
+}
+.custom-control-label
+{
+  font-size: 10pt;
+  font-weight: 500;
+  margin-top: 2pt;
+}
+.custom-lab
+{
+  margin-top: 9pt;
+}
+.mobile-code
+{
+  border-right: 0;
+  width: 10%;
+}
+.mobile
+{
+  width: 60%;
+  margin-left: 0pt;
+}
+
+.additional-btn
+{
+  margin-top: 20pt;
+  margin-bottom: 20pt;
+}
+
+@media only screen 
+   and (device-width : 1024px) 
+   and (device-height : 1366px) 
+   and (-webkit-device-pixel-ratio : 2) {
+    input,textarea,select {
+    font-size: 10px;
+    width: 75%;
+    }
+    label
+    {
+      font-size: 10pt;
+    }
+    .mobile-code
+    {
+      border-right: 0;
+      width: 10%;
+    }
+    .mobile
+    {
+      width: 65%;
+    }
+    .other_loc{
+      width: 35%;
+      margin-left: 34pt;
+  }
+}
+@media only screen 
+   and (device-width : 768px) 
+   and (device-height : 1024px) 
+   and (-webkit-device-pixel-ratio : 2) {
+    input,textarea,select {
+      font-size: 10px;
+      width: 90%;
+      }
+      label
+    {
+      font-size: 8pt;
+    }
+    .mobile-code
+    {
+      border-right: 0;
+      width: 10%;
+    }
+    .mobile
+    {
+      width: 52%;
+    }
+   }
+   @media (max-width: 768px)
+{
+  .company-div
+{
+  margin-left: 0pt;
+  margin-bottom: 30pt;
+  margin-right: 0pt;  
+}
+input,textarea,select {
+  width: 100%;
+  font-size: 10px;
+  margin:0;
+}
+label
+{
+  font-size: 8pt;
+}
+.custom-control-label
+{
+  font-size: 8pt;
+  margin-top: 4pt;
+}
+.mobile-code
+{
+  border-right: 0;
+  width: 15%;
+}
+.mobile
+{
+  width: 85%;
+}
+.btn-success {
+  font-size: 8pt;
+  margin-top: 10pt;
+}
+.rfqmainform
+{
+  margin-left: 2pt;
+  margin-right: 2pt;
+}
+.demension
+{
+  width: 25%;
+}
+.qty
+{
+  width: 50%;
+}
+.weight
+{
+  width: 25%;
+}
+.other_loc
+{
+  width: 53%;
+  margin-left: 0pt;
+}
+.pl-5, .px-5 {
+  padding-left: 1rem !important;
+}
+
+}
+.errorstyles2
+{
+  
+    color:red;
+   
+}
+.error
+{
+  border: 2px solid #e52f48 !important;
+}

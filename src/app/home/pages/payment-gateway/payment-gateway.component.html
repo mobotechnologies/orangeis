@@ -1,0 +1,116 @@
+<!-- <p>test works!</p>
+<a href="https://www.instamojo.com/@famposoprivatelimited/l8154cc6108a64fb28929eed0d34c0070/" rel="im-checkout"
+    data-text="Pay" data-css-style="color:#ffffff; background:#75c26a; width:300px; border-radius:4px"
+    data-layout="vertical">fhdfhdfhdf</a>
+<script src="https://js.instamojo.com/v1/button.js"></script>
+{{payKit |json}}
+
+<a href="{{payKit.payment_request.longurl}}">fghfdhf</a> -->
+<!-- <a href="{{payKit.payment_request.longurl}}">fghfdhf</a> -->
+
+<body class="bg">
+    <nav id="navigation" style="
+              z-index: 2;
+            ">
+        <ul class="menu-items-container">
+            <li>
+                <a [routerLink]="['/home']">
+                    <span class="menu-text-icons circle-icon home-icon">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <span class="menu-text-icons circle-icon about-icon" (click)="logout()">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                </span>
+            </li>
+            <li>
+                <a href="//www.famposo.com/preregistration" target="_blank">
+                    <span class="menu-text-icons circle-icon profile-icon">
+                        <i class="fa fa-user-plus" aria-hidden="true" style="font-size: initial;"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container py-5">
+
+        <!-- For demo purpose -->
+        <div class="row mb-4">
+            <div class="col-lg-8 mx-auto text-center">
+                <h3 style="color: #42717b;">Thank you for choosing a {{this.choosenPlanName}} Package</h3>
+            </div>
+        </div> <!-- End -->
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div style="border: 5px solid #d49fea;" class="card ">
+                    <div class="card-header">
+                        <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+
+                            <!-- Credit card form tabs -->
+                            <ul role="tablist" class="nav nav-pills rounded nav-fill mb-3">
+                                <li class="nav-item"> <a data-toggle="pill" class="nav-link active show">
+                                        Click <b> Pay Now</b> button to proceed payment towards a FAMPOSO </a>
+                                    <div class="card-header">
+                                        <br>
+                                        <label>
+                                            <span style="padding: 8px; font-size:20px;"><b>Monthly</b></span>
+                                        </label>
+                                        <label class="switch ">
+                                            <input type="checkbox" (click)="duration($event)" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <label>
+                                            <span style="padding: 8px; font-size:20px;"><b>Yearly</b> </span>
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- Paypal info -->
+
+                            <div id="paypal" class="">
+                                <div style="border-color: #d9f5e2;" class="form-group text-center  card row col-md-6 ">
+                                    <br>
+                                    <h4 class="text-left" style="color:#64c768">{{this.choosenPlanName}}</h4>
+                                    <hr>
+                                    <h2 style="color:#22b9e6"> Rs {{this.PayingAmt}}/<span
+                                            style="font-size: 16px;">{{this.plan_duration}}</span></h2>
+                                    <p class="text-center">10% discount for first 6 months</p>
+                                    <p> Now Connect your Business Easily</p>
+                                    <p> Post your Products to sale </p>
+                                    <p> Choose your Right Patner </p>
+                                    <p>Get Started Now </p>
+                                    <p>
+
+                                        <button type="button" class="btn btn-primary" (click)="payNow()"><i
+                                                class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                            Pay Now</button> </p>
+
+                                </div>
+
+
+                                <p class="text-muted"> <br><br>
+                                    Note: After clicking on the button, you will be directed to a secure
+                                    gateway for payment. After completing the payment process, you will be redirected
+                                    back
+                                    to
+                                    the website.
+                                </p>
+                            </div> <!-- End -->
+                        </div> <!-- End -->
+                        <!-- Credit card form content -->
+                        <div class="tab-content">
+                            <!-- credit card info-->
+
+                        </div> <!-- End -->
+
+
+                        <!-- End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- Rounded switch -->

@@ -1,0 +1,54 @@
+<div class="fluid-container">
+    <div class="row">
+        <div class="col-12 col-md-3 col-lg-2 productleft">
+                <ul id="productfilter" class="mt-3 mb-3">
+                  <li><a class="header">RELATED CATAGORIES</a></li>
+                  <li  ><a (click)="relatedcategory(subcategory)">All</a></li>
+                  <li  *ngFor="let subcategory of subcategory"><a (click)="relatedcategory(subcategory.id)">{{subcategory.subcategory}}</a></li>
+                  
+                  <hr>
+                  <li><a class="header">INDUSTRY TYPE</a></li>
+                  <li><a (click)="industry(indus)">All</a></li>
+                  <li *ngFor="let industry of industry"><a (click)="idustrysearch(industry.id)">{{industry.industry}}</a></li>
+                  
+                  <hr>
+                  <li><a class="header">BRANDED PAGES</a></li>
+                  <li><a (click)="brandsearch(brand)">All</a></li>
+                  <li  *ngFor="let brand of brand"><a (click)="brandsearch(brand.brand)">{{brand.brand}}</a></li>
+                  
+                </ul>
+        </div>
+        <div class="col-12 col-md-9 col-lg-10 productright mt-1 mb-4" >
+            <div class="row" >
+                <div class="col-12 col-md-6 col-lg-3 no-rightpad mt-3" *ngFor="let productlist of productlist">
+                    <div class="product-grid" [routerLink]="['/productdetailview',productlist.product_id]">
+                        <div class="product-image" >
+                          
+                                <img class="pic-1" src="{{productlist.product_img1}}">
+                                <img class="pic-2" src="{{productlist.product_img2}}">
+                         
+                           
+                            <span class="product-new-label"><a>{{productlist.product_type}}</a></span>
+                            <span class="product-discount-label" *ngIf="productlist.discount"><a>{{productlist.discount}}%</a></span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a>{{productlist.product_name}}</a></h3>
+                            <ul class="rating">
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                            </ul>
+                            <div class="price"><a><i class="fa fa-inr" aria-hidden="true"></i>  {{productlist.min_sellingprice}}
+                                <span>Rs {{productlist.max_sellingprice}}</span></a>
+                            </div>
+                            <a class="add-to-cart" [routerLink]="['/sendenquiry',productlist.product_id]"><i class="fa fa-paper-plane"></i> Send Enquiry</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+</div>

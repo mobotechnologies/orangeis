@@ -1,0 +1,217 @@
+
+  /*body style*/
+.row {
+    flex-wrap: wrap !important;
+    margin-right: 0;
+      margin-left: 0;
+  }
+  
+  .row:before,.row:after {
+    content: "";
+    display: table;
+  }
+  
+  .row:after {
+    clear: both;
+  }
+    
+  
+ 
+   /*Client logo end*
+  /*footer Exclusive */
+  /*.executive-bg
+  {
+    background: #ADA996; 
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+  
+  }
+  .desktop_version{
+    color:maroon;
+    text-align:center;
+  
+  }
+   .desktop_version span{
+    font-weight:bold;
+    font-size: 28px;
+    text-shadow: 2px 3px 6px #795548;
+  }
+  .mobile_version{
+    color:teal;
+    text-align:center;
+  }
+  .desktop_accordian {
+     width: 100%;
+     display: flex;
+     flex-direction: row;
+  }
+  .accordian{
+    width:25%;
+  }
+  .accordian{
+    padding: 20pt 20pt 0pt 80px;
+  }
+  .accordian_title{
+    font-size:20px;
+    font-weight:600;
+    line-height:28px;
+    padding-bottom:5px;
+    border-bottom:2px solid #ddd;
+    width: 85%;
+  }
+  .accordian_content ul{
+    list-style:none;
+    margin: 12px 0;
+    padding:0 0 0 0;
+  }
+  .accordian_content ul li{
+    font-size:16px;
+    line-height:26px;
+  }
+  
+  @media only screen and (max-width:520px){
+    .accordian{
+      width:120%;
+      padding:0pt;
+    }
+    .accordian_content{
+      display:none;
+    }
+    .accordian_title{
+      cursor:pointer;
+    }
+    .accordian_title:after{
+      float:right;
+      font-size: 20px;
+      line-height: 28px;
+      content: "\f3d0";
+      display: inline-block;
+      font-family: "Ionicons";
+      speak: none;
+      font-style: normal;
+      font-weight: 600;
+      font-variant: normal;
+      text-transform: none;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+    }
+    .active_header .accordian_title:after {
+      transform: rotate(180deg);
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+    }
+    .desktop_version{
+      display:none;
+    }
+    .desktop_accordian{
+      flex-direction:column;
+      width: 300px;
+      margin: 0px auto;
+    }
+  }
+  @media only screen and (min-width:521px){
+    .mobile_version{
+      display:none;
+    }
+  }
+  .desktop_version1{
+    color:maroon;
+    text-align:center;
+  }
+   .desktop_version1 span{
+    font-weight:bold;
+    font-size: 28px;
+    text-shadow: 2px 3px 6px #795548;
+  }
+  .mobile_version1{
+    color:teal;
+    text-align:center;
+  }
+  .desktop_accordian1 {
+     width: 100%;
+     display: flex;
+     flex-direction: row;
+  }
+  .accordian1{
+    width:25%;
+  }
+  .accordian1{
+    padding: 20pt 20pt 0pt 80px;
+  }
+  .accordian_title1{
+    font-size:20px;
+    font-weight:600;
+    line-height:28px;
+    padding-bottom:5px;
+    border-bottom:2px solid #ddd;
+    width: 85%;
+  }
+  .accordian_content1 ul{
+    list-style:none;
+    margin: 12px 0;
+    padding:0 0 0 0;
+  }
+  .accordian_content1 ul li{
+    font-size:16px;
+    line-height:26px;
+  }
+  
+  @media only screen and (max-width:520px){
+    .accordian1{
+      width:120%;
+      padding: 0pt;
+    }
+    .accordian_content1{
+      display:none;
+    }
+    .accordian_title1{
+      cursor:pointer;
+    }
+    .accordian_title1:after{
+      float:right;
+      font-size: 20px;
+      line-height: 28px;
+      content: "\f3d0";
+      display: inline-block;
+      font-family: "Ionicons";
+      speak: none;
+      font-style: normal;
+      font-weight: 600;
+      font-variant: normal;
+      text-transform: none;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+    }
+    .active_header1 .accordian_title1:after {
+      transform: rotate(180deg);
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+    }
+    .desktop_version1{
+      display:none;
+    }
+    .desktop_accordian1{
+      flex-direction:column;
+      width: 300px;
+      margin: 0px auto;
+    }
+  }
+  @media only screen and (min-width:521px){
+    .mobile_version1{
+      display:none;
+    }
+  }*/
+   /*sub footer - famposo executive end*/  
+  
+  
+  
