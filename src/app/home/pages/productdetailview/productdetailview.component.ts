@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { ProductserviceService } from '../../../webservice/product/productservice.service';
 import { CookieService } from 'ngx-cookie-service';
@@ -21,10 +21,11 @@ export class ProductdetailviewComponent implements OnInit {
   brochuretab2: boolean;
   brochuretab3: boolean;
   brochuretab4: boolean;
-
+  
   constructor(private productService: ProductserviceService,private  router: Router,private route:ActivatedRoute,private cookieService: CookieService) { }
 
   ngOnInit() {
+    
     $(".mini img").click(function(){  
 
       $(".maxi").attr("src",$(this).attr("src").replace("100x100","400x400"));
@@ -41,6 +42,20 @@ export class ProductdetailviewComponent implements OnInit {
          
             this.productdetail=response.data;
             this.product_clip=response.data.product_clip;
+            var videoURL = response.data.product_clip;
+              var source = $("<source>");
+              source.attr("src", videoURL);
+              source.attr("type", "video/mp4");
+              $("video").append(source);
+              let videoextension = response.data.product_clip.substring(response.data.product_clip.lastIndexOf("."));
+              if(videoextension==".webm" || videoextension==".mp4" || videoextension==".mpeg" || videoextension==".mkv" || videoextension==".avi")
+              {
+                $("#videoclip").show();
+              }
+              else
+              {
+                $("#videoclip").hide();
+              }
             let extension1 = response.data.brochure_img1.substring(response.data.brochure_img1.lastIndexOf("."));
             let extension2 = response.data.brochure_img2.substring(response.data.brochure_img2.lastIndexOf("."));
             let extension3 = response.data.brochure_img3.substring(response.data.brochure_img3.lastIndexOf("."));

@@ -1,12 +1,13 @@
 <div class="pd-wrap">
-		<div class="container">
-			
+		<div class="container" style="margin-left: 6px;">
+		
 		
 	        <div class="row" >
-                
+               
 	        	<div class="col-md-5">
+					
                     <div class="simple-gallery">
-
+						
 						<img class="maxi" src="{{productdetail.product_img1}}">
 						<div style="
 						width: 36px;
@@ -27,8 +28,10 @@
                         <img src="{{productdetail.product_img1}}">
                         <img src="{{productdetail.product_img2}}">
                         <img src="{{productdetail.product_img3}}">
-                        <img src="{{productdetail.product_img4}}">
-                        </div>
+						<img src="{{productdetail.product_img4}}">
+					
+						</div>
+						
                     
                     </div>
                  </div>	
@@ -82,11 +85,17 @@
 							</div>
 							
 						</div>
+						<div class="row" data-toggle="modal" data-target="#myModal" id="videoclip">
+							<div class="mini">  
+								<img src="{{productdetail.product_img1}}" >
+
+							</div>
+							<i class="fa fa-play" style="font-size: 36px;position: absolute;color: orange;top: 296px;left: 34px;"></i>
+						</div>
 					
-					
-						
                         
 	        			<div class="product-count">
+							
 							<a  class="round-black-btn" [routerLink]="['/sendenquiry',productdetail.product_id]" style="margin-right: 45px;"><i class="fa fa-external-link"></i> Send Enquiry</a>
 							<a class="round-black-btn" (click)="buynow(productdetail.product_id)"><i class="fa fa-paper-plane"></i> Buy Now</a>	
 	        			</div>
@@ -186,4 +195,23 @@
 			
 	    </div>
 	</div>
-	
+	<!-- The Modal -->
+<div class="modal" id="myModal">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+
+		<!-- Modal body -->
+		<div class="modal-body">
+		  <div class="video">
+			<video controls #videoPlayer  style="width: 100%;">
+			
+			</video>
+		</div>		
+		</div>
+		<!-- Modal footer -->
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+	  </div>
+	</div>
+  </div>
