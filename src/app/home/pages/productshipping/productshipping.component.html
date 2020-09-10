@@ -40,21 +40,7 @@
         </popover-content>
       </label>
       <label>
-        <span>Country <span class="required">*</span></span>
-        <select   formControlName="country" [popover]="counte"
-        popoverPlacement="top"
-        [popoverCloseOnMouseOutside]="false"  (change)="selectChangeCountry($event)" [ngClass]="{'error':shippingaddress.controls.country.invalid && shippingaddress.controls.country.touched }">
-          <option value="" [selected]=true>Select a country</option>
-          <option *ngFor="let country of country"  [value]="country.country"  id="countryselector" [attr.data-somedata]="country.id">{{country.country}}</option>
-          
-        </select>
-        <popover-content #counte
-        [closeOnClickOutside]="true" 
-        
-         [style.display]="shippingaddress.controls.country.invalid && shippingaddress.controls.country.touched ? 'block' : 'none'" >
-        <validation-messages [control]="shippingaddress.controls.country"></validation-messages>
-        </popover-content>
-      </label>
+     
       <label>
         <span>Street Address <span class="required">*</span></span>
         <input type="text"   formControlName="address" placeholder="House number and street name" [popover]="address"
@@ -70,19 +56,22 @@
         <span>&nbsp;</span>
         <input type="text"  class="form-control"  formControlName="apartment" placeholder="Apartment, suite, unit etc. (optional)" />
       </label>
-      <label>
-        <span>Town / City <span class="required">*</span></span>
-        <input type="text"   formControlName="city"  [popover]="city"
-        popoverPlacement="top"
-        [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':shippingaddress.controls.city.invalid && shippingaddress.controls.city.touched }"/> 
-        <popover-content #city
-        [closeOnClickOutside]="true" 
+      <span>Country <span class="required">*</span></span>
+      <select   formControlName="country" [popover]="counte"
+      popoverPlacement="top"
+      [popoverCloseOnMouseOutside]="false"  (change)="selectChangeCountry($event)" [ngClass]="{'error':shippingaddress.controls.country.invalid && shippingaddress.controls.country.touched }">
+        <option value="" [selected]=true>Select a country</option>
+        <option *ngFor="let country of country"  [value]="country.country"  id="countryselector" [attr.data-somedata]="country.id">{{country.country}}</option>
         
-         [style.display]="shippingaddress.controls.city.invalid && shippingaddress.controls.city.touched ? 'block' : 'none'" >
-        <validation-messages [control]="shippingaddress.controls.city"></validation-messages>
-        </popover-content>
-      </label>
-      <label>
+      </select>
+      <popover-content #counte
+      [closeOnClickOutside]="true" 
+      
+       [style.display]="shippingaddress.controls.country.invalid && shippingaddress.controls.country.touched ? 'block' : 'none'" >
+      <validation-messages [control]="shippingaddress.controls.country"></validation-messages>
+      </popover-content>
+    </label>
+       <label>
         <span>State / County <span class="required">*</span></span>
         <select   formControlName="state" [popover]="state"
         popoverPlacement="top"
@@ -97,6 +86,19 @@
         <validation-messages [control]="shippingaddress.controls.state"></validation-messages>
         </popover-content>
       </label>
+      <label>
+        <span>Town / City <span class="required">*</span></span>
+        <input type="text"   formControlName="city"  [popover]="city"
+        popoverPlacement="top"
+        [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':shippingaddress.controls.city.invalid && shippingaddress.controls.city.touched }"/> 
+        <popover-content #city
+        [closeOnClickOutside]="true" 
+        
+         [style.display]="shippingaddress.controls.city.invalid && shippingaddress.controls.city.touched ? 'block' : 'none'" >
+        <validation-messages [control]="shippingaddress.controls.city"></validation-messages>
+        </popover-content>
+      </label>
+     
       <label>
         <span>Postcode / ZIP <span class="required">*</span></span>
         <input type="text" formControlName="postal_code" [popover]="postal_code"

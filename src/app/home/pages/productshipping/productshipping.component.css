@@ -34,7 +34,7 @@ h2{
 }
 label, table{
   display: block;
-  margin: 15px;
+  margin: 4px;
 }
 label>span{
   float: left;
