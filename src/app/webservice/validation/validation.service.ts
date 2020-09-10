@@ -142,26 +142,35 @@ static DimensionValidator(control: AbstractControl) {
 static WeightValidator(control: AbstractControl) {
     const Wmin: any = control.get('weight_min').value;
     const Wmax: any = control.get('weight_max').value; 
-    if (Wmin > Wmax || Wmin == Wmax) {
-        control.get('weight_max').setErrors({ invalidWeight: true });
+    if(Wmin!="" && Wmax!="")
+    {
+        if (Wmin > Wmax || Wmin == Wmax) {
+            control.get('weight_max').setErrors({ invalidWeight: true });
+        }
+        return null
     }
-    return null
 }
     static QuantityValidator(control: AbstractControl) {
         const Qmin: any = control.get('quantity_min').value;
         const Qmax: any = control.get('quantity_max').value; 
-        if (Qmax < Qmin  || Qmin==Qmax) {
-            control.get('quantity_max').setErrors({ invalidQuantity: true });
+        if(Qmax!="" && Qmin!="")
+        {
+            if (Qmax < Qmin  || Qmin==Qmax) {
+                control.get('quantity_max').setErrors({ invalidQuantity: true });
+            }
+            return null
         }
-        return null
     }
     static PriceRangeValidator(control: AbstractControl) {
         const Pmin: any = control.get('buyprice_min').value;
         const Pmax: any = control.get('buyprice_max').value; 
-        if (Pmin > Pmax || Pmin == Pmax) {
-            control.get('buyprice_max').setErrors({ invalidPrice: true });
+        if(Pmin!="" && Pmax!="")
+        {
+            if (Pmin > Pmax || Pmin == Pmax) {
+                control.get('buyprice_max').setErrors({ invalidPrice: true });
+            }
+            return null
         }
-        return null
     }
     static DateRangeValidator(control: AbstractControl)
     {
