@@ -5,6 +5,7 @@ import {Location} from '@angular/common';
 import * as $ from 'jquery';
 import { filter } from 'rxjs-compat/operator/filter';
 import { retryWhen, delay, take } from 'rxjs/operators'
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-productlisting',
@@ -16,9 +17,10 @@ export class ProductlistingComponent implements OnInit {
  public brand=[];
  public subcategory=[];
  public industry=[];
+  nproduct: boolean;
 
 
-  constructor(private productService: ProductserviceService,private location: Location,private _category:CategoryService) { 
+  constructor(private productService: ProductserviceService,private spinner: NgxSpinnerService,private location: Location,private _category:CategoryService) { 
  
   }
 
@@ -59,8 +61,12 @@ export class ProductlistingComponent implements OnInit {
     this.productService.productlist(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response=>{
       if(response.success)
       {
-       
+           this.nproduct=true;
           this.productlist=response.data;
+      }
+      else
+      {
+        this.nproduct=false;
       }
     
       },error=>console.error('error',error)); 
@@ -77,19 +83,22 @@ export class ProductlistingComponent implements OnInit {
         this.productsearch();
         
       });
-      $("#search-input").on("input",(e)=>{
-      
+      $("#search-input").on("keyup",(e)=>{
+        if (e.keyCode === 13) {
         this.productsearch();
+        }
         
       });
   }
    productsearch()
    {
+     
     const formData = new FormData();
     formData.append('category',$("#category").val());
     formData.append('subcategory',$("#subcategory").val());
     formData.append('search',$("#search-input").val());
     formData.append('category_id',$("#category").val());
+    
     this._category.getsubcategoryfilter(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response=>{
       
           this.subcategory=response.data;
@@ -111,11 +120,17 @@ export class ProductlistingComponent implements OnInit {
     
       },error=>console.error('error',error));
     this.productService.productlist(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response=>{
+      
+       
       if(response.success)
       {
+           this.nproduct=true;
           this.productlist=response.data;
       }
-    
+      else
+      {
+        this.nproduct=false;
+      }
       },error=>console.error('error',error)); 
    }
    relatedcategory(data:any)

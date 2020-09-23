@@ -1,3 +1,7 @@
+<ngx-spinner bdOpacity=0.9 bdColor="rgba(255,255,255,0.7)" size="medium" color="#342c2c" type="ball-atom"
+			[fullScreen]="true">
+			<p style="color: black"> Loading... </p>
+		</ngx-spinner>
 <div class="fluid-container">
     <div class="row">
         <div class="col-12 col-md-3 col-lg-2 productleft">
@@ -19,7 +23,7 @@
                 </ul>
         </div>
         <div class="col-12 col-md-9 col-lg-10 productright mt-1 mb-4" >
-            <div class="row" >
+            <div class="row"  *ngIf="nproduct">
                 <div class="col-12 col-md-6 col-lg-3 no-rightpad mt-3" *ngFor="let productlist of productlist">
                     <div class="product-grid" [routerLink]="['/productdetailview',productlist.product_id]">
                         <div class="product-image" >
@@ -47,6 +51,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div  *ngIf="!nproduct">
+                <img src="https://www.famposo.com/testsoftlaunch/assets/images/product/productfound.jpg" style="width: 100%;"/>
             </div>
         </div>
       
