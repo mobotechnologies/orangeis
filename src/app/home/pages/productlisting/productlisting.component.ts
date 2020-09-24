@@ -63,6 +63,7 @@ export class ProductlistingComponent implements OnInit {
       {
            this.nproduct=true;
           this.productlist=response.data;
+          $(".noproductimg").hide();
       }
       else
       {
@@ -127,6 +128,7 @@ export class ProductlistingComponent implements OnInit {
       {
            this.nproduct=true;
           this.productlist=response.data;
+          $(".noproductimg").hide();
       }
       else
       {
