@@ -25,10 +25,10 @@
 						<i class="fa fa-heart" aria-hidden="true" (click)="addfavourite(productdetail.product_id)"    [style.color]="isfav ? 'red' : 'grey'"></i>
 					</div>
                         <div class="mini">  
-                        <img src="{{productdetail.product_img1}}">
-                        <img src="{{productdetail.product_img2}}">
-                        <img src="{{productdetail.product_img3}}">
-						<img src="{{productdetail.product_img4}}">
+                        <img  src="{{productdetail.product_img1}}" *ngIf="productdetail.product_img1">
+                        <img src="{{productdetail.product_img2}}" *ngIf="productdetail.product_img2">
+                        <img src="{{productdetail.product_img3}}" *ngIf="productdetail.product_img3">
+						<img src="{{productdetail.product_img4}}" *ngIf="productdetail.product_img4">
 					
 						</div>
 						

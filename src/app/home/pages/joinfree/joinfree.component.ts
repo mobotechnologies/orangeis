@@ -413,7 +413,7 @@ export class JoinfreeComponent implements OnInit {
           this.Savesresponse(formData);
         }
         else {
-          Swal.fire("User already exist");
+          Swal.fire("Your account already exist kindly do sign in");
         }
       });
 
@@ -436,7 +436,7 @@ export class JoinfreeComponent implements OnInit {
           this.Savesresponse(formData);
         }
         else {
-          Swal.fire("User already exist");
+          Swal.fire("Your account already exist kindly do sign in");
         }
       });
     })
@@ -583,7 +583,7 @@ export class JoinfreeComponent implements OnInit {
           $("#loggedin").hide();
           Swal.fire({
             title: 'Famposo team received your request!',
-            titleText: 'Kindly signup with google',
+            titleText: 'Your Account does not exist, kindly do sign up with our portal',
             width: 600,
             allowOutsideClick: false,
           }).then((result) => {
@@ -633,7 +633,7 @@ export class JoinfreeComponent implements OnInit {
           $("#loggedin").hide();
           Swal.fire({
             title: 'Famposo team received your request!',
-            titleText: 'Kindly signup with facebook',
+            titleText: 'Your Account does not exist, kindly do sign up with our portal',
             width: 600,
             allowOutsideClick: false,
           }).then((result) => {

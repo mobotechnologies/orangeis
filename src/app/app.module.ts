@@ -23,7 +23,7 @@ import { AgmCoreModule } from '@agm/core';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NetworkStatusComponent } from './network-status/network-status.component';
 import { PlanComponent } from './webservice/plan/plan.component';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -72,6 +72,7 @@ export function provideConfig() {
     BrowserAnimationsModule,
     RxReactiveFormsModule,
     NgxSpinnerModule,
+    NgxPaginationModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBjPzMCvReUhc-EqTkLHcui5BUOH-G0UZQ'

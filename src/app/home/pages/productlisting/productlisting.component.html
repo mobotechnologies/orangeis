@@ -24,7 +24,7 @@
         </div>
         <div class="col-12 col-md-9 col-lg-10 productright mt-1 mb-4" >
             <div class="row"  *ngIf="nproduct">
-                <div class="col-12 col-md-6 col-lg-3 no-rightpad mt-3" *ngFor="let productlist of productlist">
+                <div class="col-12 col-md-6 col-lg-3 no-rightpad mt-3" *ngFor="let productlist of productlist  | paginate: { itemsPerPage: 20, currentPage: p }">
                     <div class="product-grid" [routerLink]="['/productdetailview',productlist.product_id]">
                         <div class="product-image" >
                           
@@ -52,8 +52,12 @@
                     </div>
                 </div>
             </div>
-            <div  *ngIf="!nproduct">
+          
+            <div  *ngIf="!nproduct" class="noproductimg" style="display:none">
                 <img src="https://www.famposo.com/testsoftlaunch/assets/images/product/productfound.jpg" style="width: 100%;"/>
+            </div>
+            <div *ngIf="nproduct" class="pagination" style="background: white;margin-top: 2%;">
+                    <pagination-controls (pageChange)="p = $event" style="padding-top: 2%;padding-left: 34%;"></pagination-controls>
             </div>
         </div>
       

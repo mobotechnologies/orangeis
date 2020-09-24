@@ -67,6 +67,7 @@ export class ProductlistingComponent implements OnInit {
       else
       {
         this.nproduct=false;
+        $(".noproductimg").show();
       }
     
       },error=>console.error('error',error)); 
@@ -130,6 +131,7 @@ export class ProductlistingComponent implements OnInit {
       else
       {
         this.nproduct=false;
+        $(".noproductimg").show();
       }
       },error=>console.error('error',error)); 
    }
