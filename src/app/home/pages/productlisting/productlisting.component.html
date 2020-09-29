@@ -4,8 +4,64 @@
 		</ngx-spinner>
 <div class="fluid-container">
     <div class="row">
-        <div class="col-12 col-md-3 col-lg-2 productleft">
-                <ul id="productfilter" class="mt-3 mb-3">
+        <div class="col-12 col-md-3 col-lg-2">
+            <div class="card" style="
+            margin-top: 0px;
+            margin-left: 0px;
+            top: 22px;
+            left: 15px;
+            margin-bottom: 24px;
+        ">
+                <article class="filter-group">
+                    <header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside1" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"  style="color:black"></i>
+                            <h6 class="header" style="color:black">Related categories </h6>
+                        </a> </header>
+                    <div class="filter-content collapse" id="collapse_aside1" style="">
+                        <div class="card-body" style="
+                        padding-top: 0px;
+                    ">
+                            <ul class="list-menu" id="productfilter">
+                                <li  ><a (click)="relatedcategory(subcategory)">All</a></li>
+                                <li  *ngFor="let subcategory of subcategory"><a (click)="relatedcategory(subcategory.id)">{{subcategory.subcategory}}</a></li>
+                  
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <article class="filter-group">
+                    <header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside2" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down" style="color:black"></i>
+                            <h6 class="header" style="color:black">Industry type</h6>
+                        </a> </header>
+                    <div class="filter-content collapse" id="collapse_aside2" style="">
+                        <div class="card-body" style="
+                        padding-top: 0px;
+                    ">
+                            <ul class="list-menu" id="productfilter">
+                                <li><a (click)="industry(indus)">All</a></li>
+                                <li *ngFor="let industry of industry"><a (click)="idustrysearch(industry.id)">{{industry.industry}}</a></li>
+                  
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <article class="filter-group">
+                    <header class="card-header"> <a href="#" data-toggle="collapse" data-target="#collapse_aside3" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"  style="color:black"></i>
+                            <h6 class="header" style="color:black">Branded pages</h6>
+                        </a> </header>
+                    <div class="filter-content collapse" id="collapse_aside3" style="">
+                        <div class="card-body" style="
+                        padding-top: 0px;
+                    ">
+                            <ul class="list-menu" id="productfilter">
+                                <li><a (click)="brandsearch(brand)">All</a></li>
+                                <li  *ngFor="let brand of brand"><a (click)="brandsearch(brand.brand)">{{brand.brand}}</a></li>
+                  
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+             <!--  <ul id="productfilter" class="mt-3 mb-3">
                   <li><a class="header">RELATED CATAGORIES</a></li>
                   <li  ><a (click)="relatedcategory(subcategory)">All</a></li>
                   <li  *ngFor="let subcategory of subcategory"><a (click)="relatedcategory(subcategory.id)">{{subcategory.subcategory}}</a></li>
@@ -20,7 +76,7 @@
                   <li><a (click)="brandsearch(brand)">All</a></li>
                   <li  *ngFor="let brand of brand"><a (click)="brandsearch(brand.brand)">{{brand.brand}}</a></li>
                   
-                </ul>
+                </ul>--> 
         </div>
         <div class="col-12 col-md-9 col-lg-10 productright mt-1 mb-4" >
             <div class="row"  *ngIf="nproduct">

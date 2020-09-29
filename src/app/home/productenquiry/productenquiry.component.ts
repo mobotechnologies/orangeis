@@ -7,6 +7,7 @@ import { FormBuilder, Validators, FormArray, FormGroup, FormControl } from '@ang
 import { ValidationService } from '../../webservice/validation/validation.service';
 import { SocialloginService } from '../../webservice/joinfree/sociallogin.service';
 import { CookieService } from 'ngx-cookie-service';
+import { NgxSpinnerService } from "ngx-spinner";
 import Swal from 'sweetalert2';
 import * as $ from 'jquery';
 
@@ -28,7 +29,7 @@ export class ProductenquiryComponent implements OnInit {
   productdetail: any;
   public errorMsg;
   selectedcountry: any;
-  constructor(private productService: ProductserviceService,private  router: Router,private route:ActivatedRoute, private SocialloginService: SocialloginService,private cookieService: CookieService,private fb: FormBuilder,private _countrymodel: CountryService,private _validation: ValidationService) { }
+  constructor(private productService: ProductserviceService, private spinner: NgxSpinnerService,private  router: Router,private route:ActivatedRoute, private SocialloginService: SocialloginService,private cookieService: CookieService,private fb: FormBuilder,private _countrymodel: CountryService,private _validation: ValidationService) { }
 
   ngOnInit() {
     this._countrymodel.getCountrycode()
@@ -121,6 +122,7 @@ export class ProductenquiryComponent implements OnInit {
   {
     this.enquiry.markAllAsTouched();
     if (this.enquiry.valid) {
+
       if(this.invalidPhoneLength==false)
       {
           const formData = new FormData();
@@ -132,23 +134,20 @@ export class ProductenquiryComponent implements OnInit {
           formData.append('country',this.enquiry.value.country);
           formData.append('product_id',this.productdetail.product_id);
           formData.append('requirement',this.enquiry.value.requirement);
+          this.spinner.show();
           this.productService.sendenquiry(formData).subscribe(response=>{
             if(response.success)
             {
-              const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                onOpen: (toast) => {
-                  toast.addEventListener('mouseenter', Swal.stopTimer)
-                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+              this.spinner.hide();
+              Swal.fire({
+                title: 'enquiry submitter successfully!',
+                titleText: 'Your enquiry submitted successfully',
+                width: 600,
+                allowOutsideClick: false,
+              }).then((result) => {
+                if (result.value) {
+                  this.router.navigate(['productlisting']);
                 }
-              })
-              Toast.fire({
-                icon: 'success',
-                title: 'enqiry submitted successfully'
               })
                
             }
