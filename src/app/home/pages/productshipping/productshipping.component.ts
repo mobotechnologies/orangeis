@@ -11,6 +11,8 @@ import { CookieService } from 'ngx-cookie-service';
 import {PopoverModule} from "ngx-smart-popover";
 import Swal from 'sweetalert2';
 import * as $ from 'jquery';
+import { NgxSpinnerService } from "ngx-spinner";
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-productshipping',
@@ -31,8 +33,24 @@ export class ProductshippingComponent implements OnInit {
   payKit
   amt
   public PayingAmt
+  showinput: boolean;
 
-  constructor(private productService: ProductserviceService,private  router: Router,private _payment: PaymentService,private fb: FormBuilder,private SocialloginService: SocialloginService,private route:ActivatedRoute,private cookieService: CookieService,private _countrymodel:CountryService,private _validation:ValidationService) { }
+  constructor(private productService: ProductserviceService,private location: Location, private spinner: NgxSpinnerService,private  router: Router,private _payment: PaymentService,private fb: FormBuilder,private SocialloginService: SocialloginService,private route:ActivatedRoute,private cookieService: CookieService,private _countrymodel:CountryService,private _validation:ValidationService) { 
+
+    console.log('state >>>', history.state);
+    console.log('location >>>', this.location.getState());
+    const val: any = this.location.getState();
+    const keys:any = Object.keys(val);
+
+    if(val["type"]=="directbuy")
+    {
+         this.showinput=true;
+    }
+    else
+    {
+      this.showinput=false;
+    }
+  }
   mycart: any;
   carttotal: any;
  
@@ -46,6 +64,7 @@ export class ProductshippingComponent implements OnInit {
 
   ];
   ngOnInit() {
+   
     this._countrymodel.getCountrycode()
     .subscribe(data => this.country = data,
       error => this.errorMsg = error);
@@ -89,7 +108,7 @@ export class ProductshippingComponent implements OnInit {
             this.SocialloginService.getphonecodedata(formData).subscribe(data => this.phonecode = data,
               error => this.errorMsg = error);
             this.shippingaddress.patchValue(response.data);
-           
+            this.invalidPhoneLength=false;
                
           }
         
@@ -123,7 +142,7 @@ export class ProductshippingComponent implements OnInit {
                   error => this.errorMsg = error);
                   this.shippingaddress.patchValue(response.data);
                  
-               
+                  this.invalidPhoneLength=false;
                
           }
         },error=>console.error('error',error)); 
@@ -225,6 +244,7 @@ export class ProductshippingComponent implements OnInit {
     if (this.shippingaddress.valid) {
       if(this.invalidPhoneLength==false)
       {
+        this.spinner.show();
                 for (var i = 0; this.userData['data'].length > i; i++) {
 
                   console.log(this.userData['data'][i].email);
@@ -266,19 +286,20 @@ export class ProductshippingComponent implements OnInit {
                                   // console.log(this.payKit.success);
                                   if (this.payKit.success == true) {
                                     //console.log('dd');
+                                    this.spinner.hide();
                                     console.log(this.payKit.payment_request.longurl);
                                     window.location.href = this.payKit.payment_request.longurl;
                                   }
                                   else {
                                     Swal.fire({
                                       title: 'Oops !',
-                                      titleText: 'Payment failed',
+                                      titleText: 'Payment failed!Please contact famposo for more info ',
                                       width: 600,
                                       allowOutsideClick: false,
-                                      confirmButtonText: 'Company Setup'
+                                      confirmButtonText: 'ok'
                                     }).then((result) => {
                                       if (result.value) {
-                                        this.router.navigate(['/consumeraccountsetup']);
+                                        this.router.navigate(['/contactus']);
                                       }
                                     })
                                     console.log('Payment Error');
@@ -302,6 +323,60 @@ export class ProductshippingComponent implements OnInit {
 
                       }
   }
+  addquantity(index,mquants)
+  {
+    var cq= $("#"+index).val();
 
+    var str = mquants; 
+    
+    var matches = str.match(/(\d+)/); 
+    if(parseInt(cq)<=matches[0])
+    {
+      
+        $("#"+index).val(parseInt(cq));
+        const formData = new FormData();
+        formData.append('cemail', this.cookieService.get('memberid'));
+        formData.append('oauth', this.cookieService.get('oauth'));
+        formData.append('quantity',cq);
+        formData.append('cartid',index);
+        this.productService.updatecart(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response=>{
+          if(response.success)
+          {
+              this.mycart=response.data.productlist;
+              this.carttotal=response.data.subtotal;
+              
+          }
+          else
+          {
+            Swal.fire({
+              position: 'top-end',
+              title: 'Your work has been saved',
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+        
+          },error=>console.error('error',error)); 
+    }
+    else
+    {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        onOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      Toast.fire({
+        icon: 'error',
+        title: 'maximium quantity is '+matches[0]
+      })
+    }
+     
+  }
 }
 

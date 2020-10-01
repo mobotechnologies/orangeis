@@ -84,8 +84,17 @@
 					<label class="custom-lab">Dimension</label>
 				</div>
 				<div class="col-md-9">
+					<input type="number" class="demension" [readonly]="DisDisabled" formControlName="dimension_width"
+					placeholder="Width"  min="1" [popover]="dimension_width" popoverPlacement="top"
+					[popoverCloseOnMouseOutside]="false" 	[ngClass]="{'error':requestquoteform.get('dimension_width').invalid && requestquoteform.get('dimension_width').touched}"/>
+				<select formControlName="Dwunit" class="unit demension" (change)="selectD2($event)"
+					[attr.disabled]="DisDisabled?'':null">
+					<option value="null" [selected]=true>select</option>
+					<option *ngFor="let dimensionunit of dimensionunit" [value]="dimensionunit.unit"
+						[attr.data-somedata]="dimensionunit.unit">{{dimensionunit.unit}}</option>
+				</select>
 					<input type="number" class="demension" [readonly]="DisDisabled" formControlName="dimension_length"
-						placeholder="Height" [popover]="dimension_width" popoverPlacement="top"
+						placeholder="Height" min="1" [popover]="dimension_width" popoverPlacement="top"
 						[popoverCloseOnMouseOutside]="false" 	[ngClass]="{'error':requestquoteform.get('dimension_width').invalid && requestquoteform.get('dimension_width').touched}"/>
 					<select class="unit demension" formControlName="Dlunit" (change)="selectD1($event)"
 						[attr.disabled]="DisDisabled?'':null">
@@ -93,15 +102,7 @@
 						<option *ngFor="let dimensionunit of dimensionunit" [value]="dimensionunit.unit"
 							[attr.data-somedata]="dimensionunit.unit">{{dimensionunit.unit}}</option>
 					</select>
-					<input type="number" class="demension" [readonly]="DisDisabled" formControlName="dimension_width"
-						placeholder="Width" [popover]="dimension_width" popoverPlacement="top"
-						[popoverCloseOnMouseOutside]="false" 	[ngClass]="{'error':requestquoteform.get('dimension_width').invalid && requestquoteform.get('dimension_width').touched}"/>
-					<select formControlName="Dwunit" class="unit demension" (change)="selectD2($event)"
-						[attr.disabled]="DisDisabled?'':null">
-						<option value="null" [selected]=true>select</option>
-						<option *ngFor="let dimensionunit of dimensionunit" [value]="dimensionunit.unit"
-							[attr.data-somedata]="dimensionunit.unit">{{dimensionunit.unit}}</option>
-					</select>
+				
 					<popover-content #dimension_width [closeOnClickOutside]="true"
 					[style.display]="requestquoteform.get('dimension_width').invalid && requestquoteform.get('dimension_width').touched ? 'block' : 'none'">
 					<validation-messages [control]="requestquoteform.controls.dimension_width"></validation-messages>
@@ -112,10 +113,10 @@
 				</div>
 				<div class="col-md-9">
 					<input type="number" [readonly]="DisDisabled" formControlName="quantity_max" class="qty"
-						placeholder="Max" [popover]="quantity_max" popoverPlacement="top"
+						placeholder="Max"  min="1" [popover]="quantity_max" popoverPlacement="top"
 						[popoverCloseOnMouseOutside]="false" [ngClass]="{'error':requestquoteform.get('quantity_max').invalid && requestquoteform.get('quantity_max').touched}"/>
 					<input type="number" [readonly]="DisDisabled" formControlName="quantity_min" class="qty"
-						placeholder="Min" [popover]="quantity_max" popoverPlacement="top"
+						placeholder="Min"  min="1"  [popover]="quantity_max" popoverPlacement="top"
 						[popoverCloseOnMouseOutside]="false" [ngClass]="{'error':requestquoteform.get('quantity_max').invalid && requestquoteform.get('quantity_max').touched}"/>
 						<popover-content #quantity_max [closeOnClickOutside]="true"
 						[style.display]="requestquoteform.get('quantity_max').invalid && requestquoteform.get('quantity_max').touched ? 'block' : 'none'">
@@ -128,7 +129,7 @@
 				</div>
 				<div class="col-md-9">
 					<input type="number" [readonly]="DisDisabled" formControlName="weight_max" class="weight"
-						placeholder="Max" [popover]="weight_max" popoverPlacement="top"
+						placeholder="Max"  min="1" [popover]="weight_max" popoverPlacement="top"
 						[popoverCloseOnMouseOutside]="false" [ngClass]="{'error':requestquoteform.get('weight_max').invalid && requestquoteform.get('weight_max').touched}"/>
 					<select class="weight unit" formControlName="Wwunit" (change)="selectW2($event)"
 						[attr.disabled]="DisDisabled?'':null">
@@ -137,7 +138,7 @@
 							[attr.data-somedata]="weightunit.unit">{{weightunit.unit}}</option>
 					</select>
 					<input type="number" [readonly]="DisDisabled" formControlName="weight_min" class="weight"
-						placeholder="Min" [popover]="weight_max" popoverPlacement="top"
+						placeholder="Min"  min="1"  [popover]="weight_max" popoverPlacement="top"
 						[popoverCloseOnMouseOutside]="false" [ngClass]="{'error':requestquoteform.get('weight_max').invalid && requestquoteform.get('weight_max').touched}"/>
 					<select class="weight unit " formControlName="Wlunit" (change)="selectW1($event)"
 						[attr.disabled]="DisDisabled?'':null">
@@ -165,10 +166,10 @@
 				</div>
 				<div class="col-md-9">
 					<input type="number" class="qty" [readonly]="DisDisabled" formControlName="buyprice_max"
-						placeholder="Max" [popover]="buyprice_max" popoverPlacement="top"
+						placeholder="Max"  min="1" [popover]="buyprice_max" popoverPlacement="top"
 						[popoverCloseOnMouseOutside]="false" [ngClass]="{'error':requestquoteform.get('buyprice_max').invalid && requestquoteform.get('buyprice_max').touched}"/>
 					<input type="number" class="qty" [readonly]="DisDisabled" formControlName="buyprice_min"
-						placeholder="Min"[popover]="buyprice_max" popoverPlacement="top"
+						placeholder="Min"   min="1"  [popover]="buyprice_max" popoverPlacement="top"
 						[popoverCloseOnMouseOutside]="false" [ngClass]="{'error':requestquoteform.get('buyprice_max').invalid && requestquoteform.get('buyprice_max').touched}" />
 						<popover-content #buyprice_max [closeOnClickOutside]="true"
 						[style.display]="requestquoteform.get('buyprice_max').invalid && requestquoteform.get('buyprice_max').touched ? 'block' : 'none'">

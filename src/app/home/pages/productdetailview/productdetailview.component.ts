@@ -243,11 +243,11 @@ export class ProductdetailviewComponent implements OnInit {
         {
           $("#cartcount").html(response.data.cartcount);
          
-          this.router.navigate(["/productshipping"]);  
+          this.router.navigate(["productshipping"], { state: {type:"directbuy"}});  
         }
         else
         {
-          this.router.navigate(["/productshipping"]);  
+          this.router.navigate(["productshipping"], { state: {type:"directbuy"}}); 
         }
       
         },error=>console.error('error',error)); 

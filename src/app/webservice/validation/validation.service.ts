@@ -155,7 +155,7 @@ static WeightValidator(control: AbstractControl) {
         const Qmax: any = control.get('quantity_max').value; 
         if(Qmax!="" && Qmin!="")
         {
-            if (Qmax < Qmin  || Qmin==Qmax) {
+            if (Qmin > Qmax  || Qmin==Qmax) {
                 control.get('quantity_max').setErrors({ invalidQuantity: true });
             }
             return null

@@ -107,7 +107,6 @@ export class ProductcartComponent implements OnInit {
     var cq= $("#"+index).val();
     cq=parseInt(cq) + 1;
     var str = mquants; 
-    
     var matches = str.match(/(\d+)/); 
     if(parseInt(cq)<=matches[0])
     {

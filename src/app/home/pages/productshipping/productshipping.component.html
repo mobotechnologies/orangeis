@@ -1,4 +1,14 @@
 <div class="container mt-3 mb-3">
+  <ngx-spinner
+  bdOpacity = 0.9
+  bdColor = "rgba(255,255,255,0.7)"
+  size = "medium"
+  color = "#342c2c"
+  type = "ball-atom"
+  [fullScreen] = "true"
+  > 
+  <p style="color: black" > Loading... </p>
+  </ngx-spinner>
    <h5>Shipping Details</h5>
 
  <div class="row">
@@ -161,7 +171,7 @@
           <th colspan="2">Your order</th>
         </tr>
         <tr *ngFor="let mycart of mycart">
-          <td> {{mycart.product_name}} x {{mycart.quantity}}(Qty)</td>
+          <td><span>{{mycart.product_name}} x</span><input type="number" id="{{mycart.cartid}}" class="cartinput" [value]="mycart.quantity" (click)="addquantity(mycart.cartid,mycart.maxquantity)" style="width: 22%;margin-left: 7px;margin-right: 5px;" *ngIf="showinput"><span class="carttext"  *ngIf="!showinput">{{mycart.quantity}}</span><span>(Qty)</span></td>
           <td><i class="fa fa-inr" aria-hidden="true"></i> {{mycart.overallprice}}</td>
         </tr>
         <tr>
