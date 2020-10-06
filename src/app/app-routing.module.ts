@@ -29,7 +29,7 @@ import { ProductwhishlistComponent } from './home/pages/productwhishlist/product
 import { ProductenquiryComponent } from './home/productenquiry/productenquiry.component';
 import { ChangePasswordComponent } from './home/pages/change-password/change-password.component';
 import { LogoutComponent } from './shared/logout/logout.component';
-
+import { GstregistrationComponent } from './home/pages/gstregistration/gstregistration.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -42,6 +42,7 @@ const routes: Routes = [
   { path: 'pageexpired', component: PageexpiredComponent },
   { path: 'subscription', component: SubcriptionComponent },
   { path: 'aboutus', component: AboutusComponent },
+  { path: 'gstregistration', component: GstregistrationComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'financesupport', component: FinancesuppportComponent , canActivate: [AuthGuardGuard]},
   { path: 'productlisting', component: ProductlistingComponent },
@@ -64,7 +65,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingHomeComponents = [MainComponent, JoinfreeComponent, RfqformComponent, SubcriptionComponent,ContactusComponent,ChangePasswordComponent,LogoutComponent];
+export const routingHomeComponents = [MainComponent, JoinfreeComponent, RfqformComponent,GstregistrationComponent,SubcriptionComponent,ContactusComponent,ChangePasswordComponent,LogoutComponent];
 export const routingConsumerComponents = [ConsumeraccountsetupComponent, ResetpasswordComponent, FinancesuppportComponent];
 export const routingErrorPageComponents = [PageexpiredComponent, PagenotfoundComponent];
 export const routingProductPageComponents = [ProductlistingComponent, ProductdetailviewComponent, ProductcartComponent, ProductshippingComponent,ProductwhishlistComponent,ProductenquiryComponent];

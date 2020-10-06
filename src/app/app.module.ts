@@ -28,6 +28,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
+
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,

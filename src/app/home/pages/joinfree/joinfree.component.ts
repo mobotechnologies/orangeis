@@ -56,6 +56,7 @@ export class JoinfreeComponent implements OnInit {
   invalidotp: boolean;
   isTextFieldType: boolean;
   invalidFEmailExist: boolean;
+  iscEnabled: boolean;
 
   constructor(private spinner: NgxSpinnerService, private cookieService: CookieService, private _countrymodel: CountryService, private router: Router, private route: ActivatedRoute, private location: Location, private fb: FormBuilder, private _validation: ValidationService, private OAuth: AuthService, private SocialloginService: SocialloginService, private _requestquote: RequestquoteService) {
 
@@ -371,9 +372,22 @@ export class JoinfreeComponent implements OnInit {
   }
   selectedcountry: string = '';
   selectedstates: string = '';
+  handleChecked(isChecked)
+  {
+    if (isChecked.target.checked) {
+      this.iscEnabled=true;
+      alert(this.iscEnabled);
+    }
+    else
+    {
+      this.iscEnabled=false;
+      alert(this.iscEnabled);
+    }
+  }
   joinnow() {
     this.joinfree.markAllAsTouched();
-    if (this.joinfree.controls['agree'].valid) {
+    
+    if (this.iscEnabled==true) {
       if (this.joinfree.valid) {
 
         if (this.invalidotp == false) {

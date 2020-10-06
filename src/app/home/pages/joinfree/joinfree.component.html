@@ -97,7 +97,7 @@
 
                     <div class="col-md-12" style="font-size: 8pt;text-align: left;">
                       <div class="custom-control custom-checkbox custom-control-inline">
-                        <input type="checkbox" formControlName="agree" class="custom-control-input" id="eg">
+                        <input type="checkbox" formControlName="agree" class="custom-control-input" id="eg" (change)="handleChecked($event)">
                         <label class="custom-control-label joinfree-checkbox" for="eg" style="margin-top: 4pt;"> I Agree
                           to the</label>
                         <a data-popup="joinfree-popup" class="text-primary hvr-bounce-to-right joinfree-popup-btn terms"
