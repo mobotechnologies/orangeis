@@ -19,7 +19,10 @@ export class PaymentService {
     return this._paymentcall.post<any>(this._url + "orderpay.php", params).catch(this.errorHandler);
 
   }
+  getplandata(params): Observable<any> {
+    return this._paymentcall.post<any>(this._url + "subcriptionPlan.php", params).catch(this.errorHandler);
 
+  }
   errorHandler(error: HttpErrorResponse) {
     return Observable.throw(error.message || "Server Error");
   }

@@ -79,7 +79,7 @@ export class JoinfreeComponent implements OnInit {
     countrycode: [''],
     mobile_no: ['', [Validators.required, ValidationService.numberValidator]],
     otp: ['', ValidationService.numberValidator],
-    agree: ['', Validators.required]
+    agree: ['']
   });
 
 
@@ -262,7 +262,7 @@ export class JoinfreeComponent implements OnInit {
 
 
     this.joinfree.markAllAsTouched();
-    if (this.joinfree.controls['agree'].valid) {
+    if (this.iscEnabled==true) {
       if (this.joinfree.valid && this.invalidPhoneExist == false && this.invalidPhoneLength == false && this.invalidEmailExist == false) {
 
         this.displaybtn = false;
@@ -376,12 +376,12 @@ export class JoinfreeComponent implements OnInit {
   {
     if (isChecked.target.checked) {
       this.iscEnabled=true;
-      alert(this.iscEnabled);
+    
     }
     else
     {
       this.iscEnabled=false;
-      alert(this.iscEnabled);
+     
     }
   }
   joinnow() {

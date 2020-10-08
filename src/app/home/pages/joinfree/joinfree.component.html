@@ -46,7 +46,7 @@
               </div>
               <div class="right">
                 <div class="form">
-                  <form class="login-form" id="login-form" [formGroup]="joinfree">
+                  <form class="login-form" autocomplete="off" id="login-form" [formGroup]="joinfree">
                     <input type="text" formControlName="name" placeholder="Your Name" [popover]="name"
                       popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  [ngClass]="{'error':joinfree.controls.name.invalid && joinfree.controls.name.touched }"/>
                     <popover-content #name [closeOnClickOutside]="true"
@@ -126,7 +126,7 @@
               </div>
               <div class="right">
                 <div class="form">
-                  <form class="login-form" id="login-form" [formGroup]="login">
+                  <form class="login-form" autocomplete="off" id="login-form" [formGroup]="login">
 
                     <input type="text" formControlName="memberid" placeholder="Username" [popover]="memberid"
                       popoverPlacement="top" [popoverDismissTimeout]="-59" [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':login.controls.memberid.invalid && login.controls.memberid.touched }"/>
@@ -175,7 +175,7 @@
       </div>
       <form id="send" class="send-form">
         <div class="form-group">
-          <form [formGroup]="otpform">
+          <form autocomplete="off" [formGroup]="otpform">
             <div style="display:flex">
 
               <input type="text" placeholder="Enter your  OTP" id="otp" (mouseout)="otpvalidator()"
@@ -207,7 +207,7 @@
       <div class="event-header">
         <h6>Enter your registered Email</h6><br>
       </div>
-      <form id="send" class="send-form" [formGroup]="forgotemailform">
+      <form id="send" autocomplete="off" class="send-form" [formGroup]="forgotemailform">
         <div class="form-group">
           <input type="email" placeholder="Enter Email" id="email" (mouseout)="forgotemailcheck()" formControlName="email" [popover]="femail"
           popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  [ngClass]="{'error':forgotemailform.controls.email.invalid && forgotemailform.controls.email.touched }"/>

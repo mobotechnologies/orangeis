@@ -34,7 +34,7 @@
           <div class="item-foot cf">
             <div class="box">
                 <button type="button" class="button" (click)="removequantity(mycart.cartid,mycart.minquantity)">-</button>
-                <input type="text" class="number" id="{{mycart.cartid}}" [value]="mycart.quantity" disabled />
+                <input type="text" min="1" class="number" id="{{mycart.cartid}}" [value]="mycart.quantity" disabled />
                 <button type="button" class="button" (click)="addquantity(mycart.cartid,mycart.maxquantity)">+</button>
               </div>
           </div>

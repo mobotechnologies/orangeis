@@ -134,6 +134,7 @@ static urlValidator(control: AbstractControl) {
 static DimensionValidator(control: AbstractControl) {
     const Dmin: any = control.get('dimension_length').value;
     const Dmax: any = control.get('dimension_width').value; 
+    
     if (Dmin > Dmax) {
         control.get('dimension_width').setErrors({ invalidDimension: true });
     }

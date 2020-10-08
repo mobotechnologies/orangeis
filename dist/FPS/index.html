@@ -681,6 +681,14 @@ $(".J-categoryPC-item").hover(
   </script>
   <script type="text/javascript">
    $(document).ready(function(){
+      $("inputww").on("keypress",function(e){
+       
+      if (e.which ==32) {
+    // ' ' is standard, 'Spacebar' was used by IE9 and Firefox < 37
+    e.preventDefault()
+    console.log('Space pressed')
+  }
+      });
       $('.otp-popup-btn').click(function(){  
      var popupBlock = $("#otp-popup");
      popupBlock.addClass('active')

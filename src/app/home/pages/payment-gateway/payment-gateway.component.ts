@@ -60,16 +60,27 @@ export class PaymentGatewayComponent implements OnInit {
 
       );
       this.route.queryParams
-        .filter(params => params.planAmt)
+        .filter(params => params.YxEaws)
         .subscribe(params => {
           // console.log('dfx');
           // console.log(params); // {subscription: "details"}
-          this.PayingAmt = params.planAmt * 12;
-          this.choosenPlanName = params.planName;
+          let pAmt=atob(params.YxEaws);
+          this.PayingAmt = parseInt(pAmt) * 12;
+          this.choosenPlanName = atob(params.RTeS);
+          if(atob(params.RTeS)=="Premium Plan" || atob(params.RTeS)=="Standard Plan"  || atob(params.RTeS)=="Basic Plan" )
+          {
+            
+          }
+          else
+          {
+            this.router.navigate(["/subscription"]);
+          }
           // console.log(this.PayingAmt); // Amount
           // console.log(this.choosenPlanName); // Plan Name
           this.plan_duration = "Yearly";
 
+        });
+        this.route.params.subscribe(params => {
         });
 
     }

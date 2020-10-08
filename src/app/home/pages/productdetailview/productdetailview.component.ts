@@ -177,6 +177,11 @@ export class ProductdetailviewComponent implements OnInit {
         },error=>console.error('error',error)); 
          
       }); 
+    
+  }
+  minion(srcval)
+  {
+    $(".maxi").attr("src",srcval);
   }
   addtocart(index)
   {

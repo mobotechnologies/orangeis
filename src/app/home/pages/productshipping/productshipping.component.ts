@@ -291,6 +291,7 @@ export class ProductshippingComponent implements OnInit {
                                     window.location.href = this.payKit.payment_request.longurl;
                                   }
                                   else {
+                                    this.spinner.hide();
                                     Swal.fire({
                                       title: 'Oops !',
                                       titleText: 'Payment failed!Please contact famposo for more info ',

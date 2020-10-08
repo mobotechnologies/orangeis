@@ -51,9 +51,9 @@
         <div class="col-md-2">
           <div class="single-table text-center">
             <div class="plan-header">
-              <h3>Premium</h3>
+              <h3>{{plandata[0].plan_name}}</h3>
             </div>
-            <h4 class="plan-price">Rs 8953<span>/Monthly</span></h4>
+            <h4 class="plan-price">Rs {{plandata[0].price}}<span>/Monthly</span></h4>
             <p>(10% discount for first 6 months)</p>
             <ul class="plan-features">
               <li>Unlimited</li>
@@ -74,9 +74,9 @@
         <div class="col-md-2">
           <div class="single-table text-center">
             <div class="plan-header">
-              <h3>Standard</h3>
+              <h3>{{plandata[1].plan_name}}</h3>
             </div>
-            <h4 class="plan-price">Rs 5968<span>/Monthly</span></h4>
+            <h4 class="plan-price">Rs {{plandata[1].price}}<span>/Monthly</span></h4>
             <p>(10% discount for first 6 months)</p>
 
             <ul class="plan-features">
@@ -98,9 +98,9 @@
         <div class="col-md-2">
           <div class="single-table text-center">
             <div class="plan-header">
-              <h3>Basic</h3>
+              <h3>{{plandata[2].plan_name}}</h3>
             </div>
-            <h4 class="plan-price">Rs 2984<span>/Monthly</span></h4>
+            <h4 class="plan-price">Rs {{plandata[2].price}}<span>/Monthly</span></h4>
             <p>(10% discount for first 6 months)</p>
 
             <ul class="plan-features">

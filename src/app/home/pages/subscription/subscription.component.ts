@@ -3,7 +3,10 @@ import { AlertComponent } from 'ngx-bootstrap';
 import { CookieService } from 'ngx-cookie-service';
 import { retryWhen, delay, take } from 'rxjs/operators'
 import { Router } from '@angular/router';
+import { PaymentService } from '../../../webservice/payment/payment.service';
+
 // import * as $ from 'jquery';
+
 declare var $: any;
 @Component({
   selector: 'app-subcription',
@@ -11,10 +14,15 @@ declare var $: any;
   styleUrls: ['./subscription.component.css']
 })
 export class SubcriptionComponent implements OnInit {
+  plandata: any;
 
-  constructor(private cookieService: CookieService, private router: Router) { }
+  constructor(private cookieService: CookieService, private router: Router,private plan: PaymentService) { }
 
   ngOnInit() {
+    const formData = new FormData();
+    this.plan.getplandata(formData).subscribe(response => {
+      this.plandata=response.data;
+    });
     $(document).ready(function (e) {
 
       //Define Defaults - Elements to be targets by user interaction/events
@@ -62,7 +70,7 @@ export class SubcriptionComponent implements OnInit {
 
   payment_params(amt, plan) {
     console.log(amt, plan);
-    this.router.navigate(['/paymentgateway'], { queryParams: { planAmt: amt, planName: plan }, queryParamsHandling: 'merge' });
+    this.router.navigate(['/paymentgateway'], { queryParams: {YxEaws:btoa(amt),RTeS:btoa(plan) }, queryParamsHandling: 'merge' });
     //, skipLocationChange: true
   }
 
