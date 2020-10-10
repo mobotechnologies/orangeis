@@ -148,12 +148,16 @@ export class ConsumeraccountsetupComponent implements OnInit {
       this.SocialloginService.getusercompanydata(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response => {
           if (response.success) {
             this.companydetails.patchValue(response.data);
+
             $('.imaglog').attr('src',response.data.company_logo);
 
            
             var fileName_Index = response.data.company_logo.lastIndexOf("/");
             var  fileName = response.data.company_logo.substr(fileName_Index);
+            if(fileName.substr(1)!="")
+            {
             $('#imgval').text(fileName.substr(1));
+            }
          
             this.stype = "edit";
             this.sbutton = "Update";
@@ -732,7 +736,7 @@ export class ConsumeraccountsetupComponent implements OnInit {
   completeregistration() {
 
 
-    var companyindate = (new Date(this.companydetails.value.expected_delivery_date)).toLocaleDateString();
+    var companyindate = (new Date(this.companydetails.value.Inauguration_year)).toLocaleDateString();
 
     this.companydetails.markAllAsTouched();
 
