@@ -27,6 +27,10 @@ export class ProductHomeComponent implements OnInit {
       this.productService.clearancesale(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response=>{
        
             this.cproductlist=response.data;
+            if(this.cproductlist[0].product_dimg1=="")
+            {
+              this.cproductlist[0].product_img1="../../../../assets/images/product/page-404-icon.png";
+            }
         
       
         },error=>console.error('error',error)); 

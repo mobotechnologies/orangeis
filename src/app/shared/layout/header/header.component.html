@@ -377,18 +377,17 @@
                   <a (click)="menu('SoftwareService','Website designing and developing')">Website designing and developing</a>
                      </div>
                      <div class="categoryPC-group" catId="112">
-                        <a (click)="menu('CompanyRegistration','LLP / PVT LTD Company Registration')">LLP / PVT LTD Company Registration</a>
-                        <a (click)="menu('CompanyRegistration','Proprietorship registration')">Proprietorship registration</a>
-                        <a (click)="menu('CompanyRegistration','Trust')">Trust&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                        <a (click)="menu('CompanyRegistration','NGO')">NGO</a>        
+                        <a [routerLink]="['/Companyincoperation']">LLP / PVT LTD Company Registration</a>
+                        <a [routerLink]="['/Companyincoperation']">Proprietorship registration</a>
+                        <a [routerLink]="['/Companyincoperation']" >Trust&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        <a [routerLink]="['/Companyincoperation']">NGO</a>        
                      </div>
                      <div class="categoryPC-group" catId="92">
-                        <a (click)="menu('GST,ESI,PF','GST Registration')">GST Registration</a>
-                        <a (click)="menu('GST,ESI,PF','GST monthly filing')">GST monthly filing</a>
-                        <a (click)="menu('GST,ESI,PF','ESI Registration')">ESI Registration</a>
-                        <a (click)="menu('GST,ESI,PF','ESI Monthly filing')">ESI Monthly filing</a>
+                        <a [routerLink]="['/gstregistration']">GST Registration</a>
+                        <a [routerLink]="['/gstmonthlyfiling']">GST monthly filing</a>
+                        <a [routerLink]="['/Esiregistration']">ESI Registration</a>
+                        <a [routerLink]="['/Esimonthlyfiling']">ESI Monthly filing</a>
                         <a (click)="menu('GST,ESI,PF','PF Registration')">PF Registration</a>
-                        <a (click)="menu('GST,ESI,PF','ESI Monthly filing')">ESI Monthly filing</a>
                         <a (click)="menu('GST,ESI,PF','PF Monthly Filing')">PF Monthly Filing</a>
                      </div>
                      <div class="categoryPC-group" catId="102">

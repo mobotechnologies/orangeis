@@ -11,7 +11,7 @@ import { GoogleLoginProvider, FacebookLoginProvider, LinkedinLoginProvider } fro
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppRoutingModule, routingHomeComponents, routingConsumerComponents, routingErrorPageComponents, routingProductPageComponents,routingPaymentPageComponents,routingHomePageComponents } from './app-routing.module';
+import { AppRoutingModule, routingHomeComponents,routingCoperateServiceComponents,routingConsumerComponents, routingErrorPageComponents, routingProductPageComponents,routingPaymentPageComponents,routingHomePageComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
@@ -24,6 +24,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NetworkStatusComponent } from './network-status/network-status.component';
 import { PlanComponent } from './webservice/plan/plan.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+
 
 
 
@@ -57,9 +58,10 @@ export function provideConfig() {
     routingProductPageComponents,
     routingPaymentPageComponents,
     routingHomePageComponents,
+    routingCoperateServiceComponents,
     AboutusComponent,
     NetworkStatusComponent,
-    PlanComponent    
+    PlanComponent  
   ],
   imports: [
     BrowserModule,

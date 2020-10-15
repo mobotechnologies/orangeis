@@ -1,0 +1,27 @@
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+textarea
+{
+    
+    border-radius: 15px;
+
+}
+input
+{
+    
+    border-radius: 15px;
+
+}
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+label{
+    font-weight:500;
+}
+span{
+    font-weight:500;
+}

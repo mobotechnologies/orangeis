@@ -30,6 +30,11 @@ import { ProductenquiryComponent } from './home/productenquiry/productenquiry.co
 import { ChangePasswordComponent } from './home/pages/change-password/change-password.component';
 import { LogoutComponent } from './shared/logout/logout.component';
 import { GstregistrationComponent } from './home/pages/gstregistration/gstregistration.component';
+import { DigitalsignatureComponent } from './home/pages/digitalsignature/digitalsignature.component';
+import { EsiregistrationComponent } from './home/pages/esiregistration/esiregistration.component';
+import { EsimonthlyfilingComponent } from './home/pages/esimonthlyfiling/esimonthlyfiling.component';
+import { CompanyincoperationComponent } from './home/pages/companyincoperation/companyincoperation.component';
+import { GstmonthlyfilingComponent} from './home/pages/gstmonthlyfiling/gstmonthlyfiling.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -42,7 +47,12 @@ const routes: Routes = [
   { path: 'pageexpired', component: PageexpiredComponent },
   { path: 'subscription', component: SubcriptionComponent },
   { path: 'aboutus', component: AboutusComponent },
+   { path: 'Companyincoperation', component: CompanyincoperationComponent},
   { path: 'gstregistration', component: GstregistrationComponent },
+  { path: 'gstmonthlyfiling', component:  GstmonthlyfilingComponent },
+  { path: 'Esiregistration', component: EsiregistrationComponent },
+  { path: 'Esimonthlyfiling', component: EsimonthlyfilingComponent },
+  { path: 'Digitalsignature', component: DigitalsignatureComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'financesupport', component: FinancesuppportComponent , canActivate: [AuthGuardGuard]},
   { path: 'productlisting', component: ProductlistingComponent },
@@ -71,3 +81,4 @@ export const routingErrorPageComponents = [PageexpiredComponent, PagenotfoundCom
 export const routingProductPageComponents = [ProductlistingComponent, ProductdetailviewComponent, ProductcartComponent, ProductshippingComponent,ProductwhishlistComponent,ProductenquiryComponent];
 export const routingPaymentPageComponents=[PaymentGatewayComponent,CommonPopComponent,PaymentSuccessComponent,PaymentFailureComponent ];
 export const routingHomePageComponents=[SliderComponent,HomeRfqformComponent,TestimonialsComponent,ClientsSliderComponent,ProductHomeComponent];
+export const routingCoperateServiceComponents=[DigitalsignatureComponent,CompanyincoperationComponent,EsiregistrationComponent,EsimonthlyfilingComponent,GstregistrationComponent,GstmonthlyfilingComponent];
