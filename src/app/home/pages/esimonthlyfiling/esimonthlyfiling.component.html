@@ -1,3 +1,7 @@
+<ngx-spinner bdOpacity=0.9 bdColor="rgba(255,255,255,0.7)" size="medium" color="#342c2c" type="ball-atom"
+[fullScreen]="true">
+<p style="color: black"> Loading... </p>
+</ngx-spinner>
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-md-12 col-lg-11 col-xl-10">
@@ -30,24 +34,57 @@
                         <div class="card rounded-0 border-0 card2">
                             <div class="form-card">
                                 <h2 id="heading" class="text-center">Register</h2>
+                                <form [formGroup]="esimonthlyfiling">
                                 <div class="row form-group">
-                                    <div class="col-9 col-md-7"> <input type="text" name="exp" id="exp" placeholder="ESI Reg. Number*"> </div>
-                                    <div class="col-3 col-md-5"> <input type="text" name="cvcpwd" placeholder="ESI  User Name*" class="placeicon" > </div>
+                                    <div class="col-9 col-md-7"> <input type="text" formControlName="esiregisterno"  placeholder="ESI Reg. Number*" [ngClass]="{'error':esimonthlyfiling.controls.esiregisterno.invalid && esimonthlyfiling.controls.esiregisterno.touched }"   [popover]="esiregisterno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                                        <popover-content #esiregisterno [closeOnClickOutside]="true"
+                                        [style.display]="esimonthlyfiling.controls.esiregisterno.invalid && esimonthlyfiling.controls.esiregisterno.touched ? 'block' : 'none'">
+                                        <validation-messages [control]="esimonthlyfiling.controls.esiregisterno"></validation-messages> </popover-content></div>
+                                    <div class="col-3 col-md-5"> <input type="text" formControlName="esiusername" placeholder="ESI  User Name*" class="placeicon" [ngClass]="{'error':esimonthlyfiling.controls.esiusername.invalid && esimonthlyfiling.controls.esiusername.touched }"   [popover]="esiusername" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >   <popover-content #esiusername [closeOnClickOutside]="true"
+                                        [style.display]="esimonthlyfiling.controls.esiusername.invalid && esimonthlyfiling.controls.esiusername.touched ? 'block' : 'none'"> <validation-messages [control]="esimonthlyfiling.controls.esiusername"></validation-messages></popover-content></div>
                                 </div>
                                 <div class="row form-group">
-                                    <div class="col-9 col-md-7"> <input type="text" name="exp" id="exp" placeholder="Mobile Number *"> </div>
-                                    <div class="col-3 col-md-5"> <input type="text" name="cvcpwd" placeholder="Email ID*" class="placeicon" > </div>
+                                    <div class="col-9 col-md-7"> <input type="text" formControlName="mobileno" placeholder="Mobile Number *" [ngClass]="{'error':esimonthlyfiling.controls.mobileno.invalid && esimonthlyfiling.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                                        <popover-content #mobileno [closeOnClickOutside]="true"
+                                        [style.display]="esimonthlyfiling.controls.mobileno.invalid && esimonthlyfiling.controls.mobileno.touched ? 'block' : 'none'">
+                                        <validation-messages [control]="esimonthlyfiling.controls.mobileno"></validation-messages> </popover-content></div>
+                                    <div class="col-3 col-md-5"> <input type="text" formControlName="emailid" placeholder="Email ID*" class="placeicon" [ngClass]="{'error':esimonthlyfiling.controls.emailid.invalid && esimonthlyfiling.controls.emailid.touched }"   [popover]="emailid" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> <popover-content #emailid [closeOnClickOutside]="true"
+                                        [style.display]="esimonthlyfiling.controls.emailid.invalid && esimonthlyfiling.controls.emailid.touched ? 'block' : 'none'"> <validation-messages [control]="esimonthlyfiling.controls.emailid"></validation-messages> </popover-content></div>
                                 </div>
                                 <div class="row form-group">
-                                    <div class="col-9 col-md-7"> <input type="text" name="exp" id="exp" placeholder="ESI Login Password*"> </div>
-                                    <div class="col-3 col-md-5"> <input type="text" name="cvcpwd" placeholder="Confirm Password*" class="placeicon" > </div>
+                                    <div class="col-9 col-md-7">
+                                         <input type="text" formControlName="logpassword" placeholder="ESI Login Password*" [ngClass]="{'error':esimonthlyfiling.controls.logpassword.invalid && esimonthlyfiling.controls.logpassword.touched }"   [popover]="logpassword" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
+                                        <popover-content #logpassword [closeOnClickOutside]="true"
+                                        [style.display]="esimonthlyfiling.controls.logpassword.invalid && esimonthlyfiling.controls.logpassword.touched ? 'block' : 'none'">
+                                        <validation-messages [control]="esimonthlyfiling.controls.logpassword"></validation-messages> 
+                                    </popover-content>
+                                </div>
+                                    <div class="col-3 col-md-5">
+                                         <input type="text" formControlName="confirmpassword" placeholder="Confirm Password*" class="placeicon" [ngClass]="{'error':esimonthlyfiling.controls.confirmpassword.invalid && esimonthlyfiling.controls.confirmpassword.touched }"   [popover]="confirmpassword" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
+                                         <popover-content #confirmpassword [closeOnClickOutside]="true"
+                                        [style.display]="esimonthlyfiling.controls.confirmpassword.invalid && esimonthlyfiling.controls.confirmpassword.touched ? 'block' : 'none'"> 
+                                        <validation-messages [control]="esimonthlyfiling.controls.confirmpassword"></validation-messages> 
+                                         </popover-content>
+                                    </div>
                                 </div>
                                 <div class="row form-group">
-                                    <div class="col-12"> <input type="text" name="exp" id="exp" placeholder="MM/DD/YYYY"> </div>
+                                    <div class="col-12"> <input type="text" formControlName="date" bsDatepicker [bsConfig]="datePickerConfig"  placeholder="MM/DD/YYYY"  [ngClass]="{'error':esimonthlyfiling.controls.date.invalid && esimonthlyfiling.controls.date.touched }"   [popover]="date" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
+                                        <popover-content #date [closeOnClickOutside]="true"
+                                        [style.display]="esimonthlyfiling.controls.date.invalid && esimonthlyfiling.controls.date.touched ? 'block' : 'none'"> 
+                                        <validation-messages [control]="esimonthlyfiling.controls.date">  
+                                        </validation-messages> 
+                                        </popover-content>
+                                        </div>
                                     
                                 </div>
                                 <div class="row form-group">
-                                    <div class="col-12"><label style="font-weight:600">Upload Wages details</label><input type="file" class="form-control"> </div>
+                                    <div class="col-12"><label style="font-weight:600">Upload Wages details</label><input type="file"  formControlName="uploadwage" class="form-control"  (change)="onSelectedfile($event)"  [ngClass]="{'error':esimonthlyfiling.controls.uploadwage.invalid && esimonthlyfiling.controls.uploadwage.touched }"   [popover]="uploadwage" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                                         <popover-content #uploadwage [closeOnClickOutside]="true"
+                                        [style.display]="esimonthlyfiling.controls.uploadwage.invalid && esimonthlyfiling.controls.uploadwage.touched ? 'block' : 'none'"> 
+                                        <validation-messages [control]="esimonthlyfiling.controls.uploadwage"> 
+                                        </validation-messages> 
+                                             </popover-content>
+                                            </div>
                                     
                                 </div>
                                 <div class="bottom">
@@ -57,9 +94,10 @@
                                         </div>
                                     </div>
                                     <div class="row justify-content-center">
-                                        <div class="col-md-8"> <input type="submit" value="Submit and pay" class="btn btn-success"> </div>
+                                        <div class="col-md-8"> <input type="submit" value="Submit and pay" (click)="submitandpay()" class="btn btn-success"> </div>
                                     </div>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>

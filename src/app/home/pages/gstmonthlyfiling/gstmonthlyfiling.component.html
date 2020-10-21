@@ -40,6 +40,7 @@
                </div>
             
                 <div class="card-body  pt-0">
+                    <form [formGroup]="gstmonthlyfiling">
                     <div class="row">
                        
                         <div class="col-md-12">
@@ -51,26 +52,50 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col">
-                                    <label class="form-control-label">GST Number  :</label> <input type="text" id="cname" name="cname" placeholder="" class="form-control" onblur="validate2(1)"> 
+                                    <label class="form-control-label">GST Number  :</label> <input type="text" formControlName="gstnumber" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.gstnumber.invalid && gstmonthlyfiling.controls.gstnumber.touched }"   [popover]="gstnumber" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 
+                                    <popover-content #gstnumber [closeOnClickOutside]="true"
+                                    [style.display]="gstmonthlyfiling.controls.gstnumber.invalid && gstmonthlyfiling.controls.gstnumber.touched ? 'block' : 'none'">
+                                    <validation-messages [control]="gstmonthlyfiling.controls.gstnumber"></validation-messages>
+                                </popover-content>
                                 </div>
                                 <div class="col">
-                                    <label class="form-control-label">GST User Name * :</label> <input type="text" id="zip" name="zip" placeholder="" class="form-control" onblur="validate2(2)"> 
+                                    <label class="form-control-label">GST User Name * :</label> <input type="text" formControlName="gstusername" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.gstusername.invalid && gstmonthlyfiling.controls.gstusername.touched }"   [popover]="gstusername" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 
+                                    <popover-content #gstusername [closeOnClickOutside]="true"
+                                    [style.display]="gstmonthlyfiling.controls.gstusername.invalid && gstmonthlyfiling.controls.gstusername.touched ? 'block' : 'none'">
+                                    <validation-messages [control]="gstmonthlyfiling.controls.gstusername"></validation-messages>
+                                </popover-content>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col">
-                                    <label class="form-control-label">Mobile Number  :</label> <input type="text" id="cname" name="cname" placeholder="" class="form-control" onblur="validate2(1)"> 
+                                    <label class="form-control-label">Mobile Number  :</label> <input type="text" formControlName="mobileno" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.mobileno.invalid && gstmonthlyfiling.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 
+                                    <popover-content #mobileno [closeOnClickOutside]="true"
+                    [style.display]="gstmonthlyfiling.controls.mobileno.invalid && gstmonthlyfiling.controls.mobileno.touched ? 'block' : 'none'">
+                                    <validation-messages [control]="gstmonthlyfiling.controls.mobileno"></validation-messages>
+                                </popover-content>
                                 </div>
                                 <div class="col">
-                                    <label class="form-control-label">Email ID * :</label> <input type="text" id="zip" name="zip" placeholder="" class="form-control" onblur="validate2(2)"> 
+                                    <label class="form-control-label">Email ID * :</label> <input type="text" formControlName="emailid" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.emailid.invalid && gstmonthlyfiling.controls.emailid.touched }"   [popover]="emailid" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 
+                                    <popover-content #emailid [closeOnClickOutside]="true"
+                                    [style.display]="gstmonthlyfiling.controls.emailid.invalid && gstmonthlyfiling.controls.emailid.touched ? 'block' : 'none'">
+                                    <validation-messages [control]="gstmonthlyfiling.controls.emailid"></validation-messages>
+                                </popover-content>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col">
-                                    <label class="form-control-label">GST Login Password  :</label> <input type="text" id="cname" name="cname" placeholder="" class="form-control" onblur="validate2(1)"> 
+                                    <label class="form-control-label">GST Login Password  :</label> <input type="text" formControlName="logpassword" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.logpassword.invalid && gstmonthlyfiling.controls.logpassword.touched }"   [popover]="logpassword" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 
+                                    <popover-content #logpassword [closeOnClickOutside]="true"
+                                    [style.display]="gstmonthlyfiling.controls.logpassword.invalid && gstmonthlyfiling.controls.logpassword.touched ? 'block' : 'none'">
+                                    <validation-messages [control]="gstmonthlyfiling.controls.logpassword"></validation-messages>
+                                </popover-content>
                                 </div>
                                 <div class="col">
-                                    <label class="form-control-label">Confirm Login Password * :</label> <input type="text" id="zip" name="zip" placeholder="" class="form-control" onblur="validate2(2)"> 
+                                    <label class="form-control-label">Confirm Login Password * :</label> <input type="text" formControlName="confirmpassword" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.confirmpassword.invalid && gstmonthlyfiling.controls.confirmpassword.touched }"   [popover]="confirmpassword" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  > 
+                                    <popover-content #confirmpassword [closeOnClickOutside]="true"
+                                    [style.display]="gstmonthlyfiling.controls.confirmpassword.invalid && gstmonthlyfiling.controls.confirmpassword.touched ? 'block' : 'none'">
+                                    <validation-messages [control]="gstmonthlyfiling.controls.confirmpassword"></validation-messages>
+                                </popover-content>
                                 </div>
                             </div>
                         </div>
@@ -82,11 +107,12 @@
                    </div>
                     <div class="row justify-content-center" style="
                     margin-bottom: 13px;
-                "> <button class="btn btn-blue next mx-2" id="next1">Submit and pay</button> </div>
+                "> <button class="btn btn-blue next mx-2" id="next1" (click)="submitandpay()">Submit and pay</button> </div>
                     <div class="gstreturnprocess" style="background: yellow;padding-left: 25px;padding-top: 11px;padding-bottom: 10px;">
                         <p>Monthly GST returns process</p>
                         <p>The Indian tax authorities require tax payers to reconcile their GST invoices with their customers and suppliers via the online clearing system.  The monthly process is as follows:</p>
                     </div>
+                </form>
                 </div>
                 
                

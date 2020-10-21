@@ -168,3 +168,7 @@ button:focus {
     box-shadow: none !important;
     outline-width: 0
 }
+.error
+  {
+    border: 2px solid #e52f48 !important;
+  }

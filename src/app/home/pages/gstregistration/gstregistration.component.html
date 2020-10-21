@@ -1,8 +1,8 @@
 <div class="container-fluid px-1 py-5 mx-auto">
    
     <div class="row d-flex justify-content-center">
-        <div class="col-md-3" style="
-        background: #009688;
+        <div class="col-md-3 gstinfo" style="
+        background:  #009688;
        
       " >
         <div class="gstimage" style="
@@ -39,7 +39,7 @@
                     <img src="../../../../assets/images/cooperateservice/register.png" alt="gstreg.jpg"/>
                </div>
             
-                <div class="card-body  pt-0">
+                <div class="card-body  pt-0  gstinfo">
                     <div class="row">
                                 <div class="col">
                                     <div class="gstapplicability" >
@@ -57,32 +57,37 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="row justify-content-center"> <button class="btn btn-blue next mx-2" id="next1">Register<span class="fa fa-long-arrow-right"></span></button> </div>
+                    <div class="row justify-content-center"> <button class="btn btn-blue next mx-2" id="next1" (click)="next()">Register<span class="fa fa-long-arrow-right"></span></button> </div>
                 </div>
+                <form [formGroup]="gstregistration" class="gstform" style="display: none;">
                 <div class="card-body show  pt-0">
                     <h4 class="heading mb-4 pb-1">Business details</h4>
                     <div class="form-group row">
                         <div class="col">
                             <label class="form-control-label">Applicant Type :</label>
-                            <div class="select mb-3"> <select name="type-info" class="form-control">
+                            <div class="select mb-3"> <select formControlName="applicanttype" class="form-control" [ngClass]="{'error':gstregistration.controls.applicanttype.invalid && gstregistration.controls.applicanttype.touched }"   [popover]="applicanttype" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
                                     <option>GST Registration </option>
                                     <option>GST Modification </option>
                                     <option>GST Cancellation</option>
                                   
             
-                                </select> </div>
+                                </select> 
+                                <validation-messages [control]="gstregistration.controls.applicanttype"></validation-messages>
+                            </div>
                         </div>
                         <div class="col">
-                            <label class="form-control-label">Applicant Full Name * :</label> <input type="text" id="lname" name="lname" placeholder="" class="form-control">
+                            <label class="form-control-label">Applicant Full Name * :</label> <input type="text" formControlName="applicantfullname" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.applicantfullname.invalid && gstregistration.controls.applicantfullname.touched }"   [popover]="applicantfullname" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                            <validation-messages [control]="gstregistration.controls.applicantfullname"></validation-messages>
                         </div> 
                     </div>
                     <div class="form-group row">  
                          <div class="col">
-                            <label class="form-control-label">Name of the Firm* :</label> <input type="text" id="email" name="email" placeholder="" class="form-control" > 
+                            <label class="form-control-label">Name of the Firm* :</label> <input type="text" formControlName="firmname" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.firmname.invalid && gstregistration.controls.firmname.touched }"   [popover]="firmname" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
+                            <validation-messages [control]="gstregistration.controls.firmname"></validation-messages>
                          </div>
                          <div class="col">
                             <label class="form-control-label">Type of Business Entity * :</label> 
-                            <select id="mob" name="mob" placeholder="" class="form-control" > 
+                            <select formControlName="businessentity" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.businessentity.invalid && gstregistration.controls.businessentity.touched }"   [popover]="businessentity" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
                                  <option>Sole Proprietor</option>
                                  <option>Private Limited Company</option>
                                  <option>Public Limited Company</option>
@@ -90,6 +95,7 @@
                                  <option>Society</option>
                                  <option>Trust</option>
                             </select>
+                            <validation-messages [control]="gstregistration.controls.businessentity"></validation-messages>
                         </div>
                     </div>
                    
@@ -101,12 +107,14 @@
                     <h4 class="heading mb-4 pb-1">Company details</h4>
                     <div class="form-group row">
                         <div class="col">
-                            <label class="form-control-label">Complete address of additional place of business  :</label> 
-                            <input type="text" id="cname" name="cname" placeholder="" class="form-control" onblur="validate2(1)"> 
+                            <label class="form-control-label">Address of additional place of business  :</label> 
+                            <input type="text" formControlName="businessaddress" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.businessaddress.invalid && gstregistration.controls.businessaddress.touched }"   [popover]="businessaddress" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                            <validation-messages [control]="gstregistration.controls.businessaddress"></validation-messages> 
                         </div>
                         <div class="col">
                             <label class="form-control-label">List of Goods & Services * :</label> 
-                            <input type="text" id="zip" name="zip" placeholder="" class="form-control" onblur="validate2(2)">
+                            <input type="text" formControlName="goodsservice" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.goodsservice.invalid && gstregistration.controls.goodsservice.touched }"   [popover]="goodsservice" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                            <validation-messages [control]="gstregistration.controls.goodsservice"></validation-messages>
                         </div>
                         
                     </div>
@@ -114,7 +122,7 @@
                     <div class="form-group row">
                         <div class="col">
                             <label class="form-control-label">Nature of Business Activity* :</label>
-                            <div class="select mb-3"> <select name="type-info" class="form-control">
+                            <div class="select mb-3"> <select formControlName="businessactivity" class="form-control" [ngClass]="{'error':gstregistration.controls.businessactivity.invalid && gstregistration.controls.businessactivity.touched }"   [popover]="businessactivity" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                                     <option>Whole Sale Business</option>
                                     <option>Factory/Manufacturing</option>
                                     <option>Export</option>
@@ -122,10 +130,13 @@
                                     <option>Work Contract</option>
                                     <option>Office/Sale Office</option>
                                     <option>Supplier of Services</option>
-                                </select> </div>
+                                </select> 
+                                <validation-messages [control]="gstregistration.controls.businessactivity"></validation-messages>
+                            </div>
                         </div>
                         <div class="col">
-                            <label class="form-control-label">Date of commencement of business * :</label> <input type="date" id="desc" name="desc" placeholder="" class="form-control" onblur="validate2(4)"> 
+                            <label class="form-control-label">Date of commencement of business * :</label> <input type="text" bsDatepicker [bsConfig]="datePickerConfig"  formControlName="commencement" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.commencement.invalid && gstregistration.controls.commencement.touched }"   [popover]="commencement" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
+                            <validation-messages [control]="gstregistration.controls.commencement"></validation-messages>
                         </div>
                       
                     </div>
@@ -133,51 +144,90 @@
       
                     <div class="form-group row">
                         <div class="col">
-                            <label class="form-control-label">Mobile Number  :</label> <input type="text" id="cname" name="cname" placeholder="" class="form-control" onblur="validate2(1)"> 
+                            <label class="form-control-label">Mobile Number  :</label> <input type="text" formControlName="mobileno" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.mobileno.invalid && gstregistration.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 
+                            <validation-messages [control]="gstregistration.controls.mobileno"></validation-messages>
                         </div>
                         <div class="col">
-                            <label class="form-control-label">Email ID * :</label> <input type="text" id="zip" name="zip" placeholder="" class="form-control" onblur="validate2(2)"> 
+                            <label class="form-control-label">Email ID * :</label> <input type="text" formControlName="emailid" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.emailid.invalid && gstregistration.controls.emailid.touched }"   [popover]="emailid" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                            <validation-messages [control]="gstregistration.controls.emailid"></validation-messages> 
                         </div>
                     </div>
                     <div class="form-group"> <label class="form-control-label">Do you want to opt composition scheme? * :</label>
-                        <input type="radio" onblur="validate2(4)" style="
+                        <input type="radio" formControlName="compositionscheme"  style="
                         width: 30px;
-                    ">Yes
-                        <input type="radio"  onblur="validate2(4)" style="
+                    " value="yes"  [ngClass]="{'error':gstregistration.controls.compositionscheme.invalid && gstregistration.controls.compositionscheme.touched }"   [popover]="compositionscheme" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">Yes
+                        <input type="radio"  formControlName="compositionscheme"    style="
                         width: 30px;
-                    ">No
+                    " value="no"  [ngClass]="{'error':gstregistration.controls.compositionscheme.invalid && gstregistration.controls.compositionscheme.touched }"   [popover]="compositionscheme" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">No
+                    <validation-messages [control]="gstregistration.controls.compositionscheme"></validation-messages>
                     </div>
                     <h4 class="heading mb-4 pb-1">Document Required for GST Registration</h4>
+                    <div class="form-group"  formArrayName="photo" >
+                        <div class="row"  *ngFor="let photo of   gstregistration.controls.Photograph['controls']; let i=index;" [formGroupName]="i">
+                            <div class="col-md-10">
+                                <label class="form-control-label">Passport Size Photograph of Proprietor*  :</label> <input type="file" formControlName="Photograph"  placeholder="" class="form-control" > 
+                                <validation-messages [control]="gstregistration.controls.Photograph"></validation-messages>
+                           </div>
+                           <div class="col-md-2">
+                               <button class="btn btn-danger"  *ngIf="gstregistration.controls.Photograph['controls'].length > 1 && i!=0"   (click)="deleteRow1(i)"><i class="fa fa-trash" style="font-size: 12pt;"></i></button>
+                            </div>
+                        </div>
+                        <div class="addbtn">
+                            <button class="btn btn-success" (click)="addNewRow1()">Add</button>
+                       </div>
+                    </div>
+                   
+                    <div class="form-group" formArrayName="indentity">
+                        <div class="row" *ngFor="let indentity of   gstregistration.controls.identityproof['controls']; let j=index;" [formGroupName]="j">
+                            <div class="col-md-10" >
+                                <label class="form-control-label">Aadhar card OR Passport OR Driving License of Proprietor*:</label> <input type="file" formControlName="identityproof"  placeholder="" class="form-control" onblur="validate2(2)"> 
+                                <validation-messages [control]="gstregistration.controls.identityproof"></validation-messages>
+                             </div>
+                             <div class="col-md-2">
+                                <button class="btn btn-danger"  *ngIf="gstregistration.controls.identityproof['controls'].length > 1 && j!=0"   (click)="deleteRow2(j)"><i class="fa fa-trash" style="font-size: 12pt;"></i></button>
+                             </div>
+                         </div>
+                    </div>
+                    <div class="addbtn">
+                        <button class="btn btn-success" (click)="addNewRow2()">Add</button>
+                   </div>
+                    <div class="form-group" formArrayName="pan">
+                        <div  *ngFor="let pan of   gstregistration.controls.pancard['controls']; let k=index;" [formGroupName]="k">
+                         
+                                <label class="form-control-label">Pan card of Proprietor* :</label> <input type="file" id="pancard{{i}}" formControlName="pancard"  placeholder="" class="form-control"> 
+                                <validation-messages [control]="gstregistration.controls.pancard"></validation-messages>
+                            
+                                <button class="btn btn-danger"  *ngIf="gstregistration.controls.pancard['controls'].length > 0 && k!=0"   (click)="deleteRow3(k)"><i class="fa fa-trash" style="font-size: 12pt;"></i></button>
+                            
+                        </div>
+                    </div>
+                    <div class="addbtn">
+                        <button class="btn btn-success" (click)="addNewRow3()">Add</button>
+                   </div>
+                    <div class="form-group">
+                     
+                            <label class="form-control-label">Address proof of business premises *:</label> <input type="file" (change)="onSelectedfile1($event)" formControlName="addressproof"  placeholder="" class="form-control" onblur="validate2(2)"> 
+                            <validation-messages [control]="gstregistration.controls.addressproof"></validation-messages>
+                      
+                    </div>
                     <div class="form-group row">
                         <div class="col">
-                            <label class="form-control-label">Passport Size Photograph of Proprietor*  :</label> <input type="file" id="cname" name="cname" placeholder="" class="form-control" onblur="validate2(1)"> 
+                            <label class="form-control-label">Electricity bill of the premises* :</label> <input type="file" (change)="onSelectedfile2($event)" formControlName="electricitybill"  placeholder="" class="form-control" onblur="validate2(1)"> 
+                            <validation-messages [control]="gstregistration.controls.electricitybill"></validation-messages>
                         </div>
                         <div class="col">
-                            <label class="form-control-label">Aadhar card OR Passport OR Driving License of Proprietor*:</label> <input type="file" id="zip" name="zip" placeholder="" class="form-control" onblur="validate2(2)"> 
+                            <label class="form-control-label">Rent Agreement if not own place :</label> <input type="file"  (change)="onSelectedfile3($event)" formControlName="rentagreement"  placeholder="" class="form-control" onblur="validate2(2)"> 
+                            <validation-messages [control]="gstregistration.controls.rentagreement"></validation-messages>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col">
-                            <label class="form-control-label">Pan card of Proprietor* :</label> <input type="file" id="cname" name="cname" placeholder="" class="form-control" onblur="validate2(1)"> 
+                            <label class="form-control-label">NOC from Building Owner* :</label> <input type="file" formControlName="noc" (change)="onSelectedfile4($event)"  placeholder="" class="form-control" onblur="validate2(1)"> 
+                            <validation-messages [control]="gstregistration.controls.noc"></validation-messages>
                         </div>
                         <div class="col">
-                            <label class="form-control-label">Address proof of business premises *:</label> <input type="file" id="zip" name="zip" placeholder="" class="form-control" onblur="validate2(2)"> 
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col">
-                            <label class="form-control-label">Electricity bill of the premises* :</label> <input type="file" id="cname" name="cname" placeholder="" class="form-control" onblur="validate2(1)"> 
-                        </div>
-                        <div class="col">
-                            <label class="form-control-label">Rent Agreement if not own place :</label> <input type="file" id="zip" name="zip" placeholder="" class="form-control" onblur="validate2(2)"> 
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col">
-                            <label class="form-control-label">NOC from Building Owner* :</label> <input type="file" id="cname" name="cname" placeholder="" class="form-control" onblur="validate2(1)"> 
-                        </div>
-                        <div class="col">
-                            <label class="form-control-label">Bank Account Proof / Cancelled Cheque * :</label> <input type="file" id="zip" name="zip" placeholder="" class="form-control" onblur="validate2(2)"> 
+                            <label class="form-control-label">Bank Account Proof / Cancelled Cheque * :</label> <input type="file" (change)="onSelectedfile5($event)" formControlName="bankaccountproof"  placeholder="" class="form-control" onblur="validate2(2)"> 
+                            <validation-messages [control]="gstregistration.controls.bankaccountproof"></validation-messages>
                         </div>
                     </div>
                     <div class="Agreement">
@@ -185,9 +235,9 @@
                             I hereby declare that information provided in the online registration form is true to the best of my knowledge and I accept terms, disclaimer, and policies by clicking “Submit & Pay” button.
                          </p>
                     </div>
-                    <div class="row justify-content-center"> <button class="btn btn-blue next mx-2" id="next1">Submit and pay</button> </div>
+                    <div class="row justify-content-center"> <button class="btn btn-blue next mx-2" id="next1" (click)="previous()">Previous</button>  <button class="btn btn-blue next mx-2" id="next1">Submit and pay</button> </div>
                 </div>
-               
+                </form>
             </div>
         </div>
     </div>

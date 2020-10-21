@@ -167,3 +167,7 @@ body {
     border-top: 3px solid #0091EA;
     transition: 0.3s
 }
+.error
+  {
+    border: 2px solid #e52f48 !important;
+  }

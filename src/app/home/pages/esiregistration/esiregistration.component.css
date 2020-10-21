@@ -202,3 +202,7 @@ p.form-para::after {
         margin-right: 80px
     }
 }
+.error
+  {
+    border: 2px solid #e52f48 !important;
+  }

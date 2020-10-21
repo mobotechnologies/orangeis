@@ -49,3 +49,7 @@ p
     padding-top: 19px;
 
 }
+.error
+  {
+    border: 2px solid #e52f48 !important;
+  }
