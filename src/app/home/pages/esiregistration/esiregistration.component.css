@@ -206,3 +206,24 @@ p.form-para::after {
   {
     border: 2px solid #e52f48 !important;
   }
+  .upldtext1,.upldtext2,.upldtext3,.upldtext4,.upldtext5,.upldtext6
+  {
+      
+    
+     float: left;
+     
+    top: 10px;
+
+     position: absolute;
+     padding-left: 11px;
+     padding-top: 2px;
+ 
+  }
+  .browse
+  {
+      
+    font-weight: 700;
+    font-size: 13px;
+    padding-left: 14px;
+
+  }

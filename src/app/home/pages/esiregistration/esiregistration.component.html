@@ -4,7 +4,7 @@
 </ngx-spinner>
 <div class="container" style="background:white">
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-5" style="background: antiquewhite;">
             <h1 style="FONT-SIZE: 17PT;margin-top: 18px;text-align:center">ESI REGISTRATION</h1>
             <div><img src="../../../../assets/images/cooperateservice/ESILogo.png" style="margin-left: 26%;WIDTH: 48%;margin-top: 5%;"/></div>
             <h6 class="mt-3 text-center">What is ESI? </h6>
@@ -26,15 +26,31 @@
                 <div class="form-group row"> 
                     <div class="col">
                        <label >Name of the Company*</label> 
-                       <input type="file" formControlName="nameproof" (change)="onSelectedfile1($event)" class="form-control" [ngClass]="{'error':esiregistration.controls.nameproof.invalid && esiregistration.controls.nameproof.touched }"   [popover]="nameproof" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
+                       <div class="input-group my-3" [ngClass]="{'error':esiregistration.controls.nameproof.invalid && esiregistration.controls.nameproof.touched }" >
+                            <div style="border: 2px solid #e4e3e3;background:white;width: 60%;height: 45.98284px;">
+                               <input type="file" id="file1"  style="opacity:0;" formControlName="nameproof" (change)="onSelectedfile1($event)" class="form-control"   [popover]="nameproof" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
+                               <span class="upldtext1">Upload here</span>
+                           </div>
+                            <div class="input-group-append">
+                              <button type="button" (click)="logofile1()" class="btn btn-primary browse">Upload proof</button>
+                          </div>
+                        </div>
                        <popover-content #nameproof [closeOnClickOutside]="true" [style.display]="esiregistration.controls.nameproof.invalid && esiregistration.controls.nameproof.touched ? 'block' : 'none'">
                        <validation-messages [control]="esiregistration.controls.nameproof"></validation-messages>
                     </popover-content>
                     </div>
                     <div class="col">
                        <label >Address of the company*</label> 
-                       <input type="file"  formControlName="addressproof" (change)="onSelectedfile2($event)" class="form-control" [ngClass]="{'error':esiregistration.controls.addressproof.invalid && esiregistration.controls.addressproof.touched }"   [popover]="addressproof" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
-                       <popover-content #addressproof [closeOnClickOutside]="true" [style.display]="esiregistration.controls.addressproof.invalid && esiregistration.controls.addressproof.touched ? 'block' : 'none'">
+                       <div class="input-group my-3"  [ngClass]="{'error':esiregistration.controls.addressproof.invalid && esiregistration.controls.addressproof.touched }" >
+                        <div style="border: 2px solid #e4e3e3;background:white;width: 60%;height: 45.98284px;"> 
+                          <input type="file"  id="file2"  style="opacity:0;" formControlName="addressproof" (change)="onSelectedfile2($event)" class="form-control"  [popover]="addressproof" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
+                          <span class="upldtext2">Upload here</span>
+                        </div>
+                          <div class="input-group-append">
+                           <button type="button" (click)="logofile2()" class="btn btn-primary browse">Upload proof</button>
+                       </div>
+                        </div>
+                        <popover-content #addressproof [closeOnClickOutside]="true" [style.display]="esiregistration.controls.addressproof.invalid && esiregistration.controls.addressproof.touched ? 'block' : 'none'">
                        <validation-messages [control]="esiregistration.controls.addressproof"></validation-messages>
                     </popover-content>
                    </div>
@@ -105,16 +121,34 @@
                 </div>
                 <div class="form-group row"> 
                     <div class="col">
-                       <label >Upload Employees Details*</label> 
-                       <input type="file" formControlName="empfile" (change)="onSelectedfile3($event)" class="form-control"  [ngClass]="{'error':esiregistration.controls.empfile.invalid && esiregistration.controls.empfile.touched }"   [popover]="empfile" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
-                       <popover-content #empfile [closeOnClickOutside]="true" [style.display]="esiregistration.controls.empfile.invalid && esiregistration.controls.empfile.touched ? 'block' : 'none'">
+                       <label >Upload Employees Details*(.xlsx)</label> 
+                       <div class="input-group my-3" [ngClass]="{'error':esiregistration.controls.empfile.invalid && esiregistration.controls.empfile.touched }" >
+                        <div style="border: 2px solid #e4e3e3;background:white;width: 60%;height: 45.98284px;">
+                           <input type="file"  id="file3" style="opacity:0;" formControlName="empfile" (change)="onSelectedfile3($event)" class="form-control"     [popover]="empfile" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                           <span class="upldtext3">Upload here</span>
+                        </div>
+                        <div class="input-group-append">
+                           <button type="button" (click)="logofile3()" class="btn btn-primary browse">Upload here</button>
+                       </div>
+                       <span style="font-size: 9pt;">Click here to download - </span><a style="font-size: 9pt;" href="http://www.famposo.com/pathsoftlaunch/documents/Esidoc/sampledocs/ESI_ Sample Employees List.xlsx"  download> Samplefile.xlsx</a>
+                        </div>
+                         <popover-content #empfile [closeOnClickOutside]="true" [style.display]="esiregistration.controls.empfile.invalid && esiregistration.controls.empfile.touched ? 'block' : 'none'">
                        <validation-messages [control]="esiregistration.controls.empfile"></validation-messages>
                     </popover-content>
                     </div>
                     <div class="col">
                        <label >Director PAN* </label> 
-                       <input type="file" formControlName="directorpan" (change)="onSelectedfile4($event)" class="form-control" [ngClass]="{'error':esiregistration.controls.directorpan.invalid && esiregistration.controls.directorpan.touched }"   [popover]="directorpan" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
-                       <popover-content #directorpan [closeOnClickOutside]="true" [style.display]="esiregistration.controls.directorpan.invalid && esiregistration.controls.directorpan.touched ? 'block' : 'none'">
+                       <div class="input-group my-3" [ngClass]="{'error':esiregistration.controls.directorpan.invalid && esiregistration.controls.directorpan.touched }" >
+                        <div style="border: 2px solid #e4e3e3;background:white;width: 60%;height: 45.98284px;">
+                        <input type="file" id="file4" style="opacity:0;" formControlName="directorpan" (change)="onSelectedfile4($event)" class="form-control"    [popover]="directorpan" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
+                        <span class="upldtext4">Upload here</span>  
+                     </div>
+                        <div class="input-group-append">
+                           <button type="button" (click)="logofile4()" class="btn btn-primary browse">Upload proof</button>
+                       </div>
+                          
+                        </div>
+                          <popover-content #directorpan [closeOnClickOutside]="true" [style.display]="esiregistration.controls.directorpan.invalid && esiregistration.controls.directorpan.touched ? 'block' : 'none'">
                        <validation-messages [control]="esiregistration.controls.directorpan"></validation-messages>
                     </popover-content>
                     </div>
@@ -122,15 +156,33 @@
                 <div class="form-group row"> 
                     <div class="col">
                        <label >Director aadhar*</label> 
-                       <input type="file" formControlName="directoraadhar" (change)="onSelectedfile5($event)" class="form-control" [ngClass]="{'error':esiregistration.controls.directoraadhar.invalid && esiregistration.controls.directoraadhar.touched }"   [popover]="directoraadhar" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
-                       <popover-content #directoraadhar [closeOnClickOutside]="true" [style.display]="esiregistration.controls.directoraadhar.invalid && esiregistration.controls.directoraadhar.touched ? 'block' : 'none'">
+                       <div class="input-group my-3" [ngClass]="{'error':esiregistration.controls.directoraadhar.invalid && esiregistration.controls.directoraadhar.touched }" >
+                        <div style="border: 2px solid #e4e3e3;background:white;width: 60%;height: 45.98284px;">
+                        <input type="file" id="file5" style="opacity:0;"  formControlName="directoraadhar" (change)="onSelectedfile5($event)" class="form-control"   [popover]="directoraadhar" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
+                        <span class="upldtext5">Upload here</span>   
+                     </div>
+                        <div class="input-group-append">
+                           <button type="button" (click)="logofile5()" class="btn btn-primary browse">Upload proof</button>
+                       </div>
+                        
+                        </div>
+                          <popover-content #directoraadhar [closeOnClickOutside]="true" [style.display]="esiregistration.controls.directoraadhar.invalid && esiregistration.controls.directoraadhar.touched ? 'block' : 'none'">
                        <validation-messages [control]="esiregistration.controls.directoraadhar"></validation-messages>
                     </popover-content>
                     </div>
                     <div class="col">
                        <label >Director photo* </label> 
-                       <input type="file" formControlName="directorphoto" (change)="onSelectedfile6($event)" class="form-control" [ngClass]="{'error':esiregistration.controls.directorphoto.invalid && esiregistration.controls.directorphoto.touched }"   [popover]="directorphoto" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
-                       <popover-content #directorphoto [closeOnClickOutside]="true" [style.display]="esiregistration.controls.directorphoto.invalid && esiregistration.controls.directorphoto.touched ? 'block' : 'none'">
+                       <div class="input-group my-3"  [ngClass]="{'error':esiregistration.controls.directorphoto.invalid && esiregistration.controls.directorphoto.touched }">
+                        <div style="border: 2px solid #e4e3e3;background:white;width: 60%;height: 45.98284px;"> 
+                        <input type="file" id="file6" style="opacity:0;" formControlName="directorphoto" (change)="onSelectedfile6($event)" class="form-control"   [popover]="directorphoto" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
+                        <span class="upldtext6">Upload here</span>  
+                     </div>
+                        <div class="input-group-append">
+                           <button type="button" (click)="logofile6()" class="btn btn-primary browse">Upload here</button>
+                       </div>
+                      
+                        </div>  
+                        <popover-content #directorphoto [closeOnClickOutside]="true" [style.display]="esiregistration.controls.directorphoto.invalid && esiregistration.controls.directorphoto.touched ? 'block' : 'none'">
                        <validation-messages [control]="esiregistration.controls.directorphoto"></validation-messages>
                     </popover-content>
                     </div>
@@ -138,14 +190,14 @@
                 <div class="form-group row"> 
                     <div class="col">
                        <label >Personal Mobile Number*</label> 
-                       <input type="text" formControlName="mobileno" class="form-control"  [ngClass]="{'error':esiregistration.controls.mobileno.invalid && esiregistration.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
+                       <input type="text"  formControlName="mobileno" class="form-control" maxlength="10"  [ngClass]="{'error':esiregistration.controls.mobileno.invalid && esiregistration.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                        <popover-content #mobileno [closeOnClickOutside]="true" [style.display]="esiregistration.controls.mobileno.invalid && esiregistration.controls.mobileno.touched ? 'block' : 'none'">
                        <validation-messages [control]="esiregistration.controls.mobileno"></validation-messages>
                     </popover-content>
                     </div>
                     <div class="col">
                         <label >Contact no*</label> 
-                        <input type="text" formControlName="contactno" class="form-control" [ngClass]="{'error':esiregistration.controls.contactno.invalid && esiregistration.controls.contactno.touched }"   [popover]="contactno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
+                        <input type="text" maxlength="10" formControlName="contactno" class="form-control" [ngClass]="{'error':esiregistration.controls.contactno.invalid && esiregistration.controls.contactno.touched }"   [popover]="contactno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                         <popover-content #contactno [closeOnClickOutside]="true" [style.display]="esiregistration.controls.contactno.invalid && esiregistration.controls.contactno.touched ? 'block' : 'none'">
                         <validation-messages [control]="esiregistration.controls.contactno"></validation-messages>
                     </popover-content>

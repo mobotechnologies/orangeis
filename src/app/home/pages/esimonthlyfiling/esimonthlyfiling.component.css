@@ -77,11 +77,11 @@ body {
     border-radius: 0px;
     margin-bottom: 35px;
     margin-top: 2px;
-    width: 100%;
+    width: 92%;
     box-sizing: border-box;
     font-family: montserrat;
     color: #2C3E50;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;
     letter-spacing: 1px
 }
@@ -169,5 +169,30 @@ body {
 }
 .error
   {
-    border: 2px solid #e52f48 !important;
+    border-bottom: 2px solid #e52f48 !important;
+  }
+ 
+  .fileuploadbox
+  {
+    width: 80%;
+    border-bottom: 2px solid #e4e3e3;
+    background: white;
+    /* height: 7%; */
+    height: 40.98284px;
+  }
+  .upldtext
+  {
+      
+  
+     float: left;
+     position:absolute;
+     top: 4px;
+     left: 22px;
+ 
+ 
+  }
+  .browse
+  {
+    padding-left: 9px;
+    width: 82.991422px;
   }

@@ -66,12 +66,12 @@ export class EsimonthlyfilingComponent implements OnInit {
   esimonthlyfiling = this.fb.group({
     esiregisterno: ['', [Validators.required]],
     esiusername: ['', [Validators.required]],
-    mobileno: ['', Validators.required],
-    emailid: ['',Validators.required],
+    mobileno: ['',[Validators.required,ValidationService.numberValidator]],
+    emailid: ['',[Validators.required,ValidationService.emailValidator]],
     logpassword: ['',Validators.required],
-    confirmpassword: ['', [Validators.required]],
+    confirmpassword: ['', [Validators.required,RxwebValidators.compare({fieldName:'logpassword'})]],
     date: ['', [Validators.required]],
-    uploadwage: ['', [Validators.required]]
+    uploadwage: ['', [Validators.required,RxwebValidators.extension({extensions:["xlsx"]})]]
   });
   tmp_files: File[] = [];
   public imgsrc;
@@ -79,6 +79,7 @@ export class EsimonthlyfilingComponent implements OnInit {
     //  this.imgsrc=event.target.files;
     this.tmp_files.push(event.target.files);
     this.imgsrc = event.target.files[0].name;
+    $('.upldtext').text(event.target.files[0].name);
     var reader = new FileReader();
   
     reader.readAsDataURL(event.target.files[0]); // read file as data url
@@ -87,8 +88,15 @@ export class EsimonthlyfilingComponent implements OnInit {
      
     }
   }
+  logofile1() {
+    $("#file1").trigger('click');
+  }
   submitandpay()
   {
+    var indate = (new Date(this.esimonthlyfiling.value.date)).toLocaleDateString();
+    this.esimonthlyfiling.markAllAsTouched();
+    if (this.esimonthlyfiling.valid) {
+      this.spinner.show();
     for (let i = 0; i < this.tmp_files.length; i++) {
       const formDat = new FormData();
       formDat.append('Imagefile', this.tmp_files[i][0]);
@@ -105,7 +113,7 @@ export class EsimonthlyfilingComponent implements OnInit {
     formData.append('EmailID',this.esimonthlyfiling.value.mobileno);
     formData.append('ESIUserName',this.esimonthlyfiling.value.emailid);
     formData.append('ESILoginPassword',this.esimonthlyfiling.value.logpassword);
-    formData.append('ESIdate',this.esimonthlyfiling.value.date);
+    formData.append('ESIdate',indate);
     formData.append('wagedetailfile',this.imgsrc);
     formData.append('userId',"0");
     formData.append('userName', this.esimonthlyfiling.value.esiusername);
@@ -141,5 +149,6 @@ export class EsimonthlyfilingComponent implements OnInit {
 
 
       });
+    }
   }
 }

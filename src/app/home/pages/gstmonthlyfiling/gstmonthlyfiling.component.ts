@@ -38,10 +38,10 @@ export class GstmonthlyfilingComponent implements OnInit {
   gstmonthlyfiling = this.fb.group({
     gstnumber: ['', [Validators.required]],
     gstusername: ['', [Validators.required]],
-    mobileno: ['', Validators.required],
+    mobileno: ['',[Validators.required,ValidationService.numberValidator]],
     emailid: ['',[Validators.required,ValidationService.emailValidator]],
     logpassword: ['',Validators.required],
-    confirmpassword: ['', [Validators.required]],
+    confirmpassword: ['', [Validators.required,RxwebValidators.compare({fieldName:'logpassword'})]],
   });
   selectedcountry: string = '';
   selectedstates: string = '';

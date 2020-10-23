@@ -44,7 +44,7 @@
                                         [style.display]="esimonthlyfiling.controls.esiusername.invalid && esimonthlyfiling.controls.esiusername.touched ? 'block' : 'none'"> <validation-messages [control]="esimonthlyfiling.controls.esiusername"></validation-messages></popover-content></div>
                                 </div>
                                 <div class="row form-group">
-                                    <div class="col-9 col-md-7"> <input type="text" formControlName="mobileno" placeholder="Mobile Number *" [ngClass]="{'error':esimonthlyfiling.controls.mobileno.invalid && esimonthlyfiling.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                                    <div class="col-9 col-md-7"> <input type="text" formControlName="mobileno" maxlength="10" placeholder="Mobile Number *" [ngClass]="{'error':esimonthlyfiling.controls.mobileno.invalid && esimonthlyfiling.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
                                         <popover-content #mobileno [closeOnClickOutside]="true"
                                         [style.display]="esimonthlyfiling.controls.mobileno.invalid && esimonthlyfiling.controls.mobileno.touched ? 'block' : 'none'">
                                         <validation-messages [control]="esimonthlyfiling.controls.mobileno"></validation-messages> </popover-content></div>
@@ -53,14 +53,14 @@
                                 </div>
                                 <div class="row form-group">
                                     <div class="col-9 col-md-7">
-                                         <input type="text" formControlName="logpassword" placeholder="ESI Login Password*" [ngClass]="{'error':esimonthlyfiling.controls.logpassword.invalid && esimonthlyfiling.controls.logpassword.touched }"   [popover]="logpassword" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
+                                         <input type="password" formControlName="logpassword" placeholder="ESI Login Password*" [ngClass]="{'error':esimonthlyfiling.controls.logpassword.invalid && esimonthlyfiling.controls.logpassword.touched }"   [popover]="logpassword" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
                                         <popover-content #logpassword [closeOnClickOutside]="true"
                                         [style.display]="esimonthlyfiling.controls.logpassword.invalid && esimonthlyfiling.controls.logpassword.touched ? 'block' : 'none'">
                                         <validation-messages [control]="esimonthlyfiling.controls.logpassword"></validation-messages> 
                                     </popover-content>
                                 </div>
                                     <div class="col-3 col-md-5">
-                                         <input type="text" formControlName="confirmpassword" placeholder="Confirm Password*" class="placeicon" [ngClass]="{'error':esimonthlyfiling.controls.confirmpassword.invalid && esimonthlyfiling.controls.confirmpassword.touched }"   [popover]="confirmpassword" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
+                                         <input type="password" formControlName="confirmpassword" placeholder="Confirm Password*" class="placeicon" [ngClass]="{'error':esimonthlyfiling.controls.confirmpassword.invalid && esimonthlyfiling.controls.confirmpassword.touched }"   [popover]="confirmpassword" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
                                          <popover-content #confirmpassword [closeOnClickOutside]="true"
                                         [style.display]="esimonthlyfiling.controls.confirmpassword.invalid && esimonthlyfiling.controls.confirmpassword.touched ? 'block' : 'none'"> 
                                         <validation-messages [control]="esimonthlyfiling.controls.confirmpassword"></validation-messages> 
@@ -78,13 +78,24 @@
                                     
                                 </div>
                                 <div class="row form-group">
-                                    <div class="col-12"><label style="font-weight:600">Upload Wages details</label><input type="file"  formControlName="uploadwage" class="form-control"  (change)="onSelectedfile($event)"  [ngClass]="{'error':esimonthlyfiling.controls.uploadwage.invalid && esimonthlyfiling.controls.uploadwage.touched }"   [popover]="uploadwage" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                                    <div class="col-12"><label style="font-weight:600">Upload Wages details(.xlsx)</label>
+                                        <div class="input-group my-3" [ngClass]="{'error':esimonthlyfiling.controls.uploadwage.invalid && esimonthlyfiling.controls.uploadwage.touched }">
+                                            <div class="fileuploadbox">
+                                                <input type="file" id="file1" style="opacity:0;"  formControlName="uploadwage" class="form-control"  (change)="onSelectedfile($event)"     [popover]="uploadwage" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                                                <span class="upldtext">Upload here</span>
+                                            </div>    
+                                            <div class="input-group-append">
+                                                <button type="button" (click)="logofile1()" class="btn btn-primary browse" >Upload</button>
+                                              </div>
+                                              <span>Click here to download - </span><a href="http://www.famposo.com/pathsoftlaunch/documents/Esidoc/sampledocs/ESI_%20Wages%20_Employees%20List.xlsx"  download> Samplefile.xlsx</a>
+                                            </div>
+                                          
                                          <popover-content #uploadwage [closeOnClickOutside]="true"
                                         [style.display]="esimonthlyfiling.controls.uploadwage.invalid && esimonthlyfiling.controls.uploadwage.touched ? 'block' : 'none'"> 
                                         <validation-messages [control]="esimonthlyfiling.controls.uploadwage"> 
                                         </validation-messages> 
                                              </popover-content>
-                                            </div>
+                                 </div>
                                     
                                 </div>
                                 <div class="bottom">

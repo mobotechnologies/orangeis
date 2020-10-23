@@ -75,7 +75,7 @@ export class CompanyincoperationComponent implements OnInit {
     directoraadhar: ['', Validators.required],
     directorphoto: ['',[Validators.required, RxwebValidators.extension({extensions:["jpeg","jpg"]})]],
     bankstatement: ['', Validators.required],
-    mobileno: ['', Validators.required],
+    mobileno: ['',[Validators.required,ValidationService.numberValidator]],
     emailid: ['',[Validators.required,ValidationService.emailValidator]]
   });
   selectedcountry: string = '';

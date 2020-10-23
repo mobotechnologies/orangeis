@@ -12,6 +12,8 @@ import { retryWhen, delay, take } from 'rxjs/operators'
 import * as $ from 'jquery';
 import { RxwebValidators, fileSize } from '@rxweb/reactive-form-validators';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { enGbLocale } from 'ngx-bootstrap/locale';
+import { BsLocaleService, defineLocale, AlertComponent } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-digitalsignature',
@@ -19,25 +21,35 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
   styleUrls: ['./digitalsignature.component.css']
 })
 export class DigitalsignatureComponent implements OnInit {
-  country: import("f:/Famposov3/client/src/app/model/location/country").Countrymodel[];
+  datePickerConfig: Partial<BsDatepickerConfig>;
+  public country = [];
   errorMsg: any;
   states: any;
   phonecode: any;
   cities: any;
   payKit: any;
 
-  constructor(private spinner: NgxSpinnerService, private cookieService: CookieService, private _countrymodel: CountryService, private router: Router, private route: ActivatedRoute, private location: Location, private fb: FormBuilder, private _validation: ValidationService,private coperate:CooperateserviceService) {
-    this._countrymodel.getCountrycode()
-    .subscribe(data => this.country = data,
-      error => this.errorMsg = error);
+  constructor(private localeService: BsLocaleService,private spinner: NgxSpinnerService, private cookieService: CookieService, private _countrymodel: CountryService, private router: Router, private route: ActivatedRoute, private location: Location, private fb: FormBuilder, private _validation: ValidationService,private coperate:CooperateserviceService) {
+    enGbLocale.invalidDate = 'Select date';
+    defineLocale('custom locale', enGbLocale);
+    this.localeService.use('custom locale');
+    this.datePickerConfig = Object.assign({},
+    {
+        containerClass: 'theme-dark-blue',
+        dateInputFormat: 'DD/MM/YYYY'
+    });
+   
    }
 
   ngOnInit() {
+    this._countrymodel.getCountrycode()
+    .subscribe(data => this.country = data,
+      error => this.errorMsg = error);
   }
   digitalsign = this.fb.group({
     commonname: ['', [Validators.required]],
     dob: ['', [Validators.required]],
-    emailid: ['', [Validators.required]],
+    emailid: ['', [Validators.required,ValidationService.emailValidator]],
     classtype: ['', [Validators.required]],
     organization: ['', [Validators.required]],
     department: ['', [Validators.required]],
@@ -48,13 +60,13 @@ export class DigitalsignatureComponent implements OnInit {
     gender: ['', [Validators.required]],
     postalcode: ['', [Validators.required]],
     nationality: ['', [Validators.required]],
-    mobileno: ['', [Validators.required]],
+    mobileno: ['', [Validators.required,ValidationService.numberValidator]],
     locality: ['', [Validators.required]],
     address: ['', [Validators.required]],
     photo: ['', [Validators.required]],
     pancard: ['', [Validators.required]],
     aadharcard: ['', [Validators.required]],
-    includemailid: ['', [Validators.required]],
+    includemailid: [''],
   });
   selectedcountry: string = '';
   selectedstates: string = '';
@@ -83,7 +95,7 @@ export class DigitalsignatureComponent implements OnInit {
     this.tmp_files.push(event.target.files);
     this.imgsrc1 = event.target.files[0].name;
     var reader = new FileReader();
-  
+    $('.upldtext1').text(event.target.files[0].name);
     reader.readAsDataURL(event.target.files[0]); // read file as data url
     reader.onload = (event) => { // called once readAsDataURL is completed
       console.log(reader.result);
@@ -94,8 +106,8 @@ export class DigitalsignatureComponent implements OnInit {
     //  this.imgsrc=event.target.files;
     this.tmp_files.push(event.target.files);
     this.imgsrc2 = event.target.files[0].name;
+    $('.upldtext2').text(event.target.files[0].name);
     var reader = new FileReader();
-  
     reader.readAsDataURL(event.target.files[0]); // read file as data url
     reader.onload = (event) => { // called once readAsDataURL is completed
       console.log(reader.result);
@@ -106,16 +118,29 @@ export class DigitalsignatureComponent implements OnInit {
     //  this.imgsrc=event.target.files;
     this.tmp_files.push(event.target.files);
     this.imgsrc3 = event.target.files[0].name;
+    $('.upldtext3').text(event.target.files[0].name);
     var reader = new FileReader();
-  
     reader.readAsDataURL(event.target.files[0]); // read file as data url
     reader.onload = (event) => { // called once readAsDataURL is completed
       console.log(reader.result);
      
     }
   }
+  logofile1() {
+    $("#file1").trigger('click');
+  }
+  logofile2() {
+    $("#file2").trigger('click');
+  }
+  logofile3() {
+    $("#file3").trigger('click');
+  }
   submitandpay()
   {
+    var indate = (new Date(this.digitalsign.value.dob)).toLocaleDateString();
+    this.digitalsign.markAllAsTouched();
+    if (this.digitalsign.valid) {
+      this.spinner.show();
       
     for (let i = 0; i < this.tmp_files.length; i++) {
       const formDat = new FormData();
@@ -129,7 +154,7 @@ export class DigitalsignatureComponent implements OnInit {
     }
       const formData = new FormData();
       formData.append('commonName', this.digitalsign.value.commonname);
-      formData.append('dob',this.digitalsign.value.dob);
+      formData.append('dob',indate);
       formData.append('EmailID', this.digitalsign.value.emailid);
       formData.append('Classtype',this.digitalsign.value.classtype);
       formData.append('organization',this.digitalsign.value.organization);
@@ -182,6 +207,6 @@ export class DigitalsignatureComponent implements OnInit {
   
   
         });
-    
+      }
   }
 }

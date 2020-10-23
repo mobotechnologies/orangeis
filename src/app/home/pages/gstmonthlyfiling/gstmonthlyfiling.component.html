@@ -93,14 +93,14 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col">
-                                    <label class="form-control-label">GST Login Password  :</label> <input type="text" formControlName="logpassword" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.logpassword.invalid && gstmonthlyfiling.controls.logpassword.touched }"   [popover]="logpassword" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 
+                                    <label class="form-control-label">GST Login Password  :</label> <input type="password" formControlName="logpassword" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.logpassword.invalid && gstmonthlyfiling.controls.logpassword.touched }"   [popover]="logpassword" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 
                                     <popover-content #logpassword [closeOnClickOutside]="true"
                                     [style.display]="gstmonthlyfiling.controls.logpassword.invalid && gstmonthlyfiling.controls.logpassword.touched ? 'block' : 'none'">
                                     <validation-messages [control]="gstmonthlyfiling.controls.logpassword"></validation-messages>
                                 </popover-content>
                                 </div>
                                 <div class="col">
-                                    <label class="form-control-label">Confirm Login Password * :</label> <input type="text" formControlName="confirmpassword" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.confirmpassword.invalid && gstmonthlyfiling.controls.confirmpassword.touched }"   [popover]="confirmpassword" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  > 
+                                    <label class="form-control-label">Confirm Login Password * :</label> <input type="password" formControlName="confirmpassword" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.confirmpassword.invalid && gstmonthlyfiling.controls.confirmpassword.touched }"   [popover]="confirmpassword" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  > 
                                     <popover-content #confirmpassword [closeOnClickOutside]="true"
                                     [style.display]="gstmonthlyfiling.controls.confirmpassword.invalid && gstmonthlyfiling.controls.confirmpassword.touched ? 'block' : 'none'">
                                     <validation-messages [control]="gstmonthlyfiling.controls.confirmpassword"></validation-messages>

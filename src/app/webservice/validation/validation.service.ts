@@ -43,6 +43,7 @@ export class ValidationService {
         'invalidPhoneExist':'Mobile no already exist',
         'Passwordmismatch':'Password does not match',
         'compare':'Password does not match',
+        'extension':'Invalid file type',
         'invalidpass':'Password does not meet the requirement',
         'invalidFileFormat':'Invalid file format',
         'invalidRefcode':'Invalid referral code',

@@ -41,7 +41,7 @@ export class EsiregistrationComponent implements OnInit {
   esiregistration = this.fb.group({
     nameproof: ['', [Validators.required]],
     addressproof: ['', [Validators.required]],
-    emailid: ['', [Validators.required]],
+    emailid: ['', [Validators.required,ValidationService.emailValidator]],
     companypan: ['', [Validators.required]],
     empstrength: ['', [Validators.required]],
     menstrength: ['', [Validators.required]],
@@ -53,8 +53,8 @@ export class EsiregistrationComponent implements OnInit {
     directorpan: ['', [Validators.required]],
     directoraadhar: ['', [Validators.required]],
     directorphoto: ['', [Validators.required]],
-    mobileno: ['', [Validators.required]],
-    contactno: ['', [Validators.required]],
+    mobileno: ['', [Validators.required,ValidationService.numberValidator]],
+    contactno: ['', [Validators.required,ValidationService.numberValidator]],
   });
   selectedcountry: string = '';
   selectedstates: string = '';
@@ -81,6 +81,7 @@ export class EsiregistrationComponent implements OnInit {
     //  this.imgsrc=event.target.files;
     this.tmp_files.push(event.target.files);
     this.imgsrc1 = event.target.files[0].name;
+    $('.upldtext1').text(event.target.files[0].name);
     var reader = new FileReader();
   
     reader.readAsDataURL(event.target.files[0]); // read file as data url
@@ -93,6 +94,7 @@ export class EsiregistrationComponent implements OnInit {
     //  this.imgsrc=event.target.files;
     this.tmp_files.push(event.target.files);
     this.imgsrc2 = event.target.files[0].name;
+    $('.upldtext2').text(event.target.files[0].name);
     var reader = new FileReader();
   
     reader.readAsDataURL(event.target.files[0]); // read file as data url
@@ -105,6 +107,7 @@ export class EsiregistrationComponent implements OnInit {
     //  this.imgsrc=event.target.files;
     this.tmp_files.push(event.target.files);
     this.imgsrc3 = event.target.files[0].name;
+    $('.upldtext3').text(event.target.files[0].name);
     var reader = new FileReader();
   
     reader.readAsDataURL(event.target.files[0]); // read file as data url
@@ -117,6 +120,7 @@ export class EsiregistrationComponent implements OnInit {
     //  this.imgsrc=event.target.files;
     this.tmp_files.push(event.target.files);
     this.imgsrc4 = event.target.files[0].name;
+    $('.upldtext4').text(event.target.files[0].name);
     var reader = new FileReader();
   
     reader.readAsDataURL(event.target.files[0]); // read file as data url
@@ -129,6 +133,7 @@ export class EsiregistrationComponent implements OnInit {
     //  this.imgsrc=event.target.files;
     this.tmp_files.push(event.target.files);
     this.imgsrc5 = event.target.files[0].name;
+    $('.upldtext5').text(event.target.files[0].name);
     var reader = new FileReader();
   
     reader.readAsDataURL(event.target.files[0]); // read file as data url
@@ -141,6 +146,7 @@ export class EsiregistrationComponent implements OnInit {
     //  this.imgsrc=event.target.files;
     this.tmp_files.push(event.target.files);
     this.imgsrc6 = event.target.files[0].name;
+    $('.upldtext6').text(event.target.files[0].name);
     var reader = new FileReader();
   
     reader.readAsDataURL(event.target.files[0]); // read file as data url
@@ -149,8 +155,29 @@ export class EsiregistrationComponent implements OnInit {
      
     }
   }
+  logofile1() {
+    $("#file1").trigger('click');
+  }
+  logofile2() {
+    $("#file2").trigger('click');
+  }
+  logofile3() {
+    $("#file3").trigger('click');
+  }
+  logofile4() {
+    $("#file4").trigger('click');
+  }
+  logofile5() {
+    $("#file5").trigger('click');
+  }
+  logofile6() {
+    $("#file6").trigger('click');
+  }
   submitandpay()
   {
+    this.esiregistration.markAllAsTouched();
+    if (this.esiregistration.valid) {
+     this.spinner.show();
     for (let i = 0; i < this.tmp_files.length; i++) {
       const formDat = new FormData();
       formDat.append('Imagefile', this.tmp_files[i][0]);
@@ -212,5 +239,6 @@ export class EsiregistrationComponent implements OnInit {
 
 
       });
+    }
   }
 }

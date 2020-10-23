@@ -30,72 +30,148 @@
                 </div>
                 <form [formGroup]="digitalsign">
                 <div class="row mt-2" >
-                    <div class="col-md-6"><label>Common Name</label><input type="text"  formControlName="commonname" class="form-control" [ngClass]="{'error':digitalsign.controls.commonname.invalid && digitalsign.controls.commonname.touched }"   [popover]="commonname" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
-                        <validation-messages [control]="digitalsign.controls.commonname"></validation-messages>
+                    <div class="col-md-6">
+                         <label>Common Name</label>
+                         <input type="text"  formControlName="commonname" class="form-control" [ngClass]="{'error':digitalsign.controls.commonname.invalid && digitalsign.controls.commonname.touched }"   [popover]="commonname" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                        <popover-content #commonname [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.commonname.invalid && digitalsign.controls.commonname.touched ? 'block' : 'none'"> 
+                            <validation-messages [control]="digitalsign.controls.commonname"></validation-messages>
+                        </popover-content>
                     </div>
-                    <div class="col-md-6"><label>Date of Birth</label><input type="text" formControlName="dob" class="form-control" [ngClass]="{'error':digitalsign.controls.dob.invalid && digitalsign.controls.dob.touched }"   [popover]="dob" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
-                        <validation-messages [control]="digitalsign.controls.dob"></validation-messages></div>
+                    <div class="col-md-6">
+                        <label>Date of Birth</label>
+                        <input type="text" formControlName="dob" bsDatepicker [bsConfig]="datePickerConfig"  class="form-control" [ngClass]="{'error':digitalsign.controls.dob.invalid && digitalsign.controls.dob.touched }"   [popover]="dob" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
+                        <popover-content #dob [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.dob.invalid && digitalsign.controls.dob.touched ? 'block' : 'none'"> 
+                            <validation-messages [control]="digitalsign.controls.dob"></validation-messages>
+                        </popover-content>
+                   </div>
                 </div>
                 <div class="row mt-2" >
-                    <div class="col-md-6"><label>EmailID</label><input type="text"  formControlName="emailid" class="form-control" [ngClass]="{'error':digitalsign.controls.emailid.invalid && digitalsign.controls.emailid.touched }"   [popover]="emailid" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
-                        <validation-messages [control]="digitalsign.controls.emailid"></validation-messages>
+                    <div class="col-md-6">
+                        <label>EmailID</label>
+                        <input type="text"  formControlName="emailid" class="form-control" [ngClass]="{'error':digitalsign.controls.emailid.invalid && digitalsign.controls.emailid.touched }"   [popover]="emailid" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                        <popover-content #emailid [closeOnClickOutside]="true" [style.display]="digitalsign.controls.emailid.invalid && digitalsign.controls.emailid.touched ? 'block' : 'none'">
+                            <validation-messages [control]="digitalsign.controls.emailid"></validation-messages>
+                        </popover-content>
                     </div>
                     <div class="col-md-6">
                           <label>Classtype</label>
                           <select formControlName="classtype" class="form-control" [ngClass]="{'error':digitalsign.controls.classtype.invalid && digitalsign.controls.classtype.touched }"   [popover]="classtype" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                               <option value="" [selected]=true>Select class type</option>
-                               <option>Class2</option>
-                               <option>Class2</option>
+                               <option>Class 2</option>
+                               <option>Class 3</option>
                           </select>
-                        <validation-messages [control]="digitalsign.controls.classtype"></validation-messages></div>
+                          <popover-content #classtype [closeOnClickOutside]="true" [style.display]="digitalsign.controls.classtype.invalid && digitalsign.controls.classtype.touched ? 'block' : 'none'"> 
+                             <validation-messages [control]="digitalsign.controls.classtype"></validation-messages>
+                          </popover-content>
+                    </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-6"><label>Organization</label><input type="text" formControlName="organization" class="form-control" [ngClass]="{'error':digitalsign.controls.organization.invalid && digitalsign.controls.organization.touched }"   [popover]="organization" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
-                        <validation-messages [control]="digitalsign.controls.organization"></validation-messages></div>
-                    <div class="col-md-6"><label>Deparment</label><input type="text" formControlName="department" class="form-control" [ngClass]="{'error':digitalsign.controls.department.invalid && digitalsign.controls.department.touched }"   [popover]="department" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
-                        <validation-messages [control]="digitalsign.controls.department"></validation-messages></div>
+                    <div class="col-md-6">
+                        <label>Organization</label>
+                        <input type="text" formControlName="organization" class="form-control" [ngClass]="{'error':digitalsign.controls.organization.invalid && digitalsign.controls.organization.touched }"   [popover]="organization" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                        <popover-content #organization [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.organization.invalid && digitalsign.controls.organization.touched ? 'block' : 'none'"> 
+                           <validation-messages [control]="digitalsign.controls.organization"></validation-messages>
+                        </popover-content>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Deparment</label>
+                        <input type="text" formControlName="department" class="form-control" [ngClass]="{'error':digitalsign.controls.department.invalid && digitalsign.controls.department.touched }"   [popover]="department" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                        <popover-content #department [closeOnClickOutside]="true" [style.display]="digitalsign.controls.department.invalid && digitalsign.controls.department.touched ? 'block' : 'none'"> 
+                           <validation-messages [control]="digitalsign.controls.department"></validation-messages>
+                        </popover-content>
+                    </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-6"><label>Aadhar No</label><input type="text" formControlName="aadhar" class="form-control" [ngClass]="{'error':digitalsign.controls.aadhar.invalid && digitalsign.controls.aadhar.touched }"   [popover]="aadhar" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
-                        <validation-messages [control]="digitalsign.controls.aadhar"></validation-messages></div>
-                    <div class="col-md-6"><label>Country</label>
-                        <select placeholder="Select your Country" formControlName="country" class="form-control"  (change)="selectChangeCountry($event)" [ngClass]="{'error':digitalsign.controls.country.invalid && digitalsign.controls.country.touched }"   [popover]="country" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
-                        <option value="" [selected]=true>Select country</option>
-                        <option *ngFor="let country of country" [value]="country.country" id="countryselector"
-                          [attr.data-somedata]="country.id">{{country.country}}</option>
+                    <div class="col-md-6">
+                        <label>Aadhar No</label>
+                        <input type="text" formControlName="aadhar" class="form-control" [ngClass]="{'error':digitalsign.controls.aadhar.invalid && digitalsign.controls.aadhar.touched }"   [popover]="aadhar" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
+                        <popover-content #aadhar [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.aadhar.invalid && digitalsign.controls.aadhar.touched ? 'block' : 'none'"> 
+                           <validation-messages [control]="digitalsign.controls.aadhar"></validation-messages>
+                        </popover-content>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Country</label>
+                        <select formControlName="country" class="form-control"  (change)="selectChangeCountry($event)" [ngClass]="{'error':digitalsign.controls.country.invalid && digitalsign.controls.country.touched }"   [popover]="country" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                            <option value="" [selected]=true>Select country</option>
+                            <option *ngFor="let country of country" [value]="country.country" id="countryselector"
+                            [attr.data-somedata]="country.id">{{country.country}}</option>
                       </select>
-                        <validation-messages [control]="digitalsign.controls.country"></validation-messages></div>
+                      <popover-content #country [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.country.invalid && digitalsign.controls.country.touched ? 'block' : 'none'">  
+                         <validation-messages [control]="digitalsign.controls.country"></validation-messages>
+                      </popover-content>
+                    </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-6"><label>Pan</label>
                         <input type="text" formControlName="pan" class="form-control"  [ngClass]="{'error':digitalsign.controls.pan.invalid && digitalsign.controls.pan.touched }"   [popover]="pan" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
-                        <validation-messages [control]="digitalsign.controls.pan"></validation-messages></div>
-                    <div class="col-md-6"><label>State</label>
-                        <select placeholder="Select your State/ Province" formControlName="state"
-                        (change)="selectChangeStates($event)"  class="form-control" [ngClass]="{'error':digitalsign.controlsstate.invalid && digitalsign.controls.state.touched }"   [popover]="state" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
-                        <option value="" [selected]=true>Select state</option>
-                        <option *ngFor="let states of states" [value]="states.states" [attr.data-somedata]="states.id">
-                          {{states.states}}</option>
-                      </select>
-                        <validation-messages [control]="digitalsign.controls.state"></validation-messages></div>
+                        <popover-content #pan [closeOnClickOutside]="true" [style.display]="digitalsign.controls.pan.invalid && digitalsign.controls.pan.touched ? 'block' : 'none'"> 
+                           <validation-messages [control]="digitalsign.controls.pan"></validation-messages>
+                        </popover-content>
+                </div>
+                <div class="col-md-6">
+                    <label>State</label>
+                    <select placeholder="Select your State/ Province" formControlName="state" (change)="selectChangeStates($event)"  class="form-control" [ngClass]="{'error':digitalsign.controls.state.invalid && digitalsign.controls.state.touched }"   [popover]="state" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                    <option value="" [selected]=true>Select state</option>
+                    <option *ngFor="let states of states" [value]="states.states" [attr.data-somedata]="states.id">
+                        {{states.states}}</option>
+                    </select>
+                    <popover-content #state [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.state.invalid && digitalsign.controls.state.touched ? 'block' : 'none'">   
+                        <validation-messages [control]="digitalsign.controls.state"></validation-messages>
+                    </popover-content>
+                </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-6"><label>Mobile No</label><input type="text" formControlName="mobileno" class="form-control" [ngClass]="{'error':digitalsign.controls.mobileno.invalid && digitalsign.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
-                        <validation-messages [control]="digitalsign.controls.mobileno"></validation-messages></div>
-                    <div class="col-md-6"><label>Locality</label><input type="text"  formControlName="locality" class="form-control"[ngClass]="{'error':digitalsign.controls.locality.invalid && digitalsign.controls.locality.touched }"   [popover]="locality" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
-                        <validation-messages [control]="digitalsign.controls.locality"></validation-messages></div>
+                    <div class="col-md-6">
+                        <label>Mobile No</label>
+                        <input type="text" formControlName="mobileno" class="form-control" maxlength="10" [ngClass]="{'error':digitalsign.controls.mobileno.invalid && digitalsign.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                        <popover-content #mobileno [closeOnClickOutside]="true" [style.display]="digitalsign.controls.mobileno.invalid && digitalsign.controls.mobileno.touched ? 'block' : 'none'"> 
+                           <validation-messages [control]="digitalsign.controls.mobileno"></validation-messages>
+                        </popover-content>
+                </div>
+                    <div class="col-md-6">
+                        <label>Locality</label>
+                        <input type="text"  formControlName="locality" class="form-control"[ngClass]="{'error':digitalsign.controls.locality.invalid && digitalsign.controls.locality.touched }"   [popover]="locality" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
+                        <popover-content #locality [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.locality.invalid && digitalsign.controls.locality.touched ? 'block' : 'none'"> 
+                              <validation-messages [control]="digitalsign.controls.locality"></validation-messages>
+                        </popover-content>
+                </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-6"><label>Gender</label><input type="text" formControlName="gender" class="form-control" [ngClass]="{'error':digitalsign.controls.gender.invalid && digitalsign.controls.gender.touched }"   [popover]="gender" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
-                        <validation-messages [control]="digitalsign.controls.gender"></validation-messages></div>
-                    <div class="col-md-6"><label>Nationality</label><input type="text"  formControlName="nationality" class="form-control" [ngClass]="{'error':digitalsign.controls.nationality.invalid && digitalsign.controls.nationality.touched }"   [popover]="nationality" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
-                        <validation-messages [control]="digitalsign.controls.nationality"></validation-messages></div>
+                    <div class="col-md-6">
+                        <label>Gender</label>
+                        <select formControlName="gender" class="form-control" [ngClass]="{'error':digitalsign.controls.gender.invalid && digitalsign.controls.gender.touched }"   [popover]="gender" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                            <option value="" [selected]=true>Select gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Others</option>
+                        </select>
+                        <popover-content #gender [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.gender.invalid && digitalsign.controls.gender.touched ? 'block' : 'none'"> 
+                           <validation-messages [control]="digitalsign.controls.gender"></validation-messages>
+                        </popover-content>
+                </div>
+                    <div class="col-md-6">
+                        <label>Nationality</label>
+                        <input type="text"  formControlName="nationality" class="form-control" [ngClass]="{'error':digitalsign.controls.nationality.invalid && digitalsign.controls.nationality.touched }"   [popover]="nationality" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                        <popover-content #nationality [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.nationality.invalid && digitalsign.controls.nationality.touched ? 'block' : 'none'"> 
+                           <validation-messages [control]="digitalsign.controls.nationality"></validation-messages>
+                        </popover-content>
+                </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-6"><label>Address</label><textarea  formControlName="address" class="form-control" [ngClass]="{'error':digitalsign.controls.address.invalid && digitalsign.controls.address.touched }"   [popover]="address" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" ></textarea>
-                        <validation-messages [control]="digitalsign.controls.address"></validation-messages></div>
-                        <div class="col-md-6"><label>Postal code</label><input type="text"  formControlName="postalcode" class="form-control" [ngClass]="{'error':digitalsign.controls.postalcode.invalid && digitalsign.controls.postalcode.touched }"   [popover]="postalcode" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
-                            <validation-messages [control]="digitalsign.controls.postalcode"></validation-messages></div>
+                    <div class="col-md-6">
+                        <label>Address</label>
+                        <textarea  formControlName="address" class="form-control" [ngClass]="{'error':digitalsign.controls.address.invalid && digitalsign.controls.address.touched }"   [popover]="address" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" ></textarea>
+                        <popover-content #address [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.address.invalid && digitalsign.controls.address.touched ? 'block' : 'none'"> 
+                          <validation-messages [control]="digitalsign.controls.address"></validation-messages>
+                      </popover-content>
+                    </div>
+                <div class="col-md-6">
+                    <label>Postal code</label>
+                    <input type="text"  formControlName="postalcode" class="form-control" [ngClass]="{'error':digitalsign.controls.postalcode.invalid && digitalsign.controls.postalcode.touched }"   [popover]="postalcode" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                    <popover-content #postalcode [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.postalcode.invalid && digitalsign.controls.postalcode.touched ? 'block' : 'none'"> 
+                        <validation-messages [control]="digitalsign.controls.postalcode"></validation-messages>
+                    </popover-content>
+                </div>
                    
                 </div>
                 <div class="d-flex justify-content-between align-items-center mb-3" style="margin-top: 18px;">
@@ -104,23 +180,55 @@
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-6"><label>Photo</label><input type="file" formControlName="photo" (change)="onSelectedfile1($event)" class="form-control" [ngClass]="{'error':digitalsign.controls.photo.invalid && digitalsign.controls.photo.touched }"   [popover]="photo" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
-                        <validation-messages [control]="digitalsign.controls.photo"></validation-messages></div>
-                    <div class="col-md-6"><label>PAN Card</label><input type="file" formControlName="pancard" (change)="onSelectedfile2($event)" class="form-control"  [ngClass]="{'error':digitalsign.controls.pancard.invalid && digitalsign.controls.pancard.touched }"   [popover]="pancard" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
-                        <validation-messages [control]="digitalsign.controls.pancard"></validation-messages></div>
+                    <div class="col-md-6">
+                        <label>Photo</label>
+                        <div class="input-group my-3" [ngClass]="{'error':digitalsign.controls.photo.invalid && digitalsign.controls.photo.touched }">
+                            <div style="width: 76%;border: 2px solid #e4e3e3;background:white; border-radius: 10px 0px 0px 10px;">
+                               <input type="file" id="file1" formControlName="photo" style="opacity:0;" (change)="onSelectedfile1($event)" class="form-control"    [popover]="photo" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
+                               <span class="upldtext1">Upload here</span>
+                            </div>
+                            <div class="input-group-append">
+                                <button type="button" (click)="logofile1()" class="browse btn btn-primary" style="padding-left: 14px;">Upload</button>
+                           </div>
+                        </div>
+                        <popover-content #photo [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.photo.invalid && digitalsign.controls.photo.touched ? 'block' : 'none'"> 
+                           <validation-messages [control]="digitalsign.controls.photo"></validation-messages>
+                        </popover-content>
+                     </div>
+                    <div class="col-md-6">
+                        <label>PAN Card</label>
+                        <div class="input-group my-3" [ngClass]="{'error':digitalsign.controls.pancard.invalid && digitalsign.controls.pancard.touched }" >
+                            <div style="width: 76%;border: 2px solid #e4e3e3;background:white; border-radius: 10px 0px 0px 10px;">
+                               <input type="file" id="file2" style="opacity:0;"  formControlName="pancard" (change)="onSelectedfile2($event)" class="form-control"    [popover]="pancard" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                               <span class="upldtext2">Upload here</span>
+                            </div>
+                            <div class="input-group-append">
+                                <button type="button" (click)="logofile2()" class="browse btn btn-primary" style="padding-left: 14px;">Upload</button>
+                           </div>
+                        </div>
+                        <popover-content #pancard [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.pancard.invalid && digitalsign.controls.pancard.touched ? 'block' : 'none'"> 
+                            <validation-messages [control]="digitalsign.controls.pancard"></validation-messages>
+                        </popover-content>
+                    </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-6">
-                        <label>Aadhar card</label><input type="file" formControlName="aadharcard" (change)="onSelectedfile3($event)" class="form-control" [ngClass]="{'error':digitalsign.controls.aadharcard.invalid && digitalsign.controls.aadharcard.touched }"   [popover]="aadharcard" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
-                        <validation-messages [control]="digitalsign.controls.aadharcard"></validation-messages>
+                        <label>Aadhar card</label>
+                        <div class="input-group my-3" [ngClass]="{'error':digitalsign.controls.aadharcard.invalid && digitalsign.controls.aadharcard.touched }">
+                            <div style="width: 76%;border: 2px solid #e4e3e3;background:white;border-radius: 10px 0px 0px 10px;">
+                              <input type="file" id="file3"  style="opacity:0;" formControlName="aadharcard" (change)="onSelectedfile3($event)" class="form-control"    [popover]="aadharcard" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
+                              <span class="upldtext3">Upload here</span>
+                            </div>
+                            <div class="input-group-append">
+                               <button type="button" (click)="logofile3()" class="browse btn btn-primary" style="padding-left: 14px;">Upload</button>
+                            </div>
+                        </div>
+                        <popover-content #aadharcard [closeOnClickOutside]="true" [style.display]="digitalsign.controls.aadharcard.invalid && digitalsign.controls.aadharcard.touched ? 'block' : 'none'"> 
+                            <validation-messages [control]="digitalsign.controls.aadharcard"></validation-messages>
+                        </popover-content>
                     </div>
-                    <div class="col-md-6" style="
-                    padding-top: 39px;
-                    margin-right: 0px;
-                ">
-                        <input type="checkbox"  formControlName="includemailid" style="
-                        margin-right: 9px;
-                    "  [ngClass]="{'error':digitalsign.controls.includemailid.invalid && digitalsign.controls.includemailid.touched }"   [popover]="includemailid" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  ><span>Include EmailID in ceritificate</span>
+                    <div class="col-md-6" style="padding-top: 39px;margin-right: 0px; ">
+                        <input type="checkbox"  formControlName="includemailid" style="margin-right: 9px;"><span>Include EmailID in ceritificate</span>
                     </div>
                 </div>
                 <div class="row mt-3">

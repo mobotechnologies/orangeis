@@ -29,3 +29,20 @@ span{
   {
     border: 2px solid #e52f48 !important;
   }
+  select
+  {
+    border-radius: 14px;
+  }
+  .upldtext1,.upldtext2,.upldtext3
+ {
+     
+    position: absolute;
+    
+    top: 11px;
+    left: 13px;
+
+ }
+.browae
+{
+    border-radius: 0px 10px 10px 0px;
+}
