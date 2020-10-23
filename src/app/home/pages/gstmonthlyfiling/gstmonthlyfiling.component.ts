@@ -39,7 +39,7 @@ export class GstmonthlyfilingComponent implements OnInit {
     gstnumber: ['', [Validators.required]],
     gstusername: ['', [Validators.required]],
     mobileno: ['', Validators.required],
-    emailid: ['',Validators.required],
+    emailid: ['',[Validators.required,ValidationService.emailValidator]],
     logpassword: ['',Validators.required],
     confirmpassword: ['', [Validators.required]],
   });
@@ -77,6 +77,10 @@ export class GstmonthlyfilingComponent implements OnInit {
   }
   submitandpay()
   {
+    
+    this.gstmonthlyfiling.markAllAsTouched();
+    if (this.gstmonthlyfiling.valid) {
+     this.spinner.show();
     const formData = new FormData();
     formData.append('GSTNumber', this.gstmonthlyfiling.value.gstnumber);
     formData.append('MobileNumber',this.gstmonthlyfiling.value.gstusername);
@@ -117,6 +121,6 @@ export class GstmonthlyfilingComponent implements OnInit {
 
 
       });
-
+    }
   }
 }

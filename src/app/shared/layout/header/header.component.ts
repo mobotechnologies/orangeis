@@ -119,7 +119,7 @@ export class HeaderComponent implements OnInit {
     this._category.getsubcategoryfilter(formData).subscribe(response=>{
       
       this.subcategory=response.data;
-      this.router.navigate(['productlisting'], { state: {category:$("#category").val(),subcategory:$("#subategory").val(),search:$("#search-input").val()} });
+    
   
 
   },error=>console.error('error',error));
@@ -130,7 +130,7 @@ export class HeaderComponent implements OnInit {
   
      
   
-    this.router.navigate(['productlisting'], { state: {category:$("#category").val(),subcategory:$("#subategory").val(),search:$("#search-input").val()} });
+  //  this.router.navigate(['productlisting'], { state: {category:$("#category").val(),subcategory:$("#subategory").val(),search:$("#search-input").val()} });
   }
   search()
   {

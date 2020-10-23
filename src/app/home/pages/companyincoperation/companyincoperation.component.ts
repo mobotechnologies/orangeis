@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
 import { FormBuilder, Validators } from '@angular/forms';
 import { retryWhen, delay, take } from 'rxjs/operators'
 import * as $ from 'jquery';
-import { RxwebValidators, fileSize } from '@rxweb/reactive-form-validators';
+import { RxwebValidators} from '@rxweb/reactive-form-validators';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { enGbLocale } from 'ngx-bootstrap/locale';
 import { BsLocaleService, defineLocale, AlertComponent } from 'ngx-bootstrap';
@@ -73,10 +73,10 @@ export class CompanyincoperationComponent implements OnInit {
     webpage: ['', Validators.required],
     directorpan: ['', Validators.required],
     directoraadhar: ['', Validators.required],
-    directorphoto: ['', Validators.required],
+    directorphoto: ['',[Validators.required, RxwebValidators.extension({extensions:["jpeg","jpg"]})]],
     bankstatement: ['', Validators.required],
     mobileno: ['', Validators.required],
-    emailid: ['', Validators.required]
+    emailid: ['',[Validators.required,ValidationService.emailValidator]]
   });
   selectedcountry: string = '';
   selectedstates: string = '';
@@ -102,6 +102,7 @@ export class CompanyincoperationComponent implements OnInit {
     //  this.imgsrc=event.target.files;
     this.tmp_files.push(event.target.files);
     this.imgsrc = event.target.files[0].name;
+    $('.upldtext1').text(event.target.files[0].name);
     var reader = new FileReader();
   
     reader.readAsDataURL(event.target.files[0]); // read file as data url
@@ -114,6 +115,7 @@ export class CompanyincoperationComponent implements OnInit {
     //  this.imgsrc=event.target.files;
     this.tmp_files.push(event.target.files);
     this.imgsrc2 = event.target.files[0].name;
+    $('.upldtext2').text(event.target.files[0].name);
     var reader = new FileReader();
   
     reader.readAsDataURL(event.target.files[0]); // read file as data url
@@ -126,8 +128,8 @@ export class CompanyincoperationComponent implements OnInit {
     //  this.imgsrc=event.target.files;
     this.tmp_files.push(event.target.files);
     this.imgsrc3 = event.target.files[0].name;
+    $('.upldtext3').text(event.target.files[0].name);
     var reader = new FileReader();
-  
     reader.readAsDataURL(event.target.files[0]); // read file as data url
     reader.onload = (event) => { // called once readAsDataURL is completed
       console.log(reader.result);
@@ -138,17 +140,34 @@ export class CompanyincoperationComponent implements OnInit {
     //  this.imgsrc=event.target.files;
     this.tmp_files.push(event.target.files);
     this.imgsrc4 = event.target.files[0].name;
+    $('.upldtext4').text(event.target.files[0].name);
     var reader = new FileReader();
-  
     reader.readAsDataURL(event.target.files[0]); // read file as data url
     reader.onload = (event) => { // called once readAsDataURL is completed
       console.log(reader.result);
      
     }
   }
+  logofile1() {
+    $("#file1").trigger('click');
+  }
+  logofile2() {
+    $("#file2").trigger('click');
+  }
+  logofile3() {
+    $("#file3").trigger('click');
+  }
+  logofile4() {
+    $("#file4").trigger('click');
+  }
   submitandpay()
   {
-  
+   
+    var indate = (new Date(this.companyinc.value.commencement)).toLocaleDateString();
+
+    this.companyinc.markAllAsTouched();
+    if (this.companyinc.valid) {
+      this.spinner.show();
     for (let i = 0; i < this.tmp_files.length; i++) {
       const formDat = new FormData();
       formDat.append('Imagefile', this.tmp_files[i][0]);
@@ -168,7 +187,7 @@ export class CompanyincoperationComponent implements OnInit {
     formData.append('Businessaddress2',this.companyinc.value.secondaryaddress);
     formData.append('Goods&Services', this.companyinc.value.goodservice);
     formData.append('BusinessActivity',this.companyinc.value.esiusername);
-    formData.append('commencementDate',this.companyinc.value.commencement);
+    formData.append('commencementDate',indate);
     formData.append('company_website',this.companyinc.value.webpage);
     formData.append('DirectorPAN',this.imgsrc);
     formData.append('DirectorAadhar',this.imgsrc2);
@@ -210,6 +229,6 @@ export class CompanyincoperationComponent implements OnInit {
 
 
       });
-    
+    }
   }
 }

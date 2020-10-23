@@ -53,3 +53,59 @@ p
   {
     border: 2px solid #e52f48 !important;
   }
+  label
+  {
+      font-weight:600;
+  }
+  .row
+  {
+      margin-bottom:8px !important;
+  }
+  .prevbtn
+  {
+      
+    margin-left: 35%;
+    margin-right: 16px;
+
+  }
+ .upldtext1
+ {
+     
+   
+    float: left;
+    padding-left: 11px;
+    padding-top: 2px;
+
+ }
+ .upldtext2
+ {
+     
+  
+    float: left;
+    padding-left: 11px;
+    padding-top: 4px;
+
+ }
+ .upldtext3
+ {
+     
+  
+    float: left;
+    padding-left: 11px;
+    padding-top: 4px;
+
+ }
+ .upldtext4
+ {
+     
+ 
+    float: left;
+    padding-left: 11px;
+    padding-top: 4px;
+
+ }
+ .file
+ {
+    height: 0px;
+    width: 201px;
+ }

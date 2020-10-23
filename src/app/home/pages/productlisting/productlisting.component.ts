@@ -73,11 +73,53 @@ export class ProductlistingComponent implements OnInit {
     
       },error=>console.error('error',error)); 
       $(".search-category").on("change",(e)=>{
-        this.productsearch();
+        const formData = new FormData();
+        formData.append('category',$("#category").val());
+        formData.append('subcategory',$("#subcategory").val());
+        formData.append('search',$("#search-input").val());
+        formData.append('category_id',$("#category").val());
+                  this._category.getsubcategoryfilter(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response=>{
+                
+                    this.subcategory=response.data;
+                
+              
+                },error=>console.error('error',error));
+                this.productService.getindustry(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response=>{
+                  if(response.success)
+                  {
+                      this.industry=response.data;
+                  }
+                
+                  },error=>console.error('error',error));
+                this.productService.getbrand(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response=>{
+                  if(response.success)
+                  {
+                      this.brand=response.data;
+                  }
+                
+                  },error=>console.error('error',error));
         
       });
       $("#subcategory").on("change",(e)=>{
-        this.productsearch();
+        const formData = new FormData();
+        formData.append('category',$("#category").val());
+        formData.append('subcategory',$("#subcategory").val());
+        formData.append('search',$("#search-input").val());
+        formData.append('category_id',$("#category").val());
+        this.productService.getindustry(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response=>{
+          if(response.success)
+          {
+              this.industry=response.data;
+          }
+        
+          },error=>console.error('error',error));
+        this.productService.getbrand(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response=>{
+          if(response.success)
+          {
+              this.brand=response.data;
+          }
+        
+          },error=>console.error('error',error));
      
       });
       $("#search").on("click",(e)=>{
@@ -100,27 +142,6 @@ export class ProductlistingComponent implements OnInit {
     formData.append('subcategory',$("#subcategory").val());
     formData.append('search',$("#search-input").val());
     formData.append('category_id',$("#category").val());
-    
-    this._category.getsubcategoryfilter(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response=>{
-      
-          this.subcategory=response.data;
-      
-    
-      },error=>console.error('error',error));
-    this.productService.getindustry(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response=>{
-      if(response.success)
-      {
-          this.industry=response.data;
-      }
-    
-      },error=>console.error('error',error));
-    this.productService.getbrand(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response=>{
-      if(response.success)
-      {
-          this.brand=response.data;
-      }
-    
-      },error=>console.error('error',error));
     this.productService.productlist(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response=>{
       
        

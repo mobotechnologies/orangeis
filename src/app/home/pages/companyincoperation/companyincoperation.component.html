@@ -189,25 +189,51 @@
             <div class="row">
                 <div class="col">
                     <label>Director PAN </label>
-                    <input type="file"  formControlName="directorpan" (change)="onSelectedfile($event)" class="form-control" [ngClass]="{'error':companyinc.controls.directorpan.invalid && companyinc.controls.directorpan.touched }"   [popover]="directorpan" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                    
+                    <div class="input-group my-3"  [ngClass]="{'error':companyinc.controls.directorpan.invalid && companyinc.controls.directorpan.touched }" >
+                        <div style="width: 82%;border: 2px solid #e4e3e3;background:white;">
+                            <input type="file" class="file" style="opacity:0;" id="file1" formControlName="directorpan" (change)="onSelectedfile($event)"   [popover]="directorpan" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+                            <span class="upldtext1">Upload here</span>
+                        </div>
+                        <div class="input-group-append">
+                            <button type="button" (click)="logofile1()" class="browse btn btn-primary" style="
+                            padding-left: 14px;
+                        ">Browse...</button>
+                        </div>
+                    </div>
                     <popover-content #directorpan [closeOnClickOutside]="true"
                     [style.display]="companyinc.controls.directorpan.invalid && companyinc.controls.directorpan.touched ? 'block' : 'none'">
                     <validation-messages [control]="companyinc.controls.directorpan"></validation-messages>
                 </popover-content>
                 </div>
                 <div class="col">
-                    <label>Director Aadhar</label>
-                    <input type="file"  formControlName="directoraadhar" (change)="onSelectedfile2($event)" class="form-control" [ngClass]="{'error':companyinc.controls.directoraadhar.invalid && companyinc.controls.directoraadhar.touched }"   [popover]="directoraadhar" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
-                    <popover-content #directoraadhar [closeOnClickOutside]="true"
-                    [style.display]="companyinc.controls.directoraadhar.invalid && companyinc.controls.directoraadhar.touched ? 'block' : 'none'">
-                    <validation-messages [control]="companyinc.controls.directoraadhar"></validation-messages>
-                </popover-content>
+                        <label>Director Aadhar</label>
+                        <div class="input-group my-3" [ngClass]="{'error':companyinc.controls.directoraadhar.invalid && companyinc.controls.directoraadhar.touched }" >
+                            <div style="width: 82%;border: 2px solid #e4e3e3;background:white;">
+                                <input type="file" class="file" id="file2" style="opacity:0;" formControlName="directoraadhar" (change)="onSelectedfile2($event)"   [popover]="directoraadhar" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                                <span class="upldtext2">Upload here</span>
+                            </div>
+                            <div class="input-group-append">
+                                <button type="button" (click)="logofile2()" class="browse btn btn-primary" style="padding-left: 14px;">Browse...</button>
+                            </div>
+                        </div>
+                        <popover-content #directoraadhar [closeOnClickOutside]="true"  [style.display]="companyinc.controls.directoraadhar.invalid && companyinc.controls.directoraadhar.touched ? 'block' : 'none'">
+                            <validation-messages [control]="companyinc.controls.directoraadhar"></validation-messages>
+                        </popover-content>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <label>director Photo (in JPEG)</label>
-                    <input type="file"  formControlName="directorphoto" class="form-control" (change)="onSelectedfile3($event)" [ngClass]="{'error':companyinc.controls.directorphoto.invalid && companyinc.controls.directorphoto.touched }"   [popover]="directorphoto" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                   <label>director Photo (in JPEG)</label>
+                   <div class="input-group my-3" [ngClass]="{'error':companyinc.controls.directorphoto.invalid && companyinc.controls.directorphoto.touched }">
+                        <div style="width: 82%;border: 2px solid #e4e3e3;background:white;">
+                          <input type="file" class="file" id="file3"  style="opacity:0;" formControlName="directorphoto" (change)="onSelectedfile3($event)"    [popover]="directorphoto" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                          <span class="upldtext3">Upload here</span>
+                        </div>
+                      <div class="input-group-append">
+                       <button type="button" (click)="logofile3()"  class="browse btn btn-primary" style="padding-left: 14px;">Browse...</button>
+                     </div>
+                   </div>
                     <popover-content #directorphoto [closeOnClickOutside]="true"
                     [style.display]="companyinc.controls.directorphoto.invalid && companyinc.controls.directorphoto.touched ? 'block' : 'none'">
                     <validation-messages [control]="companyinc.controls.directorphoto"></validation-messages>
@@ -215,7 +241,15 @@
                 </div>
                 <div class="col">
                     <label>Last 3 Month bank Statement</label>
-                    <input type="file" formControlName="bankstatement"  (change)="onSelectedfile4($event)" class="form-control" [ngClass]="{'error':companyinc.controls.bankstatement.invalid && companyinc.controls.bankstatement.touched }"   [popover]="bankstatement" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                    <div class="input-group my-3" [ngClass]="{'error':companyinc.controls.bankstatement.invalid && companyinc.controls.bankstatement.touched }">
+                    <div style="width: 82%;border: 2px solid #e4e3e3;background:white;">
+                        <input type="file" class="file"  id="file4"  style="opacity:0;" formControlName="bankstatement"  (change)="onSelectedfile4($event)"     [popover]="bankstatement" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                        <span class="upldtext4">Upload here</span>
+                    </div>    
+                    <div class="input-group-append">
+                        <button type="button" (click)="logofile4()" class="browse btn btn-primary" style="padding-left: 14px;">Browse...</button>
+                      </div>
+                    </div>
                     <popover-content #bankstatement [closeOnClickOutside]="true"
                     [style.display]="companyinc.controls.bankstatement.invalid && companyinc.controls.bankstatement.touched ? 'block' : 'none'">
                     <validation-messages [control]="companyinc.controls.bankstatement"></validation-messages>
@@ -225,7 +259,7 @@
             <div class="row">
                 <div class="col">
                     <label>Personal Mobile Number</label>
-                    <input type="text" formControlName="mobileno" class="form-control" [ngClass]="{'error':companyinc.controls.mobileno.invalid && companyinc.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                    <input type="text" formControlName="mobileno" class="form-control" maxlength="10" [ngClass]="{'error':companyinc.controls.mobileno.invalid && companyinc.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
                     <popover-content #mobileno [closeOnClickOutside]="true" [style.display]="companyinc.controls.mobileno.invalid && companyinc.controls.mobileno.touched ? 'block' : 'none'">
                         <validation-messages [control]="companyinc.controls.mobileno"></validation-messages>
                     </popover-content>
@@ -252,7 +286,7 @@
                 <p>I hereby declare that information provided in the online registration form is true to the best of my knowledge and I accept terms, disclaimer, and policies by clicking “Submit & Pay” button.</p>
             </div>
             <div class="button">
-                   <button class="btn btn-primary" (click)="prev()">Previous</button>
+                   <button class="btn btn-primary prevbtn" (click)="prev()">Previous</button>
                   <button class="btn btn-success" (click)="submitandpay()">Submit and pay</button>
             </div>
         </form>
