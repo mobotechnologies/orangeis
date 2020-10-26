@@ -172,3 +172,16 @@ button:focus {
   {
     border: 2px solid #e52f48 !important;
   }
+  .file
+  {
+    height: 17.991422px;
+    margin-bottom: 0px;
+    padding-left: 115px;
+  }
+
+.filetext
+{
+    position: absolute;
+    top: 7px;
+    left: 27px;
+}

@@ -91,12 +91,12 @@
                     </div>
                     <div class="col-md-6">
                         <label>Country</label>
-                        <select formControlName="country" class="form-control"  (change)="selectChangeCountry($event)" [ngClass]="{'error':digitalsign.controls.country.invalid && digitalsign.controls.country.touched }"   [popover]="country" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                        <select formControlName="country" class="form-control"  (change)="selectChangeCountry($event)" [ngClass]="{'error':digitalsign.controls.country.invalid && digitalsign.controls.country.touched }"   [popover]="counte" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                             <option value="" [selected]=true>Select country</option>
                             <option *ngFor="let country of country" [value]="country.country" id="countryselector"
                             [attr.data-somedata]="country.id">{{country.country}}</option>
                       </select>
-                      <popover-content #country [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.country.invalid && digitalsign.controls.country.touched ? 'block' : 'none'">  
+                      <popover-content #counte [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.country.invalid && digitalsign.controls.country.touched ? 'block' : 'none'">  
                          <validation-messages [control]="digitalsign.controls.country"></validation-messages>
                       </popover-content>
                     </div>
