@@ -14,6 +14,7 @@ import { RxwebValidators, fileSize } from '@rxweb/reactive-form-validators';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { enGbLocale } from 'ngx-bootstrap/locale';
 import { BsLocaleService, defineLocale, AlertComponent } from 'ngx-bootstrap';
+import {  SocialloginService } from '../../../webservice/joinfree/sociallogin.service';
 
 @Component({
   selector: 'app-digitalsignature',
@@ -25,11 +26,15 @@ export class DigitalsignatureComponent implements OnInit {
   public country = [];
   errorMsg: any;
   states: any;
-  phonecode: any;
+  public phonecode=[
+    {"phonecode":"Ac",
+    "country_codes":"IN"},
+   ];
   cities: any;
   payKit: any;
+  invalidPhoneLength: boolean;
 
-  constructor(private localeService: BsLocaleService,private spinner: NgxSpinnerService, private cookieService: CookieService, private _countrymodel: CountryService, private router: Router, private route: ActivatedRoute, private location: Location, private fb: FormBuilder, private _validation: ValidationService,private coperate:CooperateserviceService) {
+  constructor(private SocialloginService: SocialloginService,private localeService: BsLocaleService,private spinner: NgxSpinnerService, private cookieService: CookieService, private _countrymodel: CountryService, private router: Router, private route: ActivatedRoute, private location: Location, private fb: FormBuilder, private _validation: ValidationService,private coperate:CooperateserviceService) {
     enGbLocale.invalidDate = 'Select date';
     defineLocale('custom locale', enGbLocale);
     this.localeService.use('custom locale');
@@ -135,11 +140,35 @@ export class DigitalsignatureComponent implements OnInit {
   logofile3() {
     $("#file3").trigger('click');
   }
+  PhoneValidator()
+  {
+    if(this.digitalsign.controls['mobileno'].valid)
+    {
+     if(this.digitalsign.value.mobileno !="")
+      {
+          const formData = new FormData();
+          formData.append('phone_number',this.digitalsign.value.mobileno);
+          formData.append('country_code',$("#pcode").html());
+       
+          this.SocialloginService.phonelengthvalidator(formData).subscribe(response=>{
+          if(response.success)
+          {   
+            this.invalidPhoneLength=false;
+          }
+          else
+          { 
+              this.invalidPhoneLength=true;
+          }
+          },error=>console.error('error',error)); 
+      }
+    }
+      
+  }
   submitandpay()
   {
     var indate = (new Date(this.digitalsign.value.dob)).toLocaleDateString();
     this.digitalsign.markAllAsTouched();
-    if (this.digitalsign.valid) {
+    if (this.digitalsign.valid && this.invalidPhoneLength == false) {
       this.spinner.show();
       
     for (let i = 0; i < this.tmp_files.length; i++) {

@@ -227,3 +227,17 @@ p.form-para::after {
     padding-left: 14px;
 
   }
+  .phonecd
+  {
+      
+    border: 1px solid lightgrey;
+    padding-top: 3px;
+    padding-left: 6px;
+    padding-right: 7px;
+
+  }
+  .errorstyles2
+  {
+    
+      color:red;
+  }

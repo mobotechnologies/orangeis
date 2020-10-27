@@ -14,6 +14,9 @@ import { RxwebValidators, fileSize } from '@rxweb/reactive-form-validators';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { enGbLocale } from 'ngx-bootstrap/locale';
 import { BsLocaleService, defineLocale, AlertComponent } from 'ngx-bootstrap';
+import {  SocialloginService } from '../../../webservice/joinfree/sociallogin.service';
+
+
 @Component({
   selector: 'app-gstregistration',
   templateUrl: './gstregistration.component.html',
@@ -21,10 +24,13 @@ import { BsLocaleService, defineLocale, AlertComponent } from 'ngx-bootstrap';
 })
 export class GstregistrationComponent implements OnInit {
   datePickerConfig: Partial<BsDatepickerConfig>;
-  country: import("f:/Famposov3/client/src/app/model/location/country").Countrymodel[];
+  public country=[];
   errorMsg: any;
   states: any;
-  phonecode: any;
+  public phonecode=[
+    {"phonecode":"Ac",
+    "country_codes":"IN"},
+   ];
   cities: any;
   imgsrc3: any;
   imgsrc4: any;
@@ -37,9 +43,10 @@ export class GstregistrationComponent implements OnInit {
   selectedEntity: any;
   dtype: string;
   renttype: string;
+  invalidPhoneLength: boolean;
 
 
-  constructor(private localeService: BsLocaleService,private spinner: NgxSpinnerService, private cookieService: CookieService, private _countrymodel: CountryService, private router: Router, private route: ActivatedRoute, private location: Location, private fb: FormBuilder, private _validation: ValidationService,private coperate:CooperateserviceService) {
+  constructor(private localeService: BsLocaleService,private SocialloginService: SocialloginService,private spinner: NgxSpinnerService, private cookieService: CookieService, private _countrymodel: CountryService, private router: Router, private route: ActivatedRoute, private location: Location, private fb: FormBuilder, private _validation: ValidationService,private coperate:CooperateserviceService) {
     enGbLocale.invalidDate = 'Select date';
     defineLocale('custom locale', enGbLocale);
     this.localeService.use('custom locale');
@@ -98,6 +105,8 @@ export class GstregistrationComponent implements OnInit {
     commencement: ['', [Validators.required]],
     mobileno: ['', [Validators.required,ValidationService.numberValidator]],
     emailid: ['', [Validators.required,ValidationService.emailValidator]],
+    country: ['', [Validators.required]],
+    state: ['', [Validators.required]],
     compositionscheme: ['', [Validators.required]],
     Photograph:this.fb.array([this.initnewRows1()]),
     identityproof:this.fb.array([this.initnewRows2()]),
@@ -345,11 +354,37 @@ export class GstregistrationComponent implements OnInit {
   logofile9() {
     $("#file9").trigger('click');
   }
+  PhoneValidator()
+  {
+    if(this.gstregistration.controls['mobileno'].valid)
+    {
+     if(this.gstregistration.value.mobileno !="")
+      {
+          const formData = new FormData();
+          formData.append('phone_number',this.gstregistration.value.mobileno);
+          formData.append('country_code',$("#pcode").html());
+       
+          this.SocialloginService.phonelengthvalidator(formData).subscribe(response=>{
+          if(response.success)
+          {   
+            this.invalidPhoneLength=false;
+          }
+          else
+          { 
+              this.invalidPhoneLength=true;
+          }
+          },error=>console.error('error',error)); 
+      }
+    }
+      
+  }
   submitandpay()
   {
     var indate = (new Date(this.gstregistration.value.commencement)).toLocaleDateString();
     this.gstregistration.markAllAsTouched();
-    if (this.gstregistration.valid) {
+    if(this.gstregistration.controls['compositionscheme'].valid)
+    {
+    if (this.gstregistration.valid && this.invalidPhoneLength == false) {
       this.spinner.show();
       for (let i = 0; i < this.tmp_files.length; i++) {
         const formData = new FormData();
@@ -419,6 +454,11 @@ export class GstregistrationComponent implements OnInit {
   
         });
     }
+  }
+  else
+  {
+     Swal.fire("Composition scheme is required");
+  }
    
   }
 }

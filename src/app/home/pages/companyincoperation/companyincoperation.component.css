@@ -107,5 +107,20 @@ p
  .file
  {
     height: 0px;
-    width: 201px;
+    width: 50px;
  }
+ .errorstyles2
+  {
+    
+      color:red;
+  }
+  .phonecd
+  {
+      
+    border-radius: 5px 0px 0px 4px;
+    border: 1px solid lightgrey;
+    padding-top: 4px;
+    padding-left: 8px;
+    padding-right: 10px;
+
+  }

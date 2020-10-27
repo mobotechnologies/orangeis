@@ -43,14 +43,47 @@
                                     <div class="col-3 col-md-5"> <input type="text" formControlName="esiusername" placeholder="ESI  User Name*" class="placeicon" [ngClass]="{'error':esimonthlyfiling.controls.esiusername.invalid && esimonthlyfiling.controls.esiusername.touched }"   [popover]="esiusername" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >   <popover-content #esiusername [closeOnClickOutside]="true"
                                         [style.display]="esimonthlyfiling.controls.esiusername.invalid && esimonthlyfiling.controls.esiusername.touched ? 'block' : 'none'"> <validation-messages [control]="esimonthlyfiling.controls.esiusername"></validation-messages></popover-content></div>
                                 </div>
+                                <div class="form-group row">
+                                    <div class="col-9 col-md-7">
+                                       
+                                        <select formControlName="country" class="form-control"  (change)="selectChangeCountry($event)" [ngClass]="{'error':esimonthlyfiling.controls.country.invalid && esimonthlyfiling.controls.country.touched }"   [popover]="counte" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                                            <option value="" [selected]=true>Select country</option>
+                                            <option *ngFor="let country of country" [value]="country.country" id="countryselector"
+                                            [attr.data-somedata]="country.id">{{country.country}}</option>
+                                      </select>
+                                      <popover-content #counte [closeOnClickOutside]="true"  [style.display]="esimonthlyfiling.controls.country.invalid && esimonthlyfiling.controls.country.touched ? 'block' : 'none'">  
+                                         <validation-messages [control]="esimonthlyfiling.controls.country"></validation-messages>
+                                      </popover-content>
+                                    </div>
+                                    <div class="col-3 col-md-5">
+                                        
+                                        <select placeholder="Select your State/ Province" formControlName="state" (change)="selectChangeStates($event)"  class="form-control" [ngClass]="{'error':esimonthlyfiling.controls.state.invalid && esimonthlyfiling.controls.state.touched }"   [popover]="state" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                                            <option value="" [selected]=true>Select state</option>
+                                            <option *ngFor="let states of states" [value]="states.states" [attr.data-somedata]="states.id">
+                                                {{states.states}}</option>
+                                            </select>
+                                            <popover-content #state [closeOnClickOutside]="true"  [style.display]="esimonthlyfiling.controls.state.invalid && esimonthlyfiling.controls.state.touched ? 'block' : 'none'">   
+                                                <validation-messages [control]="esimonthlyfiling.controls.state"></validation-messages>
+                                            </popover-content>
+                                    </div>
+                                </div>
+                                <span id="pcode" style="color:white"  *ngFor="let phonecode of phonecode">{{phonecode.country_codes}}</span>
                                 <div class="row form-group">
-                                    <div class="col-9 col-md-7"> <input type="text" formControlName="mobileno" maxlength="10" placeholder="Mobile Number *" [ngClass]="{'error':esimonthlyfiling.controls.mobileno.invalid && esimonthlyfiling.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
-                                        <popover-content #mobileno [closeOnClickOutside]="true"
+                                    <div class="col-9 col-md-7"> 
+                                        <div style="display:flex;height: 46px;">
+                                            <span class="pcodes" *ngFor="let phonecode of phonecode">+{{phonecode.phonecode}}</span>
+                                            <input type="text" style="width:78%;margin-bottom: 3px;" (mouseout)="PhoneValidator()" formControlName="mobileno"  placeholder="Mobile Number *" [ngClass]="{'error':esimonthlyfiling.controls.mobileno.invalid && esimonthlyfiling.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                                        </div>
+                                        <div class="errorstyles2" *ngIf=" invalidPhoneLength">
+                                            <i class="fa fa-exclamation-circle"></i>Invalid mobile no
+                                        </div>
+                                            <popover-content #mobileno [closeOnClickOutside]="true"
                                         [style.display]="esimonthlyfiling.controls.mobileno.invalid && esimonthlyfiling.controls.mobileno.touched ? 'block' : 'none'">
                                         <validation-messages [control]="esimonthlyfiling.controls.mobileno"></validation-messages> </popover-content></div>
                                     <div class="col-3 col-md-5"> <input type="text" formControlName="emailid" placeholder="Email ID*" class="placeicon" [ngClass]="{'error':esimonthlyfiling.controls.emailid.invalid && esimonthlyfiling.controls.emailid.touched }"   [popover]="emailid" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> <popover-content #emailid [closeOnClickOutside]="true"
                                         [style.display]="esimonthlyfiling.controls.emailid.invalid && esimonthlyfiling.controls.emailid.touched ? 'block' : 'none'"> <validation-messages [control]="esimonthlyfiling.controls.emailid"></validation-messages> </popover-content></div>
                                 </div>
+                               
                                 <div class="row form-group">
                                     <div class="col-9 col-md-7">
                                          <input type="password" formControlName="logpassword" placeholder="ESI Login Password*" [ngClass]="{'error':esimonthlyfiling.controls.logpassword.invalid && esimonthlyfiling.controls.logpassword.touched }"   [popover]="logpassword" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
@@ -78,11 +111,11 @@
                                     
                                 </div>
                                 <div class="row form-group">
-                                    <div class="col-12"><label style="font-weight:600">Upload Wages details(.xlsx)</label>
+                                    <div class="col-12">
                                         <div class="input-group my-3" [ngClass]="{'error':esimonthlyfiling.controls.uploadwage.invalid && esimonthlyfiling.controls.uploadwage.touched }">
                                             <div class="fileuploadbox">
                                                 <input type="file" id="file1" style="opacity:0;"  formControlName="uploadwage" class="form-control"  (change)="onSelectedfile($event)"     [popover]="uploadwage" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
-                                                <span class="upldtext">Upload here</span>
+                                                <span class="upldtext">Upload Wages details(.xlsx)</span>
                                             </div>    
                                             <div class="input-group-append">
                                                 <button type="button" (click)="logofile1()" class="btn btn-primary browse" >Upload</button>
@@ -98,7 +131,7 @@
                                  </div>
                                     
                                 </div>
-                                <div class="bottom">
+                                <div class="bottom form-group">
                                     <div class="row justify-content-center">
                                         <div class="col-12">
                                              <p style="margin-bottom: 16px;"><input id="chk1" type="checkbox" name="chk" class="custom-control-input">I hereby declare that information provided in the online registration form is true to the best of my knowledge and I accept terms, disclaimer, and policies by clicking “Submit & Pay” button.</p>

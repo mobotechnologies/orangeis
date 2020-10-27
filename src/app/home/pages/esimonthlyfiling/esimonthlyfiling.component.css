@@ -110,7 +110,7 @@ body {
 
 .bottom {
     bottom: 0;
-    position: absolute;
+    
     width: 100%
 }
 
@@ -195,4 +195,36 @@ body {
   {
     padding-left: 9px;
     width: 82.991422px;
+  }
+  .errorstyles2
+  {
+    
+      color:red;
+  }
+  select
+  {
+      
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    width: 92%;
+    font-family: montserrat;
+    color: grey;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  span
+  {
+    font-family: montserrat;
+    color:grey;
+    font-size: 17px;
+    font-weight: bold;
+
+  }
+  .pcodes
+  {
+    padding-top: 6px;
+    padding-right: 10px;
+    border-bottom: 1px solid lightgrey;
+    height: 42.99142px;
   }

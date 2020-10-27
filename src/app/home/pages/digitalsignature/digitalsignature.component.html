@@ -120,10 +120,17 @@
                     </popover-content>
                 </div>
                 </div>
+                <span id="pcode" style="color:white"  *ngFor="let phonecode of phonecode">{{phonecode.country_codes}}</span>
                 <div class="row mt-3">
                     <div class="col-md-6">
                         <label>Mobile No</label>
-                        <input type="text" formControlName="mobileno" class="form-control" maxlength="10" [ngClass]="{'error':digitalsign.controls.mobileno.invalid && digitalsign.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                        <div style="display: flex;">
+                             <span class="phonecd" *ngFor="let phonecode of phonecode">+{{phonecode.phonecode}}</span>
+                             <input type="text" formControlName="mobileno" style="padding-left: 49px;" class="form-control" (mouseout)="PhoneValidator()" [ngClass]="{'error':digitalsign.controls.mobileno.invalid && digitalsign.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                         </div>
+                         <div class="errorstyles2" *ngIf=" invalidPhoneLength">
+                            <i class="fa fa-exclamation-circle"></i>Invalid mobile no
+                        </div>
                         <popover-content #mobileno [closeOnClickOutside]="true" [style.display]="digitalsign.controls.mobileno.invalid && digitalsign.controls.mobileno.touched ? 'block' : 'none'"> 
                            <validation-messages [control]="digitalsign.controls.mobileno"></validation-messages>
                         </popover-content>

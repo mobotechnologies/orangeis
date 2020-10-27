@@ -12,7 +12,7 @@ import { retryWhen, delay, take } from 'rxjs/operators'
 import * as $ from 'jquery';
 import { RxwebValidators, fileSize } from '@rxweb/reactive-form-validators';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
-
+import {  SocialloginService } from '../../../webservice/joinfree/sociallogin.service';
 
 @Component({
   selector: 'app-gstmonthlyfiling',
@@ -20,14 +20,18 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
   styleUrls: ['./gstmonthlyfiling.component.css']
 })
 export class GstmonthlyfilingComponent implements OnInit {
-  country: import("f:/Famposov3/client/src/app/model/location/country").Countrymodel[];
+  public country=[];
   errorMsg: any;
   states: any;
-  phonecode: any;
+  public phonecode=[
+    {"phonecode":"Ac",
+    "country_codes":"IN"},
+   ];
   cities: any;
   payKit: any;
+  invalidPhoneLength: boolean;
 
-  constructor(private spinner: NgxSpinnerService, private cookieService: CookieService, private _countrymodel: CountryService, private router: Router, private route: ActivatedRoute, private location: Location, private fb: FormBuilder, private _validation: ValidationService,private coperate:CooperateserviceService) {
+  constructor(private spinner: NgxSpinnerService,private SocialloginService: SocialloginService,private cookieService: CookieService, private _countrymodel: CountryService, private router: Router, private route: ActivatedRoute, private location: Location, private fb: FormBuilder, private _validation: ValidationService,private coperate:CooperateserviceService) {
     this._countrymodel.getCountrycode()
     .subscribe(data => this.country = data,
       error => this.errorMsg = error);
@@ -38,6 +42,8 @@ export class GstmonthlyfilingComponent implements OnInit {
   gstmonthlyfiling = this.fb.group({
     gstnumber: ['', [Validators.required]],
     gstusername: ['', [Validators.required]],
+    country: ['', [Validators.required]],
+    state: ['', [Validators.required]],
     mobileno: ['',[Validators.required,ValidationService.numberValidator]],
     emailid: ['',[Validators.required,ValidationService.emailValidator]],
     logpassword: ['',Validators.required],
@@ -75,16 +81,42 @@ export class GstmonthlyfilingComponent implements OnInit {
      
     }
   }
+  PhoneValidator()
+  {
+    if(this.gstmonthlyfiling.controls['mobileno'].valid)
+    {
+     if(this.gstmonthlyfiling.value.mobileno !="")
+      {
+          const formData = new FormData();
+          formData.append('phone_number',this.gstmonthlyfiling.value.mobileno);
+          formData.append('country_code',$("#pcode").html());
+       
+          this.SocialloginService.phonelengthvalidator(formData).subscribe(response=>{
+          if(response.success)
+          {   
+            this.invalidPhoneLength=false;
+          }
+          else
+          { 
+              this.invalidPhoneLength=true;
+          }
+          },error=>console.error('error',error)); 
+      }
+    }
+      
+  }
   submitandpay()
   {
     
     this.gstmonthlyfiling.markAllAsTouched();
-    if (this.gstmonthlyfiling.valid) {
+    if (this.gstmonthlyfiling.valid  && this.invalidPhoneLength == false) {
      this.spinner.show();
     const formData = new FormData();
     formData.append('GSTNumber', this.gstmonthlyfiling.value.gstnumber);
     formData.append('MobileNumber',this.gstmonthlyfiling.value.gstusername);
     formData.append('EmailID',this.gstmonthlyfiling.value.mobileno);
+    formData.append('country',this.gstmonthlyfiling.value.country);
+    formData.append('state',this.gstmonthlyfiling.value.state);
     formData.append('GSTUserName',this.gstmonthlyfiling.value.emailid);
     formData.append('GSTLoginPassword',this.gstmonthlyfiling.value.logpassword);
     formData.append('userId',"0");

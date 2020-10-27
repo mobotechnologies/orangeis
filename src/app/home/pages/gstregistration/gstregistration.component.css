@@ -185,3 +185,19 @@ button:focus {
     top: 7px;
     left: 27px;
 }
+ .errorstyles2
+  {
+    
+      color:red;
+  }
+  .phonecd
+  {
+    border: 2px solid lightgrey;
+    background: #ECEFF1;
+    height: 43.98284px;
+    margin-top: 2px;
+    padding-left: 6px;
+    padding-right: 8px;
+    padding-top: 7px;
+
+  }

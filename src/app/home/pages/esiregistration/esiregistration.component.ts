@@ -12,6 +12,7 @@ import { retryWhen, delay, take } from 'rxjs/operators'
 import * as $ from 'jquery';
 import { RxwebValidators, fileSize } from '@rxweb/reactive-form-validators';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import {  SocialloginService } from '../../../webservice/joinfree/sociallogin.service';
 
 @Component({
   selector: 'app-esiregistration',
@@ -19,18 +20,23 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
   styleUrls: ['./esiregistration.component.css']
 })
 export class EsiregistrationComponent implements OnInit {
-  country: import("f:/Famposov3/client/src/app/model/location/country").Countrymodel[];
+  public country=[];
   errorMsg: any;
   states: any;
-  phonecode: any;
+  public phonecode=[
+    {"phonecode":"Ac",
+    "country_codes":"IN"},
+   ];
   cities: any;
   imgsrc4: any;
   imgsrc3: any;
-  imgsrc5: any;
+  imgsrc5: any; 
   imgsrc6: any;
   payKit: any;
+  invalidPhoneLength: boolean;
+  invalidPhoneLength1: boolean;
 
-  constructor(private spinner: NgxSpinnerService, private cookieService: CookieService, private _countrymodel: CountryService, private router: Router, private route: ActivatedRoute, private location: Location, private fb: FormBuilder, private _validation: ValidationService,private coperate:CooperateserviceService) { 
+  constructor(private spinner: NgxSpinnerService,private SocialloginService: SocialloginService,private cookieService: CookieService, private _countrymodel: CountryService, private router: Router, private route: ActivatedRoute, private location: Location, private fb: FormBuilder, private _validation: ValidationService,private coperate:CooperateserviceService) { 
     this._countrymodel.getCountrycode()
     .subscribe(data => this.country = data,
       error => this.errorMsg = error);
@@ -42,6 +48,8 @@ export class EsiregistrationComponent implements OnInit {
     nameproof: ['', [Validators.required]],
     addressproof: ['', [Validators.required]],
     emailid: ['', [Validators.required,ValidationService.emailValidator]],
+    country: ['', [Validators.required]],
+    state: ['', [Validators.required]],
     companypan: ['', [Validators.required]],
     empstrength: ['', [Validators.required]],
     menstrength: ['', [Validators.required]],
@@ -173,10 +181,58 @@ export class EsiregistrationComponent implements OnInit {
   logofile6() {
     $("#file6").trigger('click');
   }
+  PhoneValidator()
+  {
+    if(this.esiregistration.controls['mobileno'].valid)
+    {
+     if(this.esiregistration.value.mobileno !="")
+      {
+          const formData = new FormData();
+          formData.append('phone_number',this.esiregistration.value.mobileno);
+          formData.append('country_code',$("#pcode").html());
+       
+          this.SocialloginService.phonelengthvalidator(formData).subscribe(response=>{
+          if(response.success)
+          {   
+            this.invalidPhoneLength=false;
+          }
+          else
+          { 
+              this.invalidPhoneLength=true;
+          }
+          },error=>console.error('error',error)); 
+      }
+    }
+      
+  }
+  PhoneValidator1()
+  {
+    if(this.esiregistration.controls['contactno'].valid)
+    {
+     if(this.esiregistration.value.contactno !="")
+      {
+          const formData = new FormData();
+          formData.append('phone_number',this.esiregistration.value.contactno);
+          formData.append('country_code',$("#pcode").html());
+       
+          this.SocialloginService.phonelengthvalidator(formData).subscribe(response=>{
+          if(response.success)
+          {   
+            this.invalidPhoneLength1=false;
+          }
+          else
+          { 
+              this.invalidPhoneLength1=true;
+          }
+          },error=>console.error('error',error)); 
+      }
+    }
+      
+  }
   submitandpay()
   {
     this.esiregistration.markAllAsTouched();
-    if (this.esiregistration.valid) {
+    if (this.esiregistration.valid && this.invalidPhoneLength == false && this.invalidPhoneLength1 == false) {
      this.spinner.show();
     for (let i = 0; i < this.tmp_files.length; i++) {
       const formDat = new FormData();

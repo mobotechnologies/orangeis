@@ -77,11 +77,55 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col">
-                                    <label class="form-control-label">Mobile Number  :</label> <input type="text" maxlength="10" formControlName="mobileno" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.mobileno.invalid && gstmonthlyfiling.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 
+                                    <label class="form-control-label">Country  :</label>
+                                    <select formControlName="country" class="form-control"  (change)="selectChangeCountry($event)" [ngClass]="{'error':gstmonthlyfiling.controls.country.invalid && gstmonthlyfiling.controls.country.touched }"   [popover]="counte" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                                        <option value="" [selected]=true>Select country</option>
+                                        <option *ngFor="let country of country" [value]="country.country" id="countryselector"
+                                        [attr.data-somedata]="country.id">{{country.country}}</option>
+                                  </select>
+                                  <popover-content #counte [closeOnClickOutside]="true"  [style.display]="gstmonthlyfiling.controls.country.invalid && gstmonthlyfiling.controls.country.touched ? 'block' : 'none'">  
+                                     <validation-messages [control]="gstmonthlyfiling.controls.country"></validation-messages>
+                                  </popover-content>
+                                </div>
+                                <div class="col">
+                                    <label class="form-control-label">State :</label>
+                                    <select placeholder="Select your State/ Province" formControlName="state" (change)="selectChangeStates($event)"  class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.state.invalid && gstmonthlyfiling.controls.state.touched }"   [popover]="state" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                                        <option value="" [selected]=true>Select state</option>
+                                        <option *ngFor="let states of states" [value]="states.states" [attr.data-somedata]="states.id">
+                                            {{states.states}}</option>
+                                        </select>
+                                        <popover-content #state [closeOnClickOutside]="true"  [style.display]="gstmonthlyfiling.controls.state.invalid && gstmonthlyfiling.controls.state.touched ? 'block' : 'none'">   
+                                            <validation-messages [control]="gstmonthlyfiling.controls.state"></validation-messages>
+                                        </popover-content>
+                                </div>
+                            </div>
+                            <span id="pcode" style="color:white"  *ngFor="let phonecode of phonecode">{{phonecode.country_codes}}</span>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <label class="form-control-label">Mobile Number  :</label> 
+                                    <div style="
+                                    display: flex;
+                                ">
+                                        <span  style="
+                                        color: white;
+                                        background: #009688;
+                                        font-weight: 500;
+                                        height: 41px;
+                                        width: 52px;
+                                        margin-top: 2px;
+                                        padding-top: 8px;
+                                        padding-left: 9px;
+                                    " *ngFor="let phonecode of phonecode">+{{phonecode.phonecode}}</span>
+                                        <input type="text" (mouseout)="PhoneValidator()" formControlName="mobileno" style="margin-bottom: 0px;" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.mobileno.invalid && gstmonthlyfiling.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 
+                                    </div>
+                                    <div class="errorstyles2" *ngIf=" invalidPhoneLength">
+                                        <i class="fa fa-exclamation-circle"></i>Invalid mobile no
+                                    </div>
                                     <popover-content #mobileno [closeOnClickOutside]="true"
-                    [style.display]="gstmonthlyfiling.controls.mobileno.invalid && gstmonthlyfiling.controls.mobileno.touched ? 'block' : 'none'">
-                                    <validation-messages [control]="gstmonthlyfiling.controls.mobileno"></validation-messages>
-                                </popover-content>
+                                       [style.display]="gstmonthlyfiling.controls.mobileno.invalid && gstmonthlyfiling.controls.mobileno.touched ? 'block' : 'none'">
+                                        <validation-messages [control]="gstmonthlyfiling.controls.mobileno"></validation-messages>
+                                        
+                                    </popover-content>
                                 </div>
                                 <div class="col">
                                     <label class="form-control-label">Email ID * :</label> <input type="text" formControlName="emailid" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.emailid.invalid && gstmonthlyfiling.controls.emailid.touched }"   [popover]="emailid" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 

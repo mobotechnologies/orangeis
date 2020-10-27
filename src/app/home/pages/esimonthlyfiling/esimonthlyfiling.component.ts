@@ -14,6 +14,7 @@ import { RxwebValidators, fileSize } from '@rxweb/reactive-form-validators';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { enGbLocale } from 'ngx-bootstrap/locale';
 import { BsLocaleService, defineLocale, AlertComponent } from 'ngx-bootstrap';
+import {  SocialloginService } from '../../../webservice/joinfree/sociallogin.service';
 
 @Component({
   selector: 'app-esimonthlyfiling',
@@ -22,14 +23,18 @@ import { BsLocaleService, defineLocale, AlertComponent } from 'ngx-bootstrap';
 })
 export class EsimonthlyfilingComponent implements OnInit {
   datePickerConfig: Partial<BsDatepickerConfig>;
-  country: import("f:/Famposov3/client/src/app/model/location/country").Countrymodel[];
+  public country=[];
   errorMsg: any;
   states: any;
-  phonecode: any;
+  public phonecode=[
+    {"phonecode":"Ac",
+    "country_codes":"IN"},
+   ];
   cities: any;
   payKit: any;
+  invalidPhoneLength: boolean;
 
-  constructor(private localeService: BsLocaleService,private spinner: NgxSpinnerService, private cookieService: CookieService, private _countrymodel: CountryService, private router: Router, private route: ActivatedRoute, private location: Location, private fb: FormBuilder, private _validation: ValidationService,private coperate:CooperateserviceService) {
+  constructor(private SocialloginService: SocialloginService,private localeService: BsLocaleService,private spinner: NgxSpinnerService, private cookieService: CookieService, private _countrymodel: CountryService, private router: Router, private route: ActivatedRoute, private location: Location, private fb: FormBuilder, private _validation: ValidationService,private coperate:CooperateserviceService) {
     enGbLocale.invalidDate = 'Select date';
     defineLocale('custom locale', enGbLocale);
     this.localeService.use('custom locale');
@@ -68,6 +73,8 @@ export class EsimonthlyfilingComponent implements OnInit {
     esiusername: ['', [Validators.required]],
     mobileno: ['',[Validators.required,ValidationService.numberValidator]],
     emailid: ['',[Validators.required,ValidationService.emailValidator]],
+    country: ['', [Validators.required]],
+    state: ['', [Validators.required]],
     logpassword: ['',Validators.required],
     confirmpassword: ['', [Validators.required,RxwebValidators.compare({fieldName:'logpassword'})]],
     date: ['', [Validators.required]],
@@ -91,11 +98,35 @@ export class EsimonthlyfilingComponent implements OnInit {
   logofile1() {
     $("#file1").trigger('click');
   }
+  PhoneValidator()
+  {
+    if(this.esimonthlyfiling.controls['mobileno'].valid)
+    {
+     if(this.esimonthlyfiling.value.mobileno !="")
+      {
+          const formData = new FormData();
+          formData.append('phone_number',this.esimonthlyfiling.value.mobileno);
+          formData.append('country_code',$("#pcode").html());
+       
+          this.SocialloginService.phonelengthvalidator(formData).subscribe(response=>{
+          if(response.success)
+          {   
+            this.invalidPhoneLength=false;
+          }
+          else
+          { 
+              this.invalidPhoneLength=true;
+          }
+          },error=>console.error('error',error)); 
+      }
+    }
+      
+  }
   submitandpay()
   {
     var indate = (new Date(this.esimonthlyfiling.value.date)).toLocaleDateString();
     this.esimonthlyfiling.markAllAsTouched();
-    if (this.esimonthlyfiling.valid) {
+    if (this.esimonthlyfiling.valid && this.invalidPhoneLength == false) {
       this.spinner.show();
     for (let i = 0; i < this.tmp_files.length; i++) {
       const formDat = new FormData();
@@ -108,10 +139,12 @@ export class EsimonthlyfilingComponent implements OnInit {
       });
     }
    const formData = new FormData();
-    formData.append('ESINumber', this.esimonthlyfiling.value.esiregisterno);
-    formData.append('MobileNumber',this.esimonthlyfiling.value.esiusername);
-    formData.append('EmailID',this.esimonthlyfiling.value.mobileno);
-    formData.append('ESIUserName',this.esimonthlyfiling.value.emailid);
+    formData.append('ESIRegNumber', this.esimonthlyfiling.value.esiregisterno);
+    formData.append('MobileNumber',this.esimonthlyfiling.value.mobileno);
+    formData.append('EmailID',this.esimonthlyfiling.value.emailid);
+    formData.append('country',this.esimonthlyfiling.value.country);
+    formData.append('state',this.esimonthlyfiling.value.state);
+    formData.append('ESIUserName',this.esimonthlyfiling.value.esiusername);
     formData.append('ESILoginPassword',this.esimonthlyfiling.value.logpassword);
     formData.append('ESIdate',indate);
     formData.append('wagedetailfile',this.imgsrc);

@@ -179,11 +179,9 @@
                 </div>
                 <div class="col">
                     <label>Do you want to create website for the company?  </label>
-                    <input type="text" formControlName="webpage"  class="form-control" [ngClass]="{'error':companyinc.controls.webpage.invalid && companyinc.controls.webpage.touched }"   [popover]="webpage" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
-                    <popover-content #webpage [closeOnClickOutside]="true"
-              [style.display]="companyinc.controls.webpage.invalid && companyinc.controls.webpage.touched ? 'block' : 'none'">
-                    <validation-messages [control]="companyinc.controls.webpage"></validation-messages>
-                </popover-content>
+                    <br>
+                    <input type="radio" formControlName="webpage"   value="yes" >Yes
+                    <input type="radio" formControlName="webpage"   value="No" >No
                 </div>
             </div>
             <div class="row">
@@ -198,7 +196,7 @@
                         <div class="input-group-append">
                             <button type="button" (click)="logofile1()" class="browse btn btn-primary" style="
                             padding-left: 14px;
-                        ">Browse...</button>
+                        ">Browse</button>
                         </div>
                     </div>
                     <popover-content #directorpan [closeOnClickOutside]="true"
@@ -214,7 +212,7 @@
                                 <span class="upldtext2">Upload here</span>
                             </div>
                             <div class="input-group-append">
-                                <button type="button" (click)="logofile2()" class="browse btn btn-primary" style="padding-left: 14px;">Browse...</button>
+                                <button type="button" (click)="logofile2()" class="browse btn btn-primary" style="padding-left: 14px;">Browse</button>
                             </div>
                         </div>
                         <popover-content #directoraadhar [closeOnClickOutside]="true"  [style.display]="companyinc.controls.directoraadhar.invalid && companyinc.controls.directoraadhar.touched ? 'block' : 'none'">
@@ -231,7 +229,7 @@
                           <span class="upldtext3">Upload here</span>
                         </div>
                       <div class="input-group-append">
-                       <button type="button" (click)="logofile3()"  class="browse btn btn-primary" style="padding-left: 14px;">Browse...</button>
+                       <button type="button" (click)="logofile3()"  class="browse btn btn-primary" style="padding-left: 14px;">Browse</button>
                      </div>
                    </div>
                     <popover-content #directorphoto [closeOnClickOutside]="true"
@@ -247,7 +245,7 @@
                         <span class="upldtext4">Upload here</span>
                     </div>    
                     <div class="input-group-append">
-                        <button type="button" (click)="logofile4()" class="browse btn btn-primary" style="padding-left: 14px;">Browse...</button>
+                        <button type="button" (click)="logofile4()" class="browse btn btn-primary" style="padding-left: 14px;">Browse</button>
                       </div>
                     </div>
                     <popover-content #bankstatement [closeOnClickOutside]="true"
@@ -258,8 +256,39 @@
             </div>
             <div class="row">
                 <div class="col">
+                    <label class="form-control-label">Country  :</label>
+                    <select formControlName="country" class="form-control"  (change)="selectChangeCountry($event)" [ngClass]="{'error':companyinc.controls.country.invalid && companyinc.controls.country.touched }"   [popover]="counte" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                        <option value="" [selected]=true>Select country</option>
+                        <option *ngFor="let country of country" [value]="country.country" id="countryselector"
+                        [attr.data-somedata]="country.id">{{country.country}}</option>
+                  </select>
+                  <popover-content #counte [closeOnClickOutside]="true"  [style.display]="companyinc.controls.country.invalid && companyinc.controls.country.touched ? 'block' : 'none'">  
+                     <validation-messages [control]="companyinc.controls.country"></validation-messages>
+                  </popover-content>
+                </div>
+                <div class="col">
+                    <label class="form-control-label">State :</label>
+                    <select placeholder="Select your State/ Province" formControlName="state" (change)="selectChangeStates($event)"  class="form-control" [ngClass]="{'error':companyinc.controls.state.invalid && companyinc.controls.state.touched }"   [popover]="state" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
+                        <option value="" [selected]=true>Select state</option>
+                        <option *ngFor="let states of states" [value]="states.states" [attr.data-somedata]="states.id">
+                            {{states.states}}</option>
+                        </select>
+                        <popover-content #state [closeOnClickOutside]="true"  [style.display]="companyinc.controls.state.invalid && companyinc.controls.state.touched ? 'block' : 'none'">   
+                            <validation-messages [control]="companyinc.controls.state"></validation-messages>
+                        </popover-content>
+                </div>
+            </div>
+            <span id="pcode" style="color:white"  *ngFor="let phonecode of phonecode">{{phonecode.country_codes}}</span>
+            <div class="row">
+                <div class="col">
                     <label>Personal Mobile Number</label>
-                    <input type="text" formControlName="mobileno" class="form-control" maxlength="10" [ngClass]="{'error':companyinc.controls.mobileno.invalid && companyinc.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                    <div style="display: flex;">
+                        <span class="phonecd"  *ngFor="let phonecode of phonecode">+{{phonecode.phonecode}}</span>
+                       <input type="text" formControlName="mobileno" (mouseout)="PhoneValidator()" class="form-control"  [ngClass]="{'error':companyinc.controls.mobileno.invalid && companyinc.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                    </div>   
+                    <div class="errorstyles2" *ngIf=" invalidPhoneLength">
+                        <i class="fa fa-exclamation-circle"></i>Invalid mobile no
+                    </div>
                     <popover-content #mobileno [closeOnClickOutside]="true" [style.display]="companyinc.controls.mobileno.invalid && companyinc.controls.mobileno.touched ? 'block' : 'none'">
                         <validation-messages [control]="companyinc.controls.mobileno"></validation-messages>
                     </popover-content>
