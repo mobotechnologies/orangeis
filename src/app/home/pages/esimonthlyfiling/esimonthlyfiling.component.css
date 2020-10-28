@@ -228,3 +228,108 @@ body {
     border-bottom: 1px solid lightgrey;
     height: 42.99142px;
   }
+ 
+@media (max-width: 575.98px) { 
+    input
+    {
+        font-size: 12px !important;
+        margin-bottom: 15px;
+    }
+    select
+    {
+        font-size: 13px !important;
+        margin-bottom: 15px;
+    }
+    span
+    {
+        font-size: 13px !important;
+    }
+    .fileuploadbox {
+        width: 69%;
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    input
+    {
+        font-size: 12px !important;
+        margin-bottom: 15px;
+    }
+    select
+    {
+        font-size: 13px !important;
+        margin-bottom: 15px;
+
+    }
+    span
+    {
+        font-size: 13px !important;
+    }
+    .fileuploadbox {
+        width: 70%;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    input
+    {
+        font-size: 12px !important;
+        margin-bottom: 15px;
+    }
+    select
+    {
+        font-size: 13px !important;
+        margin-bottom: 15px;
+    }
+    span
+    {
+        font-size: 13px !important;
+    }
+    .fileuploadbox {
+        width: 69%;
+    }
+
+
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    .fileuploadbox
+    {
+        width: 75%;
+    }
+    input
+    {
+        font-size: 12px !important;
+    }
+    select
+    {
+        font-size: 13px !important;
+    }
+    span
+    {
+        font-size: 13px !important;
+    }
+ }
+
+
+@media (min-width: 1200px) { 
+    .fileuploadbox
+    {
+        width:76%;
+    }
+    input
+    {
+        font-size: 13px !important;
+    }
+    select
+    {
+        font-size: 13px !important;
+    }
+    span
+    {
+        font-size: 13px !important;
+    }
+ }

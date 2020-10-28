@@ -5,14 +5,10 @@
 <div class="container" style="background:white">
     <div class="row">
         <div class="col-md-5" style="background: antiquewhite;">
-            <h1 style="FONT-SIZE: 17PT;margin-top: 18px;text-align:center">ESI REGISTRATION</h1>
+            <h1 >ESI REGISTRATION</h1>
             <div><img src="../../../../assets/images/cooperateservice/ESILogo.png" style="margin-left: 26%;WIDTH: 48%;margin-top: 5%;"/></div>
             <h6 class="mt-3 text-center">What is ESI? </h6>
-            <p style="
-            line-height: 25px;
-            font-size: 12pt;
-            text-align: justify;
-        ">Employees’ State Insurance Corporation of India is a multidimensional social system tailored to provide socio-economic protection to worker population and immediate dependent or family covered under the scheme. Besides full medical care for self and dependents, that is admissible from day one of insurable employment, the insured persons are also entitled to a variety of cash benefits in times of physical distress due to sickness, temporary or permanent disablement etc. resulting in loss of earning capacity, the confinement in respect of insured women, dependents of insured persons who die in industrial accidents or because of employment injury or occupational hazard are entitled to a monthly pension called the dependents benefit.</p>
+            <p class="esiregtext">Employees’ State Insurance Corporation of India is a multidimensional social system tailored to provide socio-economic protection to worker population and immediate dependent or family covered under the scheme. Besides full medical care for self and dependents, that is admissible from day one of insurable employment, the insured persons are also entitled to a variety of cash benefits in times of physical distress due to sickness, temporary or permanent disablement etc. resulting in loss of earning capacity, the confinement in respect of insured women, dependents of insured persons who die in industrial accidents or because of employment injury or occupational hazard are entitled to a monthly pension called the dependents benefit.</p>
         </div>
         <div class="col-md-7">
             <div class="d-flex pt-3 pr-2">
@@ -24,10 +20,10 @@
             <form [formGroup]="esiregistration">
                 <p>Our charges for Registration of ESI are 6000/- Excluding GST, to apply please fill the following details </p>
                 <div class="form-group row"> 
-                    <div class="col">
+                    <div class="col-md-6">
                        <label >Name of the Company*</label> 
                        <div class="input-group my-3" [ngClass]="{'error':esiregistration.controls.nameproof.invalid && esiregistration.controls.nameproof.touched }" >
-                            <div style="border: 2px solid #e4e3e3;background:white;width: 60%;height: 45.98284px;">
+                            <div class="filediv">
                                <input type="file" id="file1"  style="opacity:0;" formControlName="nameproof" (change)="onSelectedfile1($event)" class="form-control"   [popover]="nameproof" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                                <span class="upldtext1">Upload here</span>
                            </div>
@@ -39,10 +35,10 @@
                        <validation-messages [control]="esiregistration.controls.nameproof"></validation-messages>
                     </popover-content>
                     </div>
-                    <div class="col">
+                    <div class="col-md-6">
                        <label >Address of the company*</label> 
                        <div class="input-group my-3"  [ngClass]="{'error':esiregistration.controls.addressproof.invalid && esiregistration.controls.addressproof.touched }" >
-                        <div style="border: 2px solid #e4e3e3;background:white;width: 60%;height: 45.98284px;"> 
+                        <div class="filediv"> 
                           <input type="file"  id="file2"  style="opacity:0;" formControlName="addressproof" (change)="onSelectedfile2($event)" class="form-control"  [popover]="addressproof" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                           <span class="upldtext2">Upload here</span>
                         </div>
@@ -56,14 +52,14 @@
                    </div>
                </div>
                 <div class="form-group row"> 
-                    <div class="col">
+                    <div class="col-md-6">
                        <label >Email Address*</label> 
                        <input type="text" formControlName="emailid" class="form-control"  [ngClass]="{'error':esiregistration.controls.emailid.invalid && esiregistration.controls.emailid.touched }"   [popover]="emailid" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                        <popover-content #emailid [closeOnClickOutside]="true" [style.display]="esiregistration.controls.emailid.invalid && esiregistration.controls.emailid.touched ? 'block' : 'none'">
                        <validation-messages [control]="esiregistration.controls.emailid"></validation-messages>
                     </popover-content>
                     </div>
-                    <div class="col">
+                    <div class="col-md-6">
                        <label >Company PAN*</label> 
                        <input type="text" formControlName="companypan" class="form-control"  [ngClass]="{'error':esiregistration.controls.companypan.invalid && esiregistration.controls.companypan.touched }"   [popover]="companypan" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                        <popover-content #companypan [closeOnClickOutside]="true" [style.display]="esiregistration.controls.companypan.invalid && esiregistration.controls.companypan.touched ? 'block' : 'none'">
@@ -72,14 +68,14 @@
                    </div>
                </div>
                <div class="form-group row"> 
-                <div class="col">
+                <div class="col-md-6">
                    <label >Total Number of Employeess*</label> 
                    <input type="text" formControlName="empstrength" class="form-control" [ngClass]="{'error':esiregistration.controls.empstrength.invalid && esiregistration.controls.empstrength.touched }"   [popover]="empstrength" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"   >
                    <popover-content #empstrength [closeOnClickOutside]="true" [style.display]="esiregistration.controls.empstrength.invalid && esiregistration.controls.empstrength.touched ? 'block' : 'none'">
                    <validation-messages [control]="esiregistration.controls.empstrength"></validation-messages>
                 </popover-content>
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                    <label >Total Number of Men*</label> 
                    <input type="text" formControlName="menstrength" class="form-control" [ngClass]="{'error':esiregistration.controls.menstrength.invalid && esiregistration.controls.menstrength.touched }"   [popover]="menstrength" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                    <popover-content #menstrength [closeOnClickOutside]="true" [style.display]="esiregistration.controls.menstrength.invalid && esiregistration.controls.menstrength.touched ? 'block' : 'none'">
@@ -88,14 +84,14 @@
                </div>
                 </div>
                 <div class="form-group row"> 
-                    <div class="col">
+                    <div class="col-md-6">
                        <label >Total Number of Women*</label> 
                        <input type="text" formControlName="womenstrength" class="form-control" [ngClass]="{'error':esiregistration.controls.womenstrength.invalid && esiregistration.controls.womenstrength.touched }"   [popover]="womenstrength" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                        <popover-content #womenstrength [closeOnClickOutside]="true" [style.display]="esiregistration.controls.womenstrength.invalid && esiregistration.controls.womenstrength.touched ? 'block' : 'none'">
                        <validation-messages [control]="esiregistration.controls.womenstrength"></validation-messages>
                     </popover-content>
                     </div>
-                    <div class="col">
+                    <div class="col-md-6">
                        <label >Bank Account Number*</label> 
                        <input type="text" formControlName="bankaccountnumber" class="form-control" [ngClass]="{'error':esiregistration.controls.bankaccountnumber.invalid && esiregistration.controls.bankaccountnumber.touched }"   [popover]="bankaccountnumber" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                        <popover-content #bankaccountnumber [closeOnClickOutside]="true" [style.display]="esiregistration.controls.bankaccountnumber.invalid && esiregistration.controls.bankaccountnumber.touched ? 'block' : 'none'">
@@ -104,14 +100,14 @@
                    </div>
                 </div>
                 <div class="form-group row"> 
-                    <div class="col">
+                    <div class="col-md-6">
                        <label >Bank Address*</label> 
                        <input type="text" formControlName="bankaddress" class="form-control"  [ngClass]="{'error':esiregistration.controls.bankaddress.invalid && esiregistration.controls.bankaddress.touched }"   [popover]="bankaddress" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                        <popover-content #bankaddress [closeOnClickOutside]="true" [style.display]="esiregistration.controls.bankaddress.invalid && esiregistration.controls.bankaddress.touched ? 'block' : 'none'">
                        <validation-messages [control]="esiregistration.controls.bankaddress"></validation-messages>
                     </popover-content>
                     </div>
-                    <div class="col">
+                    <div class="col-md-6">
                        <label >Bank IFSC code*</label> 
                        <input type="text" formControlName="bankifsc" class="form-control" [ngClass]="{'error':esiregistration.controls.bankifsc.invalid && esiregistration.controls.bankifsc.touched }"   [popover]="bankifsc" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                        <popover-content #bankifsc [closeOnClickOutside]="true" [style.display]="esiregistration.controls.bankifsc.invalid && esiregistration.controls.bankifsc.touched ? 'block' : 'none'">
@@ -120,10 +116,10 @@
                     </div>
                 </div>
                 <div class="form-group row"> 
-                    <div class="col">
+                    <div class="col-md-6">
                        <label >Upload Employees Details*(.xlsx)</label> 
                        <div class="input-group my-3" [ngClass]="{'error':esiregistration.controls.empfile.invalid && esiregistration.controls.empfile.touched }" >
-                        <div style="border: 2px solid #e4e3e3;background:white;width: 60%;height: 45.98284px;">
+                        <div class="filediv">
                            <input type="file"  id="file3" style="opacity:0;" formControlName="empfile" (change)="onSelectedfile3($event)" class="form-control"     [popover]="empfile" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                            <span class="upldtext3">Upload here</span>
                         </div>
@@ -136,10 +132,10 @@
                        <validation-messages [control]="esiregistration.controls.empfile"></validation-messages>
                     </popover-content>
                     </div>
-                    <div class="col">
+                    <div class="col-md-6">
                        <label >Director PAN* </label> 
                        <div class="input-group my-3" [ngClass]="{'error':esiregistration.controls.directorpan.invalid && esiregistration.controls.directorpan.touched }" >
-                        <div style="border: 2px solid #e4e3e3;background:white;width: 60%;height: 45.98284px;">
+                        <div class="filediv">
                         <input type="file" id="file4" style="opacity:0;" formControlName="directorpan" (change)="onSelectedfile4($event)" class="form-control"    [popover]="directorpan" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                         <span class="upldtext4">Upload here</span>  
                      </div>
@@ -154,10 +150,10 @@
                     </div>
                 </div>
                 <div class="form-group row"> 
-                    <div class="col">
+                    <div class="col-md-6">
                        <label >Director aadhar*</label> 
                        <div class="input-group my-3" [ngClass]="{'error':esiregistration.controls.directoraadhar.invalid && esiregistration.controls.directoraadhar.touched }" >
-                        <div style="border: 2px solid #e4e3e3;background:white;width: 60%;height: 45.98284px;">
+                        <div class="filediv">
                         <input type="file" id="file5" style="opacity:0;"  formControlName="directoraadhar" (change)="onSelectedfile5($event)" class="form-control"   [popover]="directoraadhar" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                         <span class="upldtext5">Upload here</span>   
                      </div>
@@ -170,10 +166,10 @@
                        <validation-messages [control]="esiregistration.controls.directoraadhar"></validation-messages>
                     </popover-content>
                     </div>
-                    <div class="col">
+                    <div class="col-md-6">
                        <label >Director photo* </label> 
                        <div class="input-group my-3"  [ngClass]="{'error':esiregistration.controls.directorphoto.invalid && esiregistration.controls.directorphoto.touched }">
-                        <div style="border: 2px solid #e4e3e3;background:white;width: 60%;height: 45.98284px;"> 
+                        <div class="filediv"> 
                         <input type="file" id="file6" style="opacity:0;" formControlName="directorphoto" (change)="onSelectedfile6($event)" class="form-control"   [popover]="directorphoto" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                         <span class="upldtext6">Upload here</span>  
                      </div>
@@ -188,7 +184,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                  <div class="col">
+                  <div class="col-md-6">
                       <label class="form-control-label">Country  :</label>
                       <select formControlName="country" class="form-control"  (change)="selectChangeCountry($event)" [ngClass]="{'error':esiregistration.controls.country.invalid && esiregistration.controls.country.touched }"   [popover]="counte" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                           <option value="" [selected]=true>Select country</option>
@@ -199,7 +195,7 @@
                        <validation-messages [control]="esiregistration.controls.country"></validation-messages>
                     </popover-content>
                   </div>
-                  <div class="col">
+                  <div class="col-md-6">
                       <label class="form-control-label">State :</label>
                       <select placeholder="Select your State/ Province" formControlName="state" (change)="selectChangeStates($event)"  class="form-control" [ngClass]="{'error':esiregistration.controls.state.invalid && esiregistration.controls.state.touched }"   [popover]="state" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                           <option value="" [selected]=true>Select state</option>
@@ -213,7 +209,7 @@
               </div>
               <span id="pcode" style="color:white"  *ngFor="let phonecode of phonecode">{{phonecode.country_codes}}</span>
                 <div class="form-group row"> 
-                    <div class="col">
+                    <div class="col-md-6">
                        <label >Personal Mobile Number*</label> 
                        <div style="display:flex">
                            <span class="phonecd"  *ngFor="let phonecode of phonecode">+{{phonecode.phonecode}}</span>
@@ -226,7 +222,7 @@
                        <validation-messages [control]="esiregistration.controls.mobileno"></validation-messages>
                     </popover-content>
                     </div>
-                    <div class="col">
+                    <div class="col-md-6">
                         <label >Contact no*</label> 
                         <div style="display:flex">
                              <span class="phonecd"  *ngFor="let phonecode of phonecode">+{{phonecode.phonecode}}</span>
@@ -242,11 +238,7 @@
                     
                 </div>
                 <div>
-                    <button type="button" style="
-                    width: 243px;
-                    margin-top: 5px;
-                    margin-left: 145px;
-                " class="btn btn-block btn-primary" (click)="submitandpay()">Submit and pay</button>
+                    <button type="button" class="btn btn-block btn-primary submitbtn" (click)="submitandpay()">Submit and pay</button>
                 </div>
                 <p class="terms mt-4">I hereby declare that information provided in the online registration form is true to the best of my knowledge and I accept terms, disclaimer, and policies by clicking “Submit & Pay” button.</p>
             </form>

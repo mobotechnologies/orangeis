@@ -10,52 +10,33 @@
     <p style="color: black" > Loading... </p>
     </ngx-spinner>
     <div class="row d-flex justify-content-center">
-        <div class="col-md-3 gstinfo" style="
-        background:  #009688;
-       
-      " >
-        <div class="gstimage" style="
-        margin-top: 185px;
-        
-    ">
-            <img src="../../../../assets/images/cooperateservice/gstlogo.png" alt="gstreg.jpg" style="
-            width: 92%;
-        "/>
+        <div class="col-md-3 gstinfo">
+        <div class="gstimage">
+            <img src="../../../../assets/images/cooperateservice/gstlogo.png" class="gstlogopng" alt="gstreg.jpg" />
        </div>
         
            <div class="gstabbreviation" >
-            <p style="
-            color: WHITE;
-            font-weight: 700;
-            padding-left: 25px;
-            font-size:!6pt;
-        ">GOODS AND SERVICE TAX</p>
+            <p class="gstabbreviationtext" >GOODS AND SERVICE TAX</p>
            </div>
-           <div class="gstcharges" >
-            <p  style="
-            color: WHITE;
-            font-weight: 700;
-            padding-left: 25px;
-        ">Our Charges for Registration of New GST is 4500/</p>
+           <div  class="gstcharges" >
+            <p  class="gstabbreviationtext" >Our Charges for Registration of New GST is 4500/</p>
         </div>
         </div>
-        <div class="col-md-8" style="
-        padding-left: 0px;
-    " >
+        <div class="col-md-8" >
             <div class="card rounded-0 b-0">
                
-                <div class="gstimage" style="margin-left: 36%;">
-                    <img src="../../../../assets/images/cooperateservice/register.png" alt="gstreg.jpg"/>
+                <div class="gstimages" >
+                    <img src="../../../../assets/images/cooperateservice/register.png" class="gstregpng" alt="gstreg.jpg"/>
                </div>
             
                 <div class="card-body  pt-0  gstinfo">
                     <div class="row">
-                                <div class="col">
+                                <div class="col-md-3">
                                     <div class="gstapplicability" >
-                                        <img src="../../../../assets/images/cooperateservice/gstindia.png" alt="gstreg.jpg" style="width: 82%;"/>
+                                        <img src="../../../../assets/images/cooperateservice/gstindia.png" alt="gstreg.jpg" class="gstregpng"/>
                                     </div>
                                 </div>
-                                <div class="col">
+                                <div class="col-md-8">
                                 <h4 class="heading mb-4 pb-1">What is GST ?</h4>
                                 <div class="aboutgst">
                                     <div class="Gstdetails">
@@ -72,7 +53,7 @@
                 <div class="card-body show  pt-0">
                     <h4 class="heading mb-4 pb-1">Business details</h4>
                     <div class="form-group row">
-                        <div class="col">
+                        <div class="col-md-6">
                             <label class="form-control-label">Applicant Type :</label>
                             <div class="select mb-3"> 
                                 <select formControlName="applicanttype" class="form-control" [ngClass]="{'error':gstregistration.controls.applicanttype.invalid && gstregistration.controls.applicanttype.touched }"   [popover]="applicanttype" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
@@ -89,7 +70,7 @@
                                 </popover-content>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col-md-6">
                             <label class="form-control-label">Applicant Full Name * :</label> <input type="text" formControlName="applicantfullname" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.applicantfullname.invalid && gstregistration.controls.applicantfullname.touched }"   [popover]="applicantfullname" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
                             <popover-content #applicantfullname [closeOnClickOutside]="true"
                             [style.display]="gstregistration.controls.applicantfullname.invalid && gstregistration.controls.applicantfullname.touched ? 'block' : 'none'">
@@ -98,14 +79,14 @@
                         </div> 
                     </div>
                     <div class="form-group row">  
-                         <div class="col">
+                         <div class="col-md-6">
                             <label class="form-control-label">Name of the Firm* :</label> <input type="text" formControlName="firmname" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.firmname.invalid && gstregistration.controls.firmname.touched }"   [popover]="firmname" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
                             <popover-content #firmname [closeOnClickOutside]="true"
                             [style.display]="gstregistration.controls.firmname.invalid && gstregistration.controls.firmname.touched ? 'block' : 'none'">
                              <validation-messages [control]="gstregistration.controls.firmname"></validation-messages>
                              </popover-content>
                          </div>
-                         <div class="col">
+                         <div class="col-md-6">
                             <label class="form-control-label">Type of Business Entity * :</label> 
                             <select formControlName="businessentity"  (change)="selectChangeBusinessEntity($event)" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.businessentity.invalid && gstregistration.controls.businessentity.touched }"   [popover]="businessentity" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
                                 <option value="" [selected]=true>Select type of business entity</option>
@@ -130,7 +111,7 @@
                 <div class="card-body show pt-0">
                     <h4 class="heading mb-4 pb-1">Company details</h4>
                     <div class="form-group row">
-                        <div class="col">
+                        <div class="col-md-6">
                             <label class="form-control-label">Address of the principal place of business*</label> 
                             <input type="text" formControlName="businessaddress" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.businessaddress.invalid && gstregistration.controls.businessaddress.touched }"   [popover]="businessaddress" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
                             <popover-content #businessaddress [closeOnClickOutside]="true"
@@ -138,8 +119,8 @@
                                <validation-messages [control]="gstregistration.controls.businessaddress"></validation-messages> 
                             </popover-content>
                         </div>
-                        <div class="col">
-                            <label class="form-control-label">List of Goods & Services * :</label> 
+                        <div class="col-md-6">
+                            <label class="form-control-label goodtext">List of Goods & Services * :</label> 
                             <input type="text" formControlName="goodsservice" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.goodsservice.invalid && gstregistration.controls.goodsservice.touched }"   [popover]="goodsservice" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                             <popover-content #goodsservice [closeOnClickOutside]="true"
                             [style.display]="gstregistration.controls.goodsservice.invalid && gstregistration.controls.goodsservice.touched ? 'block' : 'none'">  
@@ -150,7 +131,7 @@
                     </div>
                     
                     <div class="form-group row">
-                        <div class="col">
+                        <div class="col-md-6">
                             <label class="form-control-label">Nature of Business Activity* :</label>
                             <div class="select mb-3"> <select formControlName="businessactivity" class="form-control" [ngClass]="{'error':gstregistration.controls.businessactivity.invalid && gstregistration.controls.businessactivity.touched }"   [popover]="businessactivity" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                                     <option value="" [selected]=true>Select nature of business activity</option>
@@ -170,8 +151,8 @@
                                 </popover-content>
                             </div>
                         </div>
-                        <div class="col">
-                            <label class="form-control-label">Date of commencement of business * :</label> 
+                        <div class="col-md-6">
+                            <label class="form-control-label">Date of commencement * :</label> 
                             <input type="text" bsDatepicker [bsConfig]="datePickerConfig"  formControlName="commencement" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.commencement.invalid && gstregistration.controls.commencement.touched }"   [popover]="commencement" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
                             <popover-content #commencement [closeOnClickOutside]="true"
                             [style.display]="gstregistration.controls.commencement.invalid && gstregistration.controls.commencement.touched ? 'block' : 'none'">  
@@ -181,7 +162,7 @@
                       
                     </div>
                     <div class="form-group row">
-                        <div class="col">
+                        <div class="col-md-6">
                             <label class="form-control-label">Country  :</label>
                             <select formControlName="country" class="form-control"  (change)="selectChangeCountry($event)" [ngClass]="{'error':gstregistration.controls.country.invalid && gstregistration.controls.country.touched }"   [popover]="counte" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                                 <option value="" [selected]=true>Select country</option>
@@ -192,7 +173,7 @@
                              <validation-messages [control]="gstregistration.controls.country"></validation-messages>
                           </popover-content>
                         </div>
-                        <div class="col">
+                        <div class="col-md-6">
                             <label class="form-control-label">State :</label>
                             <select placeholder="Select your State/ Province" formControlName="state" (change)="selectChangeStates($event)"  class="form-control" [ngClass]="{'error':gstregistration.controls.state.invalid && gstregistration.controls.state.touched }"   [popover]="state" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                                 <option value="" [selected]=true>Select state</option>
@@ -207,7 +188,7 @@
                     <span id="pcode" style="color:white"  *ngFor="let phonecode of phonecode">{{phonecode.country_codes}}</span>
       
                     <div class="form-group row">
-                        <div class="col">
+                        <div class="col-md-6">
                             <label class="form-control-label">Mobile Number  :</label> 
                             <div style="display:flex">
                                 <span class="phonecd"  *ngFor="let phonecode of phonecode">+{{phonecode.phonecode}}</span>
@@ -221,7 +202,7 @@
                                <validation-messages [control]="gstregistration.controls.mobileno"></validation-messages>
                             </popover-content>
                         </div>
-                        <div class="col">
+                        <div class="col-md-6">
                             <label class="form-control-label">Email ID * :</label> <input type="text" formControlName="emailid" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.emailid.invalid && gstregistration.controls.emailid.touched }"   [popover]="emailid" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                             <popover-content #emailid [closeOnClickOutside]="true"
                             [style.display]="gstregistration.controls.emailid.invalid && gstregistration.controls.emailid.touched ? 'block' : 'none'">   
@@ -230,12 +211,8 @@
                         </div>
                     </div>
                     <div class="form-group"> <label class="form-control-label">Do you want to opt composition scheme? * :</label>
-                        <input type="radio" formControlName="compositionscheme"  style="
-                        width: 30px;
-                    " value="yes"  [ngClass]="{'error':gstregistration.controls.compositionscheme.invalid && gstregistration.controls.compositionscheme.touched }"   [popover]="compositionscheme" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">Yes
-                        <input type="radio"  formControlName="compositionscheme"    style="
-                        width: 30px;
-                    " value="no"  [ngClass]="{'error':gstregistration.controls.compositionscheme.invalid && gstregistration.controls.compositionscheme.touched }"   [popover]="compositionscheme" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">No
+                        <input type="radio" formControlName="compositionscheme"  style="width: 30px;" value="yes"  [ngClass]="{'error':gstregistration.controls.compositionscheme.invalid && gstregistration.controls.compositionscheme.touched }"   [popover]="compositionscheme" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">Yes
+                        <input type="radio"  formControlName="compositionscheme"    style="width: 30px;" value="no"  [ngClass]="{'error':gstregistration.controls.compositionscheme.invalid && gstregistration.controls.compositionscheme.touched }"   [popover]="compositionscheme" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">No
                         <popover-content #compositionscheme [closeOnClickOutside]="true"
                         [style.display]="gstregistration.controls.compositionscheme.invalid && gstregistration.controls.compositionscheme.touched ? 'block' : 'none'"> 
                          <validation-messages [control]="gstregistration.controls.compositionscheme"></validation-messages>
@@ -256,7 +233,7 @@
                                    
                                     <td>
                                         <div class="input-group my-3" [ngClass]="{'error':Photograph.controls.Photograph.invalid && Photograph.controls.Photograph.touched }"  >
-                                            <div style="width: 81%;border: 2px solid #e4e3e3;background:white;">
+                                            <div class="filediv">
                                                  <input type="file" id="file1{{i}}"  style="opacity:0;"   formControlName="Photograph" (change)="onSelectedfile8($event,i)" placeholder="" class="form-control file"  [popover]="Photograph" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
                                                  <span class="filetext uploadtext{{i}}">Upload here</span>
                                             </div>
@@ -287,8 +264,8 @@
                                 </tr>
                                <tr *ngFor="let identityproof of   gstregistration.controls.identityproof['controls']; let j=index;" [formGroupName]="j">
                                     <td>
-                                        <div class="input-group my-3" [ngClass]="{'error':identityproof.controls.identityproof.invalid && identityproof.controls.identityproof.touched }"   >
-                                            <div style="width: 81%;border: 2px solid #e4e3e3;background:white;">
+                                        <div   class="input-group my-3" [ngClass]="{'error':identityproof.controls.identityproof.invalid && identityproof.controls.identityproof.touched }"   >
+                                            <div  class="filediv" >
                                                 <input type="file" id="file2{{j}}" style="opacity:0;" formControlName="identityproof" (change)="onSelectedfile7($event,j)" placeholder="" class="form-control file" [popover]="identityproof" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
                                                 <span class="filetext upldtext2{{j}}">Upload here</span>
                                             </div>
@@ -320,8 +297,8 @@
                                 </tr>
                                <tr *ngFor="let pancard of gstregistration.controls.pancard['controls']; let a=index;" [formGroupName]="a">
                                     <td>
-                                        <div class="input-group my-3" [ngClass]="{'error':pancard.controls.pancard.invalid && pancard.controls.pancard.touched }"  >
-                                            <div style="width: 81%;border: 2px solid #e4e3e3;background:white;">
+                                        <div  class="input-group my-3" [ngClass]="{'error':pancard.controls.pancard.invalid && pancard.controls.pancard.touched }"  >
+                                            <div  class="filediv">
                                               <input type="file" id="filep{{a}}" style="opacity:0;" (change)="onSelectedfile6($event,a)"  formControlName="pancard"  placeholder="" class="form-control file"  [popover]="pancard" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
                                               <span class="filetext upldtext3{{a}}">Upload here</span>
                                             </div>
@@ -343,10 +320,10 @@
                     </div>
                    
                     <div class="form-group row">
-                        <div class="col">
+                        <div class="col-md-6">
                             <label class="form-control-label">Complete address proof of business premises *:</label> 
                             <div class="input-group my-3" [ngClass]="{'error':gstregistration.controls.addressproof.invalid && gstregistration.controls.addressproof.touched }"   >
-                                <div style="width: 64%;border: 2px solid #e4e3e3;background:white;">
+                                <div class="filediv2" >
                                   <input type="file"  id="file4" style="opacity:0;" (change)="onSelectedfile1($event)" formControlName="addressproof"  placeholder="" class="form-control file" [popover]="addressproof" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
                                   <span class="filetext upldtext4">Upload here</span>
                                 </div>
@@ -359,22 +336,22 @@
                             <validation-messages [control]="gstregistration.controls.addressproof"></validation-messages>
                             </popover-content>
                         </div>
-                        <div class="col">
-                            <div class="col">
+                        <div class="col-md-6">
+                            
                                 <label class="form-control-label">Complete address of additional place of business </label> 
                                 <input type="text" formControlName="secondaryaddress" placeholder="" class="form-control" [ngClass]="{'error':gstregistration.controls.secondaryaddress.invalid && gstregistration.controls.secondaryaddress.touched }"   [popover]="secondaryaddress" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
                                 <popover-content #secondaryaddress [closeOnClickOutside]="true"
                                 [style.display]="gstregistration.controls.secondaryaddress.invalid && gstregistration.controls.secondaryaddress.touched ? 'block' : 'none'">   
                                    <validation-messages [control]="gstregistration.controls.secondaryaddress"></validation-messages> 
                                 </popover-content>
-                            </div>
+                           
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col">
+                        <div class="col-md-6">
                             <label class="form-control-label">Electricity bill of the premises* :</label>
                             <div class="input-group my-3" [ngClass]="{'error':gstregistration.controls.electricitybill.invalid && gstregistration.controls.electricitybill.touched }"   >
-                                <div style="width: 64%;border: 2px solid #e4e3e3;background:white;">
+                                <div class="filediv2" >
                                     <input type="file" id="file5" style="opacity:0;" (change)="onSelectedfile2($event)" formControlName="electricitybill"  placeholder="" class="form-control file" [popover]="electricitybill" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
                                     <span class="filetext upldtext5">Upload here</span>
                                 </div>
@@ -387,10 +364,10 @@
                                <validation-messages [control]="gstregistration.controls.electricitybill"></validation-messages>
                                </popover-content>
                         </div>
-                        <div class="col">
+                        <div class="col-md-6">
                             <label class="form-control-label">Rent Agreement {{renttype}} :</label> 
                             <div class="input-group my-3" [ngClass]="{'error':gstregistration.controls.rentagreement.invalid && gstregistration.controls.rentagreement.touched }"   >
-                                <div style="width: 64%;border: 2px solid #e4e3e3;background:white;">
+                                <div class="filediv2" >
                                    <input type="file" id="file6" style="opacity:0;"  (change)="onSelectedfile3($event)" formControlName="rentagreement"  placeholder="" class="form-control file" [popover]="rentagreement" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
                                 
                                    <span class="filetext upldtext6">Upload here</span>
@@ -406,10 +383,10 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col">
+                        <div class="col-md-6">
                             <label class="form-control-label">NOC from Building Owner* :</label>
                             <div class="input-group my-3" [ngClass]="{'error':gstregistration.controls.noc.invalid && gstregistration.controls.noc.touched }"   >
-                                <div style="width: 64%;border: 2px solid #e4e3e3;background:white;">
+                                <div class="filediv2" >
                                     <input type="file" id="file7" style="opacity:0;" formControlName="noc" (change)="onSelectedfile4($event)"  placeholder="" class="form-control file" [popover]="noc" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
                                     <span class="filetext upldtext7">Upload here</span>
                                 </div>
@@ -422,10 +399,10 @@
                                 <validation-messages [control]="gstregistration.controls.noc"></validation-messages>
                             </popover-content>
                         </div>
-                        <div class="col">
-                            <label class="form-control-label">Bank Account Proof / Cancelled Cheque * :</label>
+                        <div class="col-md-6">
+                            <label class="form-control-label">Bank Account / Cancelled Cheque * :</label>
                             <div class="input-group my-3" [ngClass]="{'error':gstregistration.controls.bankaccountproof.invalid && gstregistration.controls.bankaccountproof.touched }"  >
-                                <div style="width: 64%;border: 2px solid #e4e3e3;background:white;">
+                                <div class="filediv2" >
                                   <input type="file" id="file8" style="opacity:0;" (change)="onSelectedfile5($event)" formControlName="bankaccountproof"  placeholder="" class="form-control file"   [popover]="bankaccountproof" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
                                   <span class="filetext upldtext8">Upload here</span>
                                 </div>
@@ -442,7 +419,7 @@
                     <div class="form-group direc">
                         <label class="form-control-label">PAN Card of the Company/Trust / LLP* :</label>
                         <div class="input-group my-3" [ngClass]="{'error':gstregistration.controls.companypan.invalid && gstregistration.controls.companypan.touched }"  >
-                            <div style="width: 64%;border: 2px solid #e4e3e3;background:white;">
+                            <div class="filediv2">
                               <input type="file" id="file9" style="opacity:0;" (change)="onSelectedfile9($event)" formControlName="companypan"  placeholder="" class="form-control file"   [popover]="companypan" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
                               <span class="filetext upldtext9">Upload here</span>
                             </div>

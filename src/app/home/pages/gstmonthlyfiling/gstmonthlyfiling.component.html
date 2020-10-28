@@ -10,42 +10,23 @@
     <p style="color: black" > Loading... </p>
     </ngx-spinner>
     <div class="row d-flex justify-content-center">
-        <div class="col-md-3" style="
-        background: #009688;
-       
-      " >
-        <div class="gstimage" style="
-        margin-top: 185px;
-        
-    ">
-            <img src="../../../../assets/images/cooperateservice/gstlogo.png" alt="gstreg.jpg" style="
-            width: 92%;
-        "/>
+        <div class="col-md-3">
+        <div >
+            <img src="../../../../assets/images/cooperateservice/gstlogo.png" class="gstlogopng" alt="gstreg.jpg" />
        </div>
         
            <div class="gstabbreviation" >
-            <p style="
-            color: WHITE;
-            font-weight: 700;
-            padding-left: 25px;
-            font-size:!6pt;
-        ">GOODS AND SERVICE TAX</p>
+            <p>GOODS AND SERVICE TAX</p>
            </div>
            <div class="gstcharges" >
-            <p  style="
-            color: WHITE;
-            font-weight: 700;
-            padding-left: 25px;
-        ">Our Charges for Filing Monthly filing is GST is 1300/- up to 15-20 Transaction per month. </p>
+            <p >Our Charges for Filing Monthly filing is GST is 1300/- up to 15-20 Transaction per month. </p>
         </div>
         </div>
-        <div class="col-md-8" style="
-        padding-left: 0px;
-    " >
+        <div class="col-md-8"  >
             <div class="card rounded-0 b-0">
                
-                <div class="gstimage" style="margin-left: 36%;">
-                    <img src="../../../../assets/images/cooperateservice/register.png" alt="gstreg.jpg" style="width: 30%;"/>
+                <div class="gstimage" >
+                    <img src="../../../../assets/images/cooperateservice/register.png"  class="registerimg" alt="gstreg.jpg" />
                </div>
             
                 <div class="card-body  pt-0">
@@ -60,14 +41,14 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col">
+                                <div class="col-md-6">
                                     <label class="form-control-label">GST Number  :</label> <input type="text" formControlName="gstnumber" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.gstnumber.invalid && gstmonthlyfiling.controls.gstnumber.touched }"   [popover]="gstnumber" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 
                                     <popover-content #gstnumber [closeOnClickOutside]="true"
                                     [style.display]="gstmonthlyfiling.controls.gstnumber.invalid && gstmonthlyfiling.controls.gstnumber.touched ? 'block' : 'none'">
                                     <validation-messages [control]="gstmonthlyfiling.controls.gstnumber"></validation-messages>
                                 </popover-content>
                                 </div>
-                                <div class="col">
+                                <div class="col-md-6">
                                     <label class="form-control-label">GST User Name * :</label> <input type="text" formControlName="gstusername" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.gstusername.invalid && gstmonthlyfiling.controls.gstusername.touched }"   [popover]="gstusername" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 
                                     <popover-content #gstusername [closeOnClickOutside]="true"
                                     [style.display]="gstmonthlyfiling.controls.gstusername.invalid && gstmonthlyfiling.controls.gstusername.touched ? 'block' : 'none'">
@@ -76,7 +57,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col">
+                                <div class="col-md-6">
                                     <label class="form-control-label">Country  :</label>
                                     <select formControlName="country" class="form-control"  (change)="selectChangeCountry($event)" [ngClass]="{'error':gstmonthlyfiling.controls.country.invalid && gstmonthlyfiling.controls.country.touched }"   [popover]="counte" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                                         <option value="" [selected]=true>Select country</option>
@@ -87,7 +68,7 @@
                                      <validation-messages [control]="gstmonthlyfiling.controls.country"></validation-messages>
                                   </popover-content>
                                 </div>
-                                <div class="col">
+                                <div class="col-md-6">
                                     <label class="form-control-label">State :</label>
                                     <select placeholder="Select your State/ Province" formControlName="state" (change)="selectChangeStates($event)"  class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.state.invalid && gstmonthlyfiling.controls.state.touched }"   [popover]="state" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                                         <option value="" [selected]=true>Select state</option>
@@ -101,21 +82,10 @@
                             </div>
                             <span id="pcode" style="color:white"  *ngFor="let phonecode of phonecode">{{phonecode.country_codes}}</span>
                             <div class="form-group row">
-                                <div class="col">
+                                <div class="col-md-6">
                                     <label class="form-control-label">Mobile Number  :</label> 
-                                    <div style="
-                                    display: flex;
-                                ">
-                                        <span  style="
-                                        color: white;
-                                        background: #009688;
-                                        font-weight: 500;
-                                        height: 41px;
-                                        width: 52px;
-                                        margin-top: 2px;
-                                        padding-top: 8px;
-                                        padding-left: 9px;
-                                    " *ngFor="let phonecode of phonecode">+{{phonecode.phonecode}}</span>
+                                    <div style="display: flex;">
+                                        <span id="phonecd" *ngFor="let phonecode of phonecode">+{{phonecode.phonecode}}</span>
                                         <input type="text" (mouseout)="PhoneValidator()" formControlName="mobileno" style="margin-bottom: 0px;" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.mobileno.invalid && gstmonthlyfiling.controls.mobileno.touched }"   [popover]="mobileno" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 
                                     </div>
                                     <div class="errorstyles2" *ngIf=" invalidPhoneLength">
@@ -127,7 +97,7 @@
                                         
                                     </popover-content>
                                 </div>
-                                <div class="col">
+                                <div class="col-md-6">
                                     <label class="form-control-label">Email ID * :</label> <input type="text" formControlName="emailid" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.emailid.invalid && gstmonthlyfiling.controls.emailid.touched }"   [popover]="emailid" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 
                                     <popover-content #emailid [closeOnClickOutside]="true"
                                     [style.display]="gstmonthlyfiling.controls.emailid.invalid && gstmonthlyfiling.controls.emailid.touched ? 'block' : 'none'">
@@ -136,14 +106,14 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col">
+                                <div class="col-md-6">
                                     <label class="form-control-label">GST Login Password  :</label> <input type="password" formControlName="logpassword" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.logpassword.invalid && gstmonthlyfiling.controls.logpassword.touched }"   [popover]="logpassword" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" > 
                                     <popover-content #logpassword [closeOnClickOutside]="true"
                                     [style.display]="gstmonthlyfiling.controls.logpassword.invalid && gstmonthlyfiling.controls.logpassword.touched ? 'block' : 'none'">
                                     <validation-messages [control]="gstmonthlyfiling.controls.logpassword"></validation-messages>
                                 </popover-content>
                                 </div>
-                                <div class="col">
+                                <div class="col-md-6">
                                     <label class="form-control-label">Confirm Login Password * :</label> <input type="password" formControlName="confirmpassword" placeholder="" class="form-control" [ngClass]="{'error':gstmonthlyfiling.controls.confirmpassword.invalid && gstmonthlyfiling.controls.confirmpassword.touched }"   [popover]="confirmpassword" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  > 
                                     <popover-content #confirmpassword [closeOnClickOutside]="true"
                                     [style.display]="gstmonthlyfiling.controls.confirmpassword.invalid && gstmonthlyfiling.controls.confirmpassword.touched ? 'block' : 'none'">
@@ -158,9 +128,7 @@
                            I hereby declare that information provided in the online registration form is true to the best of my knowledge and I accept terms, disclaimer, and policies by clicking “Submit & Pay” button.
                         </p>
                    </div>
-                    <div class="row justify-content-center" style="
-                    margin-bottom: 13px;
-                "> <button class="btn btn-blue next mx-2" id="next1" (click)="submitandpay()">Submit and pay</button> </div>
+                    <div class="row justify-content-center" > <button class="btn btn-blue next mx-2" id="next1" (click)="submitandpay()">Submit and pay</button> </div>
                     <div class="gstreturnprocess" style="background: yellow;padding-left: 25px;padding-top: 11px;padding-bottom: 10px;">
                         <p>Monthly GST returns process</p>
                         <p>The Indian tax authorities require tax payers to reconcile their GST invoices with their customers and suppliers via the online clearing system.  The monthly process is as follows:</p>

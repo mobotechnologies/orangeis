@@ -11,7 +11,7 @@
             <h1>Company Registration</h1>
             <div class="row">
                 <div class="col-md-6">
-                    <img src="../../../../assets/images/cooperateservice/step1.png" alt="step1.png"/>
+                    <img src="../../../../assets/images/cooperateservice/step1.png" class="step1png" alt="step1.png"/>
                     <p class="companyincdetail">In case one of the shareholders or subscribers to the MOA and AOA is a corporate entity (Company, LLP, etc.,) then the certificate of incorporation must be attached along with the resolution passed by the entity to subscribe to the shares of the company under incorporation</p>         
                    
                 </div>
@@ -83,7 +83,7 @@
             <h1>Company Registration</h1>
             <form [formGroup]="companyinc">
             <div class="row">
-                <div class="col">
+                <div class="col-md-6">
                      <label>Application Type</label>
                      <select formControlName="applicanttype"  class="form-control" [ngClass]="{'error':companyinc.controls.applicanttype.invalid && companyinc.controls.applicanttype.touched }"   [popover]="applicanttype" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                         <option value="" [selected]=true>Application Type</option>
@@ -95,7 +95,7 @@
                     <validation-messages [control]="companyinc.controls.applicanttype"></validation-messages>
                 </popover-content>
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                     <label>Applicant Full Name *</label>
                     <input type="text"  formControlName="applicantfullname" class="form-control" [ngClass]="{'error':companyinc.controls.applicantfullname.invalid && companyinc.controls.applicantfullname.touched }"   [popover]="applicantfullname" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
                     <popover-content #applicantfullname [closeOnClickOutside]="true" [style.display]="companyinc.controls.applicantfullname.invalid && companyinc.controls.applicantfullname.touched ? 'block' : 'none'">
@@ -105,14 +105,14 @@
                
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col-md-6">
                     <label>Name of the Firm to be registered*</label>
                     <input type="text" formControlName="firmname"   class="form-control" [ngClass]="{'error':companyinc.controls.firmname.invalid && companyinc.controls.firmname.touched }"   [popover]="firmname" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
                     <popover-content #firmname [closeOnClickOutside]="true" [style.display]="companyinc.controls.firmname.invalid && companyinc.controls.firmname.touched ? 'block' : 'none'">
                     <validation-messages [control]="companyinc.controls.firmname"></validation-messages>
                    </popover-content>
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                     <label>Type of Business Entity**</label>
                     <select  formControlName="businessentity" class="form-control" [ngClass]="{'error':companyinc.controls.businessentity.invalid && companyinc.controls.businessentity.touched }"   [popover]="businessentity" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
                         <option value="" [selected]=true>Type of business entity</option>
@@ -129,14 +129,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col-md-6">
                     <label>Complete address of the principal place of business*</label>
                     <input type="text"  formControlName="primaryaddress"   class="form-control" [ngClass]="{'error':companyinc.controls.primaryaddress.invalid && companyinc.controls.primaryaddress.touched }"   [popover]="primaryaddress" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
                     <popover-content #primaryaddress [closeOnClickOutside]="true" [style.display]="companyinc.controls.primaryaddress.invalid && companyinc.controls.primaryaddress.touched ? 'block' : 'none'">
                     <validation-messages [control]="companyinc.controls.primaryaddress"></validation-messages>
                     </popover-content>
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                     <label>Complete address of additional place of business </label>
                     <input type="text"  formControlName="secondaryaddress"   class="form-control" [ngClass]="{'error':companyinc.controls.secondaryaddress.invalid && companyinc.controls.secondaryaddress.touched }"   [popover]="secondaryaddress" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
                     <popover-content #secondaryaddress [closeOnClickOutside]="true" [style.display]="companyinc.controls.secondaryaddress.invalid && companyinc.controls.secondaryaddress.touched ? 'block' : 'none'">
@@ -145,14 +145,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col-md-6">
                     <label>List of Goods & Services *</label>
                     <input type="text"  formControlName="goodservice"   class="form-control" [ngClass]="{'error':companyinc.controls.goodservice.invalid && companyinc.controls.goodservice.touched }"   [popover]="goodservice" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
                     <popover-content #goodservice [closeOnClickOutside]="true" [style.display]="companyinc.controls.goodservice.invalid && companyinc.controls.goodservice.touched ? 'block' : 'none'">
                     <validation-messages [control]="companyinc.controls.goodservice"></validation-messages>
                     </popover-content>
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                     <label>Nature of Business Activity* </label>
                     <select   formControlName="businessactivity"  class="form-control" [ngClass]="{'error':companyinc.controls.businessactivity.invalid && companyinc.controls.businessactivity.touched }"   [popover]="businessactivity" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                         <option value="" [selected]=true>Nature of Business Activity</option>
@@ -170,14 +170,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col-md-6">
                     <label>Date of commencement of business  *</label>
                     <input type="text" formControlName="commencement" class="form-control"     bsDatepicker [bsConfig]="datePickerConfig" [ngClass]="{'error':companyinc.controls.commencement.invalid && companyinc.controls.commencement.touched }"   [popover]="commencement" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
                     <popover-content #commencement [closeOnClickOutside]="true" [style.display]="companyinc.controls.commencement.invalid && companyinc.controls.commencement.touched ? 'block' : 'none'">
                     <validation-messages [control]="companyinc.controls.commencement"></validation-messages>
                 </popover-content>
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                     <label>Do you want to create website for the company?  </label>
                     <br>
                     <input type="radio" formControlName="webpage"   value="yes" >Yes
@@ -185,18 +185,16 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col-md-6">
                     <label>Director PAN </label>
                     
                     <div class="input-group my-3"  [ngClass]="{'error':companyinc.controls.directorpan.invalid && companyinc.controls.directorpan.touched }" >
-                        <div style="width: 82%;border: 2px solid #e4e3e3;background:white;">
+                        <div class="filediv">
                             <input type="file" class="file" style="opacity:0;" id="file1" formControlName="directorpan" (change)="onSelectedfile($event)"   [popover]="directorpan" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
                             <span class="upldtext1">Upload here</span>
                         </div>
                         <div class="input-group-append">
-                            <button type="button" (click)="logofile1()" class="browse btn btn-primary" style="
-                            padding-left: 14px;
-                        ">Browse</button>
+                            <button type="button" (click)="logofile1()" class="browse btn btn-primary" >Browse</button>
                         </div>
                     </div>
                     <popover-content #directorpan [closeOnClickOutside]="true"
@@ -204,15 +202,15 @@
                     <validation-messages [control]="companyinc.controls.directorpan"></validation-messages>
                 </popover-content>
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                         <label>Director Aadhar</label>
                         <div class="input-group my-3" [ngClass]="{'error':companyinc.controls.directoraadhar.invalid && companyinc.controls.directoraadhar.touched }" >
-                            <div style="width: 82%;border: 2px solid #e4e3e3;background:white;">
+                            <div class="filediv">
                                 <input type="file" class="file" id="file2" style="opacity:0;" formControlName="directoraadhar" (change)="onSelectedfile2($event)"   [popover]="directoraadhar" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
                                 <span class="upldtext2">Upload here</span>
                             </div>
                             <div class="input-group-append">
-                                <button type="button" (click)="logofile2()" class="browse btn btn-primary" style="padding-left: 14px;">Browse</button>
+                                <button type="button" (click)="logofile2()" class="browse btn btn-primary">Browse</button>
                             </div>
                         </div>
                         <popover-content #directoraadhar [closeOnClickOutside]="true"  [style.display]="companyinc.controls.directoraadhar.invalid && companyinc.controls.directoraadhar.touched ? 'block' : 'none'">
@@ -221,15 +219,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col-md-6">
                    <label>director Photo (in JPEG)</label>
                    <div class="input-group my-3" [ngClass]="{'error':companyinc.controls.directorphoto.invalid && companyinc.controls.directorphoto.touched }">
-                        <div style="width: 82%;border: 2px solid #e4e3e3;background:white;">
+                        <div class="filediv">
                           <input type="file" class="file" id="file3"  style="opacity:0;" formControlName="directorphoto" (change)="onSelectedfile3($event)"    [popover]="directorphoto" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
                           <span class="upldtext3">Upload here</span>
                         </div>
                       <div class="input-group-append">
-                       <button type="button" (click)="logofile3()"  class="browse btn btn-primary" style="padding-left: 14px;">Browse</button>
+                       <button type="button" (click)="logofile3()"  class="browse btn btn-primary" >Browse</button>
                      </div>
                    </div>
                     <popover-content #directorphoto [closeOnClickOutside]="true"
@@ -237,15 +235,15 @@
                     <validation-messages [control]="companyinc.controls.directorphoto"></validation-messages>
                 </popover-content>
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                     <label>Last 3 Month bank Statement</label>
                     <div class="input-group my-3" [ngClass]="{'error':companyinc.controls.bankstatement.invalid && companyinc.controls.bankstatement.touched }">
-                    <div style="width: 82%;border: 2px solid #e4e3e3;background:white;">
+                    <div class="filediv">
                         <input type="file" class="file"  id="file4"  style="opacity:0;" formControlName="bankstatement"  (change)="onSelectedfile4($event)"     [popover]="bankstatement" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
                         <span class="upldtext4">Upload here</span>
                     </div>    
                     <div class="input-group-append">
-                        <button type="button" (click)="logofile4()" class="browse btn btn-primary" style="padding-left: 14px;">Browse</button>
+                        <button type="button" (click)="logofile4()" class="browse btn btn-primary" >Browse</button>
                       </div>
                     </div>
                     <popover-content #bankstatement [closeOnClickOutside]="true"
@@ -255,7 +253,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col-md-6">
                     <label class="form-control-label">Country  :</label>
                     <select formControlName="country" class="form-control"  (change)="selectChangeCountry($event)" [ngClass]="{'error':companyinc.controls.country.invalid && companyinc.controls.country.touched }"   [popover]="counte" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                         <option value="" [selected]=true>Select country</option>
@@ -266,7 +264,7 @@
                      <validation-messages [control]="companyinc.controls.country"></validation-messages>
                   </popover-content>
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                     <label class="form-control-label">State :</label>
                     <select placeholder="Select your State/ Province" formControlName="state" (change)="selectChangeStates($event)"  class="form-control" [ngClass]="{'error':companyinc.controls.state.invalid && companyinc.controls.state.touched }"   [popover]="state" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                         <option value="" [selected]=true>Select state</option>
@@ -280,7 +278,7 @@
             </div>
             <span id="pcode" style="color:white"  *ngFor="let phonecode of phonecode">{{phonecode.country_codes}}</span>
             <div class="row">
-                <div class="col">
+                <div class="col-md-6">
                     <label>Personal Mobile Number</label>
                     <div style="display: flex;">
                         <span class="phonecd"  *ngFor="let phonecode of phonecode">+{{phonecode.phonecode}}</span>
@@ -293,7 +291,7 @@
                         <validation-messages [control]="companyinc.controls.mobileno"></validation-messages>
                     </popover-content>
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                     <label>Peronal Email ID</label>
                     <input type="text" formControlName="emailid"  class="form-control" [ngClass]="{'error':companyinc.controls.emailid.invalid && companyinc.controls.emailid.touched }"   [popover]="emailid" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
                     <popover-content #emailid [closeOnClickOutside]="true"  [style.display]="companyinc.controls.emailid.invalid && companyinc.controls.emailid.touched ? 'block' : 'none'">

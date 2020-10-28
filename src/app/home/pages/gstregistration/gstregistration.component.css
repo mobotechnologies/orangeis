@@ -201,3 +201,301 @@ button:focus {
     padding-top: 7px;
 
   }
+  .gstapplicability > img {
+    width: 82%;
+}
+.gstimages
+{
+    margin-left: 36%;
+}
+.col-md-6 > div {
+    display: flex
+}
+
+.form-group > input {
+    width: 30px;
+}
+
+.form-group > input {
+    width: 30px;
+}
+
+
+#pcode {
+    color: white
+}
+
+
+
+.col-md-3.gstinfo {
+background: #009688;
+}
+
+
+
+.gstlogopng {
+width: 92%;
+}
+
+
+
+.gstabbreviationtext {
+color: WHITE;
+font-weight: 700;
+padding-left: 25px;
+font-size: 16pt;
+}
+
+
+.col-md-8 {
+padding-left: 0px;
+}
+
+
+.gstform {
+display: none;
+}
+
+
+
+.btn.btn-success.direc {
+margin-left: 9px;
+}
+
+
+.filediv {
+width: 81%;
+border: 2px solid #e4e3e3;
+background: white;
+}
+.filediv2{
+    width: 64%;
+    border: 2px solid #e4e3e3;
+    background: white;
+    }
+    
+    
+
+
+.fa.fa-trash {
+font-size: 12pt;
+}
+.aboutgst
+{
+    text-align:justify;
+}
+
+@media (max-width: 575.98px) { 
+    .gstimages
+    {
+        margin-left: 37%;
+    }
+    .gstregpng
+    {
+        width: 47%;
+    }
+    .gstregpng
+    {
+       margin-bottom: 21px;
+    }
+    .filediv2 {
+        width: 63%;
+    }
+    .filediv{
+        width: 52%
+    }
+    .btn-blue{
+        
+    width: 130.991422px;
+
+    }
+    .gstlogopng
+    {
+        
+    padding-left: 0px;
+    margin-left: 28%;
+    width:40%;
+
+    }
+    .gstabbreviationtext
+    {
+        font-size:12pt;
+       
+    }
+    h4
+    {
+        font-size: 13pt;
+    }
+
+}
+@media (min-width: 576px) and (max-width: 767.98px) { 
+     .filediv
+     {
+        width: 63%;
+     }
+     .gstimages{
+        margin-left: 26%;
+    }
+    .gstregpng
+    {
+        
+        margin-bottom: 21px;
+
+    }
+    .gstlogopng
+    {
+        
+    padding-left: 0px;
+    margin-left: 28%;
+    width:40%;
+
+    }
+    .gstregpng
+    {
+        width:50%;
+    }
+    .gstabbreviationtext
+    {
+        font-size:12pt;
+    }
+    h4
+    {
+        font-size: 13pt;
+    }
+ }
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .form-group {
+        display: contents;
+    }
+    .col-md-6
+    {
+        max-width:100%;
+    }
+    .gstregpng
+    {
+        width:50%;
+    }
+    .filediv{
+        width: 64%;
+    }
+    .btn-blue
+    {
+        
+     width: 133.991422px;
+
+    }
+    h4
+    {
+        font-size: 13pt;
+    }
+    .gstinfo
+    {
+        
+     padding-top: 11% !important;
+ 
+    }
+    .gstabbreviationtext
+    {
+        font-size:12pt;
+    }
+    .col-md-8
+    {
+        text-align: justify;
+        font-size: 9pt;
+    }
+    
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    label
+    {
+        
+    font-size: 9pt;
+    font-weight:600;
+
+    }
+   .gstinfo
+   {
+       
+    padding-top: 11% !important;
+
+   }
+   .gstabbreviationtext
+   {
+       font-size:12pt;
+   }
+   .goodtext
+   {
+       
+    margin-bottom: 25px;
+
+   }
+   h4
+{
+    font-size: 13pt;
+}
+.phonecd
+{
+    height:40px;
+}
+.gstregpng
+{
+    
+    width: 35%;
+
+}
+.filediv{
+    width:75%
+}
+.filediv2{
+    width: 49%
+}
+select
+{
+    font-size: 10px;
+}
+.filetext
+{
+    font-size: 10pt;
+}
+ }
+
+
+@media (min-width: 1200px) { 
+    select
+{
+    font-size: 14px;
+}
+    label
+    {
+        
+    font-size: 11pt;
+
+    }
+   .gstinfo
+   {
+       
+    padding-top: 11% !important;
+
+   }
+   .gstabbreviationtext
+   {
+       font-size:12pt;
+   }
+   .filediv{
+       width:80%
+   }
+.filediv2{
+    width: 60%
+}
+h4
+{
+    font-size: 13pt;
+}
+.phonecd
+{
+    height:40px;
+}
+ }

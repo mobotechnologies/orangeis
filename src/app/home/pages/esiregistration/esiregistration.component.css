@@ -241,3 +241,87 @@ p.form-para::after {
     
       color:red;
   }
+h1
+{
+    FONT-SIZE: 17PT;
+    margin-top: 18px;
+    text-align:center
+}
+.esiregtext
+{
+    line-height: 25px;
+    font-size: 12pt;
+    text-align: justify;
+}
+.filediv
+{
+    border: 2px solid #e4e3e3;
+    background:white;
+    width: 60%;
+    height: 45.98284px;
+}
+.submitbtn
+{
+    width: 243px;
+    margin-top: 5px;
+    margin-left: 145px;
+}
+@media (max-width: 575.98px) { 
+    .submitbtn
+    {
+        margin-top: 15px;
+        margin-left: 58px;
+    }
+ }
+
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+     .filediv
+     {
+        width: 75%;
+     }
+    
+ }
+
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .col-md-6
+    {
+       max-width: 95%;
+    }
+    .form-group
+    {
+        display: inline;
+    }
+    .submitbtn
+    {
+        width: 137px;
+        margin-left: 117px
+    }
+    .filediv
+    {
+        width:70%;
+    }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .filediv
+    {
+        border: 2px solid #e4e3e3;
+        background:white;
+        width: 51%;
+        height: 45.98284px;
+    }
+ }
+
+
+@media (min-width: 1200px) {
+    .filediv
+    {
+        border: 2px solid #e4e3e3;
+        background:white;
+        width: 60%;
+        height: 45.98284px;
+    }
+ }

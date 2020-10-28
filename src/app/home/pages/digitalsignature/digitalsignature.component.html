@@ -7,17 +7,17 @@
         <div class="col-md-4 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img  src="../../../../assets/images/cooperateservice/digitalsignregister.png" width="70%"></div>
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img  src="../../../../assets/images/cooperateservice/digitalsign.png" width="100%"></div>
-                <div style="padding-bottom: 6px;">
-                    <span style="font-weight: 600;color: #374450;">Digital Signature - Digital signatures are like electronic “fingerprints.” In the form of a coded message, the digital signature securely associates a signer with a document in a recorded transaction.</span>
+                <div class="digidiv" >
+                    <span  class="digitext" >Digital Signature - Digital signatures are like electronic “fingerprints.” In the form of a coded message, the digital signature securely associates a signer with a document in a recorded transaction.</span>
                 </div>
-                <div style="padding-bottom: 6px;">
-                    <span style="font-weight: 600;color: #374450;"> Note:  1. Name should be as per PAN data </span>
+                <div  class="digidiv" >
+                    <span  class="digitext" > Note:  1. Name should be as per PAN data </span>
                 </div>
-                <div style="padding-bottom: 6px;">
-                    <span style="font-weight: 600;color: #374450;">  2.	For class 3 Signature </span>
+                <div class="digidiv">
+                    <span  class="digitext"  >  2.	For class 3 Signature </span>
                 </div>
-                <div style="padding-bottom: 6px;">
-                    <span style="font-weight: 600;color: #374450;">    Our Class 2 Digital Signature charges are Rs.1500/- Including epass Token with 2 years validity.  to apply for the Digital Sign please fill the following details  </span>
+                <div  class="digidiv">
+                    <span   class="digitext" >    Our Class 2 Digital Signature charges are Rs.1500/- Including epass Token with 2 years validity.  to apply for the Digital Sign please fill the following details  </span>
                 </div>
         </div>
         <div class="col-md-8">
@@ -190,12 +190,12 @@
                     <div class="col-md-6">
                         <label>Photo</label>
                         <div class="input-group my-3" [ngClass]="{'error':digitalsign.controls.photo.invalid && digitalsign.controls.photo.touched }">
-                            <div style="width: 76%;border: 2px solid #e4e3e3;background:white; border-radius: 10px 0px 0px 10px;">
+                            <div class="filediv" >
                                <input type="file" id="file1" formControlName="photo" style="opacity:0;" (change)="onSelectedfile1($event)" class="form-control"    [popover]="photo" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                                <span class="upldtext1">Upload here</span>
                             </div>
                             <div class="input-group-append">
-                                <button type="button" (click)="logofile1()" class="browse btn btn-primary" style="padding-left: 14px;">Upload</button>
+                                <button type="button" (click)="logofile1()" class="browse btn btn-primary" >Upload</button>
                            </div>
                         </div>
                         <popover-content #photo [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.photo.invalid && digitalsign.controls.photo.touched ? 'block' : 'none'"> 
@@ -205,12 +205,12 @@
                     <div class="col-md-6">
                         <label>PAN Card</label>
                         <div class="input-group my-3" [ngClass]="{'error':digitalsign.controls.pancard.invalid && digitalsign.controls.pancard.touched }" >
-                            <div style="width: 76%;border: 2px solid #e4e3e3;background:white; border-radius: 10px 0px 0px 10px;">
+                            <div  class="filediv"  >
                                <input type="file" id="file2" style="opacity:0;"  formControlName="pancard" (change)="onSelectedfile2($event)" class="form-control"    [popover]="pancard" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                                <span class="upldtext2">Upload here</span>
                             </div>
                             <div class="input-group-append">
-                                <button type="button" (click)="logofile2()" class="browse btn btn-primary" style="padding-left: 14px;">Upload</button>
+                                <button type="button" (click)="logofile2()" class="browse btn btn-primary">Upload</button>
                            </div>
                         </div>
                         <popover-content #pancard [closeOnClickOutside]="true"  [style.display]="digitalsign.controls.pancard.invalid && digitalsign.controls.pancard.touched ? 'block' : 'none'"> 
@@ -222,12 +222,12 @@
                     <div class="col-md-6">
                         <label>Aadhar card</label>
                         <div class="input-group my-3" [ngClass]="{'error':digitalsign.controls.aadharcard.invalid && digitalsign.controls.aadharcard.touched }">
-                            <div style="width: 76%;border: 2px solid #e4e3e3;background:white;border-radius: 10px 0px 0px 10px;">
+                            <div   class="filediv" >
                               <input type="file" id="file3"  style="opacity:0;" formControlName="aadharcard" (change)="onSelectedfile3($event)" class="form-control"    [popover]="aadharcard" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  >
                               <span class="upldtext3">Upload here</span>
                             </div>
                             <div class="input-group-append">
-                               <button type="button" (click)="logofile3()" class="browse btn btn-primary" style="padding-left: 14px;">Upload</button>
+                               <button type="button" (click)="logofile3()" class="browse btn btn-primary" >Upload</button>
                             </div>
                         </div>
                         <popover-content #aadharcard [closeOnClickOutside]="true" [style.display]="digitalsign.controls.aadharcard.invalid && digitalsign.controls.aadharcard.touched ? 'block' : 'none'"> 
@@ -245,10 +245,7 @@
                         <span> I hereby declare that information provided in the online registration form is true to the best of my knowledge and I accept terms, disclaimer, and policies by clicking “Submit & Pay” button.</span>
                     </div>
                </div>
-                <div style="
-                margin-left: 41%;
-                margin-top: 6%;
-            "><button class="btn btn-success" type="button" (click)="submitandpay()">Submit and pay</button></div>
+                <div class="submitbtn"><button class="btn btn-success" type="button" (click)="submitandpay()">Submit and pay</button></div>
              
         </form>
         </div>
