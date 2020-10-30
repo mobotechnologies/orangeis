@@ -15,23 +15,28 @@
   
 .slogon
   {
-    padding-top: 5pt;
-    padding-bottom: 5pt;
-    padding-left: 200pt;
-    padding-right: 200pt;
-    
+    padding-top: 10pt;
+    /* padding-bottom: 5pt; */
+    padding-left: 16pt;
+    padding-right: 16pt;
+    line-height: 0.9;
   }
-  .slogon p
+  .slogon span
   {
-      font-size: 12pt;
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    font-size: 20pt;
+    background-image: -webkit-linear-gradient(left, #d03bbd, #6c4fa5, #0a9474);
+    color: transparent;
+    -webkit-background-clip: text;
+    
   }
   @media screen and (max-width:767px) {
     .slogon
   {
     padding-top: 5pt;
     padding-bottom: 5pt;
-    padding-left: 60pt;
-    padding-right: 60pt;
+    padding-left: 11pt;
+    padding-right: 11pt;
     
   }
   }

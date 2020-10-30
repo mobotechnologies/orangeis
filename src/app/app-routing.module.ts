@@ -44,24 +44,24 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'register/:logs', component: JoinfreeComponent },
   { path: 'requestforquote', component: RfqformComponent },
-  { path: 'consumeraccountsetup', component: ConsumeraccountsetupComponent , canActivate: [AuthGuardGuard]},
+  { path: 'consumeraccountsetup', component: ConsumeraccountsetupComponent, canActivate: [AuthGuardGuard] },
   { path: 'resetpassword/:selector/:validator', component: ResetpasswordComponent },
   { path: 'pageexpired', component: PageexpiredComponent },
   { path: 'subscription', component: SubcriptionComponent },
   { path: 'aboutus', component: AboutusComponent },
-   { path: 'Companyincoperation', component: CompanyincoperationComponent},
+  { path: 'Companyincoperation', component: CompanyincoperationComponent },
   { path: 'gstregistration', component: GstregistrationComponent },
-  { path: 'gstmonthlyfiling', component:  GstmonthlyfilingComponent },
+  { path: 'gstmonthlyfiling', component: GstmonthlyfilingComponent },
   { path: 'Esiregistration', component: EsiregistrationComponent },
   { path: 'Esimonthlyfiling', component: EsimonthlyfilingComponent },
   { path: 'Digitalsignature', component: DigitalsignatureComponent },
   { path: 'aboutwomen', component: AboutwomenComponent },
   { path: 'memberregistration', component: WomenwingregistrationComponent },
   { path: 'contactus', component: ContactusComponent },
-  { path: 'financesupport', component: FinancesuppportComponent , canActivate: [AuthGuardGuard]},
+  { path: 'financesupport', component: FinancesuppportComponent, canActivate: [AuthGuardGuard] },
   { path: 'productlisting', component: ProductlistingComponent },
-  { path: 'productdetailview/:id', component: ProductdetailviewComponent, canActivate: [AuthGuardGuard]},
-  { path: 'sendenquiry/:id', component: ProductenquiryComponent},
+  { path: 'productdetailview/:id', component: ProductdetailviewComponent, canActivate: [AuthGuardGuard] },
+  { path: 'sendenquiry/:id', component: ProductenquiryComponent },
   { path: 'productwhishlist', component: ProductwhishlistComponent, canActivate: [AuthGuardGuard] },
   { path: 'productcart', component: ProductcartComponent, canActivate: [AuthGuardGuard] },
   { path: 'productshipping', component: ProductshippingComponent, canActivate: [AuthGuardGuard] },
@@ -69,7 +69,7 @@ const routes: Routes = [
   { path: 'paysuccess/:logs', component: PaymentSuccessComponent, canActivate: [AuthGuardGuard] },
   { path: 'payfailure', component: PaymentFailureComponent, canActivate: [AuthGuardGuard] },
   { path: 'popup', component: CommonPopComponent, canActivate: [AuthGuardGuard] },
-  { path: 'change-password', component:ChangePasswordComponent, canActivate: [AuthGuardGuard] },
+  { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuardGuard] },
   { path: "**", component: PagenotfoundComponent },
 
 ];
@@ -79,11 +79,11 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingHomeComponents = [MainComponent, JoinfreeComponent, RfqformComponent,GstregistrationComponent,SubcriptionComponent,ContactusComponent,ChangePasswordComponent,LogoutComponent];
+export const routingHomeComponents = [MainComponent, JoinfreeComponent, RfqformComponent, GstregistrationComponent, SubcriptionComponent, ContactusComponent, ChangePasswordComponent, LogoutComponent];
 export const routingConsumerComponents = [ConsumeraccountsetupComponent, ResetpasswordComponent, FinancesuppportComponent];
 export const routingErrorPageComponents = [PageexpiredComponent, PagenotfoundComponent];
 export const routingProductPageComponents = [ProductlistingComponent, ProductdetailviewComponent, ProductcartComponent, ProductshippingComponent,ProductwhishlistComponent,ProductenquiryComponent];
 export const routingPaymentPageComponents=[PaymentGatewayComponent,CommonPopComponent,PaymentSuccessComponent,PaymentFailureComponent ];
 export const routingHomePageComponents=[SliderComponent,HomeRfqformComponent,TestimonialsComponent,ClientsSliderComponent,ProductHomeComponent];
 export const routingCoperateServiceComponents=[DigitalsignatureComponent,CompanyincoperationComponent,EsiregistrationComponent,EsimonthlyfilingComponent,GstregistrationComponent,GstmonthlyfilingComponent];
-export const routingWomensWingComponents=[ AboutwomenComponent,WomenwingregistrationComponent  ],
+export const routingWomensWingComponents=[ AboutwomenComponent,WomenwingregistrationComponent]

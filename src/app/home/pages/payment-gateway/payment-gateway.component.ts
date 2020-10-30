@@ -27,6 +27,7 @@ export class PaymentGatewayComponent implements OnInit {
   public PayingAmt
   public choosenPlanName
   public plan_duration
+  plan_id: any;
   constructor(private route: ActivatedRoute, private router: Router, private dhanus: HttpClient, private cookieService: CookieService, private SocialloginService: SocialloginService, private _payment: PaymentService) {
 
     // this.dhanus.get("https://www.famposo.com/testsoftlaunch/api/pay.php").subscribe();
@@ -64,15 +65,13 @@ export class PaymentGatewayComponent implements OnInit {
         .subscribe(params => {
           // console.log('dfx');
           // console.log(params); // {subscription: "details"}
-          let pAmt=atob(params.YxEaws);
+          let pAmt = atob(params.YxEaws);
           this.PayingAmt = parseInt(pAmt) * 12;
           this.choosenPlanName = atob(params.RTeS);
-          if(atob(params.RTeS)=="Premium Plan" || atob(params.RTeS)=="Standard Plan"  || atob(params.RTeS)=="Basic Plan" )
-          {
-            
+          if (atob(params.RTeS) == "Premium Plan" || atob(params.RTeS) == "Standard Plan" || atob(params.RTeS) == "Basic Plan") {
+
           }
-          else
-          {
+          else {
             this.router.navigate(["/subscription"]);
           }
           // console.log(this.PayingAmt); // Amount
@@ -80,8 +79,8 @@ export class PaymentGatewayComponent implements OnInit {
           this.plan_duration = "Yearly";
 
         });
-        this.route.params.subscribe(params => {
-        });
+      this.route.params.subscribe(params => {
+      });
 
     }
     else {
@@ -119,6 +118,8 @@ export class PaymentGatewayComponent implements OnInit {
       this.userId = this.userData['data'][i].user_id;
 
     }
+    console.log(this.choosenPlanName);
+    if (this.choosenPlanName == 'Premium Plan') { this.plan_id = 1; } else if (this.choosenPlanName == 'Standard Plan') { this.plan_id = 2; } else if (this.choosenPlanName == 'Basic Plan') { this.plan_id = 3; } else { this.plan_id = 4; }
 
     const paymentValues = new FormData();
 
@@ -127,7 +128,7 @@ export class PaymentGatewayComponent implements OnInit {
     paymentValues.append('userEmail', this.userEmail);
     paymentValues.append('userMobile', this.userMobile);
     paymentValues.append('payAmount', this.PayingAmt);
-    paymentValues.append('plan_id', '1');
+    paymentValues.append('plan_id', this.plan_id);
     paymentValues.append('purpose', this.choosenPlanName);
     paymentValues.append('plan_duration', this.plan_duration);
 

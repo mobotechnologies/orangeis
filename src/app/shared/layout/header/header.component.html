@@ -1,23 +1,26 @@
 <div class="header-top text-right">
    <div class="btn-group mr-5 mt-1">
-      <a [routerLink]="['/productwhishlist']" style="text-decoration: none;" target="_blank"  aria-haspopup="true" aria-expanded="false" style="color:white">
+      <a [routerLink]="['/productwhishlist']" style="text-decoration: none;" target="_blank" aria-haspopup="true"
+         aria-expanded="false" style="color:white">
          <i class="fa fa-heart" style="margin-right: 8px;"></i>
-        
+
       </a>
-      <a type="button"  [routerLink]="['/register','login']"  aria-haspopup="true" aria-expanded="false"  id="signedin" style="color:white">
-         <i class="fa fa-user-circle-o"  style="margin-right: 8px;"></i>signin
+      <a type="button" [routerLink]="['/register','login']" aria-haspopup="true" aria-expanded="false" id="signedin"
+         style="color:white">
+         <i class="fa fa-user-circle-o" style="margin-right: 8px;"></i>signin
       </a>
-     
-            <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="loggedin">
-               <i class="fa fa-user-circle-o" style="margin-right: 8px;"></i><span id="username">{{user}}</span>
-            </a>
-            <div class="dropdown-menu">
-               <a class="dropdown-item" target="_blank" href="//www.famposo.com/testsoftlaunch/user/">Profile Setup</a>
-               <a class="dropdown-item" [routerLink]="['/subscription']">Subscription</a>
-               <a class="dropdown-item" [routerLink]="['/change-password']">Password</a>
-               <a class="dropdown-item" (click)="logout()">Logout</a>
-            </div>
-     
+
+      <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+         id="loggedin">
+         <i class="fa fa-user-circle-o" style="margin-right: 8px;"></i><span id="username">{{user}}</span>
+      </a>
+      <div class="dropdown-menu">
+         <a class="dropdown-item" target="_blank" href="//www.famposo.com/pathsoftlaunch/user/">Profile Setup</a>
+         <a class="dropdown-item" [routerLink]="['/subscription']">Subscription</a>
+         <a class="dropdown-item" [routerLink]="['/change-password']">Password</a>
+         <a class="dropdown-item" (click)="logout()">Logout</a>
+      </div>
+
    </div>
 </div>
 <div class="header-logo">
@@ -38,14 +41,15 @@
                <option *ngFor="let subcategory of subcategory" [value]="subcategory.id"
                   [attr.data-somedata]="subcategory.id">{{subcategory.subcategory}}</option>
             </select>
-            <input type="text" name="" class="search-keyword" placeholder="Keyword here..." id="search-input" (input)="onSearchChange()">
-            <i class="fa fa-microphone fa-lg voice-img" style="color: #7e8284" ></i>
+            <input type="text" name="" class="search-keyword" placeholder="Keyword here..." id="search-input"
+               (input)="onSearchChange()">
+            <i class="fa fa-microphone fa-lg voice-img" style="color: #7e8284"></i>
             <i class="fa fa-search" style="margin-left: 40pt;color: #ffffff;cursor: pointer;" id="search"
                (click)="search()"></i>
          </div>
       </div>
       <div class="col-md-4 pt-3 pl-5">
-        
+
          <a href="https://wa.me/9500559800?text=Hi%0A" style="text-decoration: none;" target="_blank">
             <img class="whatsapp-img" src="assets/images/header/whatsapp.png">
             <p class="support-p">Support</p>
@@ -190,15 +194,15 @@
          <div class="header-category-list J-header-category-list hide">
             <div class="cate-col hide J-cate-col J-cate-1st">
                <div class="cate-item ">
-                  <a  (click)="menu('SoftwareService','')">Software Services</a>
+                  <a (click)="menu('SoftwareService','')">Software Services</a>
                   <i class="cate-arrow fa fa-arrow-right"></i>
                </div>
                <div class="cate-item ">
-                  <a  (click)="menu('CompanyRegistration','')">Company Registration</a>
+                  <a (click)="menu('CompanyRegistration','')">Company Registration</a>
                   <i class="cate-arrow fa fa-arrow-right"></i>
                </div>
                <div class="cate-item ">
-                  <a  (click)="menu('GST,ESI,PF','')">GST , ESI , PF</a>
+                  <a (click)="menu('GST,ESI,PF','')">GST , ESI , PF</a>
                   <i class="cate-arrow fa fa-arrow-right"></i>
                </div>
                <div class="cate-item ">
@@ -232,13 +236,16 @@
             </div>
             <div class="cate-col hide J-cate-col J-cate-2nd">
                <div class="cate-group hide" catId="32">
-                  <a (click)="menu('SoftwareService','All type of Customized software')">All type of Customized software</a>
+                  <a (click)="menu('SoftwareService','All type of Customized software')">All type of Customized
+                     software</a>
                   <a (click)="menu('SoftwareService','Billing Software')">Billing Software</a>
                   <a (click)="menu('SoftwareService','Tally Software')">Tally Software</a>
-                  <a (click)="menu('SoftwareService','Website designing and developing')">Website designing and developing</a>
+                  <a (click)="menu('SoftwareService','Website designing and developing')">Website designing and
+                     developing</a>
                </div>
                <div class="cate-group hide" catId="112">
-                  <a (click)="menu('CompanyRegistration','LLP / PVT LTD Company Registration')">LLP / PVT LTD Company Registration</a>
+                  <a (click)="menu('CompanyRegistration','LLP / PVT LTD Company Registration')">LLP / PVT LTD Company
+                     Registration</a>
                   <a (click)="menu('CompanyRegistration','Proprietorship registration')">Proprietorship registration</a>
                   <a (click)="menu('CompanyRegistration','Trust')">Trust</a>
                   <a (click)="menu('CompanyRegistration','NGO')">NGO</a>
@@ -249,19 +256,24 @@
                   <a (click)="menu('GST,ESI,PF','ESI Registration')">ESI Registration</a>
                   <a (click)="menu('GST,ESI,PF','ESI Monthly filing')">ESI Monthly filing</a>
                   <a (click)="menu('GST,ESI,PF','PF Registration')">PF Registration</a>
-                  <a (click)="menu('GST,ESI,PF','ESI Monthly filing')">ESI Monthly filing</a>
                   <a (click)="menu('GST,ESI,PF','PF Monthly Filing')">PF Monthly Filing</a>
                </div>
                <div class="cate-group hide" catId="102">
-                  <a (click)="menu('Digital Signature','All type of Class2 & Class3 Digital Signature')">All type of Class2 & Class3 Digital Signature</a>
+                  <a (click)="menu('Digital Signature','All type of Class2 & Class3 Digital Signature')">All type of
+                     Class2 & Class3 Digital Signature</a>
                </div>
                <div class="cate-group hide" catId="132">
-                  <a (click)="menu('ISO & ISI Certification','ISO 9001, ISO27001, ISO 14001, ISO 18001, ISO 22000, ISO 13485')">ISO 9001, ISO27001, ISO 14001, ISO 18001, ISO 22000, ISO 13485</a>
-                  <a (click)="menu('ISO & ISI Certification','ISI Mark Registration for manufacturing companies')">ISI Mark Registration for manufacturing companies</a>
+                  <a
+                     (click)="menu('ISO & ISI Certification','ISO 9001, ISO27001, ISO 14001, ISO 18001, ISO 22000, ISO 13485')">ISO
+                     9001, ISO27001, ISO 14001, ISO 18001, ISO 22000, ISO 13485</a>
+                  <a (click)="menu('ISO & ISI Certification','ISI Mark Registration for manufacturing companies')">ISI
+                     Mark Registration for manufacturing companies</a>
                </div>
                <div class="cate-group hide" catId="82">
-                  <a (click)="menu('Computer Sales and Services','All type of branded and assembled Computer')">All type of branded and assembled Computer</a>
-                  <a (click)="menu('Computer Sales and Services','Computer services and AMC')">Computer services and AMC</a>
+                  <a (click)="menu('Computer Sales and Services','All type of branded and assembled Computer')">All type
+                     of branded and assembled Computer</a>
+                  <a (click)="menu('Computer Sales and Services','Computer services and AMC')">Computer services and
+                     AMC</a>
                </div>
                <div class="cate-group hide" catId="12">
                   <a (click)="menu('CCTV & Security System','CCTV camera installation')">CCTV camera installation</a>
@@ -319,22 +331,22 @@
                <div class="header-categoryPC-content">
                   <div class="categoryPC-col J-categoryPC-level1">
                      <div class="categoryPC-item J-categoryPC-item" catId="52" id="52">
-                        <a  (click)="menu('SoftwareService','')">Software Services</a>
+                        <a (click)="menu('SoftwareService','')">Software Services</a>
                         <i class="fa fa-arrow-right arrowcol" style="margin-left: 55pt;color: #ffffff"></i>
                         <i class="ob-icon icon-right"></i>
                      </div>
                      <div class="categoryPC-item J-categoryPC-item" catId="112" id="112">
-                        <a >Company Registration</a>
+                        <a>Company Registration</a>
                         <i class="fa fa-arrow-right arrowcol" style="margin-left: 35pt;color: #ffffff;"></i>
                         <i class="ob-icon icon-right"></i>
                      </div>
                      <div class="categoryPC-item J-categoryPC-item" catId="92" id="92">
-                        <a  >GST , ESI , PF</a>
+                        <a>GST , ESI , PF</a>
                         <i class="fa fa-arrow-right arrowcol" style="margin-left: 75pt;color: #ffffff;"></i>
                         <i class="ob-icon icon-right"></i>
                      </div>
                      <div class="categoryPC-item J-categoryPC-item" catId="102" id="102">
-                        <a >Digital Signature</a>
+                        <a>Digital Signature</a>
                         <i class="fa fa-arrow-right arrowcol" style="margin-left: 60pt;color: #ffffff;"></i>
                         <i class="ob-icon icon-right"></i>
                      </div>
@@ -371,16 +383,19 @@
                   </div>
                   <div class="categoryPC-col J-categoryPC-level2">
                      <div class="categoryPC-group" catId="52">
-                        <a (click)="menu('SoftwareService','All type of Customized software')">All type of Customized software</a>
-                  <a (click)="menu('SoftwareService','Billing Software')">Billing Software</a>
-                  <a (click)="menu('SoftwareService','Tally Software')">Tally Software</a>
-                  <a (click)="menu('SoftwareService','Website designing and developing')">Website designing and developing</a>
+                        <a (click)="menu('SoftwareService','All type of Customized software')">All type of Customized
+                           software</a>
+                        <a (click)="menu('SoftwareService','Billing Software')">Billing Software</a>
+                        <a (click)="menu('SoftwareService','Tally Software')">Tally Software</a>
+                        <a (click)="menu('SoftwareService','Website designing and developing')">Website designing and
+                           developing</a>
                      </div>
                      <div class="categoryPC-group" catId="112">
                         <a [routerLink]="['/Companyincoperation']">LLP / PVT LTD Company Registration</a>
                         <a [routerLink]="['/Companyincoperation']">Proprietorship registration</a>
-                        <a [routerLink]="['/Companyincoperation']" >Trust&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                        <a [routerLink]="['/Companyincoperation']">NGO</a>        
+                        <a
+                           [routerLink]="['/Companyincoperation']">Trust&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        <a [routerLink]="['/Companyincoperation']">NGO</a>
                      </div>
                      <div class="categoryPC-group" catId="92">
                         <a [routerLink]="['/gstregistration']">GST Registration</a>
@@ -394,11 +409,16 @@
                         <a [routerLink]="['/Digitalsignature']">All type of Class2 & Class3 Digital Signature</a>
                      </div>
                      <div class="categoryPC-group" catId="42">
-                        <a (click)="menu('ISO & ISI Certification','ISO 9001, ISO27001, ISO 14001, ISO 18001, ISO 22000, ISO 13485')">ISO 9001, ISO27001, ISO 14001, ISO 18001, ISO 22000, ISO 13485</a>
-                  <a (click)="menu('ISO & ISI Certification','ISI Mark Registration for manufacturing companies')">ISI Mark Registration for manufacturing companies</a>
+                        <a
+                           (click)="menu('ISO & ISI Certification','ISO 9001, ISO27001, ISO 14001, ISO 18001, ISO 22000, ISO 13485')">ISO
+                           9001, ISO27001, ISO 14001, ISO 18001, ISO 22000, ISO 13485</a>
+                        <a
+                           (click)="menu('ISO & ISI Certification','ISI Mark Registration for manufacturing companies')">ISI
+                           Mark Registration for manufacturing companies</a>
                      </div>
                      <div class="categoryPC-group" catId="82">
-                        <a (click)="menu('CCTV & Security System','CCTV camera installation')">CCTV camera installation</a>
+                        <a (click)="menu('CCTV & Security System','CCTV camera installation')">CCTV camera
+                           installation</a>
                         <a (click)="menu('CCTV & Security System','Attendance System')">Attendance System</a>
                      </div>
                      <div class="categoryPC-group" catId="12">
@@ -409,8 +429,10 @@
                         <a (click)="menu('Insurance Services','Travel Insurance')">Travel Insurance</a>
                      </div>
                      <div class="categoryPC-group" catId="132">
-                        <a (click)="menu('Computer Sales and Services','All type of branded and assembled Computer')">All type of branded and assembled Computer</a>
-                        <a (click)="menu('Computer Sales and Services','Computer services and AMC')">Computer services and AMC</a>
+                        <a (click)="menu('Computer Sales and Services','All type of branded and assembled Computer')">All
+                           type of branded and assembled Computer</a>
+                        <a (click)="menu('Computer Sales and Services','Computer services and AMC')">Computer services
+                           and AMC</a>
                      </div>
                      <!-- <div class="categoryPC-group" catId="72">
                         <a href="#">Home Loan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
@@ -434,7 +456,7 @@
             <a (click)="menu('Innovations','')">INNOVATIONS</a>
             <a (click)="menu('Gifted children','')">GIFTED CHILDREN</a>
             <a [routerLink]="['/register','signup']">JOIN NOW</a>
-            <a  (click)="contactcs()">CONTACT US</a>
+            <a (click)="contactcs()">CONTACT US</a>
          </div>
       </div>
    </div>
