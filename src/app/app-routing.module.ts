@@ -35,6 +35,8 @@ import { EsiregistrationComponent } from './home/pages/esiregistration/esiregist
 import { EsimonthlyfilingComponent } from './home/pages/esimonthlyfiling/esimonthlyfiling.component';
 import { CompanyincoperationComponent } from './home/pages/companyincoperation/companyincoperation.component';
 import { GstmonthlyfilingComponent} from './home/pages/gstmonthlyfiling/gstmonthlyfiling.component';
+import { AboutwomenComponent } from './home/pages/aboutwomen/aboutwomen.component';
+import { WomenwingregistrationComponent } from './home/pages/womenwingregistration/womenwingregistration.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -53,6 +55,8 @@ const routes: Routes = [
   { path: 'Esiregistration', component: EsiregistrationComponent },
   { path: 'Esimonthlyfiling', component: EsimonthlyfilingComponent },
   { path: 'Digitalsignature', component: DigitalsignatureComponent },
+  { path: 'aboutwomen', component: AboutwomenComponent },
+  { path: 'memberregistration', component: WomenwingregistrationComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'financesupport', component: FinancesuppportComponent , canActivate: [AuthGuardGuard]},
   { path: 'productlisting', component: ProductlistingComponent },
@@ -82,3 +86,4 @@ export const routingProductPageComponents = [ProductlistingComponent, Productdet
 export const routingPaymentPageComponents=[PaymentGatewayComponent,CommonPopComponent,PaymentSuccessComponent,PaymentFailureComponent ];
 export const routingHomePageComponents=[SliderComponent,HomeRfqformComponent,TestimonialsComponent,ClientsSliderComponent,ProductHomeComponent];
 export const routingCoperateServiceComponents=[DigitalsignatureComponent,CompanyincoperationComponent,EsiregistrationComponent,EsimonthlyfilingComponent,GstregistrationComponent,GstmonthlyfilingComponent];
+export const routingWomensWingComponents=[ AboutwomenComponent,WomenwingregistrationComponent  ],

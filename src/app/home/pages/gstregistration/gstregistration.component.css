@@ -409,6 +409,12 @@ font-size: 12pt;
 
 
 @media (min-width: 992px) and (max-width: 1199.98px) { 
+    .upbtn
+    {
+        
+    width: 121.991422px;
+
+    }
     label
     {
         
@@ -464,6 +470,12 @@ select
 
 
 @media (min-width: 1200px) { 
+.upbtn
+{
+    
+    width: 119.991422px;
+
+}
     select
 {
     font-size: 14px;

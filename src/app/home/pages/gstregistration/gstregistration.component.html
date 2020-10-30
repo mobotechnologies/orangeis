@@ -232,18 +232,19 @@
                                   <tr  *ngFor="let Photograph of   gstregistration.controls.Photograph['controls']; let i=index;" [formGroupName]="i">
                                    
                                     <td>
-                                        <div class="input-group my-3" [ngClass]="{'error':Photograph.controls.Photograph.invalid && Photograph.controls.Photograph.touched }"  >
+                                        <div class="input-group my-3" [ngClass]="{'error':Photograph.controls.Photograph.invalid && Photograph.controls.Photograph.touched }"  [popover]="photos" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
                                             <div class="filediv">
-                                                 <input type="file" id="file1{{i}}"  style="opacity:0;"   formControlName="Photograph" (change)="onSelectedfile8($event,i)" placeholder="" class="form-control file"  [popover]="Photograph" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
+                                                 <input type="file" id="file1{{i}}"  style="opacity:0;"   formControlName="Photograph" (change)="onSelectedfile8($event,i)" placeholder="" class="form-control file"  > 
                                                  <span class="filetext uploadtext{{i}}">Upload here</span>
                                             </div>
                                             <div class="input-group-append">
-                                                <button type="button" (click)="logofile1(i)"  class="browse btn btn-primary" >Upload here</button>
+                                                <button type="button" (click)="logofile1(i)"  class="browse btn btn-primary upbtn" >Upload here</button>
                                             </div>
                                         </div>
-                                        
+                                        <popover-content #photos [closeOnClickOutside]="true"
+                                        [style.display]="Photograph.controls.Photograph.invalid && Photograph.controls.Photograph.touched ? 'block' : 'none'">  
                                         <validation-messages [control]="Photograph.controls.Photograph"></validation-messages>
-                                       
+                                        </popover-content>
                                       </td>
                                       <td>
                                         <button class="btn btn-danger"  *ngIf="gstregistration.controls.Photograph['controls'].length > 0 && i!=0"   (click)="deleteRow1(i)"><i class="fa fa-trash" style="font-size: 12pt;"></i></button>
@@ -264,17 +265,19 @@
                                 </tr>
                                <tr *ngFor="let identityproof of   gstregistration.controls.identityproof['controls']; let j=index;" [formGroupName]="j">
                                     <td>
-                                        <div   class="input-group my-3" [ngClass]="{'error':identityproof.controls.identityproof.invalid && identityproof.controls.identityproof.touched }"   >
+                                        <div   class="input-group my-3" [ngClass]="{'error':identityproof.controls.identityproof.invalid && identityproof.controls.identityproof.touched }"  [popover]="ident" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                                             <div  class="filediv" >
-                                                <input type="file" id="file2{{j}}" style="opacity:0;" formControlName="identityproof" (change)="onSelectedfile7($event,j)" placeholder="" class="form-control file" [popover]="identityproof" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"> 
+                                                <input type="file" id="file2{{j}}" style="opacity:0;" formControlName="identityproof" (change)="onSelectedfile7($event,j)" placeholder="" class="form-control file" > 
                                                 <span class="filetext upldtext2{{j}}">Upload here</span>
                                             </div>
                                         <div class="input-group-append">
-                                            <button type="button" (click)="logofile2(j)"  class="browse btn btn-primary" >Upload here</button>
+                                            <button type="button" (click)="logofile2(j)"  class="browse btn btn-primary upbtn" >Upload here</button>
                                         </div>
                                     </div>
-                                  
+                                    <popover-content #ident [closeOnClickOutside]="true"
+                                        [style.display]="identityproof.controls.identityproof.invalid && identityproof.controls.identityproof.touched ? 'block' : 'none'"> 
                                     <validation-messages [control]="identityproof.controls.identityproof"></validation-messages>
+                                    </popover-content>
                                  
                                    </td>
                                    <td>
@@ -297,18 +300,19 @@
                                 </tr>
                                <tr *ngFor="let pancard of gstregistration.controls.pancard['controls']; let a=index;" [formGroupName]="a">
                                     <td>
-                                        <div  class="input-group my-3" [ngClass]="{'error':pancard.controls.pancard.invalid && pancard.controls.pancard.touched }"  >
+                                        <div  class="input-group my-3" [ngClass]="{'error':pancard.controls.pancard.invalid && pancard.controls.pancard.touched }"  [popover]="panc" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" >
                                             <div  class="filediv">
-                                              <input type="file" id="filep{{a}}" style="opacity:0;" (change)="onSelectedfile6($event,a)"  formControlName="pancard"  placeholder="" class="form-control file"  [popover]="pancard" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                                              <input type="file" id="filep{{a}}" style="opacity:0;" (change)="onSelectedfile6($event,a)"  formControlName="pancard"  placeholder="" class="form-control file"  >
                                               <span class="filetext upldtext3{{a}}">Upload here</span>
                                             </div>
                                             <div class="input-group-append">
-                                                <button type="button" (click)="logofile3(a)"  class="browse btn btn-primary" >Upload here</button>
+                                                <button type="button" (click)="logofile3(a)"  class="browse btn btn-primary upbtn" >Upload here</button>
                                             </div>
                                         </div> 
-                                       
+                                        <popover-content #panc [closeOnClickOutside]="true"
+                                        [style.display]="pancard.controls.pancard.invalid && pancard.controls.pancard.touched ? 'block' : 'none'"> 
                                           <validation-messages [control]="pancard.controls.pancard"></validation-messages>
-                                          
+                                         </popover-content> 
                                    </td>
                                    <td>
                                     <button class="btn btn-danger"  *ngIf="gstregistration.controls.pancard['controls'].length > 0 && a!=0"   (click)="deleteRow3(a)"><i class="fa fa-trash" style="font-size: 12pt;"></i></button>
