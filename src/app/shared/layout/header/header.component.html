@@ -303,24 +303,35 @@
          <div class="header-links">
             <a [routerLink]="['/home']">HOME</a>
             <a [routerLink]="['/aboutus']">ABOUT US</a>
-            <a (click)="menu('WomensWing','')">WOMEN'S WING</a>
-            <!-- <div class="header-link-item">
-               <a href="#">FINANCING</a>
-                 <div class="link-items">
-                     <div class="item text-center">
-                         <a style="cursor: auto;">LOAN SERVICES</a>
-                     </div>             
-                     <div class="item">
-                         <a href="#">Home Loan</a>
-                     </div>
-                     <div class="item">
-                         <a href="#">Personal Loan</a>
-                     </div>
-                     <div class="item">
-                         <a href="#">Business Loan</a>
-                     </div>
+            <div class="header-categoryPC header-category header-nav J-categoryPC">
+               <div class="nav-con nav-con-category">
+                  <div class="p-show">
+                     <span class="nav-con-txt">WOMEN"S WING</span>
                   </div>
-            </div> -->
+               </div>
+               <div class="header-categoryPC-content">
+                  <div class="categoryPC-col J-categoryPC-level1">
+                     <div class="categoryPC-item J-categoryPC-item" catId="52" id="52">
+                        <a [routerLink]="['/aboutwomen']">About women's</a>
+                        <i class="fa fa-arrow-right arrowcol" style="margin-left: 55pt;color: #ffffff"></i>
+                        <i class="ob-icon icon-right"></i>
+                     </div>
+                     <div class="categoryPC-item J-categoryPC-item" catId="112" id="112">
+                        <a  [routerLink]="['/womensWing']">Member Registration</a>
+                        <i class="fa fa-arrow-right arrowcol" style="margin-left: 35pt;color: #ffffff;"></i>
+                        <i class="ob-icon icon-right"></i>
+                     </div>
+                     <div class="categoryPC-item J-categoryPC-item" catId="92" id="92">
+                        <a>Events</a>
+                        <i class="fa fa-arrow-right arrowcol" style="margin-left: 75pt;color: #ffffff;"></i>
+                        <i class="ob-icon icon-right"></i>
+                     </div>
+                    
+                  
+                  </div>
+               </div>
+            </div>
+        
             <!-- <a href="#">GROUP BUY</a> -->
             <div class="header-categoryPC header-category header-nav J-categoryPC">
                <div class="nav-con nav-con-category">
@@ -447,12 +458,7 @@
                   </div>
                </div>
             </div>
-            <!-- 
-            <a href="#" >TRAINING</a>
-            <a href="#" >INVESTMENTS</a> 
-            <P class="mdata"></P>
-            <a [routerLink]="['/financesupport']">FINANCE</a>
-            <a href="//www.famposo.com/preregistration" target="_blank">REGISTER</a>-->
+          
             <a (click)="menu('Innovations','')">INNOVATIONS</a>
             <a (click)="menu('Gifted children','')">GIFTED CHILDREN</a>
             <a [routerLink]="['/register','signup']">JOIN NOW</a>

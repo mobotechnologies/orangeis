@@ -56,7 +56,7 @@ const routes: Routes = [
   { path: 'Esimonthlyfiling', component: EsimonthlyfilingComponent },
   { path: 'Digitalsignature', component: DigitalsignatureComponent },
   { path: 'aboutwomen', component: AboutwomenComponent },
-  { path: 'memberregistration', component: WomenwingregistrationComponent },
+  { path: 'womensWing', component: WomenwingregistrationComponent },
   { path: 'contactus', component: ContactusComponent },
   { path: 'financesupport', component: FinancesuppportComponent, canActivate: [AuthGuardGuard] },
   { path: 'productlisting', component: ProductlistingComponent },

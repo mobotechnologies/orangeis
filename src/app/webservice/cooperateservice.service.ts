@@ -64,6 +64,11 @@ export class CooperateserviceService {
       return this.http.post<any>(this._url + "esifileupload.php", data)
     .catch(this.errorHandler);
   }
+  womenswing(data):Observable<any>
+  {
+      return this.http.post<any>(this._url + "Womenswingregistration.php", data)
+    .catch(this.errorHandler);
+  }
   errorHandler(error:HttpErrorResponse)
   {
      return Observable.throw(error.message || "Server Error");

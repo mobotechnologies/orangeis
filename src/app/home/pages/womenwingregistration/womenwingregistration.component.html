@@ -1,1 +1,281 @@
-<p>womenwingregistration works!</p>
+<ngx-spinner bdOpacity=0.9 bdColor="rgba(255,255,255,0.7)" size="medium" color="#342c2c" type="ball-atom"
+[fullScreen]="true">
+<p style="color: black"> Loading... </p>
+</ngx-spinner>
+<div class="container">
+   
+    <div class="card">
+      <div class="card-header" style="text-align: center;background: white;"> 
+        <img src="../../../../assets/images/womenswing/womenreg.png" alt="womenreg.png" style="width: 10%;"/>
+        <h1 style="font-size: 15pt;">Women ‘s wing Member Registration</h1>
+      </div>
+     <form  [formGroup]="womenswing">
+        <div _ngcontent-mnx-c3="" class="col-md-12 bg-dark text-center">
+         <p style="font-size: 16pt;font-weight: 500;color: #ffffff;">Applicant information</p>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>NAME*</label>
+                <input type="text" formControlName="firstname"  class="form-control" placeholder="FIRST NAME"  [ngClass]="{'error':womenswing.controls.firstname.invalid && womenswing.controls.firstname.touched }"   [popover]="firstname" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+                <popover-content #firstname [closeOnClickOutside]="true"
+                            [style.display]="womenswing.controls.firstname.invalid && womenswing.controls.firstname.touched ? 'block' : 'none'">  
+                  <validation-messages [control]="womenswing.controls.firstname"></validation-messages>
+                </popover-content>
+            </div>
+            <div class="col-md-6">
+                <label></label>
+                <input type="text" formControlName="lastname"  class="form-control" placeholder="LAST NAME"  [ngClass]="{'error':womenswing.controls.lastname.invalid && womenswing.controls.lastname.touched }"   [popover]="lastname" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  />
+                <popover-content #lastname [closeOnClickOutside]="true"
+                [style.display]="womenswing.controls.lastname.invalid && womenswing.controls.lastname.touched ? 'block' : 'none'">  
+                  <validation-messages [control]="womenswing.controls.lastname"></validation-messages>
+                  </popover-content>
+            </div>
+        </div> 
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>DATE OF BIRTH</label>
+                <input type="text" formControlName="dob"  bsDatepicker [bsConfig]="datePickerConfig"  class="form-control" placeholder="DATE OF BIRTH"/>
+                
+            </div>
+            <div class="col-md-6">
+                <label>AGE*</label>
+                <input type="text" formControlName="age" class="form-control" placeholder="AGE"  [ngClass]="{'error':womenswing.controls.age.invalid && womenswing.controls.age.touched }"   [popover]="age" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                <popover-content #age [closeOnClickOutside]="true"
+                [style.display]="womenswing.controls.age.invalid && womenswing.controls.age.touched ? 'block' : 'none'">  
+                   <validation-messages [control]="womenswing.controls.age"></validation-messages>
+                </popover-content>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>MARTIAL STATUS </label>
+            </div>
+            <div class="col-md-6" style="display: flex;">
+                <div class="col-md-3">
+                    <input type="checkbox"  formControlName="maritialstatus"  value="single"/>
+                    <span class="check">SINGLE</span>
+                </div>
+                <div class="col-md-3">
+                    <input type="checkbox" formControlName="maritialstatus" value="married"/>
+                    <span  class="check">MARRIED</span>
+                </div>
+            </div>
+        </div> 
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>MARRIAGE ANNIVERSARY DATE</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" formControlName="anniversarydate"  bsDatepicker [bsConfig]="datePickerConfig"  class="form-control" placeholder="MARRIAGE ANNIVERSARY DATE"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>HIGHEST QUALIFICATION</label>
+                <input type="text"  formControlName="highqualification" class="form-control"  placeholder="HIGHEST QUALIFICATION"/>
+            </div>
+            <div class="col-md-6">
+                <label>CURRENT PROFESSION*</label>
+                <input type="text" class="form-control" formControlName="currentprofession" placeholder="CURRENT PROFESSION*" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>CURRENT ADDRESS*</label>
+                <input type="text" class="form-control" formControlName="currentaddress" placeholder="CURRENT ADDRESS*"  [ngClass]="{'error':womenswing.controls.currentaddress.invalid && womenswing.controls.currentaddress.touched }"   [popover]="currentaddress" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                <popover-content #currentaddress [closeOnClickOutside]="true"
+                [style.display]="womenswing.controls.currentaddress.invalid && womenswing.controls.currentaddress.touched ? 'block' : 'none'">    
+                   <validation-messages [control]="womenswing.controls.currentaddress"></validation-messages>
+                </popover-content>
+            </div>
+            <div class="col-md-6">
+                <label>EMAIL*</label>
+                <input type="text" formControlName="email" class="form-control" placeholder="EMAIL*"  [ngClass]="{'error':womenswing.controls.email.invalid && womenswing.controls.email.touched }"   [popover]="email" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" />
+                <popover-content #email [closeOnClickOutside]="true"
+                [style.display]="womenswing.controls.email.invalid && womenswing.controls.email.touched ? 'block' : 'none'">    
+                   <validation-messages [control]="womenswing.controls.email"></validation-messages>
+                </popover-content>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>COUNTRY</label>
+            </div>
+            <div class="col-md-6">
+                <select formControlName="country"  (change)="selectChangeCountry($event)" class="form-control"  [ngClass]="{'error':womenswing.controls.country.invalid && womenswing.controls.country.touched }"   [popover]="counte" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                    <option value="" [selected]=true>Select country</option>
+                      <option *ngFor="let country of country" [value]="country.country" id="countryselector"
+                        [attr.data-somedata]="country.id">{{country.country}}</option>
+                 </select>
+                 <popover-content #counte [closeOnClickOutside]="true"
+                 [style.display]="womenswing.controls.country.invalid && womenswing.controls.country.touched ? 'block' : 'none'">    
+                    <validation-messages [control]="womenswing.controls.country"></validation-messages>
+                 </popover-content>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>STATE</label>
+                <select  formControlName="state"  (change)="selectChangeStates($event)"   (change)="selectChangeStates($event)"  class="form-control">
+                    <option value="" [selected]=true>Select state</option>
+                    <option *ngFor="let states of states" [value]="states.states" [attr.data-somedata]="states.id">
+                      {{states.states}}</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label>CITY</label>
+                <select formControlName="city" class="form-control">
+                    <option value="" [selected]=true>Select city</option>
+                    <option *ngFor="let cities of cities"  [value]="cities.cities">{{cities.cities}}</option>
+                </select>
+            </div>
+           
+        </div>
+        <span id="pcode" style="color:white"  *ngFor="let phonecode of phonecode">{{phonecode.country_codes}}</span>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>ZIP CODE</label>
+                <input type="text" formControlName="zipcode" class="form-control" placeholder="ZIP CODE"/>
+            </div>
+            <div class="col-md-6">
+                <label>PHONE NUMBER*</label>
+                <div style="display: flex;"  [ngClass]="{'error':womenswing.controls.phonenumber.invalid && womenswing.controls.phonenumber.touched }"   [popover]="phonenumber" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                    <span class="phonecd"  *ngFor="let phonecode of phonecode">+{{phonecode.phonecode}}</span>
+                    <input type="text"   (mouseout)="PhoneValidator1()"  formControlName="phonenumber" class="form-control" placeholder="PHONE NUMBER" />
+                </div>
+                <div class="errorstyles2" *ngIf="invalidPhoneLength">
+                    <i class="fa fa-exclamation-circle"></i>Invalid mobile no
+                </div> 
+                <popover-content #phonenumber [closeOnClickOutside]="true"
+                [style.display]="womenswing.controls.phonenumber.invalid && womenswing.controls.phonenumber.touched ? 'block' : 'none'">   
+                   <validation-messages [control]="womenswing.controls.phonenumber"></validation-messages>
+                </popover-content>
+            </div>
+        </div>
+        <div _ngcontent-mnx-c3="" class="col-md-12 bg-dark text-center">
+            <p style="font-size: 16pt;font-weight: 500;color: #ffffff;">Spouse information</p>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>SPOUSE NAME</label>
+                <input type="text" formControlName="spfname" class="form-control" placeholder="FIRST NAME"/>
+            </div>
+            <div class="col-md-6">
+                <label></label>
+                <input type="text"  formControlName="splname" class="form-control" placeholder="LAST NAME" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>DATE OF BIRTH</label>
+                <input type="text"  formControlName="spdob"  bsDatepicker [bsConfig]="datePickerConfig"  class="form-control" placeholder="DATE OF BIRTH"/>
+            </div>
+            <div class="col-md-6">
+                <label>AGE</label>
+                <input type="text"  formControlName="spage" class="form-control" placeholder="AGE"   [ngClass]="{'error':womenswing.controls.spage.invalid && womenswing.controls.spage.touched }"   [popover]="spage" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"/>
+                <popover-content #spage [closeOnClickOutside]="true"
+                [style.display]="womenswing.controls.spage.invalid && womenswing.controls.spage.touched ? 'block' : 'none'">  
+                  <validation-messages [control]="womenswing.controls.spage"></validation-messages>
+                </popover-content>
+            </div>
+        </div> 
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>CURRENT PROFESSION</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control"   formControlName="spcurrentprofession" placeholder="CURRENT PROFESSION" />
+            </div>
+        </div> 
+         <div class="form-group row">
+            <div class="col-md-6">
+                <label>PERMANENET ADDRESS</label>
+                <input type="text" formControlName="spaddress"  class="form-control" placeholder="PERMANENET ADDRESS"/>
+            </div>
+            <div class="col-md-6">
+                <label>EMAIL</label>
+                <input type="text"  formControlName="spemail" class="form-control" placeholder="EMAIL" />
+                <validation-messages [control]="womenswing.controls.spemail"></validation-messages>
+            </div>
+        </div> 
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>STATE</label>
+                <select  formControlName="spstate"  (change)="selectChangeStates($event)"   (change)="selectChangeStates($event)"  class="form-control">
+                   <option value="" [selected]=true>Select state</option>
+                   <option *ngFor="let states of states" [value]="states.states" [attr.data-somedata]="states.id">
+                     {{states.states}}</option>
+               </select>
+           </div>
+            <div class="col-md-6">
+                <label>CITY</label>
+                <select formControlName="spcity" class="form-control">
+                    <option value="" [selected]=true>Select city</option>
+                    <option *ngFor="let cities of cities"  [value]="cities.cities">{{cities.cities}}</option>
+                </select>
+            </div>
+           
+        </div> 
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>ZIPCODE</label>
+                <input type="text"  formControlName="spzipcode" class="form-control" placeholder="ZIPCODE"/>
+            </div>
+            <div class="col-md-6">
+                 <label>PHONE NUMBER</label>
+                 <div style="display: flex;"  [ngClass]="{'error':womenswing.controls.spphonenumber.invalid && womenswing.controls.spphonenumber.touched }"   [popover]="spphonenumber" popoverPlacement="top" [popoverCloseOnMouseOutside]="false">
+                     <span class="phonecd"   *ngFor="let phonecode of phonecode">+{{phonecode.phonecode}}</span>
+                     <input type="text"   (mouseout)="PhoneValidator2()"  formControlName="spphonenumber" class="form-control" placeholder="PHONE NUMBER" />
+                 </div>
+                 <div class="errorstyles2" *ngIf=" invalidPhoneLength1">
+                    <i class="fa fa-exclamation-circle"></i>Invalid mobile no
+                </div> 
+                <popover-content #spphonenumber [closeOnClickOutside]="true"
+                [style.display]="womenswing.controls.spphonenumber.invalid && womenswing.controls.spphonenumber.touched ? 'block' : 'none'">   
+                   <validation-messages [control]="womenswing.controls.spphonenumber"></validation-messages>
+                </popover-content>
+            </div>
+        </div> 
+        <div _ngcontent-mnx-c3="" class="col-md-12 bg-dark text-center">
+            <p style="font-size: 16pt;font-weight: 500;color: #ffffff;">Children information <button class="btn btn-success"(click)="addNewRow1()"> + ADD</button></p>
+        </div>
+        <div class="form-group"  formArrayName="children" >
+            <div class="row" *ngFor="let children of   womenswing.controls.children['controls']; let i=index;" [formGroupName]="i">
+                <div class="col-md-3">
+                    <label>NAME</label>
+                    <input type="text"  formControlName="cname" class="form-control" placeholder="NAME"/>
+                </div>
+                <div class="col-md-4">
+                    <label>DATE OF BIRTH</label>
+                    <input type="text"  formControlName="cpdob"  bsDatepicker [bsConfig]="datePickerConfig"  class="form-control" placeholder="DATE OF BIRTH" />
+                </div>
+                <div class="col-md-4">
+                    <label>GENDER</label>
+                    <select  formControlName="cgender"  class="form-control" >
+                        <option value="" [selected]=true>Select gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Others</option>
+                    </select>
+               </div>
+               <div class="col-md-1">
+                <button class="btn btn-danger" style="margin-top: 28px;" *ngIf="womenswing.controls.children['controls'].length > 0 && i!=0"   (click)="deleteRow1(i)"><i class="fa fa-trash" style="font-size: 12pt;"></i></button>
+               </div>
+            </div>
+        </div> 
+        <div class="form-group row">
+             <input type="checkbox" formControlName="agree" style="margin-top: 5px;margin-right: 3px;"/>
+             <span style="font-weight: 500;">Hereby, I Agree to the Terms & private Policy</span>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                 <button class="btn btn-success" (click)="submit()" style="float: right;">REGISTER</button>
+            </div>
+            <div class="col-md-6">
+                <button  class="btn btn-danger" (click)="reset()">CLEAR</button>
+            </div>
+        </div>
+       
+     </form>
+    </div>
+</div>
