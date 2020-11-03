@@ -166,10 +166,46 @@ export class WomenwingregistrationComponent implements OnInit {
   }
   reset()
   {
-    this.womenswing.reset();
+    this.womenswing.patchValue({
+      firstname:'',
+      lastname: '',
+      dob: '',
+      age: '',
+      maritialstatus: '',
+      anniversarydate: '',
+      highqualification: '',
+      currentprofession: '',
+      currentaddress: '',
+      email: '',
+      country: '',
+      city: '',
+      state: '',
+      zipcode:'',
+      phonenumber: '',
+      spfname: '',
+      splname: '',
+      spdob: '',
+      spage:'',
+      spcurrentprofession: '',
+      spaddress: '',
+      spemail: '',
+      spcity: '',
+      spstate: '',
+      spzipcode: '',
+      spphonenumber: '',
+     
+    });
+    const control1 = <FormArray>this.womenswing.controls['children'];
+ 
+    for(let i = control1.length; i > 0; i--) {
+      
+        control1.removeAt(i)
+    }
   }
   submit()
   {
+    if(this.womenswing.value.agree==true && this.womenswing.value.agree!="")
+    {
     var dob = (new Date(this.womenswing.value.dob)).toLocaleDateString();
     var anniversary = (new Date(this.womenswing.value.anniversarydate)).toLocaleDateString();
     var sdob = (new Date(this.womenswing.value.spdob)).toLocaleDateString();
@@ -229,6 +265,10 @@ export class WomenwingregistrationComponent implements OnInit {
     );
   }
   
-
+    }
+    else
+    {
+      Swal.fire("Kindly agree with our terms & condition");
+    }
   }
 }
