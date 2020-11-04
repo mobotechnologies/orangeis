@@ -222,7 +222,7 @@
                     </select>
                     
                        
-                    <input type="text" id="industext" class='form-control'  formControlName="industry_type" [ngClass]="{'error':companydetails.controls.industry_type.invalid && companydetails.controls.industry_type.touched }"   [popover]="industry_type" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  style="display:none">
+                    <input type="text" id="industext" class='form-control'  formControlName="industry_type1" [ngClass]="{'error':companydetails.controls.industry_type.invalid && companydetails.controls.industry_type.touched }"   [popover]="industry_type" popoverPlacement="top" [popoverCloseOnMouseOutside]="false"  style="display:none">
                         <popover-content #industry_type [closeOnClickOutside]="true"
               [style.display]="companydetails.controls.industry_type.invalid && companydetails.controls.industry_type.touched ? 'block' : 'none'">
                         <validation-messages [control]="companydetails.controls.industry_type"></validation-messages>

@@ -43,7 +43,7 @@
             </select>
             <input type="text" name="" class="search-keyword" placeholder="Keyword here..." id="search-input"
                (input)="onSearchChange()">
-            <i class="fa fa-microphone fa-lg voice-img" style="color: #7e8284"></i>
+            <i class="fa fa-microphone fa-lg voice-img" style="color: #7e8284" (click)='startVoiceRecognition()'></i>
             <i class="fa fa-search" style="margin-left: 40pt;color: #ffffff;cursor: pointer;" id="search"
                (click)="search()"></i>
          </div>
@@ -79,7 +79,7 @@
             <option selected>Sort</option>
          </select>
          <input type="text" name="" class="search-keyword-mob" placeholder="Keyword here...">
-         <i class="fa fa-microphone voice-img-mob" style="color: #7e8284;"></i>
+         <i class="fa fa-microphone voice-img-mob" style="color: #7e8284;" ></i>
          <i class="fa fa-search search-img-mob" style="margin-left: 13pt;color: #ffffff;cursor: pointer;"></i>
       </div>
    </div>
@@ -155,7 +155,7 @@
             <div class="header-side-menu-cnt">
                <a class="menu-link" [routerLink]="['/aboutus']">HOME</a>
                <a class="menu-link" [routerLink]="['/aboutus']">ABOUT US</a>
-               <a class="menu-link" (click)="menu('WomensWing','')">WOMEN'S WING</a>
+               <a class="menu-link" [routerLink]="['/aboutwomen']">WOMEN'S WING</a>
                <!--  <a class="menu-link" href="#" ></a> -->
                <!-- <div class="cate-item J-side-menu-promotion">
                     <a href="#">FINANCING</a>
@@ -198,15 +198,15 @@
                   <i class="cate-arrow fa fa-arrow-right"></i>
                </div>
                <div class="cate-item ">
-                  <a (click)="menu('CompanyRegistration','')">Company Registration</a>
+                  <a [routerLink]="['/Companyincoperation']">Company Registration</a>
                   <i class="cate-arrow fa fa-arrow-right"></i>
                </div>
                <div class="cate-item ">
-                  <a (click)="menu('GST,ESI,PF','')">GST , ESI , PF</a>
+                  <a >GST , ESI , PF</a>
                   <i class="cate-arrow fa fa-arrow-right"></i>
                </div>
                <div class="cate-item ">
-                  <a (click)="menu('DigitalSignature','')">Digital Signature</a>
+                  <a [routerLink]="['/Digitalsignature']">Digital Signature</a>
                   <i class="cate-arrow fa fa-arrow-right"></i>
                </div>
                <div class="cate-item ">
@@ -244,17 +244,17 @@
                      developing</a>
                </div>
                <div class="cate-group hide" catId="112">
-                  <a (click)="menu('CompanyRegistration','LLP / PVT LTD Company Registration')">LLP / PVT LTD Company
+                  <a [routerLink]="['/Companyincoperation']">LLP / PVT LTD Company
                      Registration</a>
-                  <a (click)="menu('CompanyRegistration','Proprietorship registration')">Proprietorship registration</a>
-                  <a (click)="menu('CompanyRegistration','Trust')">Trust</a>
-                  <a (click)="menu('CompanyRegistration','NGO')">NGO</a>
+                  <a [routerLink]="['/Companyincoperation']">Proprietorship registration</a>
+                  <a [routerLink]="['/Companyincoperation']">Trust</a>
+                  <a [routerLink]="['/Companyincoperation']">NGO</a>
                </div>
                <div class="cate-group hide" catId="92">
-                  <a (click)="menu('GST,ESI,PF','GST Registration')">GST Registration</a>
-                  <a (click)="menu('GST,ESI,PF','GST monthly filing')">GST monthly filing</a>
-                  <a (click)="menu('GST,ESI,PF','ESI Registration')">ESI Registration</a>
-                  <a (click)="menu('GST,ESI,PF','ESI Monthly filing')">ESI Monthly filing</a>
+                  <a  [routerLink]="['/gstregistration']">GST Registration</a>
+                  <a  [routerLink]="['/gstmonthlyfiling']">GST monthly filing</a>
+                  <a  [routerLink]="['/Esiregistration']">ESI Registration</a>
+                  <a  [routerLink]="['/Esimonthlyfiling']">ESI Monthly filing</a>
                   <a (click)="menu('GST,ESI,PF','PF Registration')">PF Registration</a>
                   <a (click)="menu('GST,ESI,PF','PF Monthly Filing')">PF Monthly Filing</a>
                </div>

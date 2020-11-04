@@ -148,7 +148,12 @@ export class ConsumeraccountsetupComponent implements OnInit {
       this.SocialloginService.getusercompanydata(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(response => {
           if (response.success) {
             this.companydetails.patchValue(response.data);
-
+            if(response.data.industry_type!="Agriculture & Forestry/Wildlife" || response.data.industry_type!="Business & Information" || response.data.industry_type!="Construction/Utilities/Contracting" || response.data.industry_type!="Education" || response.data.industry_type!="Finance & Insurance" || response.data.industry_type!="Food & Hospitality" || response.data.industry_type!="Health Care" || response.data.industry_type!="Automobile" || response.data.industry_type!="Natural Resources/Environmental" || response.data.industry_type!="Real Estate & Housing" || response.data.industry_type!="Safety/Security & Legal" || response.data.industry_type!="Transportation" || response.data.industry_type!="Personal Services")
+            {
+              this.companydetails.patchValue({industry_type:"Others"});
+                $("#industext").show();
+                $("#industext").val(response.data.industry_type);
+            }
             $('.imaglog').attr('src',response.data.company_logo);
 
            
@@ -264,6 +269,7 @@ export class ConsumeraccountsetupComponent implements OnInit {
     company_logo: ['', [ValidationService.fileValidator, RxwebValidators.fileSize({ maxSize: 25000 })]],
     business_type: [''],
     industry_type: [''],
+    industry_type1: [''],
     product_name: [''],
     product_details: [''],
   }, { validator: [ValidationService.referralcodecheck, ValidationService.companyregvalidator, ValidationService.companynamevalidator] });
@@ -319,9 +325,15 @@ export class ConsumeraccountsetupComponent implements OnInit {
   {
     const selectEl = event.target;
     const val = selectEl.options[selectEl.selectedIndex].getAttribute('data-somedata');
-    
-           $("#indusselect").hide();
+    if(val=='others')
+    {
+           
            $("#industext").show();
+    }
+    else
+    {
+      $("#industext").hide();
+    }
            
   }
   get formArray() {
@@ -802,7 +814,14 @@ export class ConsumeraccountsetupComponent implements OnInit {
             formData.append('manpower', this.companydetails.value.manpower);
             formData.append('company_logo', this.imgsrc);
             formData.append('business_type', this.companydetails.value.business_type);
-            formData.append('industry_type', this.companydetails.value.industry_type);
+            if(this.companydetails.value.industry_type=="Others")
+            {
+              formData.append('industry_type', this.companydetails.value.industry_type1);
+            }
+            else
+            {
+              formData.append('industry_type', this.companydetails.value.industry_type);
+            }
             formData.append('product_name', this.companydetails.value.product_name);
             formData.append('product_details', this.companydetails.value.product_details);
             formData.append('contact_person_name', this.contactdetails.value.contact_person_name);
