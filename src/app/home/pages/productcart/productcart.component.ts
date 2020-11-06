@@ -15,6 +15,8 @@ export class ProductcartComponent implements OnInit {
   mycart: any;
   carttotal: any;
   isempty: boolean;
+  cartship: any;
+  finaltotal: any;
 
   constructor(private productService: ProductserviceService,private  router: Router,private route:ActivatedRoute,private cookieService: CookieService) { }
 
@@ -29,6 +31,8 @@ export class ProductcartComponent implements OnInit {
         {
              this.mycart=response.data.productlist;
              this.carttotal=response.data.subtotal;
+             this.cartship=response.data.shippingcharge;
+             this.finaltotal=response.data.total;
             this.isempty=true;
              
         }
@@ -56,6 +60,8 @@ export class ProductcartComponent implements OnInit {
         {
              this.mycart=response.data.productlist;
              this.carttotal=response.data.subtotal;
+             this.cartship=response.data.shippingcharge;
+             this.finaltotal=response.data.total;
              $("#cartcount").html(response.data.cartcount);
              if(response.data.cartcount!=0)
              {
@@ -95,7 +101,8 @@ export class ProductcartComponent implements OnInit {
               {
                   this.mycart=response.data.productlist;
                   this.carttotal=response.data.subtotal;
-                  
+                  this.cartship=response.data.shippingcharge;
+             this.finaltotal=response.data.total;
               }
             
               },error=>console.error('error',error)); 
@@ -122,7 +129,8 @@ export class ProductcartComponent implements OnInit {
           {
               this.mycart=response.data.productlist;
               this.carttotal=response.data.subtotal;
-              
+              this.cartship=response.data.shippingcharge;
+             this.finaltotal=response.data.total;
           }
           else
           {
