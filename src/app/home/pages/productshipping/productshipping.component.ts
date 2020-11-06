@@ -34,6 +34,8 @@ export class ProductshippingComponent implements OnInit {
   amt
   public PayingAmt
   showinput: boolean;
+  cartship: any;
+  finaltotal: any;
 
   constructor(private productService: ProductserviceService,private location: Location, private spinner: NgxSpinnerService,private  router: Router,private _payment: PaymentService,private fb: FormBuilder,private SocialloginService: SocialloginService,private route:ActivatedRoute,private cookieService: CookieService,private _countrymodel:CountryService,private _validation:ValidationService) { 
 
@@ -79,6 +81,8 @@ export class ProductshippingComponent implements OnInit {
         {
              this.mycart=response.data.productlist;
              this.carttotal=response.data.subtotal;
+             this.cartship=response.data.shippingcharge;
+             this.finaltotal=response.data.total;
         }
         else
         {
