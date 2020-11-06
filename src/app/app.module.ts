@@ -27,7 +27,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
-
+//212376753535830
 
 
 
@@ -38,7 +38,7 @@ let config = new AuthServiceConfig([
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider("212376753535830")
+    provider: new FacebookLoginProvider("281610909810586")
   },
 ]);
 

@@ -26,7 +26,7 @@
 	        		<div class="product-dtl">
         				<div class="product-info">
 		        			<div class="product-name">
-								{{productdetail.product_name}}
+								{{productdetail.product_name}}<span style="color:green;font-size: 10pt;" *ngIf="productdetail.discount">&nbsp;&nbsp;{{productdetail.discount}}off&nbsp;&nbsp;</span>
 								<a  class="round-black-btn" style="color: white;padding-left: 7px;padding-right: 9px;"  (click)="addtocart(productdetail.product_id)" *ngIf="isempty;else other_content"><i class="fa fa-shopping-cart" aria-hidden="true" style="font-size: 17px;"></i><span style="FONT-SIZE: 16PX;">+</span></a>
 									<ng-template #other_content>
 								<a  class="round-black-btn" style="color: white;padding-left: 7px;padding-right: 5px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i><i class="fa fa-check" aria-hidden="true" style="font-size: 13px;
@@ -48,7 +48,7 @@
 								  </div>
 								<!-- <span>3 Reviews</span> -->
 							</div>
-		        			<div class="product-price-discount"><span><i class="fa fa-inr" aria-hidden="true"></i> {{productdetail.min_sellingprice}}</span><span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{productdetail.max_sellingprice}}</span></div>
+		        			<div class="product-price-discount"><span><i class="fa fa-inr" aria-hidden="true"></i> {{productdetail.max_sellingprice}}</span><span class="line-through"  *ngIf="productdetail.discount"><i class="fa fa-inr" aria-hidden="true"></i> {{productdetail.min_sellingprice}}</span></div>
 		        		</div>
 	        			<p class="text-justify">{{productdetail.product_description}}</p>
 						<div class="row">
@@ -57,7 +57,7 @@
 							</div>
 							<div class="col-md-6">
 								<label class="product-label" *ngIf="productdetail.dimension">Dimension : {{productdetail.dimension}}</label>
-							</div>
+							</div>   
 							<div class="col-md-6">
 								<label class="product-label" *ngIf="productdetail.min_quantity">Min. Order Quantity : {{productdetail.min_quantity}}</label>
 							</div>
@@ -70,7 +70,7 @@
 							<div class="col-md-6">
 								<label class="product-label" *ngIf="productdetail.delivery_period">Delivery period : {{productdetail.delivery_period}}</label>
 							</div>
-							
+						
 						</div>
 						
 					
@@ -115,7 +115,7 @@
 							  </tr>
 							  <tr  *ngIf="productdetail.listing_description">
 								<td>Listing Description</td>
-								<td> {{productdetail.listing_description}}</td>
+								<td > {{productdetail.listing_description}}</td>
 							  </tr>
 							  <tr  *ngIf="productdetail.made_in">
 								<td>Made In</td>
@@ -129,6 +129,15 @@
 								<td>Delivery Location</td>
 								<td> {{productdetail.delivery_location}}</td>
 							  </tr>
+							  <tr>
+								<td>GST</td>
+								<td> {{productdetail.gst}}% Inclusive</td>
+							  </tr>
+							  <tr >
+								<td>Shipping Charges</td>
+								<td><i class="fa fa-inr" aria-hidden="true"></i>  {{productdetail.shippingcharge}}</td>
+							  </tr>
+							  
 							</tbody>
 						  </table>
 						  </div>

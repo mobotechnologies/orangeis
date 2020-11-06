@@ -100,9 +100,11 @@
                                 <li class="fa fa-star"></li>
                                 <li class="fa fa-star"></li>
                             </ul>
-                            <div class="price"><a><i class="fa fa-inr" aria-hidden="true"></i>  {{productlist.min_sellingprice}}
-                                <span>Rs {{productlist.max_sellingprice}}</span></a>
+                            
+                            <div class="price"><a><i class="fa fa-inr" aria-hidden="true"></i>  {{productlist.max_sellingprice}}
+                                <span  *ngIf="productlist.discount"><i class="fa fa-inr" aria-hidden="true"></i>  {{productlist.min_sellingprice}}</span></a>
                             </div>
+                           
                             <a class="add-to-cart" [routerLink]="['/sendenquiry',productlist.product_id]"><i class="fa fa-paper-plane"></i> Send Enquiry</a>
                         </div>
                     </div>

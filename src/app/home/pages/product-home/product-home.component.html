@@ -13,14 +13,14 @@
                             <a [routerLink]="['/productdetailview',cproductlist[1].product_id]"><img class="product-img"
                                     src="{{cproductlist[1].product_img1}}"></a>
                             <div class="row pt-2">
-
+  
                                 <div class="col-md-6 pro-name pro-pad text-center">
                                     <a [routerLink]="['/productdetailview',cproductlist[0].product_id]"
                                         style="color:black">
                                         {{cproductlist[0].product_name}}
-                                        <br><i class="fa fa-inr"></i> {{cproductlist[0].min_sellingprice}}<span
+                                        <br><i class="fa fa-inr"></i> {{cproductlist[0].max_sellingprice}}<span
                                             class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{cproductlist[0].max_sellingprice}}</span><br><span style="color:green">
+                                            {{cproductlist[0].min_sellingprice}}</span><br><span style="color:green">
                                             {{cproductlist[0].discount}} off</span>
                                     </a>
                                 </div>
@@ -30,9 +30,9 @@
                                     <a [routerLink]="['/productdetailview',cproductlist[1].product_id]"
                                         style="color:black">
                                         {{cproductlist[1].product_name}}
-                                        <br><i class="fa fa-inr"></i> {{cproductlist[1].min_sellingprice}}<span
+                                        <br><i class="fa fa-inr"></i> {{cproductlist[1].max_sellingprice}}<span
                                             class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{cproductlist[1].max_sellingprice}}</span><br><span style="color:green">
+                                            {{cproductlist[1].min_sellingprice}}</span><br><span style="color:green">
                                             {{cproductlist[1].discount}} off</span>
                                     </a>
                                 </div>
@@ -50,9 +50,9 @@
                                     <a [routerLink]="['/productdetailview',cproductlist[2].product_id]"
                                         style="color:black">
                                         {{cproductlist[2].product_name}}
-                                        <br><i class="fa fa-inr"></i> {{cproductlist[2].min_sellingprice}}<span
+                                        <br><i class="fa fa-inr"></i> {{cproductlist[2].max_sellingprice}}<span
                                             class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{cproductlist[2].max_sellingprice}}</span><br><span style="color:green">
+                                            {{cproductlist[2].min_sellingprice}}</span><br><span style="color:green">
                                             {{cproductlist[2].discount}} off</span>
                                     </a>
                                 </div>
@@ -60,9 +60,9 @@
                                     <a [routerLink]="['/productdetailview',cproductlist[3].product_id]"
                                         style="color:black">
                                         {{cproductlist[3].product_name}}
-                                        <br><i class="fa fa-inr"></i> {{cproductlist[3].min_sellingprice}}<span
+                                        <br><i class="fa fa-inr"></i> {{cproductlist[3].max_sellingprice}}<span
                                             class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{cproductlist[3].max_sellingprice}}</span><br><span style="color:green">
+                                            {{cproductlist[3].min_sellingprice}}</span><br><span style="color:green">
                                             {{cproductlist[3].discount}} off</span>
                                     </a>
                                 </div>
@@ -92,9 +92,9 @@
                                     <a [routerLink]="['/productdetailview',cproductlist[0].product_id]"
                                         style="color:black">
                                         {{cproductlist[0].product_name}}
-                                        <br><i class="fa fa-inr"></i> {{cproductlist[0].min_sellingprice}}<span
+                                        <br><i class="fa fa-inr"></i> {{cproductlist[0].max_sellingprice}}<span
                                             class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{cproductlist[0].max_sellingprice}}</span><br><span style="color:green">
+                                            {{cproductlist[0].min_sellingprice}}</span><br><span style="color:green">
                                             {{cproductlist[0].discount}} off</span>
                                     </a>
                                 </div>
@@ -102,9 +102,9 @@
                                     <a [routerLink]="['/productdetailview',cproductlist[1].product_id]"
                                         style="color:black">
                                         {{cproductlist[1].product_name}}
-                                        <br><i class="fa fa-inr"></i> {{cproductlist[1].min_sellingprice}}<span
+                                        <br><i class="fa fa-inr"></i> {{cproductlist[1].max_sellingprice}}<span
                                             class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{cproductlist[1].max_sellingprice}}</span><br><span style="color:green">
+                                            {{cproductlist[1].min_sellingprice}}</span><br><span style="color:green">
                                             {{cproductlist[1].discount}} off</span>
                                     </a>
                                 </div>
@@ -120,9 +120,9 @@
                                     <a [routerLink]="['/productdetailview',cproductlist[2].product_id]"
                                         style="color:black">
                                         {{cproductlist[2].product_name}}
-                                        <br><i class="fa fa-inr"></i> {{cproductlist[2].min_sellingprice}}<span
+                                        <br><i class="fa fa-inr"></i> {{cproductlist[2].max_sellingprice}}<span
                                             class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{cproductlist[1].max_sellingprice}}</span><br><span style="color:green">
+                                            {{cproductlist[1].min_sellingprice}}</span><br><span style="color:green">
                                             {{cproductlist[1].discount}} off</span>
                                     </a>
                                 </div>
@@ -130,9 +130,9 @@
                                     <a [routerLink]="['/productdetailview',cproductlist[3].product_id]"
                                         style="color:black">
                                         {{cproductlist[3].product_name}}
-                                        <br><i class="fa fa-inr"></i> {{cproductlist[3].min_sellingprice}}<span
+                                        <br><i class="fa fa-inr"></i> {{cproductlist[3].max_sellingprice}}<span
                                             class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{cproductlist[2].max_sellingprice}}</span><br><span style="color:green">
+                                            {{cproductlist[2].min_sellingprice}}</span><br><span style="color:green">
                                             {{cproductlist[2].discount}} off</span>
                                     </a>
                                 </div>
@@ -162,9 +162,9 @@
                                     <a [routerLink]="['/productdetailview',productlist[0].product_id]"
                                         style="color:black">
                                         {{productlist[0].product_name}}
-                                        <br><i class="fa fa-inr"></i> {{productlist[0].min_sellingprice}}<span
-                                            class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{productlist[0].max_sellingprice}}</span><br><span style="color:green"
+                                        <br><i class="fa fa-inr"></i> {{productlist[0].max_sellingprice}}<span
+                                            class="line-through"  *ngIf="productlist[0].discount"><i class="fa fa-inr" aria-hidden="true"></i>
+                                            {{productlist[0].min_sellingprice}}</span><br><span style="color:green"
                                             *ngIf="productlist[0].discount"> {{productlist[0].discount}} off</span>
                                     </a>
                                 </div>
@@ -172,9 +172,9 @@
                                     <a [routerLink]="['/productdetailview',productlist[1].product_id]"
                                         style="color:black">
                                         {{productlist[1].product_name}}
-                                        <br><i class="fa fa-inr"></i> {{productlist[1].min_sellingprice}}<span
-                                            class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{productlist[1].max_sellingprice}}</span><br><span style="color:green"
+                                        <br><i class="fa fa-inr"></i> {{productlist[1].max_sellingprice}}<span
+                                            class="line-through"  *ngIf="productlist[1].discount"><i class="fa fa-inr" aria-hidden="true"></i>
+                                            {{productlist[1].min_sellingprice}}</span><br><span style="color:green"
                                             *ngIf="productlist[1].discount"> {{productlist[1].discount}} off</span>
                                     </a>
                                 </div>
@@ -190,9 +190,9 @@
                                     <a [routerLink]="['/productdetailview',productlist[2].product_id]"
                                         style="color:black">
                                         {{productlist[2].product_name}}
-                                        <br><i class="fa fa-inr"></i>{{productlist[2].min_sellingprice}}<span
-                                            class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{productlist[2].max_sellingprice}}</span><br><span style="color:green"
+                                        <br><i class="fa fa-inr"></i>{{productlist[2].max_sellingprice}}<span
+                                            class="line-through"  *ngIf="productlist[2].discount"><i class="fa fa-inr" aria-hidden="true"></i>
+                                            {{productlist[2].min_sellingprice}}</span><br><span style="color:green"
                                             *ngIf="productlist[2].discount"> {{productlist[2].discount}} off</span>
                                     </a>
                                 </div>
@@ -200,9 +200,9 @@
                                     <a [routerLink]="['/productdetailview',productlist[3].product_id]"
                                         style="color:black">
                                         {{productlist[3].product_name}}
-                                        <br><i class="fa fa-inr"></i> {{productlist[3].min_sellingprice}}<span
-                                            class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{productlist[3].max_sellingprice}}</span><br><span style="color:green"
+                                        <br><i class="fa fa-inr"></i> {{productlist[3].max_sellingprice}}<span
+                                            class="line-through"  *ngIf="productlist[3].discount"><i class="fa fa-inr" aria-hidden="true"></i>
+                                            {{productlist[3].min_sellingprice}}</span><br><span style="color:green"
                                             *ngIf="productlist[3].discount"> {{cproductlist[3].discount}} off</span>
                                     </a>
                                 </div>
@@ -233,9 +233,9 @@
                                     <a [routerLink]="['/productdetailview',productlist[0].product_id]"
                                         style="color:black">
                                         {{productlist[0].product_name}}
-                                        <br><i class="fa fa-inr"></i> {{productlist[0].min_sellingprice}}<span
-                                            class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{productlist[0].max_sellingprice}}</span><br><span style="color:green"
+                                        <br><i class="fa fa-inr"></i> {{productlist[0].max_sellingprice}}<span
+                                            class="line-through"  *ngIf="productlist[0].discount"><i class="fa fa-inr" aria-hidden="true"></i>
+                                            {{productlist[0].min_sellingprice}}</span><br><span style="color:green"
                                             *ngIf="productlist[0].discount"> {{productlist[0].discount}} off</span>
                                     </a>
                                 </div>
@@ -243,9 +243,9 @@
                                     <a [routerLink]="['/productdetailview',productlist[1].product_id]"
                                         style="color:black">
                                         {{productlist[1].product_name}}
-                                        <br><i class="fa fa-inr"></i> {{productlist[1].min_sellingprice}}<span
-                                            class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{productlist[1].max_sellingprice}}</span><br><span style="color:green"
+                                        <br><i class="fa fa-inr"></i> {{productlist[1].max_sellingprice}}<span
+                                            class="line-through"  *ngIf="productlist[1].discount"><i class="fa fa-inr" aria-hidden="true"></i>
+                                            {{productlist[1].min_sellingprice}}</span><br><span style="color:green"
                                             *ngIf="productlist[1].discount"> {{productlist[1].discount}} off</span>
                                     </a>
                                 </div>
@@ -261,9 +261,9 @@
                                     <a [routerLink]="['/productdetailview',productlist[2].product_id]"
                                         style="color:black">
                                         {{productlist[2].product_name}}
-                                        <br><i class="fa fa-inr"></i>{{productlist[2].min_sellingprice}}<span
-                                            class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{productlist[2].max_sellingprice}}</span><br><span style="color:green"
+                                        <br><i class="fa fa-inr"></i>{{productlist[2].max_sellingprice}}<span
+                                            class="line-through"  *ngIf="productlist[2].discount"><i class="fa fa-inr" aria-hidden="true"></i>
+                                            {{productlist[2].min_sellingprice}}</span><br><span style="color:green"
                                             *ngIf="productlist[2].discount"> {{productlist[2].discount}} off</span>
                                     </a>
                                 </div>
@@ -271,9 +271,9 @@
                                     <a [routerLink]="['/productdetailview',productlist[2].product_id]"
                                         style="color:black">
                                         {{productlist[3].product_name}}
-                                        <br><i class="fa fa-inr"></i> {{productlist[3].min_sellingprice}}<span
-                                            class="line-through"><i class="fa fa-inr" aria-hidden="true"></i>
-                                            {{cproductlist[3].max_sellingprice}}</span><br><span style="color:green"
+                                        <br><i class="fa fa-inr"></i> {{productlist[3].max_sellingprice}}<span
+                                            class="line-through"  *ngIf="productlist[3].discount"><i class="fa fa-inr" aria-hidden="true"></i>
+                                            {{cproductlist[3].min_sellingprice}}</span><br><span style="color:green"
                                             *ngIf="productlist[3].discount"> {{productlist[3].discount}} off</span>
                                     </a>
                                 </div>
