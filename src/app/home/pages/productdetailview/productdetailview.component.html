@@ -129,11 +129,11 @@
 								<td>Delivery Location</td>
 								<td> {{productdetail.delivery_location}}</td>
 							  </tr>
-							  <tr>
+							  <tr *ngIf="productdetail.gst">
 								<td>GST</td>
 								<td> {{productdetail.gst}}% Inclusive</td>
 							  </tr>
-							  <tr >
+							  <tr *ngIf="productdetail.shippingcharge">
 								<td>Shipping Charges</td>
 								<td><i class="fa fa-inr" aria-hidden="true"></i>  {{productdetail.shippingcharge}}</td>
 							  </tr>

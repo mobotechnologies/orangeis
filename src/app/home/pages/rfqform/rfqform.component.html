@@ -63,7 +63,7 @@
                     <div class="col-md-6 pt-2" *ngIf="show_name_email">
                         <label class="custom-select-label">Email</label>
                         <input class="form-control my-select" formControlName="email" placeholder="Enter your email"
-                            [popover]="email" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':RfqFormMain.controls.email.invalid && RfqFormMain.controls.email.touched }">
+                            [popover]="email" popoverPlacement="top" [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':RfqFormMain.controls.email.invalid && RfqFormMain.controls.email.touched }"  [readonly]="DisDisabled">
                         <popover-content #email [closeOnClickOutside]="true"
                             [style.display]="RfqFormMain.controls.email.invalid && RfqFormMain.controls.email.touched ? 'block' : 'none'">
                             <validation-messages [control]="RfqFormMain.controls.email"></validation-messages>
@@ -74,7 +74,7 @@
                         <label class="custom-select-label">Reference no</label>
                         <input class="form-control my-select" formControlName="reference_no"
                             placeholder="Enter your reference no" [popover]="reference_no"
-       popoverPlacement=" top" [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':RfqFormMain.controls.reference_no.invalid && RfqFormMain.controls.reference_no.touched }">
+          popoverPlacement=" top" [popoverCloseOnMouseOutside]="false" [ngClass]="{'error':RfqFormMain.controls.reference_no.invalid && RfqFormMain.controls.reference_no.touched }">
                         <popover-content #reference_no [closeOnClickOutside]="true"
                             [style.display]="RfqFormMain.controls.reference_no.invalid && RfqFormMain.controls.reference_no.touched ? 'block' : 'none'">
                             <validation-messages [control]="RfqFormMain.controls.reference_no"></validation-messages>

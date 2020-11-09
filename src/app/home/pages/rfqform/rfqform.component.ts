@@ -5,7 +5,10 @@ import { RequestquoteService } from '../../../webservice/requestforquote/request
 import { ValidationService } from '../../../webservice/validation/validation.service';
 import Swal from 'sweetalert2';
 import { PopoverModule } from "ngx-smart-popover";
-import { retryWhen, delay, take } from 'rxjs/operators'
+import { retryWhen, delay, take } from 'rxjs/operators';
+import { CookieService } from 'ngx-cookie-service';
+import { SocialloginService } from '../../../webservice/joinfree/sociallogin.service';
+
 
 @Component({
   selector: 'app-homeRfq',
@@ -21,11 +24,30 @@ export class HomeRfqformComponent implements OnInit {
   cresponse: any;
   public reference_novalid: any;
   contentEditable: boolean;
+  DisDisabled: boolean;
 
-  constructor(private router: Router, private _requestquote: RequestquoteService) { }
+  constructor(private router: Router, private _requestquote: RequestquoteService,private cookieService: CookieService,private SocialloginService: SocialloginService) { }
 
   ngOnInit() {
-
+    if (this.cookieService.check('memberid') || this.cookieService.check('oauth')) 
+    {
+      this.DisDisabled=true;
+      const formData = new FormData();
+      formData.append('email', this.cookieService.get('memberid'));
+      formData.append('cemail', this.cookieService.get('memberid'));
+      formData.append('oauth', this.cookieService.get('oauth'));
+      this.SocialloginService.getuserdata(formData).pipe(retryWhen(errors => errors.pipe(delay(1000), take(10)))).subscribe(
+        (res: any) => {
+          if (res.success) {
+            this.RfqFormMain.patchValue({email:res.data[0].email});
+          }
+        }
+      );
+    }
+    else
+    {
+      this.DisDisabled=false;
+    }
   }
   RfqFormMain = new FormGroup({
     rfqtype: new FormControl('', Validators.required),
@@ -84,7 +106,14 @@ export class HomeRfqformComponent implements OnInit {
                 if (this.RfqFormMain.controls['agree'].valid && this.contentEditable == true) {
                   const formData = new FormData();
                   formData.append('customer_name', this.RfqFormMain.value.customer_name);
-                  formData.append('email', this.RfqFormMain.value.email);
+                  if (this.cookieService.check('memberid') || this.cookieService.check('oauth')) 
+                  {
+                    formData.append('email',this.cookieService.get('memberid'));
+                  }
+                  else
+                  {
+                    formData.append('email',this.RfqFormMain.value.email);
+                  }
                   formData.append('rfqmode', this.RfqFormMain.value.rfqmodetype);
                   this._requestquote.rfqpostcheck(formData).subscribe(response => {
                     if (response.success) {

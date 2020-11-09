@@ -17,7 +17,11 @@
               <div class="ib-info-meta">
                 <span class="title">{{mycart.product_name}}</span>
                 <span class="itemno">Sold by {{mycart.company_name}}</span>
-                <span class="tp-price"><i class="fa fa-inr" aria-hidden="true"></i> {{mycart.price}}</span>
+                <div style="display: flex;">
+                    <span class="tp-price"><i class="fa fa-inr" aria-hidden="true"></i> {{mycart.price}}</span>
+                    <span class="line-through"  *ngIf="mycart.discount"  style="margin-top: 4px;"><i class="fa fa-inr" aria-hidden="true"></i> {{mycart.min_sellingprice}}</span>
+                    <span style="font-size: 10pt;color:green;font-weight: 500;margin-top: 4px;margin-left: 11px;" *ngIf="mycart.discount">{{mycart.discount}} off</span>
+                </div>
               </div>
             </div>
             <div class="item-block ib-qty">
