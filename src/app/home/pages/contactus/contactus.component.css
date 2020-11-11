@@ -514,3 +514,107 @@ margin-left: 20px;
     {    color: red;
       font-size: 13px;
     }
+   
+@media (max-width: 575.98px) {
+      h4
+      {
+          
+          font-size: 12pt;
+
+      }
+      h5
+      {
+        
+         font-size: 12pt;
+
+      }
+      .addresscard
+      {
+        
+         top: 12px;
+
+      }
+      .list-unstyled {
+    
+        font-size: 10pt
+      }
+      .map{
+        padding-right: 0px;
+        padding-left: 0px;
+        left: 32px;
+      }
+ }
+
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .addresscard
+    {
+      
+       top: 11px;
+
+    }
+    .list-unstyled {
+      font-size: 9pt;
+    }
+    .subbt
+    {
+      
+       margin-left: 18%;
+
+    }
+    .map
+    {
+       padding-left: 0px;
+       padding-right: 0px;
+       left: 34px;
+    }
+ }
+
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+
+  .col-md-6 {
+   
+    max-width: 100%;
+     }
+     .contactcards
+     {
+       display:contents;
+     }
+     .addresscard
+     {
+       
+        margin-top: 15px;
+
+     }
+     .subbt
+     {
+      margin-left: 25%;
+     }
+     .map
+     {
+       
+    padding-right: 15px;
+    padding-left: 15px;
+    left: 19px;
+
+     }
+ }
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  
+  h5
+  {
+    font-size: 13pt;
+  }
+  .list-unstyled {
+    font-weight: 600;
+    font-size: 8pt;
+  }
+ }
+
+
+@media (min-width: 1200px) {
+
+} 

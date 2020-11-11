@@ -517,3 +517,109 @@
     vertical-align: middle;
     color: #a5a5a5;
 }
+.logo-img
+{
+	margin-left: 35%;
+	width: 300px;
+}
+.addprodbtn
+{
+	margin-left: 45%;
+	margin-top: 2%;
+	margin-bottom: 1%;
+}
+
+@media (max-width: 575.98px) { 
+	.item .item-block.ib-total-price
+	{
+          border-left:none;
+	} 
+	.removebtn
+	{
+    position: relative;
+	left: -9px;
+    top: 29px
+	}
+	.btn-delete
+	{
+	color:white;
+	padding-left: 8px;
+	padding-right: 9px;
+	}
+	.logo-img
+	{
+		margin-left: 6%;
+	}
+	.addprodbtn {
+		margin-left: 34%;
+	}
+	.logo-img
+	{
+		
+		width:90%;
+	}	
+ }
+
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+	.item .item-block.ib-total-price
+	{
+          border-left:none;
+	} 
+	.removebtn
+	{
+    position: relative;
+	left: -9px;
+    top: 29px
+	}
+	.btn-delete
+	{
+	color:white;
+	padding-left: 8px;
+	padding-right: 9px;
+	}
+	.logo-img
+	{
+		margin-left: 20%;
+	}
+	.addprodbtn {
+		margin-left: 40%;
+	}	
+	.logo-img
+	{
+		
+		width:62%;
+	}
+ }
+
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+	.addprodbtn {
+		margin-left: 40%;
+	}	
+	.ib-total-price
+	{
+		right: -14px !important;
+	}
+	.logo-img
+	{
+		margin-left: 25%;
+		width:45%;
+	}
+ }
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	.logo-img
+	{
+		width: 33%;
+	}
+}
+
+
+@media (min-width: 1200px) {
+	.logo-img
+	{
+		width: 30%;
+	}
+ }

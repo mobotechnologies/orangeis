@@ -323,3 +323,79 @@
 	  }
   
 }
+.favicon
+{
+	width: 36px;
+	height: 38px;
+	border-radius: 50%;
+	border: 1px solid #f0f0f0;
+	box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+	padding: 9px 12px 12px 9px;
+	background: #fff;
+	background: white;
+	position: absolute;
+	top: 10px;
+	right: 50px;
+}
+
+@media (max-width: 575.98px) {
+	.favicon
+	{
+		
+		right: 75px;
+	}
+	.enquirybtn
+	{
+		margin-right: 2px;
+	}
+} 
+
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.favicon
+	{
+		
+		right: 146px;
+	}
+	.enquirybtn
+	{
+		margin-right: 2px;
+	}
+ }
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.maxi {
+		width: 268px;
+	}
+	.mini img {
+		width: 64px;
+	}
+	.enquirybtn
+	{
+		margin-right: 4px;
+	}
+ }
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .maxi {
+		width: 348px;
+	}
+	.mini img {
+		width: 84px;
+	}
+	.enquirybtn
+	{
+		margin-right: 45px;
+	}
+ }
+
+
+@media (min-width: 1200px) { 
+	.enquirybtn
+	{
+		margin-right: 45px;
+	}
+
+ }

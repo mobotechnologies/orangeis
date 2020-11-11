@@ -195,3 +195,68 @@ label
 {
   border: 2px solid #e52f48 !important;
 }
+@media (max-width: 575.98px) { 
+  span
+  {
+   font-size: 12pt !important;
+  }
+  .other_loc
+  {
+    margin-right: 40pt;
+  }
+}
+
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+  .other_loc
+  {
+    margin-right: 66pt;
+  }
+  span
+  {
+   font-size: 12pt !important;
+  }
+ }
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .company-div {
+    margin: 1pt -8pt 12pt -15pt;
+   }
+   span
+   {
+    font-size: 12pt !important;
+   }
+   .unit
+   {
+    
+    margin-left: 5pt;
+    width: 17%;
+
+   }
+   .other_loc
+   {
+    margin-right: 26pt;
+   }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+   .other_loc
+   {
+    margin-right: 49pt;
+   }
+   
+   .unit
+   {
+    margin-left: 14px;
+   }
+   .qty {
+    width: 31.5%;
+    }
+ }
+
+
+@media (min-width: 1200px) { 
+
+ }

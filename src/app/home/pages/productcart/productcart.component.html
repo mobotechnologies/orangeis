@@ -30,7 +30,7 @@
             <div class="item-block ib-total-price">
               <span class="tp-price"><i class="fa fa-inr" aria-hidden="true"></i> {{mycart.overallprice}}</span>
               <span class="tp-remove"><i class="i-cancel-circle"></i></span>
-              <div>
+              <div class="removebtn"> 
                   <span class="btn-delete btn-danger" (click)="removecart(mycart.cartid)" style="color:white"><i class="fa fa-trash"></i></span>
               </div>
             </div>         
@@ -73,15 +73,9 @@
     </header>
  
     <div class="cart-table">
-      <img class="logo-img" style="margin-left: 35%;width: 300px;" src="https://www.famposo.com/testsoftlaunch/assets/images/product/cart.png">
+      <img class="logo-img"  src="https://www.famposo.com/testsoftlaunch/assets/images/product/cart.png">
       <div>
-         <button class="btn btn-primary" style="
-         /* margin-left: 0px; */
-         /* align-content: center; */
-         margin-left: 45%;
-         margin-top: 2%;
-         margin-bottom: 1%;
-     "  [routerLink]="['/productlisting']">Add Product</button>
+         <button class="btn btn-primary addprodbtn"   [routerLink]="['/productlisting']">Add Product</button>
         </div>
     </div>
   </div>

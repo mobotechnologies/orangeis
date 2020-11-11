@@ -510,3 +510,66 @@
 {
   background: #FFFFF0;
 }
+.logo-img
+{
+	margin-left: 35%;
+	width: 300px;
+}
+.addfavbtn
+{
+	margin-left: 45%;
+	margin-top: 2%;
+	margin-bottom: 1%;
+}
+@media (max-width: 575.98px) { 
+	.item .item-block.ib-total-price
+	{
+          border-left:none;
+	} 
+	.btn-delete
+	{
+		color:white;
+		padding-left: 8px;
+		padding-right: 9px;
+	}
+	.logo-img
+	{
+		margin-left: 7%;
+	}
+	.addfavbtn {
+		margin-left: 34%;
+	}
+}
+
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+	.logo-img
+	{
+		margin-left: 27%;
+	}
+    .item .item-block.ib-total-price
+	{
+          border-left:none;
+	}
+	.btn-delete
+	{
+		color:white;
+		padding-left: 8px;
+		padding-right: 9px;
+	} 
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+}
+
+
+@media (min-width: 1200px) {
+   
+}

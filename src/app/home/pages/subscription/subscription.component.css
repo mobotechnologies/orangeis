@@ -8,7 +8,7 @@
 {
     padding-left: 0pt !important;
     padding-right: 0pt !important;
-    min-width: 17.5% !important;
+    min-width: 17.5% ;
     max-width: 17.5% !important;
 } 
 #pricing-tables .col-md-3
@@ -183,3 +183,107 @@
          font-size: 9px;
     }
 }
+
+@media (max-width: 575.98px) { 
+    
+    .col-md-3
+     {
+         display: none;
+     }
+     .col-md-2
+    {
+     
+       margin-bottom:2%;
+      
+    }
+    span
+     {
+        display: block;
+     color: #aa3379;
+     font-weight: 500;
+     }
+    
+ }
+
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .col-md-3
+    {
+        display: none;
+    }
+    .col-md-2
+    {
+     
+       margin-bottom:2%;
+      
+    }
+    span
+     {
+        display: block;
+     color: #aa3379;
+     font-weight: 500;
+     }
+ }
+
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+     .row
+     {
+         
+         display: flow-root;
+
+     }
+     .col-md-3
+     {
+         display: none;
+     }
+     .col-md-2
+     {
+        min-width: 75.5% !important;
+        margin-bottom:2%;
+        left: 12%;
+     }
+     span
+     {
+        display: block;
+     color: #aa3379;
+     font-weight: 500;
+     }
+    
+ }
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .dash
+    {
+        display:none;
+    } 
+    .benefit
+    {
+      display:none;
+    }
+    .plan-price{
+        font-size:22px !important;
+    }
+    .single-table .title-header h4 {
+        font-size: 13pt;
+       
+    }
+    .single-table ul li{
+    
+        font-size: 11px;
+    }
+ }
+
+
+@media (min-width: 1200px) {
+    .dash
+    {
+        display:none;
+    } 
+    .benefit
+    {
+      display:none;
+    }
+
+ }
