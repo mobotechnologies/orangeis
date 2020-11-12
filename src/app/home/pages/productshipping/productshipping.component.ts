@@ -50,32 +50,12 @@ export class ProductshippingComponent implements OnInit {
     }
     else
     {
-      this.showinput=false;
-    }
-  }
-  mycart: any;
-  carttotal: any;
- 
-  public country = [];
-  public states = [];
-  public phonecode = [
-    {
-      "phonecode": "Ac",
-      "country_codes": "IN"
-    },
-
-  ];
-  ngOnInit() {
-   
-    this._countrymodel.getCountrycode()
-    .subscribe(data => this.country = data,
-      error => this.errorMsg = error);
-    if (this.cookieService.check('memberid') || this.cookieService.check('oauth')) 
-    {
       const formData = new FormData();
       formData.append('cemail', this.cookieService.get('memberid'));
       formData.append('email', this.cookieService.get('memberid'));
       formData.append('oauth', this.cookieService.get('oauth'));
+     
+      this.showinput=false;
       this.productService.getcart(formData).subscribe(response=>{
         if(response.success)
         {
@@ -101,6 +81,32 @@ export class ProductshippingComponent implements OnInit {
         }
       
         },error=>console.error('error',error)); 
+    }
+  }
+  mycart: any;
+  carttotal: any;
+ 
+  public country = [];
+  public states = [];
+  public phonecode = [
+    {
+      "phonecode": "Ac",
+      "country_codes": "IN"
+    },
+
+  ];
+  ngOnInit() {
+   
+    this._countrymodel.getCountrycode()
+    .subscribe(data => this.country = data,
+      error => this.errorMsg = error);
+    if (this.cookieService.check('memberid') || this.cookieService.check('oauth')) 
+    {
+      const formData = new FormData();
+      formData.append('cemail', this.cookieService.get('memberid'));
+      formData.append('email', this.cookieService.get('memberid'));
+      formData.append('oauth', this.cookieService.get('oauth'));
+     
         this.productService.getshippingaddress(formData).subscribe(response=>{
           if(response.success)
           {

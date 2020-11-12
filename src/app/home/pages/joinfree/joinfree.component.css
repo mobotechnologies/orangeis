@@ -486,3 +486,133 @@ margin-left: 20px;
 {    color: red;
   font-size: 13px;
 }
+
+@media (max-width: 575.98px) { 
+
+ }
+
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+
+ }
+
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+  .joinfree-signin
+  {
+    
+    left: 107px;
+
+  }
+    .row
+    {
+      
+        display: block;
+
+    }
+    .signform
+    {
+      
+        margin-left: 0px;
+
+    }
+    .left{
+      width: 129%;
+      display: inline-table;
+      margin-left: 0px;
+      float: unset;
+  }
+  .right {
+    margin-top: 3%;
+    width: 106%;
+    display: inline-table;
+    margin-left: 18px;
+}
+.col-md-5
+{
+  max-width: 100%;
+}
+.joinfree-login
+{
+  
+  margin-left: 21%;
+
+}
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+     .left
+     {
+        width: 80%;
+        display: inline-table;
+        padding-left: 15px;
+        margin-left: 0px;
+        float: right;
+     }
+     .bts
+     {
+         
+      font-size: 12pt;
+      margin-bottom: 12px;
+
+     }
+     .right {
+      width: 61%;
+      display: inline-table;
+      margin-left: 18%;
+  }
+  .join-head
+  {
+    background: white;
+  }
+  .card-body
+  {
+    padding: 0px
+  }
+  .col-md-5
+  {
+    
+    background: url('../../../../assets/images/joinfree/card-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .join-left
+  {
+    
+    padding-top: 6%;
+
+  }
+  .joinfree-signin
+  {
+     
+    padding-top: 25px;
+
+  }
+  .header-span
+  {
+    
+    padding-top: 0px;
+    padding-left: 14px;
+
+  }
+  .signform
+  {
+    
+    padding-right: 55px;
+
+  }
+  .joinfree-login
+  {
+
+    padding-top: 18px;
+
+  }
+ }
+
+
+ 
+@media (min-width: 1200px) {
+  
+
+}
