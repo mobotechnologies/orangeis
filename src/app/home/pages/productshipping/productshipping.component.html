@@ -155,20 +155,47 @@
               <th colspan="2">Your order</th>
             </tr>
             <tr *ngFor="let mycart of mycart">
-              <td><span>{{mycart.product_name}} x</span><input type="number" id="{{mycart.cartid}}" class="cartinput"
-                  min="1" [value]="mycart.quantity" (click)="addquantity(mycart.cartid,mycart.maxquantity)"
-                  style="width: 22%;margin-left: 7px;margin-right: 5px;" *ngIf="showinput"><span class="carttext"
-                  *ngIf="!showinput">{{mycart.quantity}}</span><span>(Qty)</span></td>
+              <td><span>{{mycart.product_name}} x &nbsp;</span>
+              
+                  <span class="input-group-btn">
+                      <button type="button" class="btn btn-danger btn-number"  (click)="removequantity(mycart.cartid,mycart.minquantity)" style="
+                      padding-left: 9px;
+                      padding-right: 9px;
+                      padding-top: 5px;
+                      padding-bottom: 2px;
+                  " *ngIf="showinput">
+                        <i class="fa fa-minus" aria-hidden="true"></i> 
+                      </button>
+                  </span>
+                  <input type="text"  class="input-number"  id="{{mycart.cartid}}"  min="1" [value]="mycart.quantity" min="1" style="
+                  width: 19%;
+              " *ngIf="showinput">
+                  <span class="input-group-btn" *ngIf="showinput">
+                      <button type="button" (click)="addquantity(mycart.cartid,mycart.maxquantity)" class="btn btn-success btn-number"  style="
+                      padding-top: 5px;
+                      padding-bottom: 2px;
+                      padding-left: 8px;
+                      padding-right: 8px;
+                  ">
+                        <i class="fa fa-plus" aria-hidden="true"></i> 
+                      </button>
+                  </span>
+             
+                  <!-- <input type="number" id="{{mycart.cartid}}" class="cartinput"
+                  min="1" [value]="mycart.quantity"  (change)="addquantity(mycart.cartid,mycart.maxquantity)"
+                  style="width: 22%;margin-left: 7px;margin-right: 5px;" *ngIf="showinput">--><span class="carttext"
+                  *ngIf="!showinput">{{mycart.quantity}}</span><span>&nbsp;(Qty)</span></td>
               <td><i class="fa fa-inr" aria-hidden="true"></i> {{mycart.overallprice}}</td>
-            </tr>
-            <tr>
-              <td>Subtotal</td>
-              <td><i class="fa fa-inr" aria-hidden="true"></i> {{finaltotal}}</td>
             </tr>
             <tr>
               <td>Shipping</td>
               <td> {{cartship}}</td>
             </tr>
+            <tr>
+              <td>Subtotal</td>
+              <td><i class="fa fa-inr" aria-hidden="true"></i> {{finaltotal}}</td>
+            </tr>
+          
           </table><br>
 
           <button type="button" class="btn order" (click)="placeorder()">Place Order</button>

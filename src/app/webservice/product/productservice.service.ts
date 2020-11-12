@@ -65,6 +65,11 @@ export class ProductserviceService {
     return this.http.post<any>(this._url+"updatecart.php",response)
     .catch(this.errorHandler);
   }
+  updatedirectbuy(response):Observable<any>
+  {
+    return this.http.post<any>(this._url+"updatedirectbuyquant.php",response)
+    .catch(this.errorHandler);
+  }
   getcart(response):Observable<any>
   {
     return this.http.post<any>(this._url+"getcart.php",response)

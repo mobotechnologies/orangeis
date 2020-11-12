@@ -88,7 +88,8 @@ export class ProductcartComponent implements OnInit {
           
         var cq= $("#"+index).val();
         cq=cq-1;
-        if(cq!=0)
+        
+        if(cq!=0 && parseInt(cq)>=mquants) 
         {
             $("#"+index).val(cq);
             const formData = new FormData();
@@ -106,6 +107,24 @@ export class ProductcartComponent implements OnInit {
               }
             
               },error=>console.error('error',error)); 
+        }
+        else
+        {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            onOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          Toast.fire({
+            icon: 'error',
+            title: 'minimium order  quantity is '+mquants
+          })
         }
        
   }
