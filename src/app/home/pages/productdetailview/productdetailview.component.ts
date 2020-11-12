@@ -153,12 +153,14 @@ export class ProductdetailviewComponent implements OnInit {
             if(response.data.cart)
             {
               this.isempty=false;
+              $(".buybtn").hide();
               
              
             }
             else
             {
               this.isempty=true;
+              $(".buybtn").show();
               
             }
             if(response.data.fav)
@@ -248,7 +250,7 @@ export class ProductdetailviewComponent implements OnInit {
         {
           $("#cartcount").html(response.data.cartcount);
          
-          this.router.navigate(["productshipping"], { state: {type:"directbuy"}});  
+          this.router.navigate(["productshipping"], { state: {type:"directbuy",productid:index}});  
         }
         else
         {

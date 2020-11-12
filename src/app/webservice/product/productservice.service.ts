@@ -70,6 +70,11 @@ export class ProductserviceService {
     return this.http.post<any>(this._url+"getcart.php",response)
     .catch(this.errorHandler);
   }
+  getdirectbuy(response):Observable<any>
+  {
+    return this.http.post<any>(this._url+"directbuy.php",response)
+    .catch(this.errorHandler);
+  }
   sendenquiry(response):Observable<any>
   {
     return this.http.post<any>(this._url+"sendenquiry.php",response)

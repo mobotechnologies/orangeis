@@ -47,6 +47,37 @@ export class ProductshippingComponent implements OnInit {
     if(val["type"]=="directbuy")
     {
          this.showinput=true;
+         const formData = new FormData();
+         formData.append('cemail', this.cookieService.get('memberid'));
+         formData.append('email', this.cookieService.get('memberid'));
+         formData.append('oauth', this.cookieService.get('oauth'));
+         formData.append('product_id',val["productid"]);
+         this.showinput=false;
+         this.productService.getdirectbuy(formData).subscribe(response=>{
+           if(response.success)
+           {
+                this.mycart=response.data.productlist;
+                this.carttotal=response.data.subtotal;
+                this.cartship=response.data.shippingcharge;
+                this.finaltotal=response.data.total;
+           }
+           else
+           {
+               
+             Swal.fire({
+               title: 'Empty cart',
+               titleText:'Add item to your cart',
+               width: 600,
+               allowOutsideClick:false,
+                                       }).then((result) => {
+           if(result.value)
+           {
+             this.router.navigate(['productlisting']);
+           }
+         })
+           }
+         
+           },error=>console.error('error',error)); 
     }
     else
     {
